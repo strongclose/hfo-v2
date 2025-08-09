@@ -1163,7 +1163,7 @@ export default function HomePage() {
 
                 <div className="space-y-4 mb-8">
                   {/* Leaderboard Cards */}
-                  <div className="p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="p-6 rounded-2xl bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-500 flex items-center justify-center shadow-lg">
@@ -1174,17 +1174,17 @@ export default function HomePage() {
                             <span className="font-bold text-gray-900">Provider A</span>
                             <div className="px-2 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-800">Gold</div>
                           </div>
-                          <div className="text-sm text-gray-600">Transparency Certified</div>
+                          <div className="text-sm text-gray-700 font-medium">Transparency Certified</div>
                         </div>
                       </div>
                       <div className="text-right">
                         <div className="text-2xl font-bold text-gray-900">98</div>
-                        <div className="text-sm text-gray-600">/100</div>
+                        <div className="text-sm text-gray-700 font-medium">/100</div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="p-6 rounded-2xl bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gray-400 to-gray-500 flex items-center justify-center shadow-lg">
@@ -1195,17 +1195,17 @@ export default function HomePage() {
                             <span className="font-bold text-gray-900">Payer B</span>
                             <div className="px-2 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-800">Silver</div>
                           </div>
-                          <div className="text-sm text-gray-600">Healthcare Insurer</div>
+                          <div className="text-sm text-gray-700 font-medium">Healthcare Insurer</div>
                         </div>
                       </div>
                       <div className="text-right">
                         <div className="text-2xl font-bold text-gray-900">95</div>
-                        <div className="text-sm text-gray-600">/100</div>
+                        <div className="text-sm text-gray-700 font-medium">/100</div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="p-6 rounded-2xl bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-600 to-orange-500 flex items-center justify-center shadow-lg">
@@ -1216,12 +1216,12 @@ export default function HomePage() {
                             <span className="font-bold text-gray-900">Provider C</span>
                             <div className="px-2 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800">Bronze</div>
                           </div>
-                          <div className="text-sm text-gray-600">Regional Medical Center</div>
+                          <div className="text-sm text-gray-700 font-medium">Regional Medical Center</div>
                         </div>
                       </div>
                       <div className="text-right">
                         <div className="text-2xl font-bold text-gray-900">92</div>
-                        <div className="text-sm text-gray-600">/100</div>
+                        <div className="text-sm text-gray-700 font-medium">/100</div>
                       </div>
                     </div>
                   </div>
