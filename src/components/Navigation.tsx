@@ -192,10 +192,11 @@ export function Navigation() {
         {/* Mobile Menu Dropdown */}
         {isMobileMenuOpen && (
           <div
-            className="md:hidden mt-16 border border-white/10 rounded-lg backdrop-blur-md"
-            style={{
-              background: "rgba(255, 255, 255, 0.05)",
-            }}
+            className={`md:hidden mt-16 border rounded-lg backdrop-blur-md ${
+              isScrolled
+                ? "border-gray-200/20 bg-white/90"
+                : "border-white/10 bg-white/5"
+            }`}
           >
             <div className="px-6 py-4 space-y-3">
               {navigation.map((item) => (
