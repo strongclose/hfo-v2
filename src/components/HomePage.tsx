@@ -1295,7 +1295,7 @@ export default function HomePage() {
                     <Shield className="w-8 h-8 text-white" />
                   </div>
                   <div>
-                    <p className="text-lg md:text-xl text-gray-900 font-semibold leading-relaxed">
+                    <p className="hf-body-medium hf-text-primary font-semibold">
                       Check your Transparency Score or request compliance support to join the leaders in healthcare transparency.
                     </p>
                   </div>
