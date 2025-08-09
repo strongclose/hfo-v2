@@ -167,8 +167,8 @@ export default function HomePage() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <div className="group">
-                <div className="relative p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/20">
+              <div className="group h-full">
+                <div className="relative p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/20 h-full flex flex-col">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <FileText className="w-8 h-8 text-white" />
                   </div>
