@@ -315,7 +315,7 @@ export default function HomePage() {
                     <h3 className={`text-xl font-bold mb-4 ${feature.primary ? 'text-gray-900' : 'text-gray-800'} text-center group-hover:text-blue-600 transition-colors duration-300`}>
                       {feature.title}
                     </h3>
-                    <p className="text-gray-600 text-center leading-relaxed mb-6">
+                    <p className="text-gray-700 text-center leading-relaxed mb-6">
                       {feature.desc}
                     </p>
                     <div className="text-center">
