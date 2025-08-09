@@ -1439,7 +1439,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 8. Mid-Page CTA Banner - NEW */}
+        {/* 9. Mid-Page CTA Banner - NEW */}
         <section className="relative py-16 overflow-hidden bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600">
           <div className="absolute inset-0 bg-black/20"></div>
           <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -1463,7 +1463,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 9. Join the Movement - Enhanced with gradient overlay */}
+        {/* 10. Join the Movement - Enhanced with gradient overlay */}
         <section className="relative py-24 overflow-hidden bg-gradient-to-br from-blue-950 via-slate-900 to-blue-900">
           {/* Enhanced gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-slate-900/60 to-purple-900/80"></div>
