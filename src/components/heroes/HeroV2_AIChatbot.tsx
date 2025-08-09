@@ -2,6 +2,7 @@
 
 import { Shield, CheckCircle, Search, Activity } from "lucide-react";
 import { GlobalChatbot } from "../GlobalChatbot";
+import { NoSSR } from "../NoSSR";
 
 interface HeroV2Props {
   onSearch: (procedure: string, location: string) => void;
@@ -80,13 +81,37 @@ export function HeroV2_AIChatbot({
         </p>
 
         {/* Global Chatbot Component */}
-        <GlobalChatbot
-          height="sm"
-          context="healthcare"
-          placeholder="Give it a try..."
-          initialMessage="What healthcare price would you like to see? Try: 'MRI price in Boston'."
-          className="max-w-4xl"
-        />
+        <NoSSR
+          fallback={
+            <div className="max-w-4xl backdrop-blur-xl rounded-2xl border border-white/20 overflow-hidden shadow-2xl h-64 flex flex-col"
+                 style={{
+                   background: "rgba(255, 255, 255, 0.15)",
+                   backdropFilter: "blur(20px)",
+                 }}>
+              <div className="p-6 flex-1 flex items-center justify-center">
+                <div className="text-white/60 text-sm">Loading AI Assistant...</div>
+              </div>
+              <div className="pt-4 px-4 pb-2 border-t border-white/20">
+                <div className="flex gap-3 opacity-50">
+                  <div className="flex-1 bg-white/25 rounded-xl px-4 py-3">
+                    <div className="text-white/60 text-sm">Give it a try...</div>
+                  </div>
+                  <div className="px-6 py-3 bg-white/25 rounded-xl text-white/60 text-sm">
+                    Ask AI
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        >
+          <GlobalChatbot
+            height="sm"
+            context="healthcare"
+            placeholder="Give it a try..."
+            initialMessage="What healthcare price would you like to see? Try: 'MRI price in Boston'."
+            className="max-w-4xl"
+          />
+        </NoSSR>
       </div>
     </div>
   );
