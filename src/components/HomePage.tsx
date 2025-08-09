@@ -1495,48 +1495,18 @@ export default function HomePage() {
                 </Button>
               </div>
 
-              <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+              <div className="flex justify-center gap-3 max-w-xl mx-auto">
                 <Button
                   variant="glass"
-                  size="lg"
+                  size="default"
                   onClick={() => {
                     if (typeof window !== 'undefined' && navigator.clipboard) {
                       navigator.clipboard.writeText(window.location.href);
                     }
                   }}
                 >
-                  <Lightbulb className="w-5 h-5" />
-                  Copy Link
-                </Button>
-                <Button
-                  variant="glass"
-                  size="lg"
-                  onClick={() => {
-                    if (typeof window !== 'undefined') {
-                      window.open(
-                        `mailto:?subject=Check out HealthFees.org&body=I found this helpful tool for comparing healthcare prices: ${window.location.href}`,
-                        "_blank",
-                      );
-                    }
-                  }}
-                >
-                  <ChevronRight className="w-5 h-5" />
-                  Email
-                </Button>
-                <Button
-                  variant="glass"
-                  size="lg"
-                  onClick={() => {
-                    if (typeof window !== 'undefined') {
-                      window.open(
-                        `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`,
-                        "_blank",
-                      );
-                    }
-                  }}
-                >
-                  <Users className="w-5 h-5" />
-                  LinkedIn
+                  <Lightbulb className="w-4 h-4" />
+                  Share
                 </Button>
               </div>
             </div>
