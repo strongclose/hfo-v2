@@ -289,7 +289,7 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-end mb-8">
                           <div className="relative">
-                            <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-500">
+                            <div className="w-24 h-24 bg-gradient-to-br from-blue-700 to-cyan-700 rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-500">
                               <Database className="w-12 h-12 text-white" />
                             </div>
                             {/* Pulse animation */}
@@ -428,7 +428,7 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-start mb-8">
                           <div className="relative">
-                            <div className="w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-500">
+                            <div className="w-24 h-24 bg-gradient-to-br from-purple-700 to-pink-700 rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-500">
                               <Sparkles className="w-12 h-12 text-white animate-pulse" />
                             </div>
                             {/* Pulse animation */}
@@ -496,7 +496,7 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-end mb-8">
                           <div className="relative">
-                            <div className="w-24 h-24 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-500">
+                            <div className="w-24 h-24 bg-gradient-to-br from-emerald-700 to-teal-700 rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-500">
                               <Search className="w-12 h-12 text-white" />
                               {/* Search pulse animation */}
                               <div className="absolute inset-0 flex items-center justify-center">
