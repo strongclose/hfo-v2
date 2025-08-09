@@ -1112,21 +1112,6 @@ export default function HomePage() {
                           <div className="absolute -top-4 -left-4 w-full h-full bg-gradient-to-br from-white/10 to-transparent rounded-2xl"></div>
                           {getMiniVisualization(key)}
                         </div>
-
-                        {/* Additional Context */}
-                        <div className="mt-6 p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
-                          <div className="flex items-center gap-2 mb-2">
-                            <Info className="w-4 h-4 text-white/70" />
-                            <span className="text-sm font-medium text-white/80">Why This Matters</span>
-                          </div>
-                          <p className="text-sm text-white/70">
-                            {key === 'patients' && "Price transparency empowers you to make informed decisions and avoid surprise medical bills."}
-                            {key === 'researchers' && "Our comprehensive dataset enables evidence-based policy research and market analysis."}
-                            {key === 'employers' && "Strategic healthcare purchasing can significantly reduce employee benefits costs while maintaining quality."}
-                            {key === 'providers' && "Competitive benchmarking helps optimize pricing strategies and maintain market position."}
-                            {key === 'payers' && "Market intelligence ensures competitive positioning and regulatory compliance."}
-                          </p>
-                        </div>
                       </div>
                     </div>
                   </div>
