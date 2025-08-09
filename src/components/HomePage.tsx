@@ -924,21 +924,20 @@ export default function HomePage() {
                   Join thousands of patients who've saved money by comparing healthcare prices before their procedures.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <PriceComparisonCTA 
+                  <PriceComparisonCTA
                     size="lg"
-                    className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl shadow-lg"
+                    variant="primary"
                   >
                     Compare Prices Now
                   </PriceComparisonCTA>
                   <Button
-                    variant="outline"
+                    variant="secondary"
                     size="lg"
                     onClick={() => {
                       if (typeof window !== 'undefined') {
                         window.location.href = "/how-it-works";
                       }
                     }}
-                    className="px-8 py-4 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 rounded-xl"
                   >
                     Learn More About Our Process
                   </Button>
@@ -1240,10 +1239,12 @@ export default function HomePage() {
                       window.location.href = "/transparency-scores";
                     }
                   }}
-                  className="w-full px-6 py-3 bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                  variant="accent"
+                  size="lg"
+                  className="w-full"
                 >
                   View Full Scores
-                  <ArrowRight className="w-5 h-5 ml-2" />
+                  <ArrowRight className="w-5 h-5" />
                 </Button>
               </div>
 
@@ -1321,10 +1322,10 @@ export default function HomePage() {
                         window.location.href = "/compliance-tool";
                       }
                     }}
-                    className="px-6 py-3 bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                    variant="accent"
                   >
                     See How We Can Help
-                    <ArrowRight className="w-5 h-5 ml-2" />
+                    <ArrowRight className="w-5 h-5" />
                   </Button>
                 </div>
               </div>
@@ -1351,7 +1352,8 @@ export default function HomePage() {
                         window.location.href = "/compliance-tool";
                       }
                     }}
-                    className="px-8 py-4 bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                    variant="accent"
+                    size="lg"
                   >
                     Check Your Score
                   </Button>
@@ -1362,7 +1364,7 @@ export default function HomePage() {
                       }
                     }}
                     variant="outline"
-                    className="px-8 py-4 border-2 border-teal-600 text-teal-600 hover:bg-teal-50 font-semibold rounded-xl transition-all duration-300"
+                    size="lg"
                   >
                     Request Support
                   </Button>
