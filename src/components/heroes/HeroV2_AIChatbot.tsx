@@ -78,7 +78,7 @@ export function HeroV2_AIChatbot({
       <div className="relative z-30 flex flex-col items-center justify-center min-h-[calc(100vh-120px)] text-center px-6 pt-16">
         {/* Headline */}
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight max-w-6xl">
-          Healthcare Prices Are Now Public. Just Ask.
+          Healthcare Prices Are Now Public. Dig In.
         </h1>
 
         {/* Subheadline */}
