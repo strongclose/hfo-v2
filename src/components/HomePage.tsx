@@ -1182,7 +1182,7 @@ export default function HomePage() {
                   <div className="hf-card p-6">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
-                        <div className="hf-icon-bg-primary w-12 h-12 flex items-center justify-center" style={{ background: 'linear-gradient(to bottom right, #facc15, #eab308)' }}>
+                        <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg bg-gradient-to-br from-yellow-400 to-yellow-500">
                           <CheckCircle className="w-6 h-6 text-white" />
                         </div>
                         <div>
@@ -1203,7 +1203,7 @@ export default function HomePage() {
                   <div className="hf-card p-6">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
-                        <div className="hf-icon-bg-primary w-12 h-12 flex items-center justify-center" style={{ background: 'linear-gradient(to bottom right, #9ca3af, #6b7280)' }}>
+                        <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg bg-gradient-to-br from-gray-400 to-gray-500">
                           <CheckCircle className="w-6 h-6 text-white" />
                         </div>
                         <div>
@@ -1224,7 +1224,7 @@ export default function HomePage() {
                   <div className="hf-card p-6">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
-                        <div className="hf-icon-bg-primary w-12 h-12 flex items-center justify-center" style={{ background: 'linear-gradient(to bottom right, #d97706, #f97316)' }}>
+                        <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg bg-gradient-to-br from-orange-600 to-orange-500">
                           <CheckCircle className="w-6 h-6 text-white" />
                         </div>
                         <div>
