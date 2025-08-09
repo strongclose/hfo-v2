@@ -284,7 +284,7 @@ export function GlobalChatbot({
         </div>
 
         {/* Input Area */}
-        <div className="pt-4 px-4 pb-2 border-t border-white/10">
+        <div className="pt-4 px-4 pb-2 border-t border-gray-200/30">
           <div className="flex gap-3">
             <div className="flex-1 relative">
               <Input
@@ -292,9 +292,9 @@ export function GlobalChatbot({
                 onChange={(e) => setChatInput(e.target.value)}
                 onKeyPress={handleChatKeyPress}
                 placeholder={placeholder}
-                className="w-full bg-white/5 border-2 border-teal-400/50 text-white placeholder-white rounded-xl px-4 py-3 focus:border-teal-400 focus:ring-0 transition-all duration-300 glowing-input"
+                className="w-full bg-white/80 border-2 border-teal-400/70 text-gray-800 placeholder-gray-600 rounded-xl px-4 py-3 focus:border-teal-500 focus:ring-0 transition-all duration-300"
                 style={{
-                  background: "rgba(255, 255, 255, 0.05)",
+                  background: "rgba(255, 255, 255, 0.8)",
                   backdropFilter: "blur(10px)",
                 }}
                 disabled={isTyping}
