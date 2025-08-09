@@ -937,9 +937,8 @@ export default function HomePage() {
 
         {/* 4. Who Uses HealthFees.org - Enhanced Persona Insights */}
         <LazySection
-          className="relative py-24 overflow-hidden"
+          className="relative py-24 overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-800"
           minHeight="700px"
-          style={{ background: 'linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #4338ca 100%)' }}
         >
         <section>
 
