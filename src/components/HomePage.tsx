@@ -216,7 +216,7 @@ export default function HomePage() {
                 <div key={index} className="text-center group">
                   <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 group-hover:bg-white/10 transition-all duration-300">
                     <p className="text-2xl md:text-3xl font-bold text-teal-400 mb-2">{stat.number}</p>
-                    <p className="text-white/70 text-sm">{stat.label}</p>
+                    <p className="text-gray-200 text-sm font-medium">{stat.label}</p>
                   </div>
                 </div>
               ))}
