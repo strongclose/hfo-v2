@@ -538,13 +538,17 @@ export default function HomePage() {
                 </p>
               </div>
               
-              <div className="mt-12">
-                <PriceComparisonCTA
-                  size="xl"
-                  variant="primary"
+              <div className="mt-8">
+                <button
+                  onClick={() => {
+                    if (typeof window !== 'undefined') {
+                      window.location.href = '/learn-more';
+                    }
+                  }}
+                  className="px-6 py-3 bg-white text-blue-600 border-2 border-blue-600 font-semibold rounded-xl shadow-sm hover:bg-blue-50 hover:border-blue-700 transition-all duration-300"
                 >
-                  Start Comparing Prices Now
-                </PriceComparisonCTA>
+                  Learn How This Benefits You
+                </button>
               </div>
             </div>
           </div>
