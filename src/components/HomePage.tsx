@@ -146,9 +146,9 @@ export default function HomePage() {
         {/* 2. Why This Matters Section - Updated content */}
         <section className="relative py-24 overflow-hidden" id="why-matters">
           {/* Background with gradient mesh */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(20,184,166,0.08),transparent_50%)] pointer-events-none"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.06),transparent_50%)] pointer-events-none"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-blue-50/50 to-cyan-50/40"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(20,184,166,0.12),transparent_50%)] pointer-events-none"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.10),transparent_50%)] pointer-events-none"></div>
 
           <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
@@ -157,7 +157,7 @@ export default function HomePage() {
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-gray-900 tracking-tight">
               Why This
-              <span className="bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-700 via-cyan-700 to-teal-700 bg-clip-text text-transparent">
                 {" "}
                 Matters
               </span>
@@ -198,8 +198,8 @@ export default function HomePage() {
                   <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <Database className="w-10 h-10 text-white" />
                   </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                    <span className="text-blue-600 font-bold text-sm">1</span>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-200 rounded-full flex items-center justify-center">
+                    <span className="text-blue-700 font-bold text-sm">1</span>
                   </div>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">We Collect</h3>
@@ -213,8 +213,8 @@ export default function HomePage() {
                   <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <Workflow className="w-10 h-10 text-white" />
                   </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
-                    <span className="text-purple-600 font-bold text-sm">2</span>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-purple-200 rounded-full flex items-center justify-center">
+                    <span className="text-purple-700 font-bold text-sm">2</span>
                   </div>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">We Organize</h3>
@@ -228,8 +228,8 @@ export default function HomePage() {
                   <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <Search className="w-10 h-10 text-white" />
                   </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center">
-                    <span className="text-emerald-600 font-bold text-sm">3</span>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-emerald-200 rounded-full flex items-center justify-center">
+                    <span className="text-emerald-700 font-bold text-sm">3</span>
                   </div>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">You Compare</h3>
@@ -241,9 +241,9 @@ export default function HomePage() {
 
             {/* Arrow flow on larger screens */}
             <div className="hidden md:flex justify-center items-center space-x-8 mb-16">
-              <div className="flex-1 h-0.5 bg-gradient-to-r from-blue-300 to-purple-300"></div>
-              <ArrowRight className="w-6 h-6 text-purple-400" />
-              <div className="flex-1 h-0.5 bg-gradient-to-r from-purple-300 to-emerald-300"></div>
+              <div className="flex-1 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500"></div>
+              <ArrowRight className="w-6 h-6 text-purple-500" />
+              <div className="flex-1 h-0.5 bg-gradient-to-r from-purple-500 to-emerald-500"></div>
             </div>
           </div>
         </section>
@@ -334,7 +334,7 @@ export default function HomePage() {
 
         {/* 5. Explore HealthFees.org - Two rows with alternating backgrounds */}
         <section className="relative py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-blue-50/70 to-indigo-50/60"></div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -525,7 +525,7 @@ export default function HomePage() {
 
         {/* 7. What the Data Reveals - Enhanced with animated counters */}
         <section className="relative py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-blue-50/60 to-cyan-50/50"></div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -550,8 +550,8 @@ export default function HomePage() {
                   </div>
                   <div className="text-center">
                     <div className="text-4xl font-bold text-red-600 mb-2">10x</div>
-                    <div className="w-full bg-red-100 rounded-full h-2 mb-4">
-                      <div className="bg-red-500 h-2 rounded-full" style={{width: '100%'}}></div>
+                    <div className="w-full bg-red-200 rounded-full h-2 mb-4">
+                      <div className="bg-red-600 h-2 rounded-full" style={{width: '100%'}}></div>
                     </div>
                     <p className="text-lg text-gray-800 font-semibold leading-relaxed">
                       Same procedure can cost 10x more at different hospitals in the same city
@@ -567,8 +567,8 @@ export default function HomePage() {
                   </div>
                   <div className="text-center">
                     <div className="text-3xl font-bold text-amber-600 mb-2">33%</div>
-                    <div className="w-full bg-amber-100 rounded-full h-2 mb-4">
-                      <div className="bg-amber-500 h-2 rounded-full" style={{width: '33%'}}></div>
+                    <div className="w-full bg-amber-200 rounded-full h-2 mb-4">
+                      <div className="bg-amber-600 h-2 rounded-full" style={{width: '33%'}}></div>
                     </div>
                     <p className="text-lg text-gray-800 font-semibold leading-relaxed">
                       Of the time, "in-network" costs more than cash prices
@@ -584,8 +584,8 @@ export default function HomePage() {
                   </div>
                   <div className="text-center">
                     <div className="text-3xl font-bold text-emerald-600 mb-2">$3,200</div>
-                    <div className="w-full bg-emerald-100 rounded-full h-2 mb-4">
-                      <div className="bg-emerald-500 h-2 rounded-full" style={{width: '80%'}}></div>
+                    <div className="w-full bg-emerald-200 rounded-full h-2 mb-4">
+                      <div className="bg-emerald-600 h-2 rounded-full" style={{width: '80%'}}></div>
                     </div>
                     <p className="text-lg text-gray-800 font-semibold leading-relaxed">
                       Average savings when patients compare prices before care
