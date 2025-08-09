@@ -1,0 +1,125 @@
+---
+import Layout from '../layouts/BaseLayout.astro';
+import { Navigation } from '../components/Navigation';
+import { FooterExpanded } from '../components/homepage/FooterExpanded';
+---
+
+<Layout title="Locations - HealthFees.org">
+  <div class="min-h-screen bg-white">
+    <Navigation client:load />
+    
+    <main class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl font-bold text-gray-900 mb-4">Healthcare by Location</h1>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Explore healthcare pricing and provider options across different geographic areas.
+          </p>
+        </div>
+        
+        <div class="bg-blue-50 rounded-lg p-8 mb-8">
+          <h2 class="text-2xl font-semibold mb-4">Search by Location</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">State</label>
+              <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option>Select State</option>
+                <option>California</option>
+                <option>Texas</option>
+                <option>Florida</option>
+                <option>New York</option>
+                <option>Illinois</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">City</label>
+              <input 
+                type="text" 
+                placeholder="Enter city name" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div class="flex items-end">
+              <button class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">
+                Search Location
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div class="bg-white border rounded-lg p-6 hover:shadow-md transition-shadow">
+            <h3 class="text-lg font-semibold mb-3">California</h3>
+            <div class="space-y-2 text-gray-600">
+              <div><a href="#" class="hover:text-blue-600">Los Angeles</a></div>
+              <div><a href="#" class="hover:text-blue-600">San Francisco</a></div>
+              <div><a href="#" class="hover:text-blue-600">San Diego</a></div>
+              <div><a href="#" class="hover:text-blue-600">Sacramento</a></div>
+            </div>
+          </div>
+          
+          <div class="bg-white border rounded-lg p-6 hover:shadow-md transition-shadow">
+            <h3 class="text-lg font-semibold mb-3">Texas</h3>
+            <div class="space-y-2 text-gray-600">
+              <div><a href="#" class="hover:text-blue-600">Houston</a></div>
+              <div><a href="#" class="hover:text-blue-600">Dallas</a></div>
+              <div><a href="#" class="hover:text-blue-600">Austin</a></div>
+              <div><a href="#" class="hover:text-blue-600">San Antonio</a></div>
+            </div>
+          </div>
+          
+          <div class="bg-white border rounded-lg p-6 hover:shadow-md transition-shadow">
+            <h3 class="text-lg font-semibold mb-3">Florida</h3>
+            <div class="space-y-2 text-gray-600">
+              <div><a href="#" class="hover:text-blue-600">Miami</a></div>
+              <div><a href="#" class="hover:text-blue-600">Tampa</a></div>
+              <div><a href="#" class="hover:text-blue-600">Orlando</a></div>
+              <div><a href="#" class="hover:text-blue-600">Jacksonville</a></div>
+            </div>
+          </div>
+          
+          <div class="bg-white border rounded-lg p-6 hover:shadow-md transition-shadow">
+            <h3 class="text-lg font-semibold mb-3">New York</h3>
+            <div class="space-y-2 text-gray-600">
+              <div><a href="#" class="hover:text-blue-600">New York City</a></div>
+              <div><a href="#" class="hover:text-blue-600">Buffalo</a></div>
+              <div><a href="#" class="hover:text-blue-600">Rochester</a></div>
+              <div><a href="#" class="hover:text-blue-600">Syracuse</a></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-gray-50 rounded-lg p-8">
+          <h2 class="text-2xl font-semibold mb-6">Regional Insights</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-lg p-6">
+              <h3 class="text-lg font-semibold mb-3">Price Variations</h3>
+              <p class="text-gray-600">
+                Healthcare costs can vary significantly by location due to local market conditions, 
+                cost of living, and regulatory differences.
+              </p>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6">
+              <h3 class="text-lg font-semibold mb-3">Provider Networks</h3>
+              <p class="text-gray-600">
+                Insurance networks and provider availability differ by location, affecting 
+                your coverage and out-of-pocket costs.
+              </p>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6">
+              <h3 class="text-lg font-semibold mb-3">Quality Metrics</h3>
+              <p class="text-gray-600">
+                Compare quality ratings and patient outcomes across different regions 
+                to make informed healthcare decisions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <FooterExpanded client:load />
+  </div>
+</Layout>

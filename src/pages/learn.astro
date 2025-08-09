@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/BaseLayout.astro';
+import { Navigation } from '../components/Navigation';
+import { FooterExpanded } from '../components/homepage/FooterExpanded';
+---
+
+<Layout title="Learn - HealthFees.org">
+  <div class="min-h-screen bg-white">
+    <Navigation client:load />
+    
+    <main class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl font-bold text-gray-900 mb-4">Healthcare Education Center</h1>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Learn about healthcare pricing, insurance, and how to make informed decisions about your medical care.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div class="bg-blue-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4 text-blue-900">Understanding Healthcare Costs</h3>
+            <ul class="space-y-3 text-blue-800">
+              <li><a href="#" class="hover:underline">How Healthcare Pricing Works</a></li>
+              <li><a href="#" class="hover:underline">Hidden Fees and Charges</a></li>
+              <li><a href="#" class="hover:underline">Insurance vs. Cash Prices</a></li>
+              <li><a href="#" class="hover:underline">Understanding Your Bill</a></li>
+            </ul>
+          </div>
+          
+          <div class="bg-green-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4 text-green-900">Insurance Basics</h3>
+            <ul class="space-y-3 text-green-800">
+              <li><a href="/glossary" class="hover:underline">Healthcare Terminology</a></li>
+              <li><a href="#" class="hover:underline">Types of Insurance Plans</a></li>
+              <li><a href="#" class="hover:underline">Deductibles and Copays</a></li>
+              <li><a href="#" class="hover:underline">In-Network vs Out-of-Network</a></li>
+            </ul>
+          </div>
+          
+          <div class="bg-purple-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4 text-purple-900">Making Smart Decisions</h3>
+            <ul class="space-y-3 text-purple-800">
+              <li><a href="#" class="hover:underline">Comparing Providers</a></li>
+              <li><a href="#" class="hover:underline">When to Shop Around</a></li>
+              <li><a href="#" class="hover:underline">Quality vs. Cost</a></li>
+              <li><a href="#" class="hover:underline">Emergency vs. Planned Care</a></li>
+            </ul>
+          </div>
+          
+          <div class="bg-orange-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4 text-orange-900">Patient Rights</h3>
+            <ul class="space-y-3 text-orange-800">
+              <li><a href="#" class="hover:underline">Price Transparency Laws</a></li>
+              <li><a href="#" class="hover:underline">No Surprises Act</a></li>
+              <li><a href="#" class="hover:underline">Billing Disputes</a></li>
+              <li><a href="#" class="hover:underline">Financial Assistance</a></li>
+            </ul>
+          </div>
+          
+          <div class="bg-teal-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4 text-teal-900">Cost-Saving Tips</h3>
+            <ul class="space-y-3 text-teal-800">
+              <li><a href="#" class="hover:underline">Generic vs. Brand Medications</a></li>
+              <li><a href="#" class="hover:underline">Outpatient vs. Inpatient</a></li>
+              <li><a href="#" class="hover:underline">Preventive Care Benefits</a></li>
+              <li><a href="#" class="hover:underline">Health Savings Accounts</a></li>
+            </ul>
+          </div>
+          
+          <div class="bg-red-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4 text-red-900">Emergency Preparedness</h3>
+            <ul class="space-y-3 text-red-800">
+              <li><a href="#" class="hover:underline">Emergency Room Costs</a></li>
+              <li><a href="#" class="hover:underline">Urgent Care Alternatives</a></li>
+              <li><a href="#" class="hover:underline">Ambulance Services</a></li>
+              <li><a href="#" class="hover:underline">Emergency Financial Protection</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-gray-50 rounded-lg p-8">
+          <h2 class="text-2xl font-semibold mb-6">Featured Resources</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white rounded-lg p-6">
+              <h3 class="text-lg font-semibold mb-3">Healthcare Pricing Guide</h3>
+              <p class="text-gray-600 mb-4">
+                A comprehensive guide to understanding how healthcare pricing works and how to navigate the system.
+              </p>
+              <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">
+                Download Guide →
+              </a>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6">
+              <h3 class="text-lg font-semibold mb-3">Cost Calculator Tools</h3>
+              <p class="text-gray-600 mb-4">
+                Interactive tools to help estimate costs for common procedures and compare options.
+              </p>
+              <a href="/compare-prices" class="text-blue-600 hover:text-blue-800 font-medium">
+                Use Calculator →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <FooterExpanded client:load />
+  </div>
+</Layout>
