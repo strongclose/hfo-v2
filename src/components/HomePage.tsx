@@ -114,7 +114,7 @@ export default function HomePage() {
                 </span>
               </h2>
               <p className="text-xl md:text-2xl text-gray-800 max-w-5xl mx-auto leading-relaxed font-medium mb-8">
-                For decades, healthcare pricing was kept secret. Hospitals could charge anything, and patients only found out the cost after receiving care—sometimes leading to financial devastation.
+                For decades, healthcare pricing was kept secret. Hospitals could charge anything, and patients only found out the cost after receiving care��sometimes leading to financial devastation.
               </p>
               <div className="mt-8 p-8 rounded-3xl bg-gradient-to-br from-white/80 to-blue-50/80 backdrop-blur-xl border border-white/40 shadow-xl shadow-black/5 max-w-4xl mx-auto">
                 <div className="flex items-start gap-4 mb-6">
@@ -233,8 +233,8 @@ export default function HomePage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 mb-8 shadow-lg shadow-blue-500/25 motion-safe:animate-bounce motion-safe:animation-duration-[3s]">
                 <Target className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 tracking-tight">
-                Explore 
+              <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 text-gray-900 tracking-tight">
+                Explore
                 <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
                   {" "}
                   HealthFees.org
