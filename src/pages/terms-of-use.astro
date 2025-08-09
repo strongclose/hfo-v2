@@ -1,0 +1,126 @@
+---
+import Layout from '../layouts/BaseLayout.astro';
+import { Navigation } from '../components/Navigation';
+import { FooterExpanded } from '../components/homepage/FooterExpanded';
+---
+
+<Layout title="Terms of Use - HealthFees.org">
+  <div class="min-h-screen bg-white">
+    <Navigation client:load />
+    
+    <main class="py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl font-bold text-gray-900 mb-8">Terms of Use</h1>
+        
+        <div class="prose prose-lg max-w-none">
+          <p class="text-sm text-gray-600 mb-8">
+            Last updated: January 1, 2024
+          </p>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Acceptance of Terms</h2>
+          <p>
+            By accessing and using HealthFees.org, you agree to be bound by these Terms of Use 
+            and all applicable laws and regulations. If you do not agree with any of these terms, 
+            you are prohibited from using this website.
+          </p>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Use License</h2>
+          <p>
+            Permission is granted to temporarily view and use the materials on HealthFees.org 
+            for personal, non-commercial transitory viewing only. This is the grant of a license, 
+            not a transfer of title, and under this license you may not:
+          </p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Modify or copy the materials</li>
+            <li>Use the materials for any commercial purpose or for any public display</li>
+            <li>Attempt to reverse engineer any software contained on the website</li>
+            <li>Remove any copyright or other proprietary notations from the materials</li>
+          </ul>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Healthcare Information Disclaimer</h2>
+          <div class="bg-red-50 border border-red-200 rounded-lg p-6 mb-6">
+            <p class="text-red-900 font-medium">
+              Important Medical Disclaimer: The information on HealthFees.org is for informational 
+              purposes only and should not be considered medical advice, diagnosis, or treatment 
+              recommendations.
+            </p>
+          </div>
+          
+          <p>
+            Always consult with qualified healthcare professionals regarding medical conditions 
+            and treatment options. HealthFees.org does not provide medical advice or recommendations.
+          </p>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Pricing Information</h2>
+          <p>
+            Healthcare pricing information displayed on this website:
+          </p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Is provided for general informational purposes only</li>
+            <li>May not reflect actual costs you will be charged</li>
+            <li>Can vary based on your specific insurance plan and individual circumstances</li>
+            <li>Should be verified directly with healthcare providers before making decisions</li>
+          </ul>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Data Accuracy</h2>
+          <p>
+            While we strive to provide accurate and up-to-date information, HealthFees.org 
+            makes no warranties about the completeness, reliability, or accuracy of the 
+            healthcare pricing information. Any reliance you place on such information 
+            is strictly at your own risk.
+          </p>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Prohibited Uses</h2>
+          <p>
+            You may not use our website:
+          </p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>For any unlawful purpose or to solicit others to perform unlawful acts</li>
+            <li>To violate any international, federal, provincial, or state regulations, rules, laws, or local ordinances</li>
+            <li>To infringe upon or violate our intellectual property rights or the intellectual property rights of others</li>
+            <li>To harass, abuse, insult, harm, defame, slander, disparage, intimidate, or discriminate</li>
+            <li>To submit false or misleading information</li>
+          </ul>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Limitation of Liability</h2>
+          <p>
+            In no event shall HealthFees.org or its suppliers be liable for any damages 
+            (including, without limitation, damages for loss of data or profit, or due to 
+            business interruption) arising out of the use or inability to use the materials 
+            on HealthFees.org, even if HealthFees.org or its authorized representative has 
+            been notified orally or in writing of the possibility of such damage.
+          </p>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Privacy Policy</h2>
+          <p>
+            Your privacy is important to us. Please review our 
+            <a href="/privacy-policy" class="text-blue-600 hover:text-blue-800">Privacy Policy</a>, 
+            which also governs your use of the website.
+          </p>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Modifications</h2>
+          <p>
+            HealthFees.org may revise these Terms of Use at any time without notice. 
+            By using this website, you are agreeing to be bound by the then current 
+            version of these Terms of Use.
+          </p>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Governing Law</h2>
+          <p>
+            These terms and conditions are governed by and construed in accordance with 
+            the laws of the United States and you irrevocably submit to the exclusive 
+            jurisdiction of the courts in that state or location.
+          </p>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Contact Information</h2>
+          <p>
+            If you have any questions about these Terms of Use, please 
+            <a href="/contact" class="text-blue-600 hover:text-blue-800">contact us</a>.
+          </p>
+        </div>
+      </div>
+    </main>
+    
+    <FooterExpanded client:load />
+  </div>
+</Layout>
