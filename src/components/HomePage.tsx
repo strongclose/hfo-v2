@@ -774,7 +774,7 @@ export default function HomePage() {
                   }}
                 >
                   <div className="relative p-8 rounded-3xl bg-white backdrop-blur-xl border border-gray-200/50 shadow-xl hover:shadow-2xl">
-                    <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${feature.gradient} flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${feature.gradient} flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300`}>
                       <feature.icon className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-xl font-bold mb-4 text-gray-900 text-center group-hover:text-blue-600 transition-colors duration-300">
