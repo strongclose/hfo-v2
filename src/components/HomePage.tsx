@@ -595,7 +595,7 @@ export default function HomePage() {
                 {/* Step 1: We Collect */}
                 <div className="relative">
                   {/* Timeline Node */}
-                  <div className="hidden lg:block absolute left-1/2 top-20 w-8 h-8 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10" style={{ backgroundColor: '#1e40af' }}>
+                  <div className="hidden lg:block absolute left-1/2 top-20 w-8 h-8 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10 hf-gradient-primary">
                   </div>
 
                   {/* Content Grid */}
