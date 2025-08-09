@@ -1232,11 +1232,11 @@ export default function HomePage() {
                       window.location.href = "/transparency-scores";
                     }
                   }}
-                  variant="primary"
+                  variant="secondary"
                   size="lg"
                   className="w-full"
                 >
-                  View Full Scores
+                  View Transparency Scores
                   <ArrowRight className="w-5 h-5" />
                 </Button>
               </div>
