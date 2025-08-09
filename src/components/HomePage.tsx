@@ -197,13 +197,13 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="group">
-                <div className="relative p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/20">
+              <div className="group h-full">
+                <div className="relative p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/20 h-full flex flex-col">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-500 flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <Zap className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold mb-4 text-white text-center">Automated Collection</h3>
-                  <p className="text-gray-200 text-center leading-relaxed">
+                  <p className="text-gray-200 text-center leading-relaxed flex-grow">
                     Our systems continuously monitor thousands of hospital websites and insurance portals, automatically processing new pricing files as they're published.
                   </p>
                 </div>
