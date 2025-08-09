@@ -1475,7 +1475,7 @@ export default function HomePage() {
               <div className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-8 shadow-lg shadow-teal-500/25" style={{ background: 'linear-gradient(to bottom right, #2dd4bf, #3b82f6)' }}>
                 <Globe className="w-10 h-10 text-white" />
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-white tracking-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-white tracking-tight">
                 Join the Movement for
                 <span className="text-white">
                   {" "}
