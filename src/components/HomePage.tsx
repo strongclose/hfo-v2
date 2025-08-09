@@ -520,7 +520,7 @@ export default function HomePage() {
                 </span>
               </h2>
               <p className="text-xl md:text-2xl text-gray-800 max-w-5xl mx-auto leading-relaxed font-medium mb-8">
-                For decades, healthcare pricing was kept secret. Providers could charge anything, and patients only found out the cost after receiving care—sometimes leading to financial devastation.
+                For decades, healthcare pricing was kept secret. Providers could charge anything, and patients only found out the cost after receiving care��sometimes leading to financial devastation.
               </p>
               
               <div className="mt-8 p-8 rounded-3xl bg-gradient-to-br from-white/80 to-blue-50/80 backdrop-blur-xl border border-white/40 shadow-xl shadow-black/5 max-w-4xl mx-auto">
@@ -1305,7 +1305,7 @@ export default function HomePage() {
                     <Lightbulb className="w-5 h-5 text-teal-600" />
                     Our Support
                   </h4>
-                  <p className="text-gray-900 leading-relaxed mb-4 font-bold text-lg">
+                  <p className="text-gray-800 leading-relaxed mb-4 font-medium">
                     We provide guidance, tools, and remediation services to help all entities reach 100% compliance.
                   </p>
                   <Button
