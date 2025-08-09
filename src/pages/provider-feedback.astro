@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/BaseLayout.astro';
+import { Navigation } from '../components/Navigation';
+import { FooterExpanded } from '../components/homepage/FooterExpanded';
+---
+
+<Layout title="Provider Feedback - HealthFees.org">
+  <div class="min-h-screen bg-white">
+    <Navigation client:load />
+    
+    <main class="py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl font-bold text-gray-900 mb-8">Provider Feedback</h1>
+        
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+          <h2 class="text-xl font-semibold text-blue-900 mb-2">Help Us Improve Our Data</h2>
+          <p class="text-blue-800">
+            Healthcare providers can submit feedback about pricing information displayed 
+            on HealthFees.org to ensure accuracy and completeness.
+          </p>
+        </div>
+        
+        <div class="bg-white border rounded-lg p-8">
+          <h2 class="text-2xl font-semibold mb-6">Submit Feedback</h2>
+          
+          <form class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="provider-name" class="block text-sm font-medium text-gray-700 mb-2">
+                  Healthcare Provider/Organization
+                </label>
+                <input 
+                  type="text" 
+                  id="provider-name"
+                  name="provider-name"
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Hospital or clinic name"
+                />
+              </div>
+              
+              <div>
+                <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-2">
+                  Contact Email
+                </label>
+                <input 
+                  type="email" 
+                  id="contact-email"
+                  name="contact-email"
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="your.email@hospital.com"
+                />
+              </div>
+            </div>
+            
+            <div>
+              <label for="feedback-type" class="block text-sm font-medium text-gray-700 mb-2">
+                Type of Feedback
+              </label>
+              <select 
+                id="feedback-type"
+                name="feedback-type"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option>Select feedback type</option>
+                <option>Incorrect pricing information</option>
+                <option>Missing services or procedures</option>
+                <option>Outdated information</option>
+                <option>Data accuracy concern</option>
+                <option>Request for data removal</option>
+                <option>General inquiry</option>
+              </select>
+            </div>
+            
+            <div>
+              <label for="specific-procedure" class="block text-sm font-medium text-gray-700 mb-2">
+                Specific Procedure or Service (if applicable)
+              </label>
+              <input 
+                type="text" 
+                id="specific-procedure"
+                name="specific-procedure"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="e.g., MRI Brain Scan, Emergency Room Visit"
+              />
+            </div>
+            
+            <div>
+              <label for="details" class="block text-sm font-medium text-gray-700 mb-2">
+                Feedback Details
+              </label>
+              <textarea 
+                id="details"
+                name="details"
+                rows="6"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Please provide detailed information about the feedback, including any specific pricing discrepancies or missing information."
+              ></textarea>
+            </div>
+            
+            <div>
+              <label class="flex items-start">
+                <input 
+                  type="checkbox" 
+                  class="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                />
+                <span class="ml-2 text-sm text-gray-700">
+                  I authorize HealthFees.org to follow up regarding this feedback and 
+                  understand that submitted information may be used to improve data accuracy.
+                </span>
+              </label>
+            </div>
+            
+            <div class="flex justify-end">
+              <button 
+                type="submit"
+                class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                Submit Feedback
+              </button>
+            </div>
+          </form>
+        </div>
+        
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-green-50 rounded-lg p-6">
+            <h3 class="text-lg font-semibold text-green-900 mb-3">Data Accuracy</h3>
+            <p class="text-green-800">
+              We strive to maintain the most accurate and up-to-date pricing information. 
+              Your feedback helps us identify and correct any discrepancies.
+            </p>
+          </div>
+          
+          <div class="bg-purple-50 rounded-lg p-6">
+            <h3 class="text-lg font-semibold text-purple-900 mb-3">Response Time</h3>
+            <p class="text-purple-800">
+              We typically respond to provider feedback within 5-7 business days. 
+              Critical data accuracy issues are prioritized for faster resolution.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <FooterExpanded client:load />
+  </div>
+</Layout>

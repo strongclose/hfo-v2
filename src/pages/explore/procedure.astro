@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/BaseLayout.astro';
+import { Navigation } from '../../components/Navigation';
+import { FooterExpanded } from '../../components/homepage/FooterExpanded';
+import { ProceduresPage } from '../../components/ProceduresPage';
+---
+
+<Layout title="Explore by Procedure - HealthFees.org">
+  <div class="min-h-screen bg-white">
+    <Navigation client:load />
+    
+    <main class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl font-bold text-gray-900 mb-4">Explore Healthcare by Procedure</h1>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Search and compare pricing for specific medical procedures across providers.
+          </p>
+        </div>
+        
+        <ProceduresPage client:load />
+      </div>
+    </main>
+    
+    <FooterExpanded client:load />
+  </div>
+</Layout>

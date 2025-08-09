@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/BaseLayout.astro';
+import { Navigation } from '../components/Navigation';
+import { FooterExpanded } from '../components/homepage/FooterExpanded';
+---
+
+<Layout title="Methodology - HealthFees.org">
+  <div class="min-h-screen bg-white">
+    <Navigation client:load />
+    
+    <main class="py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl font-bold text-gray-900 mb-8">Our Methodology</h1>
+        
+        <div class="prose prose-lg max-w-none">
+          <p class="text-xl text-gray-700 leading-relaxed mb-8">
+            Understanding how we collect, process, and present healthcare pricing data to ensure 
+            accuracy and transparency.
+          </p>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Data Sources</h2>
+          <p>
+            Our pricing data comes from multiple sources mandated by federal transparency regulations:
+          </p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li><strong>Hospital Price Transparency Files:</strong> Machine-readable files published by hospitals containing standard charges</li>
+            <li><strong>Insurance Company Transparency Files:</strong> In-network negotiated rates published by insurers</li>
+            <li><strong>Medicare & Medicaid Data:</strong> Publicly available government reimbursement rates</li>
+            <li><strong>Cash Price Data:</strong> Self-pay prices published by healthcare providers</li>
+          </ul>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Data Collection Process</h2>
+          <div class="bg-blue-50 rounded-lg p-6 mb-6">
+            <h3 class="text-lg font-semibold mb-3">1. Automated Extraction</h3>
+            <p>
+              We automatically download and process thousands of price transparency files 
+              published by hospitals and insurers across the United States.
+            </p>
+          </div>
+          
+          <div class="bg-green-50 rounded-lg p-6 mb-6">
+            <h3 class="text-lg font-semibold mb-3">2. Data Standardization</h3>
+            <p>
+              Raw data is cleaned and standardized to ensure consistency across different 
+              providers and billing code systems (CPT, HCPCS, DRG).
+            </p>
+          </div>
+          
+          <div class="bg-purple-50 rounded-lg p-6 mb-6">
+            <h3 class="text-lg font-semibold mb-3">3. Quality Assurance</h3>
+            <p>
+              Multiple validation checks identify and filter out incomplete, outdated, 
+              or erroneous pricing information.
+            </p>
+          </div>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Accuracy & Limitations</h2>
+          <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-6">
+            <h3 class="text-lg font-semibold text-yellow-900 mb-2">Important Notes</h3>
+            <ul class="text-yellow-800 space-y-2">
+              <li>• Prices shown are estimates based on published rates</li>
+              <li>• Actual costs may vary based on individual circumstances</li>
+              <li>• Data is updated regularly but may not reflect real-time changes</li>
+              <li>• Some providers may not publish complete pricing information</li>
+            </ul>
+          </div>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Update Frequency</h2>
+          <p>
+            We update our database on a rolling basis:
+          </p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li><strong>Daily:</strong> High-volume providers and major insurance companies</li>
+            <li><strong>Weekly:</strong> Mid-size hospitals and regional insurers</li>
+            <li><strong>Monthly:</strong> Smaller providers and specialized facilities</li>
+          </ul>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Privacy & Security</h2>
+          <p>
+            All data we collect is from publicly available sources required by law. 
+            We do not collect or store any personal health information (PHI) or 
+            individually identifiable data.
+          </p>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Questions About Our Methodology?</h2>
+          <p>
+            For detailed questions about our data collection and processing methods, 
+            <a href="/contact" class="text-blue-600 hover:text-blue-800">contact our research team</a>.
+          </p>
+        </div>
+      </div>
+    </main>
+    
+    <FooterExpanded client:load />
+  </div>
+</Layout>

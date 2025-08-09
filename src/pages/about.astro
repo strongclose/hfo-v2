@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/BaseLayout.astro';
+import { Navigation } from '../components/Navigation';
+import { FooterExpanded } from '../components/homepage/FooterExpanded';
+---
+
+<Layout title="About - HealthFees.org">
+  <div class="min-h-screen bg-white">
+    <Navigation client:load />
+    
+    <main class="py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl font-bold text-gray-900 mb-8">About HealthFees.org</h1>
+        
+        <div class="prose prose-lg max-w-none">
+          <p class="text-xl text-gray-700 leading-relaxed">
+            HealthFees.org is your comprehensive resource for healthcare price transparency, 
+            helping you make informed decisions about your medical care costs.
+          </p>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Our Mission</h2>
+          <p>
+            We believe healthcare pricing should be transparent and accessible to everyone. 
+            Our platform aggregates and organizes pricing data from hospitals and insurers 
+            to help you understand what you'll actually pay for medical procedures.
+          </p>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">How It Works</h2>
+          <p>
+            Government-mandated transparency rules require healthcare providers to publish 
+            their prices, but this data is often scattered and difficult to understand. 
+            We've organized it all in one searchable platform.
+          </p>
+        </div>
+      </div>
+    </main>
+    
+    <FooterExpanded client:load />
+  </div>
+</Layout>

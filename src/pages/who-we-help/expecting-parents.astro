@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.tsx';
+import FooterExpanded from '../../components/homepage/FooterExpanded.tsx';
+---
+
+<BaseLayout 
+  title="For Expecting Parents | Hospital Fees"
+  description="Plan your delivery costs and understand maternity care pricing before your baby arrives"
+>
+  <div class="min-h-screen flex flex-col bg-gray-50">
+    <Navigation client:load />
+
+    <div class="flex-1">
+      <section class="relative bg-gradient-to-b from-pink-50 via-white to-gray-50 py-16 lg:py-24">
+        <div class="w-full px-4 md:px-6 lg:px-8">
+          <div class="max-w-7xl mx-auto">
+            <!-- Breadcrumb -->
+            <div class="text-sm text-gray-600 mb-6">
+              <a href="/" class="hover:text-blue-600 transition-colors">Home</a>
+              <svg class="w-4 h-4 inline mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+              <span class="text-gray-600">Who We Help</span>
+              <svg class="w-4 h-4 inline mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+              <span class="text-blue-600 font-medium">For Expecting Parents</span>
+            </div>
+
+            <div class="text-center">
+              <div class="w-16 h-16 bg-pink-100 rounded-lg flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </div>
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
+                Planning for Your Baby's Arrival
+              </h1>
+              <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                Plan your delivery costs and understand maternity care pricing before your baby arrives.
+              </p>
+              
+              <!-- CTA Buttons -->
+              <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a 
+                  href="/search-procedure"
+                  class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
+                >
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                  </svg>
+                  Compare Delivery Costs
+                </a>
+                <a 
+                  href="/tools/cost-calculator"
+                  class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
+                >
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 0l-6-6m6 6l-6 6m6 3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  Calculate Birth Costs
+                </a>
+              </div>
+
+              <!-- Key Features for Expecting Parents -->
+              <div class="mt-16 grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                  <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">Hospital Comparison</h3>
+                  <p class="text-gray-600">Compare maternity care costs across different hospitals and birthing centers in your area.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                  <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">Insurance Coverage</h3>
+                  <p class="text-gray-600">Understand what your insurance covers and estimate your out-of-pocket expenses for delivery.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                  <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">Prenatal Planning</h3>
+                  <p class="text-gray-600">Plan ahead with cost estimates for prenatal care, delivery, and postpartum services.</p>
+                </div>
+              </div>
+
+              <!-- Maternity Care Costs -->
+              <div class="mt-12 bg-white rounded-lg p-8 shadow-sm border">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-6">Average Maternity Care Costs</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <div class="text-center p-4 bg-pink-50 rounded-lg">
+                    <h3 class="font-medium text-gray-900">Vaginal Delivery</h3>
+                    <p class="text-2xl font-bold text-pink-600 mt-2">$13,500</p>
+                    <p class="text-sm text-gray-600 mt-1">Average hospital cost</p>
+                  </div>
+                  <div class="text-center p-4 bg-blue-50 rounded-lg">
+                    <h3 class="font-medium text-gray-900">C-Section</h3>
+                    <p class="text-2xl font-bold text-blue-600 mt-2">$22,600</p>
+                    <p class="text-sm text-gray-600 mt-1">Average hospital cost</p>
+                  </div>
+                  <div class="text-center p-4 bg-green-50 rounded-lg">
+                    <h3 class="font-medium text-gray-900">Prenatal Care</h3>
+                    <p class="text-2xl font-bold text-green-600 mt-2">$3,500</p>
+                    <p class="text-sm text-gray-600 mt-1">Full pregnancy care</p>
+                  </div>
+                  <div class="text-center p-4 bg-purple-50 rounded-lg">
+                    <h3 class="font-medium text-gray-900">Birthing Center</h3>
+                    <p class="text-2xl font-bold text-purple-600 mt-2">$8,200</p>
+                    <p class="text-sm text-gray-600 mt-1">Alternative option</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Additional Information -->
+              <div class="mt-8 bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+                <div class="flex items-start">
+                  <svg class="w-6 h-6 text-yellow-600 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                  </svg>
+                  <div>
+                    <h3 class="text-lg font-semibold text-yellow-800 mb-2">Important Note</h3>
+                    <p class="text-yellow-700">
+                      Maternity care costs can vary significantly based on location, complications, and insurance coverage. 
+                      These are average estimates - actual costs may be higher or lower. Always verify costs with your healthcare provider and insurance company.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <FooterExpanded client:load />
+  </div>
+</BaseLayout>

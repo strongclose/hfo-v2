@@ -1,0 +1,303 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.tsx';
+import FooterExpanded from '../../components/homepage/FooterExpanded.tsx';
+---
+
+<BaseLayout 
+  title="For Policymakers | Hospital Fees"
+  description="Healthcare policy research and data analysis tools for government officials and policy researchers"
+>
+  <div class="min-h-screen flex flex-col bg-gray-50">
+    <Navigation client:load />
+
+    <div class="flex-1">
+      <section class="relative bg-gradient-to-b from-purple-50 via-white to-gray-50 py-16 lg:py-24">
+        <div class="w-full px-4 md:px-6 lg:px-8">
+          <div class="max-w-7xl mx-auto">
+            <!-- Breadcrumb -->
+            <div class="text-sm text-gray-600 mb-6">
+              <a href="/" class="hover:text-blue-600 transition-colors">Home</a>
+              <svg class="w-4 h-4 inline mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+              <span class="text-gray-600">Who We Help</span>
+              <svg class="w-4 h-4 inline mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+              <span class="text-blue-600 font-medium">Policymakers</span>
+            </div>
+
+            <div class="text-center">
+              <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                </svg>
+              </div>
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
+                Healthcare Policy Research
+              </h1>
+              <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                Healthcare policy research and data analysis tools for government officials and policy researchers.
+              </p>
+              
+              <!-- CTA Buttons -->
+              <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a 
+                  href="/contact"
+                  class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+                >
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                  </svg>
+                  Request Policy Brief
+                </a>
+                <a 
+                  href="/insightalytics"
+                  class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+                >
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                  </svg>
+                  Explore Data
+                </a>
+              </div>
+
+              <!-- Policy Research Areas -->
+              <div class="mt-16 grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                  <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">Regulatory Compliance</h3>
+                  <p class="text-gray-600">Monitor price transparency compliance across hospitals and assess enforcement effectiveness.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                  <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">Market Analysis</h3>
+                  <p class="text-gray-600">Analyze healthcare market concentration, competition, and pricing patterns across regions.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                  <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">Cost Impact Assessment</h3>
+                  <p class="text-gray-600">Evaluate the economic impact of healthcare policies on patients, providers, and payers.</p>
+                </div>
+              </div>
+
+              <!-- Policy Research Tools -->
+              <div class="mt-12 bg-white rounded-lg p-8 shadow-sm border">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-6">Research & Analysis Tools</h2>
+                <div class="grid md:grid-cols-2 gap-8 text-left">
+                  <div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Data & Analytics:</h3>
+                    <ul class="space-y-2 text-gray-600">
+                      <li class="flex items-start">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Comprehensive hospital pricing databases
+                      </li>
+                      <li class="flex items-start">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Regional market concentration analysis
+                      </li>
+                      <li class="flex items-start">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Compliance tracking and reporting
+                      </li>
+                      <li class="flex items-start">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Trend analysis and forecasting
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Policy Support:</h3>
+                    <ul class="space-y-2 text-gray-600">
+                      <li class="flex items-start">
+                        <svg class="w-5 h-5 text-blue-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Custom research and analysis
+                      </li>
+                      <li class="flex items-start">
+                        <svg class="w-5 h-5 text-blue-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Policy impact assessments
+                      </li>
+                      <li class="flex items-start">
+                        <svg class="w-5 h-5 text-blue-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Stakeholder briefings and presentations
+                      </li>
+                      <li class="flex items-start">
+                        <svg class="w-5 h-5 text-blue-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Expert testimony and consultation
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Key Policy Insights -->
+              <div class="mt-8 grid md:grid-cols-3 gap-6">
+                <div class="bg-purple-50 p-6 rounded-lg border border-purple-200">
+                  <div class="text-2xl font-bold text-purple-600 mb-2">42%</div>
+                  <h3 class="text-lg font-semibold text-purple-900 mb-2">Non-Compliance Rate</h3>
+                  <p class="text-purple-700 text-sm">Of hospitals still fail to meet federal price transparency requirements despite penalties.</p>
+                </div>
+                <div class="bg-red-50 p-6 rounded-lg border border-red-200">
+                  <div class="text-2xl font-bold text-red-600 mb-2">400%</div>
+                  <h3 class="text-lg font-semibold text-red-900 mb-2">Price Variation</h3>
+                  <p class="text-red-700 text-sm">Maximum price differences for identical procedures within the same metropolitan areas.</p>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <div class="text-2xl font-bold text-blue-600 mb-2">$2M</div>
+                  <h3 class="text-lg font-semibold text-blue-900 mb-2">Maximum Penalty</h3>
+                  <p class="text-blue-700 text-sm">Annual maximum penalty for price transparency non-compliance under current regulations.</p>
+                </div>
+              </div>
+
+              <!-- Research Areas -->
+              <div class="mt-12 bg-gray-50 rounded-lg p-8">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-6">Current Research Focus Areas</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <div class="text-center">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                      <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                      </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-1">Transparency Enforcement</h3>
+                    <p class="text-sm text-gray-600">Effectiveness of current penalty structures</p>
+                  </div>
+                  
+                  <div class="text-center">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                      <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                      </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-1">Market Concentration</h3>
+                    <p class="text-sm text-gray-600">Impact on pricing and competition</p>
+                  </div>
+                  
+                  <div class="text-center">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                      <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                      </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-1">Patient Impact</h3>
+                    <p class="text-sm text-gray-600">Access and affordability outcomes</p>
+                  </div>
+                  
+                  <div class="text-center">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                      <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                      </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-1">Cost Trends</h3>
+                    <p class="text-sm text-gray-600">Regional and procedure-specific analysis</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Policy Recommendations -->
+              <div class="mt-8 bg-white rounded-lg p-8 shadow-sm border">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-6">Policy Recommendations</h2>
+                <div class="text-left space-y-4">
+                  <div class="border-l-4 border-purple-500 pl-4">
+                    <h3 class="font-semibold text-gray-900 mb-1">Strengthen Enforcement</h3>
+                    <p class="text-gray-600 text-sm">Increase penalty amounts and improve monitoring systems to ensure meaningful compliance with transparency requirements.</p>
+                  </div>
+                  <div class="border-l-4 border-blue-500 pl-4">
+                    <h3 class="font-semibold text-gray-900 mb-1">Standardize Formats</h3>
+                    <p class="text-gray-600 text-sm">Require machine-readable data formats that enable automated compliance checking and easier public access.</p>
+                  </div>
+                  <div class="border-l-4 border-green-500 pl-4">
+                    <h3 class="font-semibold text-gray-900 mb-1">Patient-Friendly Tools</h3>
+                    <p class="text-gray-600 text-sm">Mandate user-friendly price lookup tools that help patients understand their actual out-of-pocket costs.</p>
+                  </div>
+                  <div class="border-l-4 border-yellow-500 pl-4">
+                    <h3 class="font-semibold text-gray-900 mb-1">Market Monitoring</h3>
+                    <p class="text-gray-600 text-sm">Establish ongoing surveillance of healthcare market concentration and its impact on pricing.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Contact for Policymakers -->
+              <div class="mt-12 bg-gray-900 rounded-lg p-8 text-white">
+                <h2 class="text-2xl font-semibold mb-4">Policy Research Partnership</h2>
+                <p class="text-gray-300 mb-6">
+                  Partner with us for evidence-based policy research. We provide non-partisan analysis and data to support informed healthcare policy decisions.
+                </p>
+                <div class="grid md:grid-cols-2 gap-6 text-sm">
+                  <div>
+                    <h3 class="font-semibold mb-2">Research Services:</h3>
+                    <ul class="space-y-1 text-gray-300">
+                      <li>• Custom policy impact analysis</li>
+                      <li>• Market assessment and monitoring</li>
+                      <li>• Regulatory compliance tracking</li>
+                      <li>• Stakeholder consultation support</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold mb-2">Deliverables:</h3>
+                    <ul class="space-y-1 text-gray-300">
+                      <li>• Policy briefs and white papers</li>
+                      <li>• Data dashboards and visualizations</li>
+                      <li>• Expert testimony and briefings</li>
+                      <li>• Ongoing research updates</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="mt-6 flex flex-wrap gap-4">
+                  <a 
+                    href="/contact"
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+                  >
+                    Request Consultation
+                  </a>
+                  <a 
+                    href="mailto:policy@hospitalfees.org"
+                    class="inline-flex items-center px-6 py-3 border border-white text-base font-medium rounded-md text-white bg-transparent hover:bg-white hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+                  >
+                    Policy Contact
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <FooterExpanded client:load />
+  </div>
+</BaseLayout>

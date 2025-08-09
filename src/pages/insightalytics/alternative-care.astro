@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.tsx';
+import FooterExpanded from '../../components/homepage/FooterExpanded.tsx';
+---
+
+<BaseLayout 
+  title="Alternative Care Analytics | Hospital Fees"
+  description="Cost-effective and alternative healthcare options for holistic & cost-conscious users"
+>
+  <div class="min-h-screen bg-gray-50">
+    <Navigation client:load />
+
+    <section class="relative pt-32 pb-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-500 mb-8 shadow-lg">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-8 text-gray-900">
+          Alternative Care Analytics
+        </h1>
+        <p class="text-xl text-gray-600 mb-8">
+          Cost-effective and alternative healthcare options for holistic & cost-conscious users
+        </p>
+        
+        <!-- Coming Soon Notice -->
+        <div class="bg-teal-50 border border-teal-200 rounded-2xl p-8 mb-12">
+          <h2 class="text-2xl font-bold text-teal-900 mb-4">
+            Coming Soon
+          </h2>
+          <p class="text-teal-700">
+            This tool will help users explore alternative treatment costs, wellness program ROI, preventive care analysis, and holistic health economics.
+          </p>
+        </div>
+
+        <!-- Feature Preview -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div class="bg-white rounded-xl p-6 shadow-sm border">
+            <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Wellness Program ROI</h3>
+            <p class="text-gray-600">Analyze the return on investment for workplace wellness programs and preventive care initiatives.</p>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-sm border">
+            <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Alternative Treatment Costs</h3>
+            <p class="text-gray-600">Compare costs between traditional treatments and alternative medicine approaches.</p>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-sm border">
+            <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Preventive Care Analysis</h3>
+            <p class="text-gray-600">Evaluate the cost-effectiveness of preventive care versus reactive treatment approaches.</p>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-sm border">
+            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Holistic Health Economics</h3>
+            <p class="text-gray-600">Comprehensive analysis of whole-person health approaches and their economic impact.</p>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-sm border">
+            <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Lifestyle Medicine ROI</h3>
+            <p class="text-gray-600">Measure the return on investment for lifestyle-based medical interventions and their long-term benefits.</p>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-sm border">
+            <div class="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Integrative Care Models</h3>
+            <p class="text-gray-600">Analyze costs and outcomes for integrative healthcare models that combine traditional and alternative approaches.</p>
+          </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border">
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">
+            Get Notified When Available
+          </h3>
+          <p class="text-gray-600 mb-6">
+            Be the first to know when our Alternative Care Analytics tool launches. Join our waitlist for early access.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a 
+              href="/waitlist"
+              class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
+            >
+              Join Waitlist
+            </a>
+            <a 
+              href="/insightalytics"
+              class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
+            >
+              Back to Insightalytics
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <FooterExpanded client:load />
+  </div>
+</BaseLayout>

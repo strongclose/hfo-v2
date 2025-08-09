@@ -1,0 +1,210 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.tsx';
+import FooterExpanded from '../../components/homepage/FooterExpanded.tsx';
+---
+
+<BaseLayout 
+  title="For Hospitals | Hospital Fees"
+  description="Price transparency compliance solutions and benchmarking tools for hospital systems"
+>
+  <div class="min-h-screen flex flex-col bg-gray-50">
+    <Navigation client:load />
+
+    <div class="flex-1">
+      <section class="relative bg-gradient-to-b from-red-50 via-white to-gray-50 py-16 lg:py-24">
+        <div class="w-full px-4 md:px-6 lg:px-8">
+          <div class="max-w-7xl mx-auto">
+            <!-- Breadcrumb -->
+            <div class="text-sm text-gray-600 mb-6">
+              <a href="/" class="hover:text-blue-600 transition-colors">Home</a>
+              <svg class="w-4 h-4 inline mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+              <span class="text-gray-600">Who We Help</span>
+              <svg class="w-4 h-4 inline mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+              <span class="text-blue-600 font-medium">Hospitals</span>
+            </div>
+
+            <div class="text-center">
+              <div class="w-16 h-16 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                </svg>
+              </div>
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
+                Hospital Transparency Solutions
+              </h1>
+              <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                Price transparency compliance solutions and benchmarking tools for hospital systems.
+              </p>
+              
+              <!-- CTA Buttons -->
+              <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a 
+                  href="/provider-feedback"
+                  class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                >
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                  </svg>
+                  Request Demo
+                </a>
+                <a 
+                  href="/professionals"
+                  class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                >
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                  </svg>
+                  View Analytics
+                </a>
+              </div>
+
+              <!-- Solutions for Hospitals -->
+              <div class="mt-16 grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                  <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">Compliance Monitoring</h3>
+                  <p class="text-gray-600">Ensure your hospital meets federal price transparency requirements with automated compliance tracking.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                  <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">Market Benchmarking</h3>
+                  <p class="text-gray-600">Compare your pricing against regional competitors and identify opportunities for optimization.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                  <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">Patient Experience</h3>
+                  <p class="text-gray-600">Improve patient satisfaction by providing transparent, upfront pricing information.</p>
+                </div>
+              </div>
+
+              <!-- Compliance Features -->
+              <div class="mt-12 bg-white rounded-lg p-8 shadow-sm border">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-6">Price Transparency Compliance</h2>
+                <div class="grid md:grid-cols-2 gap-8 text-left">
+                  <div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Regulatory Requirements:</h3>
+                    <ul class="space-y-2 text-gray-600">
+                      <li class="flex items-start">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Standard charges for all items and services
+                      </li>
+                      <li class="flex items-start">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Payer-specific negotiated charges
+                      </li>
+                      <li class="flex items-start">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        De-identified minimum and maximum charges
+                      </li>
+                      <li class="flex items-start">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Machine-readable format requirements
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Our Solutions:</h3>
+                    <ul class="space-y-2 text-gray-600">
+                      <li class="flex items-start">
+                        <svg class="w-5 h-5 text-blue-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Automated compliance monitoring
+                      </li>
+                      <li class="flex items-start">
+                        <svg class="w-5 h-5 text-blue-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        File format validation
+                      </li>
+                      <li class="flex items-start">
+                        <svg class="w-5 h-5 text-blue-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Regular compliance reporting
+                      </li>
+                      <li class="flex items-start">
+                        <svg class="w-5 h-5 text-blue-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Implementation guidance
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Benefits -->
+              <div class="mt-8 grid md:grid-cols-3 gap-6">
+                <div class="bg-red-50 p-6 rounded-lg border border-red-200">
+                  <h3 class="text-lg font-semibold text-red-900 mb-2">Avoid Penalties</h3>
+                  <p class="text-red-700 text-sm">Stay compliant with federal regulations and avoid costly penalties up to $2 million per year.</p>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <h3 class="text-lg font-semibold text-blue-900 mb-2">Competitive Intelligence</h3>
+                  <p class="text-blue-700 text-sm">Understand your market position and make data-driven pricing decisions.</p>
+                </div>
+                <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                  <h3 class="text-lg font-semibold text-green-900 mb-2">Patient Trust</h3>
+                  <p class="text-green-700 text-sm">Build patient trust through transparent pricing and clear cost communication.</p>
+                </div>
+              </div>
+
+              <!-- Contact Form CTA -->
+              <div class="mt-12 bg-gray-900 rounded-lg p-8 text-white">
+                <h2 class="text-2xl font-semibold mb-4">Ready to Improve Your Transparency?</h2>
+                <p class="text-gray-300 mb-6">
+                  Contact our hospital solutions team to learn how we can help your organization achieve compliance and improve patient experience.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                  <a 
+                    href="/provider-feedback"
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+                  >
+                    Schedule Consultation
+                  </a>
+                  <a 
+                    href="/contact"
+                    class="inline-flex items-center px-6 py-3 border border-white text-base font-medium rounded-md text-white bg-transparent hover:bg-white hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+                  >
+                    Get in Touch
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <FooterExpanded client:load />
+  </div>
+</BaseLayout>

@@ -1,0 +1,56 @@
+---
+import Layout from '../../layouts/BaseLayout.astro';
+import { Navigation } from '../../components/Navigation';
+import { FooterExpanded } from '../../components/homepage/FooterExpanded';
+---
+
+<Layout title="Explore by Location - HealthFees.org">
+  <div class="min-h-screen bg-white">
+    <Navigation client:load />
+    
+    <main class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl font-bold text-gray-900 mb-4">Explore Healthcare by Location</h1>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Discover healthcare pricing patterns and provider options in different geographic areas.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div class="bg-blue-50 rounded-lg p-6">
+            <h3 class="text-lg font-semibold mb-3">Major Metropolitan Areas</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li><a href="#" class="hover:text-blue-600">New York City</a></li>
+              <li><a href="#" class="hover:text-blue-600">Los Angeles</a></li>
+              <li><a href="#" class="hover:text-blue-600">Chicago</a></li>
+              <li><a href="#" class="hover:text-blue-600">Houston</a></li>
+            </ul>
+          </div>
+          
+          <div class="bg-green-50 rounded-lg p-6">
+            <h3 class="text-lg font-semibold mb-3">State Coverage</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li><a href="#" class="hover:text-green-600">California</a></li>
+              <li><a href="#" class="hover:text-green-600">Texas</a></li>
+              <li><a href="#" class="hover:text-green-600">Florida</a></li>
+              <li><a href="#" class="hover:text-green-600">New York</a></li>
+            </ul>
+          </div>
+          
+          <div class="bg-purple-50 rounded-lg p-6">
+            <h3 class="text-lg font-semibold mb-3">Regional Insights</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li><a href="#" class="hover:text-purple-600">West Coast</a></li>
+              <li><a href="#" class="hover:text-purple-600">East Coast</a></li>
+              <li><a href="#" class="hover:text-purple-600">Midwest</a></li>
+              <li><a href="#" class="hover:text-purple-600">South</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <FooterExpanded client:load />
+  </div>
+</Layout>

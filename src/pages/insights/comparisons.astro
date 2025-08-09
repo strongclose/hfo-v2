@@ -1,0 +1,330 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.tsx';
+import FooterExpanded from '../../components/homepage/FooterExpanded.tsx';
+
+// Mock market trends data
+const marketTrends = [
+  {
+    title: "Healthcare Costs Rise 6.2% Nationally",
+    trend: "up",
+    change: "+6.2%",
+    timeframe: "YoY",
+    description: "Average procedure costs increased across most markets, with the highest increases in emergency care.",
+  },
+  {
+    title: "Price Transparency Compliance Improves",
+    trend: "up",
+    change: "+18%",
+    timeframe: "YoY",
+    description: "More hospitals are publishing compliant price transparency data, improving patient access to pricing.",
+  },
+  {
+    title: "Outpatient Procedures Grow",
+    trend: "up",
+    change: "+12%",
+    timeframe: "YoY",
+    description: "Shift toward outpatient care continues, offering patients more affordable treatment options.",
+  },
+  {
+    title: "Geographic Price Variations Persist",
+    trend: "stable",
+    change: "±3%",
+    timeframe: "YoY",
+    description: "Price differences between regions remain significant, with up to 300% variation for identical procedures.",
+  },
+];
+
+// Mock top insights data
+const topInsights = [
+  {
+    title: "MRI Pricing Analysis",
+    type: "Procedure Deep Dive",
+    summary: "MRI costs vary by 280% nationally, with significant savings available at independent imaging centers.",
+    savings: "$1,200",
+    locations: "150+ cities analyzed",
+  },
+  {
+    title: "Emergency Care Costs",
+    type: "Market Analysis",
+    summary: "Emergency room visits average $1,400 but can reach $8,000+ for complex cases.",
+    savings: "$800",
+    locations: "National data",
+  },
+  {
+    title: "Surgical Center vs Hospital",
+    type: "Facility Comparison",
+    summary: "Outpatient surgical centers average 40-60% lower costs than hospital-based procedures.",
+    savings: "$4,500",
+    locations: "25 major markets",
+  },
+];
+
+// Mock dashboard stats
+const dashboardStats = {
+  hospitalsTracked: 8245,
+  proceduresAnalyzed: 12450,
+  pricePoints: 2400000,
+  dataAccuracy: 89,
+};
+
+// Mock procedures and locations
+const topProcedures = ["MRI Brain", "CT Scan", "Hip Replacement", "Colonoscopy", "Mammogram"];
+const topLocations = ["Boston, MA", "Seattle, WA", "Denver, CO", "Austin, TX", "San Francisco, CA"];
+const topPayers = ["Blue Cross Blue Shield", "UnitedHealthcare", "Aetna", "Cigna", "Kaiser Permanente"];
+---
+
+<BaseLayout 
+  title="Healthcare Market Insights | Hospital Fees"
+  description="Data-driven analysis of healthcare pricing trends, market comparisons, and cost-saving opportunities across the United States."
+>
+  <div class="min-h-screen flex flex-col bg-gray-50">
+    <Navigation client:load />
+
+    <div class="flex-1">
+      <!-- Hero Section -->
+      <section class="bg-gradient-to-b from-blue-50 to-white py-12">
+        <div class="w-full px-4 md:px-6 lg:px-8">
+          <div class="max-w-7xl mx-auto">
+            <!-- Breadcrumb -->
+            <div class="text-sm text-gray-600 mb-6">
+              <a href="/" class="hover:text-blue-600 transition-colors">Home</a>
+              <svg class="w-4 h-4 inline mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+              <span class="text-blue-600 font-medium">Insights & Comparisons</span>
+            </div>
+
+            <div class="text-center mb-8">
+              <h1 class="text-4xl md:text-5xl font-bold mb-4">Healthcare Market Insights</h1>
+              <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Data-driven analysis of healthcare pricing trends, market comparisons, and cost-saving opportunities across the United States.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Market Trends -->
+      <section class="py-12 bg-white">
+        <div class="w-full px-4 md:px-6 lg:px-8">
+          <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8">Latest Market Trends</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+              {marketTrends.map((trend, index) => (
+                <div key={index} class="bg-white p-6 rounded-lg shadow border hover:shadow-md transition-shadow">
+                  <div class="flex items-start justify-between mb-4">
+                    <h3 class="font-semibold text-lg">{trend.title}</h3>
+                    <div class={`flex items-center gap-1 ${
+                      trend.trend === "up" ? "text-green-600" : 
+                      trend.trend === "down" ? "text-red-600" : "text-gray-600"
+                    }`}>
+                      {trend.trend === "up" && (
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                      )}
+                      {trend.trend === "down" && (
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/>
+                        </svg>
+                      )}
+                      {trend.trend === "stable" && (
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                      )}
+                      <span class="font-medium">{trend.change}</span>
+                      <span class="text-xs text-gray-500 ml-1">{trend.timeframe}</span>
+                    </div>
+                  </div>
+                  <p class="text-gray-600 text-sm">{trend.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Insights -->
+      <section class="py-12 bg-gray-50">
+        <div class="w-full px-4 md:px-6 lg:px-8">
+          <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8">Featured Analysis</h2>
+            <div class="grid gap-6">
+              {topInsights.map((insight, index) => (
+                <div key={index} class="bg-white p-6 rounded-lg shadow border hover:shadow-lg transition-shadow">
+                  <div class="flex items-start justify-between">
+                    <div class="flex-1">
+                      <div class="flex items-center gap-3 mb-3">
+                        <h3 class="text-xl font-semibold">{insight.title}</h3>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                          {insight.type}
+                        </span>
+                      </div>
+                      <p class="text-gray-600 mb-4">{insight.summary}</p>
+                      <div class="flex items-center gap-6 text-sm">
+                        <div class="flex items-center gap-1">
+                          <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                          </svg>
+                          <span class="font-medium">Up to {insight.savings} savings</span>
+                        </div>
+                        <div class="flex items-center gap-1">
+                          <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                          </svg>
+                          <span>{insight.locations}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                      Read Analysis
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Dashboard -->
+      <section class="py-12 bg-white">
+        <div class="w-full px-4 md:px-6 lg:px-8">
+          <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8">Market Dashboard</h2>
+
+            <!-- Dashboard Stats -->
+            <div class="grid md:grid-cols-4 gap-6 mb-8">
+              <div class="bg-white p-6 rounded-lg shadow border text-center">
+                <svg class="w-8 h-8 text-blue-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                </svg>
+                <div class="text-2xl font-bold">{dashboardStats.hospitalsTracked.toLocaleString()}</div>
+                <div class="text-sm text-gray-600">Hospitals Tracked</div>
+              </div>
+              <div class="bg-white p-6 rounded-lg shadow border text-center">
+                <svg class="w-8 h-8 text-green-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+                <div class="text-2xl font-bold">{dashboardStats.proceduresAnalyzed.toLocaleString()}</div>
+                <div class="text-sm text-gray-600">Procedures Analyzed</div>
+              </div>
+              <div class="bg-white p-6 rounded-lg shadow border text-center">
+                <svg class="w-8 h-8 text-blue-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+                <div class="text-2xl font-bold">{(dashboardStats.pricePoints / 1000000).toFixed(1)}M</div>
+                <div class="text-sm text-gray-600">Price Points</div>
+              </div>
+              <div class="bg-white p-6 rounded-lg shadow border text-center">
+                <svg class="w-8 h-8 text-purple-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+                <div class="text-2xl font-bold">{dashboardStats.dataAccuracy}%</div>
+                <div class="text-sm text-gray-600">Data Accuracy</div>
+              </div>
+            </div>
+
+            <!-- Procedures Section -->
+            <div class="mb-8">
+              <div class="bg-white p-6 rounded-lg shadow border">
+                <h3 class="text-lg font-semibold mb-4">Most Searched Procedures</h3>
+                <div class="space-y-4">
+                  {topProcedures.map((procedure, index) => (
+                    <div key={index} class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                      <span class="font-medium">{procedure}</span>
+                      <button class="inline-flex items-center px-3 py-1.5 border border-gray-300 text-sm font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        View Data
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <!-- Locations Section -->
+            <div class="mb-8">
+              <div class="bg-white p-6 rounded-lg shadow border">
+                <h3 class="text-lg font-semibold mb-4">Top Markets by Transparency</h3>
+                <div class="space-y-4">
+                  {topLocations.map((location, index) => (
+                    <div key={index} class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                      <span class="font-medium">{location}</span>
+                      <div class="flex items-center gap-2">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                          {95 - index}% transparent
+                        </span>
+                        <button class="inline-flex items-center px-3 py-1.5 border border-gray-300 text-sm font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                          Explore
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <!-- Insurance Section -->
+            <div class="mb-8">
+              <div class="bg-white p-6 rounded-lg shadow border">
+                <h3 class="text-lg font-semibold mb-4">Insurance Plan Analysis</h3>
+                <div class="space-y-4">
+                  {topPayers.map((payer, index) => (
+                    <div key={index} class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                      <span class="font-medium">{payer}</span>
+                      <div class="flex items-center gap-2">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                          {27 - index * 2}% market share
+                        </span>
+                        <button class="inline-flex items-center px-3 py-1.5 border border-gray-300 text-sm font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                          View Coverage
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="py-12 bg-blue-50">
+        <div class="w-full px-4 md:px-6 lg:px-8">
+          <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Ready to Save on Healthcare?</h2>
+            <p class="text-lg text-gray-600 mb-8">
+              Use our tools to find transparent pricing and compare costs in your area.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+              <a 
+                href="/search-procedure"
+                class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Search Procedures
+              </a>
+              <a 
+                href="/tools/cost-calculator"
+                class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Cost Calculator
+              </a>
+              <a 
+                href="/hospitals"
+                class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Browse Hospitals
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <FooterExpanded client:load />
+  </div>
+</BaseLayout>

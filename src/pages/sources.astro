@@ -1,0 +1,130 @@
+---
+import Layout from '../layouts/BaseLayout.astro';
+import { Navigation } from '../components/Navigation';
+import { FooterExpanded } from '../components/homepage/FooterExpanded';
+---
+
+<Layout title="Data Sources - HealthFees.org">
+  <div class="min-h-screen bg-white">
+    <Navigation client:load />
+    
+    <main class="py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl font-bold text-gray-900 mb-8">Data Sources</h1>
+        
+        <div class="prose prose-lg max-w-none">
+          <p class="text-xl text-gray-700 leading-relaxed mb-8">
+            HealthFees.org aggregates healthcare pricing data from multiple authoritative sources 
+            to provide comprehensive cost information.
+          </p>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Primary Data Sources</h2>
+          
+          <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
+            <h3 class="text-xl font-semibold text-blue-900 mb-3">Hospital Price Transparency Files</h3>
+            <p class="text-blue-800 mb-3">
+              Machine-readable files published by hospitals containing standard charges for items and services, 
+              as required by CMS Hospital Price Transparency regulations (45 CFR § 180.40).
+            </p>
+            <ul class="text-blue-700 text-sm space-y-1">
+              <li>• Gross charges (list prices)</li>
+              <li>• Discounted cash prices</li>
+              <li>• Payer-specific negotiated charges</li>
+              <li>• De-identified minimum and maximum negotiated charges</li>
+            </ul>
+          </div>
+          
+          <div class="bg-green-50 border border-green-200 rounded-lg p-6 mb-6">
+            <h3 class="text-xl font-semibold text-green-900 mb-3">Insurance Transparency Files</h3>
+            <p class="text-green-800 mb-3">
+              In-network provider rates published by group health plans and health insurance issuers, 
+              as required by the Transparency in Coverage regulations (45 CFR § 147.210).
+            </p>
+            <ul class="text-green-700 text-sm space-y-1">
+              <li>• In-network negotiated rates</li>
+              <li>• Historical net prices</li>
+              <li>• Prescription drug pricing</li>
+              <li>• Allowed amounts by service</li>
+            </ul>
+          </div>
+          
+          <div class="bg-purple-50 border border-purple-200 rounded-lg p-6 mb-6">
+            <h3 class="text-xl font-semibold text-purple-900 mb-3">Government Data</h3>
+            <p class="text-purple-800 mb-3">
+              Publicly available pricing data from federal and state government healthcare programs.
+            </p>
+            <ul class="text-purple-700 text-sm space-y-1">
+              <li>• Medicare fee schedules and payment rates</li>
+              <li>• Medicaid reimbursement rates</li>
+              <li>• Medicare Advantage plan data</li>
+              <li>• Hospital Compare quality ratings</li>
+            </ul>
+          </div>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Regulatory Framework</h2>
+          <p>
+            Our data collection is based on federal transparency regulations:
+          </p>
+          
+          <h3 class="text-lg font-semibold mt-6 mb-3">Hospital Price Transparency Rule</h3>
+          <p>
+            Effective January 1, 2021, hospitals must publish their standard charges in a 
+            machine-readable format and display consumer-friendly information for shoppable services.
+          </p>
+          
+          <h3 class="text-lg font-semibold mt-6 mb-3">Transparency in Coverage Rule</h3>
+          <p>
+            Beginning July 1, 2022, group health plans and health insurance issuers must 
+            disclose in-network provider rates and historical net prices for covered items and services.
+          </p>
+          
+          <h3 class="text-lg font-semibold mt-6 mb-3">No Surprises Act</h3>
+          <p>
+            Implemented January 1, 2022, this legislation includes requirements for advance estimates 
+            of out-of-network charges and good faith estimates.
+          </p>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Data Quality & Limitations</h2>
+          
+          <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-6">
+            <h3 class="text-lg font-semibold text-yellow-900 mb-2">Data Accuracy</h3>
+            <p class="text-yellow-800">
+              While we strive for accuracy, healthcare pricing data can be complex and may contain 
+              inconsistencies from source files. We implement multiple validation checks but recommend 
+              verifying prices directly with providers.
+            </p>
+          </div>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Update Frequency</h2>
+          <p>
+            We continuously monitor and update our database:
+          </p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li><strong>Hospital data:</strong> Updated monthly or when new files are published</li>
+            <li><strong>Insurance data:</strong> Updated monthly, with major plans updated more frequently</li>
+            <li><strong>Government data:</strong> Updated annually or when new rates are published</li>
+          </ul>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">References & Citations</h2>
+          <div class="bg-gray-50 rounded-lg p-6">
+            <ul class="space-y-2 text-sm">
+              <li>• Centers for Medicare & Medicaid Services. Hospital Price Transparency. 45 CFR § 180.40.</li>
+              <li>• Departments of Health and Human Services, Labor, and Treasury. Transparency in Coverage. 45 CFR § 147.210.</li>
+              <li>• No Surprises Act. H.R.133 - Consolidated Appropriations Act, 2021.</li>
+              <li>• CMS.gov - Hospital Price Transparency</li>
+              <li>• Healthcare.gov - Understanding Healthcare Costs</li>
+            </ul>
+          </div>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Questions About Our Data?</h2>
+          <p>
+            For specific questions about our data sources or methodology, 
+            <a href="/contact" class="text-blue-600 hover:text-blue-800">contact our data team</a>.
+          </p>
+        </div>
+      </div>
+    </main>
+    
+    <FooterExpanded client:load />
+  </div>
+</Layout>

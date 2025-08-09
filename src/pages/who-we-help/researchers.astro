@@ -1,0 +1,77 @@
+---
+import Layout from '../../layouts/BaseLayout.astro';
+import { Navigation } from '../../components/Navigation';
+import { FooterExpanded } from '../../components/homepage/FooterExpanded';
+---
+
+<Layout title="For Researchers - HealthFees.org">
+  <div class="min-h-screen bg-white">
+    <Navigation client:load />
+    
+    <main class="py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl font-bold text-gray-900 mb-4">For Researchers</h1>
+          <p class="text-xl text-gray-600">
+            Access comprehensive healthcare pricing data for academic and policy research.
+          </p>
+        </div>
+        
+        <div class="prose prose-lg max-w-none">
+          <h2>Research Applications</h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 not-prose mb-8">
+            <div class="bg-blue-50 rounded-lg p-6">
+              <h3 class="text-lg font-semibold mb-3">Healthcare Economics</h3>
+              <p class="text-gray-700">
+                Study market dynamics, price elasticity, and competition effects in healthcare.
+              </p>
+            </div>
+            
+            <div class="bg-green-50 rounded-lg p-6">
+              <h3 class="text-lg font-semibold mb-3">Policy Analysis</h3>
+              <p class="text-gray-700">
+                Evaluate the impact of transparency regulations and healthcare policies.
+              </p>
+            </div>
+            
+            <div class="bg-purple-50 rounded-lg p-6">
+              <h3 class="text-lg font-semibold mb-3">Geographic Studies</h3>
+              <p class="text-gray-700">
+                Analyze regional variations in healthcare pricing and access.
+              </p>
+            </div>
+            
+            <div class="bg-orange-50 rounded-lg p-6">
+              <h3 class="text-lg font-semibold mb-3">Trend Analysis</h3>
+              <p class="text-gray-700">
+                Track pricing trends over time and across different market segments.
+              </p>
+            </div>
+          </div>
+          
+          <h3>Data Access</h3>
+          <p>
+            We provide researchers with access to aggregated, anonymized pricing data 
+            for academic and policy research purposes. Our datasets include:
+          </p>
+          
+          <ul>
+            <li>Procedure-level pricing across hospitals and insurance plans</li>
+            <li>Geographic and temporal pricing variations</li>
+            <li>Market concentration and competition metrics</li>
+            <li>Price transparency compliance data</li>
+          </ul>
+          
+          <p>
+            <a href="/contact" class="text-blue-600 hover:text-blue-800">
+              Contact us to discuss research collaboration opportunities.
+            </a>
+          </p>
+        </div>
+      </div>
+    </main>
+    
+    <FooterExpanded client:load />
+  </div>
+</Layout>

@@ -1,0 +1,323 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const { slug } = Astro.params;
+
+// Mock hospital data
+const hospital = {
+  id: "1",
+  name: slug === "kaiser-oakland-94609" ? "Kaiser Permanente Oakland Medical Center" : "General Hospital",
+  type: "hospital",
+  address: {
+    street: "3600 Broadway",
+    city: "Oakland", 
+    state: "CA",
+    zip: "94611",
+  },
+  website: "https://healthy.kaiserpermanente.org",
+  phone: "(510) 752-1000",
+  email: "contact@kaiseroakland.org",
+  description: "Comprehensive medical center providing advanced healthcare services to the Oakland community and surrounding areas.",
+  transparencyScore: 89,
+  lastUpdated: "March 15, 2024",
+  procedureCount: 1247,
+  payerCount: 15,
+};
+
+// Mock procedures data
+const procedures = [
+  {
+    id: "1",
+    code: "99213",
+    type: "CPT",
+    name: "Office Visit - Established Patient, Level 3",
+    description: "Office Visit - Established Patient, Level 3",
+    grossCharge: 350,
+    inNetworkAverage: 220,
+    selfPayRate: 280,
+    frequency: "Common",
+  },
+  {
+    id: "2",
+    code: "45378",
+    type: "CPT",
+    name: "Colonoscopy with Biopsy",
+    description: "Colonoscopy with Biopsy",
+    grossCharge: 2800,
+    inNetworkAverage: 1850,
+    selfPayRate: 2200,
+    frequency: "Common",
+  },
+  {
+    id: "3",
+    code: "70553",
+    type: "CPT",
+    name: "MRI Brain with Contrast",
+    description: "MRI Brain with Contrast",
+    grossCharge: 4200,
+    inNetworkAverage: 2800,
+    selfPayRate: 3400,
+    frequency: "Moderate",
+  },
+];
+
+// Mock comparison data
+const comparisonData = {
+  entityName: hospital.name,
+  entityType: "hospital",
+  averageCost: 2850,
+  regionalRanking: 12,
+  totalInRegion: 45,
+  costVsAverage: -15.2,
+  qualityRating: 4,
+  nearbyCompetitors: [
+    {
+      name: "UCSF Medical Center",
+      distance: "8.5 miles",
+      averageCost: 3200,
+      qualityRating: 5,
+      type: "Academic Medical Center",
+    },
+    {
+      name: "Alta Bates Summit Medical Center",
+      distance: "2.1 miles",
+      averageCost: 2900,
+      qualityRating: 4,
+      type: "Community Hospital",
+    },
+  ],
+  regionalStats: {
+    averageCost: 3350,
+    medianCost: 3100,
+    highestCost: 5200,
+    lowestCost: 2100,
+    totalProviders: 45,
+  },
+};
+---
+
+<BaseLayout 
+  title={`${hospital.name} - Hospital Profile | Hospital Fees`}
+  description={hospital.description}
+>
+  <div class="min-h-screen flex flex-col bg-gray-50">
+    <div class="flex-1">
+      <!-- Hospital Hero Section -->
+      <div class="bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div class="flex flex-col lg:flex-row items-start gap-8">
+            <div class="flex-1">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                  </svg>
+                </div>
+                <div>
+                  <h1 class="text-3xl font-bold text-gray-900">{hospital.name}</h1>
+                  <div class="flex items-center gap-2 mt-1">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                      Hospital
+                    </span>
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                      Score: {hospital.transparencyScore}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <p class="text-lg text-gray-600 mb-6">{hospital.description}</p>
+
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                <div class="text-center p-4 bg-gray-50 rounded-lg">
+                  <div class="text-2xl font-bold text-gray-900">{hospital.procedureCount.toLocaleString()}</div>
+                  <div class="text-sm text-gray-600">Procedures</div>
+                </div>
+                <div class="text-center p-4 bg-gray-50 rounded-lg">
+                  <div class="text-2xl font-bold text-gray-900">{hospital.payerCount}</div>
+                  <div class="text-sm text-gray-600">Insurance Plans</div>
+                </div>
+                <div class="text-center p-4 bg-gray-50 rounded-lg">
+                  <div class="text-2xl font-bold text-gray-900">{hospital.transparencyScore}</div>
+                  <div class="text-sm text-gray-600">Transparency Score</div>
+                </div>
+                <div class="text-center p-4 bg-gray-50 rounded-lg">
+                  <div class="text-2xl font-bold text-gray-900">{comparisonData.qualityRating}★</div>
+                  <div class="text-sm text-gray-600">Quality Rating</div>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-3">
+                <a 
+                  href={`mailto:${hospital.email}`}
+                  class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                >
+                  Contact Hospital
+                </a>
+                <a 
+                  href={hospital.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                >
+                  Visit Website
+                </a>
+                <a 
+                  href={`tel:${hospital.phone}`}
+                  class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                >
+                  {hospital.phone}
+                </a>
+              </div>
+            </div>
+
+            <div class="w-full lg:w-80">
+              <div class="bg-white p-6 rounded-lg shadow">
+                <h3 class="text-lg font-semibold mb-4">Hospital Information</h3>
+                <div class="space-y-3">
+                  <div>
+                    <div class="text-sm font-medium text-gray-600">Address</div>
+                    <div class="text-sm">
+                      {hospital.address.street}<br/>
+                      {hospital.address.city}, {hospital.address.state} {hospital.address.zip}
+                    </div>
+                  </div>
+                  <div>
+                    <div class="text-sm font-medium text-gray-600">Main Phone</div>
+                    <div class="text-sm">{hospital.phone}</div>
+                  </div>
+                  <div>
+                    <div class="text-sm font-medium text-gray-600">Website</div>
+                    <a href={hospital.website} target="_blank" rel="noopener noreferrer" class="text-sm text-blue-600 hover:underline">
+                      Visit Site
+                    </a>
+                  </div>
+                  <div>
+                    <div class="text-sm font-medium text-gray-600">Last Updated</div>
+                    <div class="text-sm">{hospital.lastUpdated}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Procedures Table -->
+      <div class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-8">Hospital Procedures & Pricing</h2>
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Procedure</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Code</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Gross Charge</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">In-Network Avg</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Self-Pay Rate</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                {procedures.map(procedure => (
+                  <tr key={procedure.id}>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="text-sm font-medium text-gray-900">{procedure.name}</div>
+                      <div class="text-sm text-gray-500">{procedure.frequency}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{procedure.code}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${procedure.grossCharge.toLocaleString()}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${procedure.inNetworkAverage.toLocaleString()}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${procedure.selfPayRate.toLocaleString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Legal Disclaimer -->
+      <div class="py-4 bg-white border-t">
+        <div class="w-full px-4 md:px-6 lg:px-8">
+          <div class="max-w-7xl mx-auto">
+            <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+              <p class="text-sm text-yellow-800">
+                <strong>Disclaimer:</strong> Hospital pricing information is based on publicly available data and may not reflect current rates. 
+                Contact the hospital directly for accurate pricing. This information is for educational purposes only.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison Section -->
+      <div class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-8">How This Hospital Compares</h2>
+          <div class="grid lg:grid-cols-2 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow">
+              <h3 class="text-lg font-semibold mb-4">Regional Ranking</h3>
+              <div class="text-3xl font-bold text-blue-600 mb-2">
+                #{comparisonData.regionalRanking} <span class="text-lg text-gray-600">of {comparisonData.totalInRegion}</span>
+              </div>
+              <p class="text-sm text-gray-600">in the region by average cost</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow">
+              <h3 class="text-lg font-semibold mb-4">Cost vs Average</h3>
+              <div class="text-3xl font-bold text-green-600 mb-2">
+                {comparisonData.costVsAverage}%
+              </div>
+              <p class="text-sm text-gray-600">below regional average</p>
+            </div>
+          </div>
+
+          <!-- Regional Stats -->
+          <div class="mt-8 bg-white p-6 rounded-lg shadow">
+            <h3 class="text-lg font-semibold mb-4">Regional Hospital Pricing</h3>
+            <div class="grid md:grid-cols-4 gap-4">
+              <div class="text-center">
+                <div class="text-2xl font-bold text-gray-900">${comparisonData.regionalStats.averageCost.toLocaleString()}</div>
+                <div class="text-sm text-gray-600">Average Cost</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold text-gray-900">${comparisonData.regionalStats.medianCost.toLocaleString()}</div>
+                <div class="text-sm text-gray-600">Median Cost</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold text-gray-900">${comparisonData.regionalStats.highestCost.toLocaleString()}</div>
+                <div class="text-sm text-gray-600">Highest Cost</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold text-gray-900">${comparisonData.regionalStats.lowestCost.toLocaleString()}</div>
+                <div class="text-sm text-gray-600">Lowest Cost</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nearby Competitors -->
+          <div class="mt-8">
+            <h3 class="text-lg font-semibold mb-4">Nearby Hospitals</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+              {comparisonData.nearbyCompetitors.map((competitor, idx) => (
+                <div key={idx} class="bg-white p-4 rounded-lg shadow">
+                  <div class="flex justify-between items-start">
+                    <div>
+                      <div class="font-medium">{competitor.name}</div>
+                      <div class="text-sm text-gray-600">{competitor.type}</div>
+                      <div class="text-sm text-gray-600">{competitor.distance}</div>
+                    </div>
+                    <div class="text-right">
+                      <div class="font-semibold">${competitor.averageCost.toLocaleString()}</div>
+                      <div class="text-sm text-gray-600">{competitor.qualityRating}★ rating</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

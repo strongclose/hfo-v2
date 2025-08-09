@@ -1,0 +1,160 @@
+---
+// This is a dynamic sitemap that generates all URLs for the site
+const baseUrl = "https://hospitalfees.org";
+
+// Static pages
+const staticPages = [
+  "",
+  "/about",
+  "/faq", 
+  "/methodology",
+  "/disclaimer",
+  "/privacy-policy",
+  "/terms-of-use",
+  "/accessibility",
+  "/glossary",
+  "/provider-feedback",
+  "/contact",
+  "/community",
+  "/learn",
+  "/professionals",
+  "/sources",
+  "/waitlist",
+  "/insights",
+  "/insights/truths",
+  "/insights/comparisons",
+  "/insights/visualizations",
+  "/hospitals",
+  "/doctors",
+  "/insurers",
+  "/tools",
+  "/search-procedure",
+  "/compare-prices",
+  "/price-comparison",
+  "/explore/location",
+  "/explore/insurance", 
+  "/explore/condition",
+  "/explore/procedure",
+  "/tools/cost-calculator",
+  "/tools/price-trends",
+  "/tools/benchmark",
+  "/tools/data-explorer",
+  "/insightalytics",
+  "/insightalytics/procedures",
+  "/insightalytics/conditions",
+  "/insightalytics/cost-comparisons",
+  "/insightalytics/location-insights",
+  "/insightalytics/alternative-care",
+  "/who-we-help",
+  "/who-we-help/patients",
+  "/who-we-help/researchers",
+  "/who-we-help/caregivers",
+  "/who-we-help/elective-shoppers",
+  "/who-we-help/expecting-parents",
+  "/who-we-help/financial-tools",
+  "/who-we-help/healthtech",
+  "/who-we-help/hospitals",
+  "/who-we-help/insurance-providers",
+  "/who-we-help/journalists",
+  "/who-we-help/policymakers",
+];
+
+// Mock shocking truths data (in production, would fetch from CMS)
+const shockingTruths = [
+  {
+    slug: "er-visits-cost-10x-more-at-same-hospital",
+    publishedDate: "2024-03-15T00:00:00.000Z"
+  },
+  {
+    slug: "hospital-charges-vs-insurance-payments", 
+    publishedDate: "2024-03-10T00:00:00.000Z"
+  },
+  {
+    slug: "outpatient-surgery-costs-by-location",
+    publishedDate: "2024-03-05T00:00:00.000Z"
+  },
+  {
+    slug: "prescription-drug-markup-hospitals",
+    publishedDate: "2024-02-28T00:00:00.000Z"
+  },
+  {
+    slug: "mri-pricing-wild-variations",
+    publishedDate: "2024-02-20T00:00:00.000Z"
+  },
+  {
+    slug: "hidden-facility-fees-surprise-bills",
+    publishedDate: "2024-02-15T00:00:00.000Z"
+  }
+];
+
+// Mock provider pages (in production, would fetch from actual data)
+const providerPages = [
+  "/hospital/kaiser-oakland-94609",
+  "/hospital/ucsf-san-francisco",
+  "/hospital/cedars-sinai",
+  "/hospital/houston-methodist",
+  "/hospital/mayo-clinic-rochester",
+  "/doctor/dr-smith-cardiology-94610", 
+  "/doctor/michael-chen-orthopedics",
+  "/doctor/emily-rodriguez-dermatology",
+  "/doctor/david-williams-neurology",
+  "/doctor/jennifer-martinez-radiology",
+  "/insurer/kaiser-permanente",
+  "/insurer/united-healthcare",
+  "/insurer/aetna",
+  "/insurer/cigna",
+  "/insurer/humana",
+];
+
+// Mock procedure pages
+const procedurePages = [
+  "/insightalytics/procedures/mri-brain-scan",
+  "/insightalytics/procedures/colonoscopy",
+  "/insightalytics/procedures/total-knee-replacement",
+  "/insightalytics/procedures/emergency-room-visit",
+  "/insightalytics/procedures/ct-scan-chest",
+  "/insightalytics/procedures/cardiac-catheterization",
+  "/insightalytics/procedures/hip-replacement",
+  "/insightalytics/procedures/mammogram",
+];
+
+const currentDate = new Date().toISOString();
+
+// Generate the sitemap XML
+const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  ${staticPages.map((page) => `
+  <url>
+    <loc>${baseUrl}${page}</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>${page === "" ? "daily" : "weekly"}</changefreq>
+    <priority>${page === "" ? "1.0" : "0.8"}</priority>
+  </url>`).join("")}
+  ${shockingTruths.map((truth) => `
+  <url>
+    <loc>${baseUrl}/insights/truths/${truth.slug}</loc>
+    <lastmod>${truth.publishedDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>`).join("")}
+  ${providerPages.map((page) => `
+  <url>
+    <loc>${baseUrl}${page}</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>`).join("")}
+  ${procedurePages.map((page) => `
+  <url>
+    <loc>${baseUrl}${page}</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>`).join("")}
+</urlset>`;
+
+// Set the content type and return the XML
+Astro.response.headers.set("Content-Type", "application/xml");
+---
+
+{sitemapXml.trim()}

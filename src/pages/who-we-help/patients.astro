@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/BaseLayout.astro';
+import { Navigation } from '../../components/Navigation';
+import { FooterExpanded } from '../../components/homepage/FooterExpanded';
+---
+
+<Layout title="For Patients - HealthFees.org">
+  <div class="min-h-screen bg-white">
+    <Navigation client:load />
+    
+    <main class="py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl font-bold text-gray-900 mb-4">For Patients</h1>
+          <p class="text-xl text-gray-600">
+            Take control of your healthcare costs with transparent pricing information.
+          </p>
+        </div>
+        
+        <div class="prose prose-lg max-w-none">
+          <h2>How HealthFees.org Helps Patients</h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 not-prose mb-8">
+            <div class="bg-blue-50 rounded-lg p-6">
+              <h3 class="text-lg font-semibold mb-3">Compare Costs</h3>
+              <p class="text-gray-700">
+                See actual prices from different hospitals and providers before making decisions.
+              </p>
+            </div>
+            
+            <div class="bg-green-50 rounded-lg p-6">
+              <h3 class="text-lg font-semibold mb-3">Save Money</h3>
+              <p class="text-gray-700">
+                Find the most cost-effective options for your medical procedures.
+              </p>
+            </div>
+            
+            <div class="bg-purple-50 rounded-lg p-6">
+              <h3 class="text-lg font-semibold mb-3">Plan Ahead</h3>
+              <p class="text-gray-700">
+                Budget for medical expenses with accurate pricing information.
+              </p>
+            </div>
+            
+            <div class="bg-orange-50 rounded-lg p-6">
+              <h3 class="text-lg font-semibold mb-3">Make Informed Decisions</h3>
+              <p class="text-gray-700">
+                Choose providers based on both quality and cost considerations.
+              </p>
+            </div>
+          </div>
+          
+          <h3>Getting Started</h3>
+          <ol>
+            <li>Search for your procedure using our search tool</li>
+            <li>Enter your location to find nearby providers</li>
+            <li>Compare prices across different hospitals and insurance plans</li>
+            <li>Contact providers directly for the most up-to-date pricing</li>
+          </ol>
+        </div>
+      </div>
+    </main>
+    
+    <FooterExpanded client:load />
+  </div>
+</Layout>

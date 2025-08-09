@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.tsx';
+import FooterExpanded from '../../components/homepage/FooterExpanded.tsx';
+---
+
+<BaseLayout 
+  title="For Elective Procedure Shoppers | Hospital Fees"
+  description="Compare costs and quality for planned procedures to get the best value for your healthcare spending"
+>
+  <div class="min-h-screen flex flex-col bg-gray-50">
+    <Navigation client:load />
+
+    <div class="flex-1">
+      <section class="relative bg-gradient-to-b from-orange-50 via-white to-gray-50 py-16 lg:py-24">
+        <div class="w-full px-4 md:px-6 lg:px-8">
+          <div class="max-w-7xl mx-auto">
+            <!-- Breadcrumb -->
+            <div class="text-sm text-gray-600 mb-6">
+              <a href="/" class="hover:text-blue-600 transition-colors">Home</a>
+              <svg class="w-4 h-4 inline mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+              <span class="text-gray-600">Who We Help</span>
+              <svg class="w-4 h-4 inline mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+              <span class="text-blue-600 font-medium">For Elective Procedure Shoppers</span>
+            </div>
+
+            <div class="text-center">
+              <div class="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 3H3m0 0a1 1 0 000 2h1m3 10v4a1 1 0 001 1h2a1 1 0 001-1v-4m-6 0h6m0 0a1 1 0 001 1h2a1 1 0 001-1v-4"/>
+                </svg>
+              </div>
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
+                Shop Smart for Elective Procedures
+              </h1>
+              <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                Compare costs and quality for planned procedures to get the best value for your healthcare spending.
+              </p>
+              
+              <!-- CTA Buttons -->
+              <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a 
+                  href="/search-procedure"
+                  class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                >
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                  </svg>
+                  Compare Procedures
+                </a>
+                <a 
+                  href="/tools/cost-calculator"
+                  class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                >
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 0l-6-6m6 6l-6 6m6 3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  Calculate Savings
+                </a>
+              </div>
+
+              <!-- Key Features for Elective Shoppers -->
+              <div class="mt-16 grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                  <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">Price Transparency</h3>
+                  <p class="text-gray-600">Get upfront pricing for elective procedures from multiple providers to make informed decisions.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                  <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">Quality Metrics</h3>
+                  <p class="text-gray-600">Access quality ratings and patient outcomes to ensure you receive excellent care at a fair price.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                  <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">Fast Savings</h3>
+                  <p class="text-gray-600">Quickly identify cost-effective options and potential savings for your planned procedure.</p>
+                </div>
+              </div>
+
+              <!-- Common Elective Procedures -->
+              <div class="mt-12 bg-white rounded-lg p-8 shadow-sm border">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-6">Popular Elective Procedures</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div class="text-center p-4 bg-gray-50 rounded-lg">
+                    <h3 class="font-medium text-gray-900">Hip Replacement</h3>
+                    <p class="text-sm text-gray-600 mt-1">Avg: $32,000</p>
+                  </div>
+                  <div class="text-center p-4 bg-gray-50 rounded-lg">
+                    <h3 class="font-medium text-gray-900">Knee Replacement</h3>
+                    <p class="text-sm text-gray-600 mt-1">Avg: $35,000</p>
+                  </div>
+                  <div class="text-center p-4 bg-gray-50 rounded-lg">
+                    <h3 class="font-medium text-gray-900">Cataract Surgery</h3>
+                    <p class="text-sm text-gray-600 mt-1">Avg: $4,500</p>
+                  </div>
+                  <div class="text-center p-4 bg-gray-50 rounded-lg">
+                    <h3 class="font-medium text-gray-900">Colonoscopy</h3>
+                    <p class="text-sm text-gray-600 mt-1">Avg: $1,850</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <FooterExpanded client:load />
+  </div>
+</BaseLayout>

@@ -1,0 +1,271 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.tsx';
+import FooterExpanded from '../../components/homepage/FooterExpanded.tsx';
+
+// Mock conditions data
+const conditions = [
+  {
+    id: "diabetes",
+    name: "Diabetes",
+    description: "Comprehensive analysis of diabetes care costs, treatment options, and outcomes",
+    averageAnnualCost: 9500,
+    procedures: ["Glucose monitoring", "Insulin therapy", "A1C testing", "Foot care"],
+    complications: ["Diabetic retinopathy", "Neuropathy", "Kidney disease"],
+    category: "Chronic"
+  },
+  {
+    id: "hypertension",
+    name: "Hypertension",
+    description: "Blood pressure management costs and treatment effectiveness analysis",
+    averageAnnualCost: 3200,
+    procedures: ["Blood pressure monitoring", "Medication management", "Lifestyle counseling"],
+    complications: ["Heart disease", "Stroke", "Kidney problems"],
+    category: "Chronic"
+  },
+  {
+    id: "cancer",
+    name: "Cancer",
+    description: "Oncology treatment costs, outcomes, and care pathway analysis",
+    averageAnnualCost: 85000,
+    procedures: ["Chemotherapy", "Radiation therapy", "Surgery", "Immunotherapy"],
+    complications: ["Treatment side effects", "Secondary cancers", "Organ damage"],
+    category: "Acute"
+  },
+  {
+    id: "heart-disease",
+    name: "Heart Disease",
+    description: "Cardiovascular care costs and intervention effectiveness",
+    averageAnnualCost: 25000,
+    procedures: ["Cardiac catheterization", "Stent placement", "Bypass surgery", "Medication"],
+    complications: ["Heart attack", "Heart failure", "Arrhythmias"],
+    category: "Chronic"
+  },
+  {
+    id: "asthma",
+    name: "Asthma",
+    description: "Respiratory care management and emergency intervention costs",
+    averageAnnualCost: 4200,
+    procedures: ["Inhaler therapy", "Pulmonary function tests", "Allergy testing"],
+    complications: ["Severe asthma attacks", "Respiratory infections", "COPD"],
+    category: "Chronic"
+  },
+  {
+    id: "arthritis",
+    name: "Arthritis",
+    description: "Joint health management costs and treatment outcomes",
+    averageAnnualCost: 7800,
+    procedures: ["Joint injections", "Physical therapy", "Medication", "Surgery"],
+    complications: ["Joint deformity", "Disability", "Chronic pain"],
+    category: "Chronic"
+  }
+];
+
+const categories = ["All", "Chronic", "Acute"];
+---
+
+<BaseLayout 
+  title="Medical Conditions Analytics | Hospital Fees"
+  description="Comprehensive analysis of medical condition costs, treatments, and outcomes"
+>
+  <div class="min-h-screen bg-gray-50">
+    <Navigation client:load />
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-pink-500 mb-8 shadow-lg">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold mb-8 text-gray-900">
+            Medical Conditions Analytics
+          </h1>
+          <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            Comprehensive analysis of medical condition costs, treatments, and outcomes to help patients, providers, and payers make informed decisions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+      <!-- Quick Stats -->
+      <div class="grid md:grid-cols-4 gap-6 mb-12">
+        <div class="bg-white p-6 rounded-lg shadow border text-center">
+          <div class="text-3xl font-bold text-blue-600 mb-2">{conditions.length}</div>
+          <div class="text-sm text-gray-600">Conditions Analyzed</div>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow border text-center">
+          <div class="text-3xl font-bold text-green-600 mb-2">
+            ${Math.round(conditions.reduce((sum, c) => sum + c.averageAnnualCost, 0) / conditions.length).toLocaleString()}
+          </div>
+          <div class="text-sm text-gray-600">Avg Annual Cost</div>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow border text-center">
+          <div class="text-3xl font-bold text-purple-600 mb-2">
+            {conditions.reduce((sum, c) => sum + c.procedures.length, 0)}
+          </div>
+          <div class="text-sm text-gray-600">Treatment Options</div>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow border text-center">
+          <div class="text-3xl font-bold text-red-600 mb-2">
+            {conditions.filter(c => c.category === "Chronic").length}
+          </div>
+          <div class="text-sm text-gray-600">Chronic Conditions</div>
+        </div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="mb-8">
+        <div class="border-b border-gray-200">
+          <nav class="-mb-px flex space-x-8">
+            {categories.map(category => (
+              <button 
+                key={category}
+                class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm"
+              >
+                {category}
+              </button>
+            ))}
+          </nav>
+        </div>
+      </div>
+
+      <!-- Conditions Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        {conditions.map((condition) => (
+          <div key={condition.id} class="bg-white rounded-lg shadow border hover:shadow-lg transition-shadow">
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-semibold text-gray-900">{condition.name}</h3>
+                <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                  condition.category === "Chronic" 
+                    ? "bg-orange-100 text-orange-800" 
+                    : "bg-red-100 text-red-800"
+                }`}>
+                  {condition.category}
+                </span>
+              </div>
+              
+              <p class="text-gray-600 mb-4">{condition.description}</p>
+              
+              <div class="mb-4">
+                <div class="text-2xl font-bold text-blue-600 mb-1">
+                  ${condition.averageAnnualCost.toLocaleString()}
+                </div>
+                <div class="text-sm text-gray-500">Average Annual Cost</div>
+              </div>
+
+              <div class="mb-4">
+                <h4 class="text-sm font-medium text-gray-900 mb-2">Common Procedures:</h4>
+                <div class="flex flex-wrap gap-1">
+                  {condition.procedures.slice(0, 3).map(procedure => (
+                    <span key={procedure} class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-blue-100 text-blue-800">
+                      {procedure}
+                    </span>
+                  ))}
+                  {condition.procedures.length > 3 && (
+                    <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-gray-100 text-gray-800">
+                      +{condition.procedures.length - 3} more
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <h4 class="text-sm font-medium text-gray-900 mb-2">Potential Complications:</h4>
+                <div class="flex flex-wrap gap-1">
+                  {condition.complications.slice(0, 2).map(complication => (
+                    <span key={complication} class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-red-100 text-red-800">
+                      {complication}
+                    </span>
+                  ))}
+                  {condition.complications.length > 2 && (
+                    <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-gray-100 text-gray-800">
+                      +{condition.complications.length - 2} more
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              <button class="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                View Analysis
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Key Insights -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Key Insights</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-white p-6 rounded-lg shadow border">
+            <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+              <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+              </svg>
+              Cost Trends
+            </h3>
+            <p class="text-gray-600 mb-3">
+              Chronic conditions account for 85% of total healthcare spending, with diabetes and heart disease being the most costly long-term conditions.
+            </p>
+            <p class="text-sm text-gray-500">
+              Early intervention can reduce long-term costs by up to 40% for chronic conditions.
+            </p>
+          </div>
+          
+          <div class="bg-white p-6 rounded-lg shadow border">
+            <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+              <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+              </svg>
+              Prevention Benefits
+            </h3>
+            <p class="text-gray-600 mb-3">
+              Preventive care and lifestyle modifications can significantly reduce the incidence and severity of chronic conditions.
+            </p>
+            <p class="text-sm text-gray-500">
+              Every $1 spent on prevention saves an average of $7 in treatment costs.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Call to Action -->
+      <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 text-center">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4">
+          Need Specific Condition Analysis?
+        </h3>
+        <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+          Our team can provide detailed cost analysis and outcome predictions for specific medical conditions. Contact us for custom research and insights.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a 
+            href="/provider-feedback"
+            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            Request Custom Analysis
+          </a>
+          <a 
+            href="/search-procedure"
+            class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            Search Procedures
+          </a>
+          <a 
+            href="/insightalytics"
+            class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            Back to Insightalytics
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <FooterExpanded client:load />
+  </div>
+</BaseLayout>

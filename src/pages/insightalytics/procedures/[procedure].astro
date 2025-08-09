@@ -1,0 +1,391 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+const { procedure } = Astro.params;
+
+// Mock procedure data - in production, fetch from CMS
+const procedureData = {
+  slug: procedure as string,
+  name: procedure === "colonoscopy" ? "Colonoscopy" : "MRI Brain Scan",
+  code: procedure === "colonoscopy" ? "45378" : "70553",
+  description: procedure === "colonoscopy" 
+    ? "A procedure to examine the inside of the colon and rectum using a flexible tube with a camera"
+    : "Magnetic resonance imaging of the brain to detect abnormalities, tumors, or other conditions",
+  category: procedure === "colonoscopy" ? "Gastroenterology" : "Radiology",
+  averageCost: procedure === "colonoscopy" ? 1850 : 3200,
+  priceRange: {
+    min: procedure === "colonoscopy" ? 800 : 1500,
+    max: procedure === "colonoscopy" ? 4500 : 8000,
+  },
+  averageTime: procedure === "colonoscopy" ? "30-60 minutes" : "45-90 minutes",
+  frequency: "Common",
+  riskLevel: "Low",
+  lastUpdated: "March 2024",
+};
+
+// Mock regional data
+const regionalData = [
+  {
+    region: "San Francisco Bay Area",
+    hospitals: [
+      {
+        name: "UCSF Medical Center",
+        city: "San Francisco",
+        state: "CA",
+        price: procedure === "colonoscopy" ? 2850 : 4200,
+        quality: 5,
+        volume: "High",
+      },
+      {
+        name: "Stanford Hospital", 
+        city: "Palo Alto",
+        state: "CA",
+        price: procedure === "colonoscopy" ? 3200 : 4800,
+        quality: 5,
+        volume: "High",
+      },
+      {
+        name: "Kaiser Oakland",
+        city: "Oakland",
+        state: "CA",
+        price: procedure === "colonoscopy" ? 1950 : 2900,
+        quality: 4,
+        volume: "High", 
+      },
+    ],
+    averageCost: procedure === "colonoscopy" ? 2670 : 3970,
+    medianCost: procedure === "colonoscopy" ? 2850 : 4200,
+  },
+  {
+    region: "Los Angeles",
+    hospitals: [
+      {
+        name: "Cedars-Sinai Medical Center",
+        city: "Los Angeles", 
+        state: "CA",
+        price: procedure === "colonoscopy" ? 3500 : 5200,
+        quality: 5,
+        volume: "High",
+      },
+      {
+        name: "UCLA Medical Center",
+        city: "Los Angeles",
+        state: "CA", 
+        price: procedure === "colonoscopy" ? 3100 : 4600,
+        quality: 5,
+        volume: "High",
+      },
+      {
+        name: "Kaiser Los Angeles",
+        city: "Los Angeles",
+        state: "CA",
+        price: procedure === "colonoscopy" ? 2200 : 3100,
+        quality: 4,
+        volume: "High",
+      },
+    ],
+    averageCost: procedure === "colonoscopy" ? 2930 : 4300,
+    medianCost: procedure === "colonoscopy" ? 3100 : 4600,
+  },
+];
+
+// Mock insurance data
+const insuranceData = [
+  {
+    name: "Kaiser Permanente",
+    averageCoverage: 85,
+    copay: procedure === "colonoscopy" ? 200 : 350,
+    deductible: 1500,
+    outOfPocket: procedure === "colonoscopy" ? 400 : 650,
+  },
+  {
+    name: "Blue Cross Blue Shield",
+    averageCoverage: 80,
+    copay: procedure === "colonoscopy" ? 250 : 400,
+    deductible: 2000,
+    outOfPocket: procedure === "colonoscopy" ? 520 : 800,
+  },
+  {
+    name: "Aetna",
+    averageCoverage: 75,
+    copay: procedure === "colonoscopy" ? 300 : 450,
+    deductible: 2500,
+    outOfPocket: procedure === "colonoscopy" ? 650 : 950,
+  },
+];
+
+// Mock trends data
+const trendsData = {
+  yearOverYear: procedure === "colonoscopy" ? 8.5 : 12.2,
+  volume: procedure === "colonoscopy" ? 15 : -5,
+  qualityImprovement: 3.2,
+};
+---
+
+<BaseLayout 
+  title={`${procedureData.name} - Procedure Analytics | Hospital Fees`}
+  description={`Comprehensive pricing and quality analytics for ${procedureData.name} procedures. Compare costs across hospitals and insurance plans.`}
+>
+  <div class="min-h-screen bg-gray-50">
+    <!-- Hero Section -->
+    <div class="bg-white border-b">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="mb-6">
+          <nav class="flex items-center space-x-2 text-sm text-gray-600">
+            <a href="/insightalytics" class="hover:text-blue-600">Insightalytics</a>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+            <a href="/insightalytics/procedures" class="hover:text-blue-600">Procedures</a>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+            <span class="text-gray-900">{procedureData.name}</span>
+          </nav>
+        </div>
+
+        <div class="flex flex-col lg:flex-row items-start gap-8">
+          <div class="flex-1">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center">
+                <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+              </div>
+              <div>
+                <h1 class="text-3xl font-bold text-gray-900">{procedureData.name}</h1>
+                <div class="flex items-center gap-2 mt-1">
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                    {procedureData.code}
+                  </span>
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                    {procedureData.category}
+                  </span>
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                    {procedureData.frequency}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-lg text-gray-600 mb-6">{procedureData.description}</p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+              <div class="text-center p-4 bg-gray-50 rounded-lg">
+                <div class="text-2xl font-bold text-gray-900">${procedureData.averageCost.toLocaleString()}</div>
+                <div class="text-sm text-gray-600">Average Cost</div>
+              </div>
+              <div class="text-center p-4 bg-gray-50 rounded-lg">
+                <div class="text-2xl font-bold text-gray-900">{procedureData.averageTime}</div>
+                <div class="text-sm text-gray-600">Duration</div>
+              </div>
+              <div class="text-center p-4 bg-gray-50 rounded-lg">
+                <div class="text-2xl font-bold text-gray-900">{procedureData.riskLevel}</div>
+                <div class="text-sm text-gray-600">Risk Level</div>
+              </div>
+              <div class="text-center p-4 bg-gray-50 rounded-lg">
+                <div class="text-2xl font-bold text-gray-900">
+                  ${procedureData.priceRange.min.toLocaleString()} - ${procedureData.priceRange.max.toLocaleString()}
+                </div>
+                <div class="text-sm text-gray-600">Price Range</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full lg:w-80">
+            <div class="bg-white p-6 rounded-lg shadow">
+              <h3 class="text-lg font-semibold mb-4">Quick Actions</h3>
+              <div class="space-y-3">
+                <a 
+                  href="/search-procedure"
+                  class="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                >
+                  Search This Procedure
+                </a>
+                <a 
+                  href="/tools/cost-calculator"
+                  class="w-full inline-flex items-center justify-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                >
+                  Cost Calculator
+                </a>
+                <a 
+                  href="/explore/location"
+                  class="w-full inline-flex items-center justify-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                >
+                  Explore by Location
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <!-- Trends Section -->
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Market Trends</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-lg font-semibold mb-2">Price Change</h3>
+            <div class="text-3xl font-bold text-red-600 mb-2">+{trendsData.yearOverYear}%</div>
+            <p class="text-sm text-gray-600">Year-over-year increase</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-lg font-semibold mb-2">Volume Change</h3>
+            <div class={`text-3xl font-bold mb-2 ${trendsData.volume > 0 ? 'text-green-600' : 'text-red-600'}`}>
+              {trendsData.volume > 0 ? '+' : ''}{trendsData.volume}%
+            </div>
+            <p class="text-sm text-gray-600">Procedure volume change</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-lg font-semibold mb-2">Quality Improvement</h3>
+            <div class="text-3xl font-bold text-green-600 mb-2">+{trendsData.qualityImprovement}%</div>
+            <p class="text-sm text-gray-600">Quality scores improved</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Regional Analysis -->
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Regional Analysis</h2>
+        <div class="space-y-6">
+          {regionalData.map((region, idx) => (
+            <div key={idx} class="bg-white p-6 rounded-lg shadow">
+              <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-semibold">{region.region}</h3>
+                <div class="text-right">
+                  <div class="text-lg font-bold text-blue-600">Avg: ${region.averageCost.toLocaleString()}</div>
+                  <div class="text-sm text-gray-600">Median: ${region.medianCost.toLocaleString()}</div>
+                </div>
+              </div>
+              
+              <div class="space-y-3">
+                {region.hospitals.map((hospital, hospitalIdx) => (
+                  <div key={hospitalIdx} class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div>
+                      <div class="font-medium">{hospital.name}</div>
+                      <div class="text-sm text-gray-600 flex items-center gap-2">
+                        {hospital.city}, {hospital.state}
+                        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800">
+                          {hospital.volume} Volume
+                        </span>
+                      </div>
+                    </div>
+                    <div class="text-right">
+                      <div class="text-lg font-bold text-gray-900">${hospital.price.toLocaleString()}</div>
+                      <div class="text-sm text-yellow-600">{hospital.quality}★ Quality</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Insurance Coverage -->
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Insurance Coverage Analysis</h2>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <div class="space-y-4">
+            {insuranceData.map((insurance, idx) => (
+              <div key={idx} class="p-4 border rounded-lg">
+                <div class="flex justify-between items-center mb-3">
+                  <h4 class="text-lg font-semibold">{insurance.name}</h4>
+                  <div class="text-lg font-bold text-green-600">{insurance.averageCoverage}% Coverage</div>
+                </div>
+                
+                <div class="grid grid-cols-3 gap-4 text-sm">
+                  <div class="text-center">
+                    <div class="font-semibold">${insurance.copay}</div>
+                    <div class="text-gray-600">Typical Copay</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="font-semibold">${insurance.deductible.toLocaleString()}</div>
+                    <div class="text-gray-600">Deductible</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="font-semibold">${insurance.outOfPocket}</div>
+                    <div class="text-gray-600">Avg Out-of-Pocket</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Insights -->
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Key Insights</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-lg font-semibold mb-3 flex items-center gap-2">
+              <svg class="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+              </svg>
+              Price Variations
+            </h3>
+            <p class="text-sm text-gray-600 mb-2">
+              {procedureData.name} costs vary significantly across hospitals, with a {((procedureData.priceRange.max - procedureData.priceRange.min) / procedureData.priceRange.min * 100).toFixed(0)}% difference between the highest and lowest prices.
+            </p>
+            <p class="text-sm text-gray-600">
+              Kaiser facilities consistently offer lower prices, while academic medical centers tend to charge premium rates.
+            </p>
+          </div>
+          
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-lg font-semibold mb-3 flex items-center gap-2">
+              <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+              </svg>
+              Quality vs Cost
+            </h3>
+            <p class="text-sm text-gray-600 mb-2">
+              Higher prices don't always correlate with better quality. Some hospitals offer excellent outcomes at competitive prices.
+            </p>
+            <p class="text-sm text-gray-600">
+              Consider both quality ratings and costs when choosing a provider for your {procedureData.name}.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Procedures -->
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Related Procedures</h2>
+        <div class="grid md:grid-cols-3 gap-4">
+          <a href="/insightalytics/procedures/upper-endoscopy" class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow">
+            <h4 class="font-semibold mb-2">Upper Endoscopy</h4>
+            <p class="text-sm text-gray-600">Examination of the upper digestive tract</p>
+            <div class="text-sm font-medium text-blue-600 mt-2">Avg: $1,200</div>
+          </a>
+          <a href="/insightalytics/procedures/ct-scan" class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow">
+            <h4 class="font-semibold mb-2">CT Scan</h4>
+            <p class="text-sm text-gray-600">Cross-sectional imaging procedure</p>
+            <div class="text-sm font-medium text-blue-600 mt-2">Avg: $1,800</div>
+          </a>
+          <a href="/insightalytics/procedures/ultrasound" class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow">
+            <h4 class="font-semibold mb-2">Ultrasound</h4>
+            <p class="text-sm text-gray-600">Non-invasive imaging using sound waves</p>
+            <div class="text-sm font-medium text-blue-600 mt-2">Avg: $600</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Disclaimer -->
+    <div class="py-8 bg-white border-t">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+          <p class="text-sm text-yellow-800">
+            <strong>Data Disclaimer:</strong> Pricing and analytics data is based on publicly available sources and may not reflect current rates. 
+            Actual costs may vary based on individual circumstances, insurance coverage, and specific medical conditions. 
+            Always consult with healthcare providers for accurate pricing information. Last updated: {procedureData.lastUpdated}.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

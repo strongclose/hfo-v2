@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/BaseLayout.astro';
+import { Navigation } from '../components/Navigation';
+import { FooterExpanded } from '../components/homepage/FooterExpanded';
+---
+
+<Layout title="Accessibility - HealthFees.org">
+  <div class="min-h-screen bg-white">
+    <Navigation client:load />
+    
+    <main class="py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl font-bold text-gray-900 mb-8">Accessibility Statement</h1>
+        
+        <div class="prose prose-lg max-w-none">
+          <p class="text-xl text-gray-700 leading-relaxed mb-8">
+            HealthFees.org is committed to ensuring our platform is accessible to all users, 
+            including those with disabilities.
+          </p>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Our Commitment</h2>
+          <p>
+            We strive to conform to the Web Content Accessibility Guidelines (WCAG) 2.1 
+            at the AA level. These guidelines help make web content more accessible for 
+            people with disabilities.
+          </p>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Accessibility Features</h2>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Keyboard navigation support</li>
+            <li>Screen reader compatibility</li>
+            <li>High contrast color schemes</li>
+            <li>Scalable text and responsive design</li>
+            <li>Alternative text for images</li>
+            <li>Clear headings and page structure</li>
+          </ul>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Feedback</h2>
+          <p>
+            If you encounter any accessibility barriers on our site, please 
+            <a href="/contact" class="text-blue-600 hover:text-blue-800">contact us</a> 
+            so we can address them promptly.
+          </p>
+        </div>
+      </div>
+    </main>
+    
+    <FooterExpanded client:load />
+  </div>
+</Layout>

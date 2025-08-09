@@ -1,0 +1,182 @@
+---
+import Layout from '../../layouts/BaseLayout.astro';
+import { Navigation } from '../../components/Navigation';
+import { FooterExpanded } from '../../components/homepage/FooterExpanded';
+---
+
+<Layout title="Explore by Insurance - HealthFees.org">
+  <div class="min-h-screen bg-white">
+    <Navigation client:load />
+    
+    <main class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl font-bold text-gray-900 mb-4">Explore Healthcare by Insurance Plan</h1>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            See how different insurance plans affect your healthcare costs and coverage options.
+          </p>
+        </div>
+        
+        <div class="bg-blue-50 rounded-lg p-8 mb-8">
+          <h2 class="text-2xl font-semibold mb-4">Insurance Plan Comparison</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Insurance Company</label>
+              <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option>Select Insurer</option>
+                <option>Aetna</option>
+                <option>Anthem Blue Cross Blue Shield</option>
+                <option>Cigna</option>
+                <option>Humana</option>
+                <option>Kaiser Permanente</option>
+                <option>UnitedHealthcare</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Plan Type</label>
+              <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option>All Plan Types</option>
+                <option>HMO (Health Maintenance Organization)</option>
+                <option>PPO (Preferred Provider Organization)</option>
+                <option>EPO (Exclusive Provider Organization)</option>
+                <option>POS (Point of Service)</option>
+                <option>HDHP (High Deductible Health Plan)</option>
+              </select>
+            </div>
+            <div class="flex items-end">
+              <button class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">
+                Compare Plans
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div class="bg-white border rounded-lg p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <span class="text-blue-600 font-bold text-lg">HMO</span>
+              </div>
+              <h3 class="text-lg font-semibold ml-3">Health Maintenance Organization</h3>
+            </div>
+            <ul class="text-gray-600 text-sm space-y-2">
+              <li>• Lower premiums and costs</li>
+              <li>• Primary care physician required</li>
+              <li>• Referrals needed for specialists</li>
+              <li>• Network restrictions</li>
+            </ul>
+            <a href="#" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">
+              View HMO Plans →
+            </a>
+          </div>
+          
+          <div class="bg-white border rounded-lg p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                <span class="text-green-600 font-bold text-lg">PPO</span>
+              </div>
+              <h3 class="text-lg font-semibold ml-3">Preferred Provider Organization</h3>
+            </div>
+            <ul class="text-gray-600 text-sm space-y-2">
+              <li>• More provider flexibility</li>
+              <li>• No referrals required</li>
+              <li>• Out-of-network coverage</li>
+              <li>• Higher premiums</li>
+            </ul>
+            <a href="#" class="inline-block mt-4 text-green-600 hover:text-green-800 font-medium">
+              View PPO Plans →
+            </a>
+          </div>
+          
+          <div class="bg-white border rounded-lg p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                <span class="text-purple-600 font-bold text-lg">EPO</span>
+              </div>
+              <h3 class="text-lg font-semibold ml-3">Exclusive Provider Organization</h3>
+            </div>
+            <ul class="text-gray-600 text-sm space-y-2">
+              <li>• Network-only coverage</li>
+              <li>• No referrals needed</li>
+              <li>• Lower costs than PPO</li>
+              <li>• No out-of-network benefits</li>
+            </ul>
+            <a href="#" class="inline-block mt-4 text-purple-600 hover:text-purple-800 font-medium">
+              View EPO Plans →
+            </a>
+          </div>
+          
+          <div class="bg-white border rounded-lg p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                <span class="text-orange-600 font-bold text-lg">HDHP</span>
+              </div>
+              <h3 class="text-lg font-semibold ml-3">High Deductible Health Plan</h3>
+            </div>
+            <ul class="text-gray-600 text-sm space-y-2">
+              <li>• Low monthly premiums</li>
+              <li>• High deductibles</li>
+              <li>• HSA eligible</li>
+              <li>• Catastrophic coverage</li>
+            </ul>
+            <a href="#" class="inline-block mt-4 text-orange-600 hover:text-orange-800 font-medium">
+              View HDHP Plans →
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-gray-50 rounded-lg p-8 mb-8">
+          <h2 class="text-2xl font-semibold mb-6">Sample Cost Comparison by Insurance Type</h2>
+          <div class="overflow-x-auto">
+            <table class="w-full bg-white rounded-lg border">
+              <thead class="bg-gray-100">
+                <tr>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Procedure</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">HMO</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">PPO</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">EPO</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">HDHP</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200">
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900">MRI Brain Scan</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$150 copay</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">20% coinsurance</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$200 copay</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Full deductible</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900">Primary Care Visit</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$25 copay</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$35 copay</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$30 copay</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Full deductible</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900">Emergency Room</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$250 copay</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$300 copay</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$275 copay</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Full deductible</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+          <h3 class="text-lg font-semibold text-yellow-900 mb-2">Important Considerations</h3>
+          <ul class="text-yellow-800 space-y-2">
+            <li>• Actual costs vary by specific plan and provider network</li>
+            <li>• Deductibles, copays, and coinsurance amounts differ by plan</li>
+            <li>• Some services may be covered differently or require prior authorization</li>
+            <li>• Always verify coverage and costs with your insurance company before receiving care</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    
+    <FooterExpanded client:load />
+  </div>
+</Layout>
