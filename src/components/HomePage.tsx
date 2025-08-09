@@ -1248,7 +1248,7 @@ export default function HomePage() {
                 </h3>
 
                 {/* Donut Chart */}
-                <div className="p-8 rounded-2xl bg-white/80 backdrop-blur-sm border border-white/50 shadow-lg mb-6">
+                <div className="p-8 rounded-2xl bg-white border border-gray-200 shadow-lg mb-6">
                   <div className="flex items-center justify-center mb-6">
                     <div className="relative w-48 h-48">
                       <svg className="w-48 h-48 transform -rotate-90" viewBox="0 0 100 100">
@@ -1267,7 +1267,7 @@ export default function HomePage() {
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="text-center">
                           <div className="text-2xl font-bold text-gray-900">6,400+</div>
-                          <div className="text-sm text-gray-600">Entities Scored</div>
+                          <div className="text-sm text-gray-700 font-medium">Entities Scored</div>
                         </div>
                       </div>
                     </div>
@@ -1278,21 +1278,21 @@ export default function HomePage() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <div className="w-4 h-4 rounded-full bg-teal-500"></div>
-                        <span className="text-gray-800 font-medium">Fully Compliant</span>
+                        <span className="text-gray-900 font-medium">Fully Compliant</span>
                       </div>
                       <span className="text-gray-900 font-bold">45%</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <div className="w-4 h-4 rounded-full bg-blue-500"></div>
-                        <span className="text-gray-800 font-medium">Partially Compliant</span>
+                        <span className="text-gray-900 font-medium">Partially Compliant</span>
                       </div>
                       <span className="text-gray-900 font-bold">35%</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <div className="w-4 h-4 rounded-full bg-gray-400"></div>
-                        <span className="text-gray-800 font-medium">Non Compliant</span>
+                        <span className="text-gray-900 font-medium">Non Compliant</span>
                       </div>
                       <span className="text-gray-900 font-bold">20%</span>
                     </div>
@@ -1300,12 +1300,12 @@ export default function HomePage() {
                 </div>
 
                 {/* Support Box */}
-                <div className="p-6 rounded-2xl bg-gradient-to-br from-teal-50 to-blue-50 border border-teal-200 mb-6">
+                <div className="p-6 rounded-2xl bg-white border border-teal-200 shadow-lg mb-6">
                   <h4 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
                     <Lightbulb className="w-5 h-5 text-teal-600" />
                     Our Support
                   </h4>
-                  <p className="text-gray-800 leading-relaxed mb-4">
+                  <p className="text-gray-900 leading-relaxed mb-4 font-medium">
                     We provide guidance, tools, and remediation services to help all entities reach 100% compliance.
                   </p>
                   <Button
