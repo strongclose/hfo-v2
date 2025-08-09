@@ -606,7 +606,7 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-end mb-8">
                           <div className="relative">
-                            <div className="w-24 h-24 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300" style={{ background: 'linear-gradient(to bottom right, #1e40af, #0891b2)' }}>
+                            <div className="w-24 h-24 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300 hf-gradient-primary">
                               <Database className="w-12 h-12 text-white fill-current" />
                             </div>
                           </div>
