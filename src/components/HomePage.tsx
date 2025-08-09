@@ -872,13 +872,6 @@ export default function HomePage() {
                             <p className="text-sm text-emerald-700 mt-1">for patients who compare prices before care</p>
                           </div>
 
-                          <div className="flex justify-center lg:justify-end">
-                            <PriceComparisonCTA
-                              variant="primary"
-                            >
-                              Start Comparing Now
-                            </PriceComparisonCTA>
-                          </div>
                         </div>
                       </div>
                     </div>
