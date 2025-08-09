@@ -494,7 +494,6 @@ export default function HomePage() {
                           <Brain className="w-5 h-5 text-purple-600" />
                           Current Monthly Data Processing Status
                         </h4>
-                        <p className="text-sm text-gray-600 mb-6">The percentage shows how far along we are in preparing this month's update.</p>
 
                         <div className="space-y-5">
                           {monthlyProcessingStatus.map((stage, idx) => (
