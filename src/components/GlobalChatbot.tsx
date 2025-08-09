@@ -311,7 +311,7 @@ export function GlobalChatbot({
                   !chatInput.trim() || isTyping ? "grayscale(20%)" : "none",
               }}
             >
-              <span className="ask-ai-gradient-text">Ask AI</span>
+              Ask AI
             </Button>
           </div>
         </div>
