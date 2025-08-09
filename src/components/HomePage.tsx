@@ -517,14 +517,14 @@ export default function HomePage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-blue-500/25 hf-gradient-accent">
                 <Workflow className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 tracking-tight">
+              <h2 className="hf-heading-h2 mb-6 hf-text-primary tracking-tight">
                 How It
                 <span className="hf-text-gradient-primary">
                   {" "}
                   Works
                 </span>
               </h2>
-              <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              <p className="hf-body-large hf-text-secondary max-w-3xl mx-auto">
                 From scattered government files to instant price comparisons — here's how we make healthcare pricing transparent.
               </p>
             </div>
@@ -899,14 +899,14 @@ export default function HomePage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-blue-500/25 hf-gradient-primary">
                 <Target className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 tracking-tight">
+              <h2 className="hf-heading-h2 mb-6 hf-text-primary tracking-tight">
                 Explore
                 <span className="hf-text-gradient-primary">
                   {" "}
                   HealthFees.org
                 </span>
               </h2>
-              <p className="text-xl md:text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed mb-8">
+              <p className="hf-body-large hf-text-primary max-w-4xl mx-auto mb-8">
                 From quick price comparisons to in-depth market analysis, we have tools for every healthcare stakeholder.
               </p>
             </div>
@@ -964,7 +964,7 @@ export default function HomePage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-emerald-500/25 hf-gradient-accent">
                 <Users className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white tracking-tight">
+              <h2 className="hf-heading-h2 mb-6 text-white tracking-tight">
                 Who Uses
                 <span className="text-white">
                   {" "}
@@ -1101,14 +1101,14 @@ export default function HomePage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-teal-500/25 hf-gradient-accent">
                 <Shield className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 tracking-tight">
+              <h2 className="hf-heading-h2 mb-6 hf-text-primary tracking-tight">
                 Transparency Scoring
                 <span className="text-teal-700">
                   {" "}
                   & Compliance Support
                 </span>
               </h2>
-              <p className="text-xl md:text-2xl text-gray-900 max-w-5xl mx-auto leading-relaxed font-medium">
+              <p className="hf-body-large hf-text-primary max-w-5xl mx-auto font-medium">
                 Recognizing leaders and supporting progress — we measure every provider and payer's transparency and help them achieve full compliance.
               </p>
             </div>
@@ -1344,7 +1344,7 @@ export default function HomePage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-rose-500/25 hf-gradient-accent">
                 <BarChart3 className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 tracking-tight">
+              <h2 className="hf-heading-h2 mb-6 hf-text-primary tracking-tight">
                 What the Data
                 <span className="hf-text-gradient-accent">
                   {" "}
