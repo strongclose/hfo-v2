@@ -550,7 +550,7 @@ export default function HomePage() {
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-white tracking-tight">
                 Join the Movement for
-                <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                <span className="text-white">
                   {" "}
                   Healthcare Transparency
                 </span>
