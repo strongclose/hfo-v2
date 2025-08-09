@@ -1301,8 +1301,8 @@ export default function HomePage() {
 
                 {/* Support Box */}
                 <div className="p-6 rounded-2xl bg-gray-50 border-2 border-teal-300 shadow-lg mb-6">
-                  <h4 className="text-xl font-black text-gray-900 mb-3 flex items-center gap-2">
-                    <Lightbulb className="w-6 h-6 text-teal-600" />
+                  <h4 className="text-base font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                    <Lightbulb className="w-5 h-5 text-teal-600" />
                     Our Support
                   </h4>
                   <p className="text-gray-900 leading-relaxed mb-4 font-bold text-lg">
