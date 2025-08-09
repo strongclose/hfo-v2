@@ -927,13 +927,7 @@ export default function HomePage() {
                 <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
                   Join thousands of patients who've saved money by comparing healthcare prices before their procedures.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <PriceComparisonCTA
-                    size="lg"
-                    variant="primary"
-                  >
-                    Compare Prices Now
-                  </PriceComparisonCTA>
+                <div className="flex justify-center">
                   <Button
                     variant="secondary"
                     size="lg"
