@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/BaseLayout.astro';
+import { Navigation } from '../components/Navigation';
+import { FooterExpanded } from '../components/homepage/FooterExpanded';
+---
+
+<Layout title="Disclaimer - HealthFees.org">
+  <div class="min-h-screen bg-white">
+    <Navigation client:load />
+    
+    <main class="py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl font-bold text-gray-900 mb-8">Disclaimer</h1>
+        
+        <div class="prose prose-lg max-w-none">
+          <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-8">
+            <h2 class="text-xl font-semibold text-yellow-900 mb-2">Important Notice</h2>
+            <p class="text-yellow-800">
+              The information provided on HealthFees.org is for informational purposes only 
+              and should not be considered as medical or financial advice.
+            </p>
+          </div>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Medical Information</h2>
+          <p>
+            HealthFees.org does not provide medical advice, diagnosis, or treatment. 
+            Always consult with qualified healthcare professionals regarding medical 
+            conditions and treatment options.
+          </p>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Pricing Information</h2>
+          <p>
+            Healthcare pricing information is provided for general informational purposes. 
+            Actual costs may vary based on your specific insurance plan, deductibles, 
+            geographic location, and individual medical circumstances.
+          </p>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">Data Accuracy</h2>
+          <p>
+            While we strive to provide accurate and up-to-date information, healthcare 
+            pricing can change frequently. Always verify pricing information directly 
+            with healthcare providers before making treatment decisions.
+          </p>
+          
+          <h2 class="text-2xl font-semibold mt-8 mb-4">No Warranty</h2>
+          <p>
+            HealthFees.org makes no warranties, expressed or implied, regarding the 
+            accuracy, reliability, or completeness of the information provided on this site.
+          </p>
+        </div>
+      </div>
+    </main>
+    
+    <FooterExpanded client:load />
+  </div>
+</Layout>
