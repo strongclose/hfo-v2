@@ -359,6 +359,77 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  /* Standardized Typography Classes */
+  .hf-heading-h1 {
+    font-size: var(--heading-h1);
+    line-height: var(--leading-tight);
+    font-weight: var(--font-weight-extrabold);
+    letter-spacing: -0.02em;
+  }
+
+  .hf-heading-h2 {
+    font-size: var(--heading-h2);
+    line-height: var(--leading-tight);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -0.01em;
+  }
+
+  .hf-heading-h3 {
+    font-size: var(--heading-h3);
+    line-height: var(--leading-snug);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .hf-heading-h4 {
+    font-size: var(--heading-h4);
+    line-height: var(--leading-snug);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .hf-heading-h5 {
+    font-size: var(--heading-h5);
+    line-height: var(--leading-normal);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .hf-heading-h6 {
+    font-size: var(--heading-h6);
+    line-height: var(--leading-normal);
+    font-weight: var(--font-weight-medium);
+  }
+
+  /* Body Text Utilities */
+  .hf-body-large {
+    font-size: var(--text-xl);
+    line-height: var(--leading-relaxed);
+    font-weight: var(--font-weight-normal);
+  }
+
+  .hf-body-medium {
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    font-weight: var(--font-weight-normal);
+  }
+
+  .hf-body-base {
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    font-weight: var(--font-weight-normal);
+  }
+
+  /* Enhanced Text Contrast */
+  .hf-text-primary {
+    color: var(--hf-gray-900);
+  }
+
+  .hf-text-secondary {
+    color: var(--hf-gray-700);
+  }
+
+  .hf-text-muted {
+    color: var(--hf-gray-600);
+  }
   .sparkle-icon {
     animation: pulse 2s infinite;
   }
