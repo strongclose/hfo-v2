@@ -1,0 +1,418 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.tsx';
+import FooterExpanded from '../../components/homepage/FooterExpanded.tsx';
+
+// Mock procedures data
+const featuredProcedures = [
+  {
+    id: "mri-brain-scan",
+    name: "MRI Brain Scan",
+    code: "70553",
+    category: "Imaging",
+    averageCost: 3200,
+    priceRange: { min: 1500, max: 8000 },
+    frequency: "Common",
+    description: "Magnetic resonance imaging of the brain to detect abnormalities, tumors, or other conditions"
+  },
+  {
+    id: "total-knee-replacement",
+    name: "Total Knee Replacement",
+    code: "27447",
+    category: "Surgery",
+    averageCost: 35000,
+    priceRange: { min: 20000, max: 65000 },
+    frequency: "Common",
+    description: "Surgical procedure to replace damaged knee joint with artificial components"
+  },
+  {
+    id: "colonoscopy",
+    name: "Colonoscopy",
+    code: "45378",
+    category: "Gastroenterology",
+    averageCost: 1850,
+    priceRange: { min: 800, max: 4500 },
+    frequency: "Common",
+    description: "Endoscopic examination of the colon and rectum for screening or diagnostic purposes"
+  },
+  {
+    id: "emergency-room-visit",
+    name: "Emergency Room Visit",
+    code: "99284",
+    category: "Emergency",
+    averageCost: 2400,
+    priceRange: { min: 800, max: 12000 },
+    frequency: "Common",
+    description: "Emergency department evaluation and treatment for urgent medical conditions"
+  }
+];
+
+const allProcedures = [
+  ...featuredProcedures,
+  {
+    id: "ct-scan-chest",
+    name: "CT Scan - Chest",
+    code: "71260",
+    category: "Imaging",
+    averageCost: 1800,
+    priceRange: { min: 900, max: 4200 },
+    frequency: "Common",
+    description: "Computed tomography scan of the chest area"
+  },
+  {
+    id: "cardiac-catheterization",
+    name: "Cardiac Catheterization",
+    code: "93458",
+    category: "Cardiology",
+    averageCost: 12500,
+    priceRange: { min: 8000, max: 25000 },
+    frequency: "Moderate",
+    description: "Invasive procedure to examine heart function and blood vessels"
+  },
+  {
+    id: "hip-replacement",
+    name: "Hip Replacement",
+    code: "27130",
+    category: "Surgery",
+    averageCost: 32000,
+    priceRange: { min: 18000, max: 60000 },
+    frequency: "Common",
+    description: "Surgical replacement of hip joint with prosthetic components"
+  },
+  {
+    id: "mammogram",
+    name: "Mammogram",
+    code: "77067",
+    category: "Imaging",
+    averageCost: 280,
+    priceRange: { min: 150, max: 800 },
+    frequency: "Common",
+    description: "X-ray examination of the breast for cancer screening"
+  }
+];
+
+const categories = ["All", "Imaging", "Surgery", "Cardiology", "Gastroenterology", "Emergency"];
+---
+
+<BaseLayout 
+  title="Procedure Analytics | Hospital Fees"
+  description="Comprehensive procedure cost analysis and market insights for healthcare professionals"
+>
+  <div class="min-h-screen bg-gray-50">
+    <Navigation client:load />
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-500 mb-8 shadow-lg">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold mb-8 text-gray-900">
+            Procedure Analytics
+          </h1>
+          <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            Comprehensive procedure cost analysis and market insights for healthcare professionals, patients, and researchers.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+      <!-- Quick Stats -->
+      <div class="grid md:grid-cols-4 gap-6 mb-12">
+        <div class="bg-white p-6 rounded-lg shadow border text-center">
+          <div class="text-3xl font-bold text-blue-600 mb-2">{allProcedures.length}+</div>
+          <div class="text-sm text-gray-600">Procedures Analyzed</div>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow border text-center">
+          <div class="text-3xl font-bold text-green-600 mb-2">
+            ${Math.round(allProcedures.reduce((sum, p) => sum + p.averageCost, 0) / allProcedures.length).toLocaleString()}
+          </div>
+          <div class="text-sm text-gray-600">Avg Procedure Cost</div>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow border text-center">
+          <div class="text-3xl font-bold text-purple-600 mb-2">350%</div>
+          <div class="text-sm text-gray-600">Max Price Variation</div>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow border text-center">
+          <div class="text-3xl font-bold text-red-600 mb-2">8.2k</div>
+          <div class="text-sm text-gray-600">Hospitals Covered</div>
+        </div>
+      </div>
+
+      <!-- Featured Procedures -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Featured Procedures</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {featuredProcedures.map((procedure) => (
+            <a 
+              key={procedure.id}
+              href={`/insightalytics/procedures/${procedure.id}`}
+              class="block bg-white rounded-lg shadow border hover:shadow-lg transition-shadow"
+            >
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                    {procedure.category}
+                  </span>
+                  <span class="text-xs text-gray-500">{procedure.code}</span>
+                </div>
+                
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">{procedure.name}</h3>
+                <p class="text-gray-600 text-sm mb-4 line-clamp-2">{procedure.description}</p>
+                
+                <div class="mb-3">
+                  <div class="text-2xl font-bold text-blue-600 mb-1">
+                    ${procedure.averageCost.toLocaleString()}
+                  </div>
+                  <div class="text-xs text-gray-500">
+                    Range: ${procedure.priceRange.min.toLocaleString()} - ${procedure.priceRange.max.toLocaleString()}
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                  <span class={`inline-flex items-center px-2 py-1 rounded text-xs font-medium ${
+                    procedure.frequency === "Common" 
+                      ? "bg-green-100 text-green-800" 
+                      : "bg-yellow-100 text-yellow-800"
+                  }`}>
+                    {procedure.frequency}
+                  </span>
+                  <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="mb-8">
+        <div class="border-b border-gray-200">
+          <nav class="-mb-px flex space-x-8">
+            {categories.map(category => (
+              <button 
+                key={category}
+                class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm"
+              >
+                {category}
+              </button>
+            ))}
+          </nav>
+        </div>
+      </div>
+
+      <!-- All Procedures Grid -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">All Procedures</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {allProcedures.map((procedure) => (
+            <a 
+              key={procedure.id}
+              href={`/insightalytics/procedures/${procedure.id}`}
+              class="block bg-white rounded-lg shadow border hover:shadow-lg transition-shadow"
+            >
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                    {procedure.category}
+                  </span>
+                  <span class="text-xs text-gray-500">{procedure.code}</span>
+                </div>
+                
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">{procedure.name}</h3>
+                <p class="text-gray-600 text-sm mb-4 line-clamp-2">{procedure.description}</p>
+                
+                <div class="mb-3">
+                  <div class="text-xl font-bold text-blue-600 mb-1">
+                    ${procedure.averageCost.toLocaleString()}
+                  </div>
+                  <div class="text-xs text-gray-500">Average Cost</div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                  <span class={`inline-flex items-center px-2 py-1 rounded text-xs font-medium ${
+                    procedure.frequency === "Common" 
+                      ? "bg-green-100 text-green-800" 
+                      : "bg-yellow-100 text-yellow-800"
+                  }`}>
+                    {procedure.frequency}
+                  </span>
+                  <div class="flex items-center text-sm text-gray-500">
+                    <span>View Details</span>
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Analytics Features -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Advanced Analytics Features</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white rounded-lg p-6 shadow border">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Cost Trend Analysis</h3>
+            <p class="text-gray-600">Track how procedure costs change over time and identify emerging pricing patterns.</p>
+          </div>
+
+          <div class="bg-white rounded-lg p-6 shadow border">
+            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Regional Comparisons</h3>
+            <p class="text-gray-600">Compare procedure costs across different geographic regions and markets.</p>
+          </div>
+
+          <div class="bg-white rounded-lg p-6 shadow border">
+            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Quality Correlations</h3>
+            <p class="text-gray-600">Analyze relationships between procedure costs and quality outcomes.</p>
+          </div>
+
+          <div class="bg-white rounded-lg p-6 shadow border">
+            <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Volume Impact</h3>
+            <p class="text-gray-600">Understand how procedure volume affects pricing and hospital efficiency.</p>
+          </div>
+
+          <div class="bg-white rounded-lg p-6 shadow border">
+            <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Payer Analysis</h3>
+            <p class="text-gray-600">Break down costs by insurance type and payment methodologies.</p>
+          </div>
+
+          <div class="bg-white rounded-lg p-6 shadow border">
+            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Outlier Detection</h3>
+            <p class="text-gray-600">Identify unusually high or low pricing that may indicate errors or opportunities.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Related Tools</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <a 
+            href="/insightalytics/conditions"
+            class="bg-white p-4 rounded-lg shadow border hover:shadow-md transition-shadow text-center"
+          >
+            <div class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+              <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 text-sm">Conditions</h3>
+            <p class="text-xs text-gray-600">Medical conditions analysis</p>
+          </a>
+
+          <a 
+            href="/insightalytics/cost-comparisons"
+            class="bg-white p-4 rounded-lg shadow border hover:shadow-md transition-shadow text-center"
+          >
+            <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+              <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 text-sm">Cost Comparisons</h3>
+            <p class="text-xs text-gray-600">Advanced cost analysis</p>
+          </a>
+
+          <a 
+            href="/insightalytics/location-insights"
+            class="bg-white p-4 rounded-lg shadow border hover:shadow-md transition-shadow text-center"
+          >
+            <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+              <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 text-sm">Location Insights</h3>
+            <p class="text-xs text-gray-600">Geographic analysis</p>
+          </a>
+
+          <a 
+            href="/insightalytics/alternative-care"
+            class="bg-white p-4 rounded-lg shadow border hover:shadow-md transition-shadow text-center"
+          >
+            <div class="w-8 h-8 bg-teal-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+              <svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 text-sm">Alternative Care</h3>
+            <p class="text-xs text-gray-600">Holistic healthcare costs</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- Call to Action -->
+      <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 text-center">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4">
+          Need Custom Procedure Analysis?
+        </h3>
+        <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+          Our team can provide detailed cost analysis and market insights for specific procedures or procedure groups. Contact us for custom research.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a 
+            href="/provider-feedback"
+            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            Request Custom Analysis
+          </a>
+          <a 
+            href="/search-procedure"
+            class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            Search Procedures
+          </a>
+          <a 
+            href="/insightalytics"
+            class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            Back to Insightalytics
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <FooterExpanded client:load />
+  </div>
+</BaseLayout>
