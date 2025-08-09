@@ -551,7 +551,7 @@ export default function HomePage() {
         </section>
 
         {/* 3. How It Works Section - COMPLETELY REDESIGNED */}
-        <section className="relative py-32 overflow-hidden bg-white">
+        <section className="relative py-24 overflow-hidden bg-white">
           {/* Subtle background pattern */}
           <div className="absolute inset-0 bg-gradient-to-br from-gray-50/50 via-blue-50/30 to-indigo-50/20"></div>
           <div className="absolute inset-0" style={{
@@ -585,11 +585,11 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="space-y-24 lg:space-y-32">
+              <div className="space-y-20">
                 {/* Step 1: We Collect */}
                 <div className="relative">
                   {/* Timeline Node */}
-                  <div className="hidden lg:block absolute left-1/2 top-24 w-8 h-8 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10" style={{ backgroundColor: '#1e40af' }}>
+                  <div className="hidden lg:block absolute left-1/2 top-20 w-8 h-8 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10" style={{ backgroundColor: '#1e40af' }}>
                   </div>
 
                   {/* Content Grid */}
