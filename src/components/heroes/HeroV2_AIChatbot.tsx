@@ -60,7 +60,7 @@ export function HeroV2_AIChatbot({
       </div>
 
       {/* Main Content - Centered */}
-      <div className="relative z-30 flex flex-col items-center justify-center text-center px-6 max-w-7xl mx-auto">
+      <div className="relative z-30 flex flex-col items-center justify-center min-h-[calc(100vh-96px)] text-center px-6 max-w-7xl mx-auto">
         {/* Headline */}
         <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight max-w-6xl">
           Healthcare Prices Are Now Public.
