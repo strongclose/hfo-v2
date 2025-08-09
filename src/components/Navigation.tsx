@@ -105,7 +105,7 @@ export function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 px-8 py-6 backdrop-blur-md transition-all duration-500 border-b ${
+      className={`fixed top-0 left-0 right-0 z-50 px-8 py-3 backdrop-blur-md transition-all duration-500 border-b ${
         isScrolled ? "border-gray-200/20 bg-white/80" : "border-white/10 bg-white/5"
       }`}
       style={{
@@ -153,7 +153,7 @@ export function Navigation() {
             <span className={isScrolled ? "text-gray-900" : "text-white"}>
               Fees
             </span>
-            <span className={isScrolled ? "text-gray-600" : "text-gray-300"}>
+            <span className="text-teal-400">
               .org
             </span>
           </span>
