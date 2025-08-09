@@ -1025,7 +1025,7 @@ export default function HomePage() {
             </div>
 
             {/* Enhanced Persona Tabs */}
-            <div className="flex flex-wrap justify-center gap-4 mb-16">
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
               {Object.entries(personas).map(([key, persona]) => (
                 <button
                   key={key}
