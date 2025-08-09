@@ -525,7 +525,7 @@ export default function HomePage() {
               
               <div className="mt-8 p-8 rounded-3xl bg-gradient-to-br from-white/80 to-blue-50/80 backdrop-blur-xl border border-white/40 shadow-xl shadow-black/5 max-w-4xl mx-auto">
                 <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'linear-gradient(to bottom right, #3b82f6, #0891b2)' }}>
                     <CheckCircle className="w-6 h-6 text-white" />
                   </div>
                   <div className="text-left">
