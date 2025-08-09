@@ -973,7 +973,7 @@ export default function HomePage() {
               {exploreActionCards.map((card, index) => (
                 <div
                   key={index}
-                  className="group relative cursor-pointer bg-white rounded-2xl p-6 border border-gray-200 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                  className="hf-card group relative cursor-pointer p-6"
                   onClick={() => {
                     if (typeof window !== 'undefined') {
                       window.location.href = card.link;
