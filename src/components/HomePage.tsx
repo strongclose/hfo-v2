@@ -173,7 +173,7 @@ export default function HomePage() {
                     <FileText className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold mb-4 text-white text-center">Federal Requirements</h3>
-                  <p className="text-gray-200 text-center leading-relaxed">
+                  <p className="text-gray-200 text-center leading-relaxed flex-grow">
                     Hospitals must publish machine-readable files with all negotiated rates (
                     <a
                       href="https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-E/part-180"
