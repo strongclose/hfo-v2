@@ -258,7 +258,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 4. Platform Features Section */}
+        {/* 4. Platform Features Section - Interactive Tabbed Interface */}
         <section className="relative py-24 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.08),transparent_50%)] pointer-events-none"></div>
@@ -279,100 +279,146 @@ export default function HomePage() {
               <p className="text-xl md:text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed mb-8">
                 From quick price comparisons to in-depth market analysis, we have tools for every healthcare stakeholder.
               </p>
-              
-              <PriceComparisonCTA 
-                size="lg" 
+
+              <PriceComparisonCTA
+                size="lg"
                 className="px-10 py-4 text-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-2xl shadow-lg mb-16"
               >
                 Start with Price Comparison
               </PriceComparisonCTA>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  icon: Search,
-                  title: "Price Comparison Tool",
-                  desc: "Search any procedure, see real prices from hospitals and insurance plans in your area.",
-                  gradient: "from-blue-500 to-cyan-500",
-                  link: "/search-procedure",
-                  primary: true
-                },
-                {
-                  icon: Brain,
-                  title: "AI Healthcare Assistant",
-                  desc: "Ask natural language questions about healthcare costs and get instant, data-backed answers.",
-                  gradient: "from-purple-600 to-pink-600",
-                  link: "#"
-                },
-                {
-                  icon: BarChart3,
-                  title: "Market Analytics",
-                  desc: "Analyze pricing trends, compare markets, and understand cost variations across regions.",
-                  gradient: "from-emerald-500 to-teal-500",
-                  link: "/insightalytics"
-                },
-                {
-                  icon: Building2,
-                  title: "Provider Directory",
-                  desc: "Find hospitals, clinics, and specialists with transparent pricing and quality metrics.",
-                  gradient: "from-orange-500 to-red-500",
-                  link: "/hospitals"
-                },
-                {
-                  icon: Shield,
-                  title: "Insurance Navigator",
-                  desc: "Compare insurance plans, understand coverage, and find the best value for your needs.",
-                  gradient: "from-indigo-500 to-purple-500",
-                  link: "/insurance"
-                },
-                {
-                  icon: Users,
-                  title: "Compliance Tools",
-                  desc: "Help healthcare organizations meet transparency requirements and benchmark their pricing.",
-                  gradient: "from-yellow-500 to-orange-500",
-                  link: "/who-we-help/hospitals"
-                }
-              ].map((feature, index) => (
-                <div key={index} className="group relative">
-                  <div className="relative p-8 rounded-3xl bg-white backdrop-blur-xl border border-gray-200/50 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105">
-                    <div
-                      className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300"
-                      style={{
-                        background: feature.title === "AI Healthcare Assistant"
-                          ? "linear-gradient(135deg, #9333ea, #db2777)"
-                          : feature.title === "Price Comparison Tool"
-                          ? "linear-gradient(135deg, #3b82f6, #06b6d4)"
-                          : feature.title === "Market Analytics"
-                          ? "linear-gradient(135deg, #10b981, #14b8a6)"
-                          : feature.title === "Provider Directory"
-                          ? "linear-gradient(135deg, #f97316, #ef4444)"
-                          : feature.title === "Insurance Navigator"
-                          ? "linear-gradient(135deg, #6366f1, #a855f7)"
-                          : "linear-gradient(135deg, #eab308, #f97316)"
-                      }}
-                    >
-                      <feature.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-4 text-gray-900 text-center group-hover:text-blue-600 transition-colors duration-300">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-700 text-center leading-relaxed mb-6">
-                      {feature.desc}
-                    </p>
-                    <div className="text-center">
-                      <Button
-                        onClick={() => window.location.href = feature.link}
-                        variant={feature.primary ? "primary" : "outline"}
-                        className={`${feature.primary ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700' : 'border-gray-300 text-gray-700 hover:bg-gray-50'} transition-all duration-300 hover:scale-105`}
+            {/* Tab Categories */}
+            <div className="mb-12">
+              <div className="flex flex-wrap justify-center gap-4 mb-8">
+                {[
+                  { id: 'patients', label: 'For Patients', active: true },
+                  { id: 'professionals', label: 'For Professionals', active: false },
+                  { id: 'organizations', label: 'For Organizations', active: false }
+                ].map(tab => (
+                  <button
+                    key={tab.id}
+                    className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                      tab.active
+                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                        : 'bg-white text-gray-600 border border-gray-300 hover:border-blue-300 hover:text-blue-600'
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Tab Content - Patients (Default Active) */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {[
+                  {
+                    icon: Search,
+                    title: "Price Comparison Tool",
+                    desc: "Search any procedure, see real prices from hospitals and insurance plans in your area.",
+                    detail: "Compare costs across providers, insurance plans, and payment options to find the best deal.",
+                    link: "/search-procedure",
+                    featured: true
+                  },
+                  {
+                    icon: Brain,
+                    title: "AI Healthcare Assistant",
+                    desc: "Ask natural language questions about healthcare costs and get instant, data-backed answers.",
+                    detail: "Simply ask 'What does an MRI cost in Boston?' and get real pricing data immediately.",
+                    link: "#"
+                  },
+                  {
+                    icon: Calculator,
+                    title: "Cost Calculator",
+                    desc: "Estimate your total out-of-pocket costs including deductibles, copays, and coinsurance.",
+                    detail: "Input your insurance details and get personalized cost estimates for any procedure.",
+                    link: "/calculator"
+                  },
+                  {
+                    icon: Map,
+                    title: "Provider Finder",
+                    desc: "Find nearby hospitals and clinics with quality ratings and transparent pricing.",
+                    detail: "Filter by distance, specialty, quality scores, and price ranges to find the right provider.",
+                    link: "/hospitals"
+                  },
+                  {
+                    icon: Shield,
+                    title: "Insurance Guide",
+                    desc: "Understand your coverage and find ways to maximize your healthcare benefits.",
+                    detail: "Learn about in-network vs out-of-network costs and how to appeal denials.",
+                    link: "/insurance-guide"
+                  },
+                  {
+                    icon: Activity,
+                    title: "Health Savings Tips",
+                    desc: "Discover strategies to reduce healthcare costs without compromising quality of care.",
+                    detail: "From generic medications to preventive care, learn how to save on healthcare.",
+                    link: "/savings-tips"
+                  }
+                ].map((feature, index) => (
+                  <div key={index} className="group relative">
+                    <div className={`relative p-8 rounded-3xl bg-white backdrop-blur-xl border shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 ${
+                      feature.featured
+                        ? 'border-blue-300 ring-2 ring-blue-200'
+                        : 'border-gray-200/50'
+                    }`}>
+                      {feature.featured && (
+                        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                          <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                            Most Popular
+                          </span>
+                        </div>
+                      )}
+
+                      <div
+                        className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300"
+                        style={{
+                          background: feature.title === "AI Healthcare Assistant"
+                            ? "linear-gradient(135deg, #9333ea, #db2777)"
+                            : feature.title === "Price Comparison Tool"
+                            ? "linear-gradient(135deg, #3b82f6, #06b6d4)"
+                            : feature.title === "Cost Calculator"
+                            ? "linear-gradient(135deg, #10b981, #14b8a6)"
+                            : feature.title === "Provider Finder"
+                            ? "linear-gradient(135deg, #f97316, #ef4444)"
+                            : feature.title === "Insurance Guide"
+                            ? "linear-gradient(135deg, #6366f1, #a855f7)"
+                            : "linear-gradient(135deg, #eab308, #f97316)"
+                        }}
                       >
-                        Explore {feature.title.split(' ')[0]}
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
+                        <feature.icon className="w-8 h-8 text-white" />
+                      </div>
+
+                      <h3 className="text-xl font-bold mb-4 text-gray-900 text-center group-hover:text-blue-600 transition-colors duration-300">
+                        {feature.title}
+                      </h3>
+
+                      <p className="text-gray-700 text-center leading-relaxed mb-4">
+                        {feature.desc}
+                      </p>
+
+                      <p className="text-gray-500 text-sm text-center leading-relaxed mb-6">
+                        {feature.detail}
+                      </p>
+
+                      <div className="text-center">
+                        <Button
+                          onClick={() => window.location.href = feature.link}
+                          variant={feature.featured ? "primary" : "outline"}
+                          className={`${
+                            feature.featured
+                              ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700'
+                              : 'border-gray-300 text-gray-700 hover:bg-gray-50'
+                          } transition-all duration-300 hover:scale-105`}
+                        >
+                          {feature.featured ? 'Try Now' : 'Learn More'}
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </Button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
