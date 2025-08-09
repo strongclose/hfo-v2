@@ -1133,7 +1133,7 @@ export default function HomePage() {
                         </div>
                         <div>
                           <div className="flex items-center gap-2">
-                            <span className="font-semibold text-gray-900">Provider A</span>
+                            <span className="hf-heading-h6 hf-text-primary">Provider A</span>
                             <div className="px-3 py-1 rounded-full text-sm font-semibold bg-yellow-200 text-yellow-900">Gold</div>
                           </div>
                           <div className="text-sm text-gray-700 font-medium">Transparency Certified</div>
@@ -1154,7 +1154,7 @@ export default function HomePage() {
                         </div>
                         <div>
                           <div className="flex items-center gap-2">
-                            <span className="font-semibold text-gray-900">Payer B</span>
+                            <span className="hf-heading-h6 hf-text-primary">Payer B</span>
                             <div className="px-3 py-1 rounded-full text-sm font-semibold bg-gray-200 text-gray-900">Silver</div>
                           </div>
                           <div className="text-sm text-gray-700 font-medium">Healthcare Insurer</div>
@@ -1175,7 +1175,7 @@ export default function HomePage() {
                         </div>
                         <div>
                           <div className="flex items-center gap-2">
-                            <span className="font-semibold text-gray-900">Provider C</span>
+                            <span className="hf-heading-h6 hf-text-primary">Provider C</span>
                             <div className="px-3 py-1 rounded-full text-sm font-semibold bg-amber-200 text-amber-900">Bronze</div>
                           </div>
                           <div className="text-sm text-gray-700 font-medium">Regional Medical Center</div>
