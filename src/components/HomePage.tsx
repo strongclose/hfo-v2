@@ -1280,21 +1280,21 @@ export default function HomePage() {
                         <div className="w-5 h-5 rounded-full bg-teal-500"></div>
                         <span className="text-gray-900 font-bold text-lg">Fully Compliant</span>
                       </div>
-                      <span className="text-gray-900 font-black text-xl">45%</span>
+                      <span className="text-gray-900 font-semibold text-lg">45%</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <div className="w-5 h-5 rounded-full bg-blue-500"></div>
-                        <span className="text-gray-900 font-bold text-lg">Partially Compliant</span>
+                        <span className="text-gray-900 font-medium text-base">Partially Compliant</span>
                       </div>
-                      <span className="text-gray-900 font-black text-xl">35%</span>
+                      <span className="text-gray-900 font-semibold text-lg">35%</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <div className="w-5 h-5 rounded-full bg-gray-400"></div>
-                        <span className="text-gray-900 font-bold text-lg">Non Compliant</span>
+                        <span className="text-gray-900 font-medium text-base">Non Compliant</span>
                       </div>
-                      <span className="text-gray-900 font-black text-xl">20%</span>
+                      <span className="text-gray-900 font-semibold text-lg">20%</span>
                     </div>
                   </div>
                 </div>
