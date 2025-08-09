@@ -46,7 +46,6 @@ export default function HomePage() {
   const [currentPage, setCurrentPage] = useState("home");
   const [selectedRadius, setSelectedRadius] = useState<number>(25);
   const [activePersona, setActivePersona] = useState("patients");
-  const [activeStep, setActiveStep] = useState(0);
 
   const handleSearch = (query: string, location?: string) => {
     console.log("Search:", query, location);
@@ -565,7 +564,7 @@ export default function HomePage() {
                           ))}
                         </div>
                         <div className="mt-4 p-3 bg-emerald-100 rounded-xl">
-                          <p className="text-sm text-emerald-800 font-semibold">💡 You could save $2,900 by choosing Hospital A</p>
+                          <p className="text-sm text-emerald-800 font-semibold">��� You could save $2,900 by choosing Hospital A</p>
                         </div>
                       </div>
                     </div>
