@@ -1206,7 +1206,7 @@ export default function HomePage() {
 
               {/* Right Column - Score Distribution Chart */}
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+                <h3 className="hf-heading-h3 hf-text-primary mb-8 flex items-center gap-3">
                   <PieChart className="w-6 h-6 text-blue-600" />
                   Compliance Across the Industry
                 </h3>
