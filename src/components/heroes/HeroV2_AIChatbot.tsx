@@ -60,14 +60,18 @@ export function HeroV2_AIChatbot({
       </div>
 
       {/* Main Content - Centered */}
-      <div className="relative z-30 flex flex-col items-center justify-center min-h-[calc(100vh-120px)] text-center px-6 pt-16">
+      <div className="relative z-30 flex flex-col items-center justify-center text-center px-6 max-w-7xl mx-auto">
         {/* Headline */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight max-w-6xl">
-          Healthcare Prices Are Now Public. Dig In.
+        <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 leading-tight max-w-6xl">
+          Healthcare Prices Are Now Public.
+          <span className="bg-gradient-to-r from-blue-600 via-teal-600 to-purple-600 bg-clip-text text-transparent">
+            {" "}
+            Dig In.
+          </span>
         </h1>
 
         {/* Subheadline */}
-        <p className="text-lg md:text-xl text-white mb-8 max-w-4xl leading-normal">
+        <p className="text-lg md:text-xl text-gray-800 mb-8 max-w-4xl leading-normal">
           Recent federal transparency laws require hospitals and insurers to publish their real prices. We've organized trillions of data points and added a layer of{" "}
           <span className="intelligent-gradient-text font-semibold">
             intelligence
