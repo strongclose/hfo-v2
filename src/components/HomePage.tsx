@@ -155,8 +155,8 @@ const personas = {
     secondaryCTA: "See Top Savings by Procedure",
     secondaryCTALink: "/insights?filter=savings",
     icon: Heart,
-    bgColor: "from-rose-400 to-pink-500",
-    accentColor: "text-rose-600"
+    bgColor: "from-blue-500 to-cyan-500",
+    accentColor: "text-blue-600"
   },
   researchers: {
     title: "Researchers & Analysts",
