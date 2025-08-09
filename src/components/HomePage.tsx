@@ -500,60 +500,6 @@ export default function HomePage() {
           onRadiusChange={setSelectedRadius}
         />
 
-        {/* 2. Why This Matters Section - Updated content */}
-        <section className="relative py-24 overflow-hidden" id="why-matters">
-          {/* Standardized background with design tokens */}
-          <div className="absolute inset-0 hf-gradient-subtle"></div>
-          <div className="absolute inset-0 hf-overlay-primary pointer-events-none"></div>
-
-          <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-blue-500/25 hf-gradient-accent">
-                <Lightbulb className="w-8 h-8 text-white" />
-              </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-gray-900 tracking-tight">
-                Why This
-                <span className="hf-text-gradient-primary">
-                  {" "}
-                  Matters
-                </span>
-              </h2>
-              <p className="text-xl md:text-2xl text-gray-800 max-w-5xl mx-auto leading-relaxed font-medium mb-8">
-                For decades, healthcare pricing was kept secret. Providers could charge anything, and patients only found out the cost after receiving care—sometimes leading to financial devastation.
-              </p>
-              
-              <div className="hf-card-glass mt-8 p-8 backdrop-blur-xl max-w-4xl mx-auto" style={{ background: 'rgba(255, 255, 255, 0.8)' }}>
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 hf-gradient-accent">
-                    <CheckCircle className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-lg text-gray-800 font-semibold mb-2">Federal Law Changed Everything</p>
-                    <p className="text-gray-800">
-                      New transparency regulations require providers and payers to publish their real negotiated rates. But the data is scattered across thousands of files and websites.
-                    </p>
-                  </div>
-                </div>
-                <p className="text-lg text-gray-800 font-medium text-center">
-                  <span className="text-blue-600 font-bold">We've organized it all</span> in one searchable platform, so you can finally see what you'll actually pay before you get care.
-                </p>
-              </div>
-              
-              <div className="mt-8">
-                <button
-                  onClick={() => {
-                    if (typeof window !== 'undefined') {
-                      window.location.href = '/learn-more';
-                    }
-                  }}
-                  className="px-6 py-3 bg-white text-blue-600 border-2 border-blue-600 font-semibold rounded-xl shadow-sm hover:bg-blue-50 hover:border-blue-700 transition-all duration-300"
-                >
-                  Learn How This Benefits You
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* 3. How It Works Section - COMPLETELY REDESIGNED */}
         <LazySection
