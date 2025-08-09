@@ -269,7 +269,7 @@ export default function HomePage() {
         <div className="cursor-help">
           {children}
         </div>
-        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-4 py-3 bg-white text-gray-900 text-sm rounded-lg shadow-xl border border-gray-200 z-20 max-w-sm opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-5 py-4 bg-white text-gray-900 text-sm leading-relaxed rounded-lg shadow-xl border border-gray-200 z-50 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none">
           {content}
           <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
         </div>
