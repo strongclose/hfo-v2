@@ -1118,7 +1118,7 @@ export default function HomePage() {
 
               {/* Left Column - Leaderboard Snapshot */}
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+                <h3 className="hf-heading-h3 hf-text-primary mb-8 flex items-center gap-3">
                   <TrendingUp className="w-6 h-6 text-teal-600" />
                   Top Transparency Leaders
                 </h3>
