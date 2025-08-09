@@ -42,11 +42,6 @@ export function HeroV2_AIChatbot({
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Drifting Gradient Orbs */}
-        <div className="floating-orb floating-orb-1"></div>
-        <div className="floating-orb floating-orb-2"></div>
-        <div className="floating-orb floating-orb-3"></div>
-
         {/* Data Particles */}
         <div className="data-particles">
           {Array.from({ length: 12 }).map((_, i) => (
