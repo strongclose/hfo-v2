@@ -43,10 +43,75 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant = "default", size, asChild = false, style, ...props }, ref) => {
+    // Fallback styles for reliability
+    const getInlineStyles = () => {
+      const baseStyle = {
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '0.5rem',
+        whiteSpace: 'nowrap' as const,
+        borderRadius: '0.5rem',
+        fontSize: '0.875rem',
+        fontWeight: '500',
+        transition: 'all 0.3s ease',
+        cursor: 'pointer',
+        border: 'none',
+        outline: 'none',
+        padding: '0.5rem 1rem',
+        height: '2.25rem',
+      };
+
+      switch (variant) {
+        case 'primary':
+          return {
+            ...baseStyle,
+            backgroundColor: '#2563eb',
+            color: '#ffffff',
+            boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+          };
+        case 'secondary':
+          return {
+            ...baseStyle,
+            backgroundColor: '#ffffff',
+            color: '#2563eb',
+            border: '1px solid #2563eb',
+            boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+          };
+        case 'outline':
+          return {
+            ...baseStyle,
+            backgroundColor: '#ffffff',
+            color: '#111827',
+            border: '1px solid #d1d5db',
+            boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+          };
+        case 'ask-ai':
+          return {
+            ...baseStyle,
+            background: 'linear-gradient(to right, #2dd4bf, #3b82f6)',
+            color: '#ffffff',
+            fontWeight: '600',
+            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+          };
+        default:
+          return {
+            ...baseStyle,
+            backgroundColor: '#2563eb',
+            color: '#ffffff',
+            boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+          };
+      }
+    };
+
     return (
       <button
         className={cn(buttonVariants({ variant, size, className }))}
+        style={{
+          ...getInlineStyles(),
+          ...style,
+        }}
         ref={ref}
         {...props}
       />
