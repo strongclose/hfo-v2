@@ -1443,9 +1443,9 @@ export default function HomePage() {
         <section className="relative py-16 overflow-hidden bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600">
           <div className="absolute inset-0 bg-black/20"></div>
           <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
               See how much you could save before your next appointment
-            </h2>
+            </h3>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Join thousands of patients who've saved money by comparing prices first
             </p>
