@@ -75,28 +75,13 @@ export function HeroV2_AIChatbot({
           hospital and healthcare pricing.
         </p>
 
-        {/* Stats Row */}
-        <div className="flex flex-wrap justify-center gap-8 mb-8 text-sm">
-          <div className="flex items-center gap-2 text-white">
-            <CheckCircle className="w-5 h-5 text-teal-400" />
-            <span>Up to 90% savings</span>
-          </div>
-          <div className="flex items-center gap-2 text-white">
-            <span className="text-teal-400">🩺</span>
-            <span>40K+ procedures</span>
-          </div>
-          <div className="flex items-center gap-2 text-white">
-            <span className="text-teal-400">💵</span>
-            <span>$2.4B+ in savings</span>
-          </div>
-        </div>
-
         {/* Global Chatbot Component */}
         <GlobalChatbot
-          height="md"
+          height="sm"
           context="healthcare"
           placeholder="Give it a try..."
           initialMessage='Hi! I can help you find the best prices for any medical procedure. Try asking: "MRI cost in Boston" or "Cheapest CT scan near me" What healthcare costs would you like to learn more about?'
+          className="max-w-6xl"
         />
       </div>
     </div>
