@@ -261,9 +261,9 @@ export default function HomePage() {
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-teal-400 to-blue-500 flex items-center justify-center shadow-lg">
                     <MapPin className="w-8 h-8 text-white" />
                   </div>
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
                     Where Our Data
-                    <span className="text-blue-900">
+                    <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">
                       {" "}
                       Comes From
                     </span>
