@@ -520,7 +520,7 @@ export default function HomePage() {
                 </span>
               </h2>
               <p className="text-xl md:text-2xl text-gray-800 max-w-5xl mx-auto leading-relaxed font-medium mb-8">
-                For decades, healthcare pricing was kept secret. Providers could charge anything, and patients only found out the cost after receiving care��sometimes leading to financial devastation.
+                For decades, healthcare pricing was kept secret. Providers could charge anything, and patients only found out the cost after receiving care—sometimes leading to financial devastation.
               </p>
               
               <div className="mt-8 p-8 rounded-3xl bg-gradient-to-br from-white/80 to-blue-50/80 backdrop-blur-xl border border-white/40 shadow-xl shadow-black/5 max-w-4xl mx-auto">
@@ -1178,8 +1178,8 @@ export default function HomePage() {
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-3xl font-black text-gray-900">98</div>
-                        <div className="text-sm text-gray-800 font-bold">/100</div>
+                        <div className="text-3xl font-bold text-gray-900">98</div>
+                        <div className="text-sm text-gray-700 font-medium">/100</div>
                       </div>
                     </div>
                   </div>
