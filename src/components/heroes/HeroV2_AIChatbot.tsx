@@ -32,7 +32,7 @@ export function HeroV2_AIChatbot({
 }: HeroV2Props) {
   return (
     <div
-      className="relative min-h-screen pt-24"
+      className="relative min-h-screen pt-24 hero-animated-bg"
       style={{
         background:
           "linear-gradient(135deg, #0A0F1C 0%, #1E3A8A 30%, #1E40AF 70%, #2563EB 100%)",
@@ -40,6 +40,23 @@ export function HeroV2_AIChatbot({
           'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       }}
     >
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Drifting Gradient Orbs */}
+        <div className="floating-orb floating-orb-1"></div>
+        <div className="floating-orb floating-orb-2"></div>
+        <div className="floating-orb floating-orb-3"></div>
+
+        {/* Data Particles */}
+        <div className="data-particles">
+          {Array.from({ length: 12 }).map((_, i) => (
+            <div key={i} className={`data-particle data-particle-${i + 1}`}></div>
+          ))}
+        </div>
+
+        {/* Subtle Grid Overlay */}
+        <div className="grid-overlay"></div>
+      </div>
       {/* Large decorative shield in background with magnifying glass */}
       <div className="absolute top-1/2 right-0 transform translate-x-1/3 -translate-y-1/2 opacity-5 z-0">
         <div className="relative">
@@ -71,7 +88,11 @@ export function HeroV2_AIChatbot({
 
         {/* Subheadline */}
         <p className="text-lg md:text-xl text-white mb-8 max-w-4xl leading-normal">
-          Recent federal transparency laws require hospitals and insurers to publish their real prices. We've organized trillions of data points and added a layer of intelligence to make this information accessible, easy to use, and free for everyone.
+          Recent federal transparency laws require hospitals and insurers to publish their real prices. We've organized trillions of data points and added a layer of{" "}
+          <span className="intelligent-gradient-text font-semibold">
+            intelligent
+          </span>{" "}
+          technology to make this information accessible, easy to use, and free for everyone.
         </p>
 
         {/* Global Chatbot Component */}
