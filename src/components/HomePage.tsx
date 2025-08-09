@@ -1005,9 +1005,9 @@ export default function HomePage() {
                           <div className="hf-body-medium hf-text-primary">
                             {persona.primaryNumber > 0 ? (
                               persona.title === "Patients & Families" ? (
-                                <>Save an average of <span className="hf-heading-h3 text-emerald-400">${animatedNumber.toLocaleString()}</span> per procedure by comparing prices before care.</>
+                                <>Save an average of <span className="hf-heading-h3 text-emerald-600">${animatedNumber.toLocaleString()}</span> per procedure by comparing prices before care.</>
                               ) : persona.title === "Researchers & Analysts" ? (
-                                <>Uncover price variations of up to <span className="hf-heading-h3 text-blue-400">{animatedNumber}%</span> for the same procedure.</>
+                                <>Uncover price variations of up to <span className="hf-heading-h3 text-blue-600">{animatedNumber}%</span> for the same procedure.</>
                               ) : persona.title === "Healthcare Employers" ? (
                                 <>Reduce benefits spend by steering employees toward cost-effective care.</>
                               ) : (
