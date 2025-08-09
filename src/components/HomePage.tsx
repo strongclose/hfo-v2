@@ -1265,11 +1265,11 @@ export default function HomePage() {
 
                 {/* Support Box */}
                 <div className="hf-card p-6 mb-6 border-teal-300">
-                  <h4 className="text-base font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                  <h4 className="hf-heading-h4 hf-text-primary mb-3 flex items-center gap-2">
                     <Lightbulb className="w-5 h-5 text-teal-600" />
                     Our Support
                   </h4>
-                  <p className="text-gray-800 leading-relaxed mb-4 font-medium">
+                  <p className="hf-text-primary mb-4 font-medium">
                     We provide guidance, tools, and remediation services to help all entities reach 100% compliance.
                   </p>
                   <Button
