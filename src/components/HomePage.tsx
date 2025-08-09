@@ -149,7 +149,7 @@ const personas = {
     title: "Patients & Families",
     primaryInsight: "Save an average of $3,200 per procedure by comparing prices before care.",
     primaryNumber: 3200,
-    supportingData: "CA knee replacement: $18K–$67K range.",
+    supportingData: "CA range: $18K–$67K",
     primaryCTA: "Check Prices Near You",
     primaryCTALink: "/price-comparison",
     secondaryCTA: "See Top Savings by Procedure",
