@@ -1171,10 +1171,10 @@ export default function HomePage() {
                         </div>
                         <div>
                           <div className="flex items-center gap-2">
-                            <span className="font-bold text-gray-900 text-lg">Provider A</span>
-                            <div className="px-3 py-1 rounded-full text-sm font-bold bg-yellow-200 text-yellow-900">Gold</div>
+                            <span className="font-semibold text-gray-900">Provider A</span>
+                            <div className="px-3 py-1 rounded-full text-sm font-semibold bg-yellow-200 text-yellow-900">Gold</div>
                           </div>
-                          <div className="text-sm text-gray-800 font-semibold">Transparency Certified</div>
+                          <div className="text-sm text-gray-700 font-medium">Transparency Certified</div>
                         </div>
                       </div>
                       <div className="text-right">
