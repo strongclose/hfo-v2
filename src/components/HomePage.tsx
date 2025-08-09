@@ -1266,8 +1266,8 @@ export default function HomePage() {
                       </svg>
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="text-center">
-                          <div className="text-3xl font-black text-gray-900">6,400+</div>
-                          <div className="text-sm text-gray-800 font-bold">Entities Scored</div>
+                          <div className="text-3xl font-bold text-gray-900">6,400+</div>
+                          <div className="text-sm text-gray-700 font-medium">Entities Scored</div>
                         </div>
                       </div>
                     </div>
