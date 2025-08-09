@@ -1141,7 +1141,7 @@ export default function HomePage() {
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 tracking-tight">
                 Transparency Scoring
-                <span className="bg-gradient-to-r from-teal-900 to-blue-800 bg-clip-text text-transparent">
+                <span className="text-teal-700">
                   {" "}
                   & Compliance Support
                 </span>
