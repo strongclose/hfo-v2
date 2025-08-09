@@ -20,6 +20,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         tertiary: "text-blue-600 hover:underline underline-offset-4",
+        "ask-ai": "bg-gradient-to-r from-teal-400 to-blue-500 text-white font-semibold shadow-lg hover:from-teal-500 hover:to-blue-600 hover:shadow-xl transition-all duration-300",
       },
       size: {
         default: "h-9 px-4 py-2",
