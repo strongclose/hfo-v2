@@ -110,14 +110,18 @@ export default function HomePage() {
     }
   };
 
-  const PriceComparisonCTA = ({ 
-    size = "default", 
-    variant = "primary", 
+  const PriceComparisonCTA = ({
+    size = "default",
+    variant = "primary",
     className = "",
     children = "Compare Healthcare Prices"
   }) => (
     <Button
-      onClick={() => (window.location.href = "/search-procedure")}
+      onClick={() => {
+        if (typeof window !== 'undefined') {
+          window.location.href = "/search-procedure";
+        }
+      }}
       size={size}
       variant={variant}
       className={`${className} transition-all duration-300 hover:scale-105`}
