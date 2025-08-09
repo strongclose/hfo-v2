@@ -85,9 +85,9 @@ export function HeroV2_AIChatbot({
         <p className="text-lg md:text-xl text-white mb-8 max-w-4xl leading-normal">
           Recent federal transparency laws require hospitals and insurers to publish their real prices. We've organized trillions of data points and added a layer of{" "}
           <span className="intelligent-gradient-text font-semibold">
-            intelligent
+            intelligence
           </span>{" "}
-          technology to make this information accessible, easy to use, and free for everyone.
+          to make this information accessible, easy to use, and free for everyone.
         </p>
 
         {/* Global Chatbot Component */}
