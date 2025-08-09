@@ -1476,7 +1476,7 @@ export default function HomePage() {
               <div className="mb-10 flex flex-col sm:flex-row gap-4 justify-center">
                 <PriceComparisonCTA
                   size="xl"
-                  variant="accent"
+                  variant="primary"
                 >
                   Start Comparing Prices
                 </PriceComparisonCTA>
