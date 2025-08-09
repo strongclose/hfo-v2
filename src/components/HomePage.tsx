@@ -1387,7 +1387,7 @@ export default function HomePage() {
             <div className="grid md:grid-cols-3 gap-8 mb-16">
               <div className="group relative">
                 <div className="relative p-10 rounded-3xl bg-white/90 backdrop-blur-xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg" style={{ background: 'linear-gradient(to bottom right, #ef4444, #ec4899)' }}>
                     <TrendingUp className="w-8 h-8 text-white" />
                   </div>
                   <div className="text-center">
