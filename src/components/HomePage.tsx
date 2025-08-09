@@ -541,9 +541,9 @@ export default function HomePage() {
 
 
         {/* 8. Help Others Save / Join the Movement Section */}
-        <section className="relative py-24 overflow-hidden bg-gradient-to-br from-teal-900 via-blue-900 to-purple-900">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(20,184,166,0.2),transparent_50%)] motion-safe:animate-pulse motion-safe:animation-duration-[8s]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(59,130,246,0.15),transparent_50%)] motion-safe:animate-pulse motion-safe:animation-duration-[10s]"></div>
+        <section className="relative py-24 overflow-hidden bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(20,184,166,0.1),transparent_50%)] motion-safe:animate-pulse motion-safe:animation-duration-[8s]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(59,130,246,0.08),transparent_50%)] motion-safe:animate-pulse motion-safe:animation-duration-[10s]"></div>
 
           <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
