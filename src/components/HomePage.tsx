@@ -354,14 +354,6 @@ export default function HomePage() {
               {/* Animated Connection Line - Desktop */}
               <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 transform -translate-x-1/2">
                 <div className="h-full bg-gradient-to-b from-blue-700 via-purple-700 to-emerald-700 rounded-full shadow-lg">
-                  {/* Animated flow dots */}
-                  <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute w-2 h-2 bg-white rounded-full shadow-sm animate-pulse" style={{ left: '50%', transform: 'translateX(-50%)', top: '20%', animationDelay: '0s', animationDuration: '2s' }} />
-                    <div className="absolute w-2 h-2 bg-white rounded-full shadow-sm animate-pulse" style={{ left: '50%', transform: 'translateX(-50%)', top: '35%', animationDelay: '0.3s', animationDuration: '2s' }} />
-                    <div className="absolute w-2 h-2 bg-white rounded-full shadow-sm animate-pulse" style={{ left: '50%', transform: 'translateX(-50%)', top: '50%', animationDelay: '0.6s', animationDuration: '2s' }} />
-                    <div className="absolute w-2 h-2 bg-white rounded-full shadow-sm animate-pulse" style={{ left: '50%', transform: 'translateX(-50%)', top: '65%', animationDelay: '0.9s', animationDuration: '2s' }} />
-                    <div className="absolute w-2 h-2 bg-white rounded-full shadow-sm animate-pulse" style={{ left: '50%', transform: 'translateX(-50%)', top: '80%', animationDelay: '1.2s', animationDuration: '2s' }} />
-                  </div>
                 </div>
               </div>
 
@@ -370,7 +362,6 @@ export default function HomePage() {
                 <div className="relative">
                   {/* Timeline Node */}
                   <div className="hidden lg:block absolute left-1/2 top-24 w-8 h-8 bg-blue-800 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10">
-                    <div className="absolute inset-0 bg-blue-800 rounded-full animate-pulse opacity-15"></div>
                   </div>
 
                   {/* Content Grid */}
@@ -384,8 +375,6 @@ export default function HomePage() {
                             <div className="w-24 h-24 bg-gradient-to-br from-blue-800 to-cyan-800 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300">
                               <Database className="w-12 h-12 text-white fill-current" />
                             </div>
-                            {/* Pulse animation */}
-                            <div className="absolute inset-0 bg-blue-400 rounded-full animate-pulse opacity-10"></div>
                           </div>
                         </div>
 
@@ -474,7 +463,6 @@ export default function HomePage() {
                 <div className="relative">
                   {/* Timeline Node */}
                   <div className="hidden lg:block absolute left-1/2 top-24 w-8 h-8 bg-purple-800 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10">
-                    <div className="absolute inset-0 bg-purple-800 rounded-full animate-pulse opacity-15"></div>
                   </div>
 
                   {/* Content Grid - Reversed */}
@@ -514,8 +502,6 @@ export default function HomePage() {
                             <div className="w-24 h-24 bg-gradient-to-br from-purple-800 to-pink-800 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300">
                               <Sparkles className="w-12 h-12 text-white fill-current" />
                             </div>
-                            {/* Pulse animation */}
-                            <div className="absolute inset-0 bg-purple-400 rounded-full animate-pulse opacity-10"></div>
                           </div>
                         </div>
 
@@ -568,7 +554,6 @@ export default function HomePage() {
                 <div className="relative">
                   {/* Timeline Node */}
                   <div className="hidden lg:block absolute left-1/2 top-24 w-8 h-8 bg-emerald-800 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10">
-                    <div className="absolute inset-0 bg-emerald-800 rounded-full animate-pulse opacity-15"></div>
                   </div>
 
                   {/* Content Grid */}
@@ -586,8 +571,6 @@ export default function HomePage() {
                                 <div className="w-16 h-16 border-2 border-white rounded-full animate-pulse opacity-15"></div>
                               </div>
                             </div>
-                            {/* Pulse animation */}
-                            <div className="absolute inset-0 bg-emerald-400 rounded-full animate-pulse opacity-10"></div>
                           </div>
                         </div>
 
@@ -753,15 +736,15 @@ export default function HomePage() {
                       <Globe className="w-32 h-32 text-white/30" />
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="grid grid-cols-3 gap-2">
-                          <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse" style={{ animationDelay: '0s', animationDuration: '2s' }} />
-                          <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s', animationDuration: '2s' }} />
-                          <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse" style={{ animationDelay: '0.4s', animationDuration: '2s' }} />
-                          <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse" style={{ animationDelay: '0.6s', animationDuration: '2s' }} />
-                          <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse" style={{ animationDelay: '0.8s', animationDuration: '2s' }} />
-                          <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse" style={{ animationDelay: '1.0s', animationDuration: '2s' }} />
-                          <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse" style={{ animationDelay: '1.2s', animationDuration: '2s' }} />
-                          <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse" style={{ animationDelay: '1.4s', animationDuration: '2s' }} />
-                          <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse" style={{ animationDelay: '1.6s', animationDuration: '2s' }} />
+                          <div className="w-3 h-3 bg-teal-400 rounded-full" />
+                          <div className="w-3 h-3 bg-teal-400 rounded-full" />
+                          <div className="w-3 h-3 bg-teal-400 rounded-full" />
+                          <div className="w-3 h-3 bg-teal-400 rounded-full" />
+                          <div className="w-3 h-3 bg-teal-400 rounded-full" />
+                          <div className="w-3 h-3 bg-teal-400 rounded-full" />
+                          <div className="w-3 h-3 bg-teal-400 rounded-full" />
+                          <div className="w-3 h-3 bg-teal-400 rounded-full" />
+                          <div className="w-3 h-3 bg-teal-400 rounded-full" />
                         </div>
                       </div>
                     </div>
