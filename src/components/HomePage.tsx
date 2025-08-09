@@ -561,12 +561,9 @@ export default function HomePage() {
           minHeight="800px"
         >
         <section>
-          {/* Subtle background pattern */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-50/50 via-blue-50/30 to-indigo-50/20"></div>
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.03) 0%, transparent 50%), 
-                              radial-gradient(circle at 75% 75%, rgba(20, 184, 166, 0.03) 0%, transparent 50%)`
-          }}></div>
+          {/* Standardized subtle background */}
+          <div className="absolute inset-0 hf-gradient-subtle"></div>
+          <div className="absolute inset-0 hf-overlay-secondary"></div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
