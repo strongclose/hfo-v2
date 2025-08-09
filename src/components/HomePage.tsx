@@ -995,7 +995,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 6. Who Uses HealthFees.org - Persona Insights with Tabs */}
+        {/* 6. Who Uses HealthFees.org - Enhanced Persona Insights */}
         <section className="relative py-24 overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.15),transparent_40%)]"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(147,51,234,0.15),transparent_40%)]"></div>
@@ -1014,58 +1014,118 @@ export default function HomePage() {
               </h2>
             </div>
 
-            {/* Persona Tabs */}
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {/* Enhanced Persona Tabs */}
+            <div className="flex flex-wrap justify-center gap-4 mb-16">
               {Object.entries(personas).map(([key, persona]) => (
                 <button
                   key={key}
                   onClick={() => setActivePersona(key)}
-                  className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                  className={`px-8 py-4 rounded-full font-semibold transition-all duration-500 flex items-center gap-3 ${
                     activePersona === key
-                      ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-white shadow-lg'
-                      : 'bg-white/20 text-white border border-white/30 hover:bg-white/30'
+                      ? `bg-gradient-to-r ${persona.bgColor} text-white shadow-xl scale-105`
+                      : 'bg-white/20 text-white border border-white/30 hover:bg-white/30 hover:scale-105'
                   }`}
                 >
+                  <persona.icon className="w-5 h-5" />
                   {persona.title}
                 </button>
               ))}
             </div>
 
-            {/* Active Persona Content */}
+            {/* Enhanced Active Persona Content */}
             {Object.entries(personas).map(([key, persona]) => (
               <div
                 key={key}
-                className={activePersona === key ? 'block' : 'hidden'}
+                className={`transition-all duration-500 ${activePersona === key ? 'block opacity-100' : 'hidden opacity-0'}`}
               >
-                <div className="max-w-4xl mx-auto">
-                  <div className="relative p-12 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20">
-                    <div className="text-center mb-8">
-                      <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center mb-6 shadow-lg">
-                        <persona.icon className="w-10 h-10 text-white" />
+                <div className="max-w-6xl mx-auto">
+                  <div className={`relative p-8 md:p-12 rounded-3xl bg-gradient-to-br ${persona.bgColor} bg-opacity-20 backdrop-blur-xl border border-white/20 shadow-2xl`}>
+
+                    {/* Hero Content Grid */}
+                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+                      {/* Left: Primary Content */}
+                      <div className="space-y-8">
+                        <div className="text-center lg:text-left">
+                          <div className={`w-24 h-24 mx-auto lg:mx-0 rounded-full bg-gradient-to-br ${persona.bgColor} flex items-center justify-center mb-6 shadow-xl`}>
+                            <persona.icon className="w-12 h-12 text-white" />
+                          </div>
+                          <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">{persona.title}</h3>
+                        </div>
+
+                        {/* Primary Insight with Animated Number */}
+                        <div className="p-6 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/30">
+                          <p className="text-lg font-semibold text-emerald-300 mb-3">Primary Insight</p>
+                          <div className="text-xl md:text-2xl text-white leading-relaxed">
+                            {persona.primaryNumber > 0 ? (
+                              persona.title === "Patients & Families" ? (
+                                <>Save an average of <span className="text-3xl font-bold text-emerald-400">${animatedNumber.toLocaleString()}</span> per procedure by comparing prices before care.</>
+                              ) : persona.title === "Researchers & Analysts" ? (
+                                <>Uncover price variations of up to <span className="text-3xl font-bold text-blue-400">{animatedNumber}%</span> for the same procedure.</>
+                              ) : persona.title === "Healthcare Employers" ? (
+                                <>Reduce benefits spend by steering employees toward cost-effective care.</>
+                              ) : (
+                                persona.primaryInsight
+                              )
+                            ) : (
+                              persona.primaryInsight
+                            )}
+                          </div>
+                        </div>
+
+                        {/* Supporting Data Point */}
+                        <div className="p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                          <p className="text-white/90 font-medium">{persona.supportingData}</p>
+                        </div>
+
+                        {/* CTAs */}
+                        <div className="flex flex-col sm:flex-row gap-4">
+                          <Button
+                            onClick={() => {
+                              if (typeof window !== 'undefined') {
+                                window.location.href = persona.primaryCTALink;
+                              }
+                            }}
+                            className={`px-8 py-4 bg-gradient-to-r ${persona.bgColor} hover:scale-105 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2`}
+                          >
+                            {persona.primaryCTA}
+                            <ArrowRight className="w-5 h-5" />
+                          </Button>
+                          <Button
+                            onClick={() => {
+                              if (typeof window !== 'undefined') {
+                                window.location.href = persona.secondaryCTALink;
+                              }
+                            }}
+                            variant="outline"
+                            className="px-6 py-4 border-2 border-white/50 text-white hover:bg-white/20 hover:scale-105 rounded-xl transition-all duration-300"
+                          >
+                            {persona.secondaryCTA}
+                          </Button>
+                        </div>
                       </div>
-                      <h3 className="text-3xl font-bold text-white mb-6">{persona.title}</h3>
-                    </div>
 
-                    <div className="space-y-6 text-center">
-                      <div className="p-6 rounded-2xl bg-white/10 border border-white/20">
-                        <p className="text-xl font-semibold text-emerald-300 mb-3">Key Insight</p>
-                        <p className="text-lg text-white leading-relaxed">{persona.insight}</p>
-                      </div>
+                      {/* Right: Mini Visualization */}
+                      <div className="order-first lg:order-last">
+                        <div className="relative">
+                          <div className="absolute -top-4 -left-4 w-full h-full bg-gradient-to-br from-white/10 to-transparent rounded-2xl"></div>
+                          {getMiniVisualization(key)}
+                        </div>
 
-                      <p className="text-lg text-gray-200 leading-relaxed">{persona.support}</p>
-
-                      <div className="pt-6">
-                        <Button
-                          onClick={() => {
-                            if (typeof window !== 'undefined') {
-                              window.location.href = persona.link;
-                            }
-                          }}
-                          className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-                        >
-                          {persona.cta}
-                          <ArrowRight className="w-5 h-5 ml-2" />
-                        </Button>
+                        {/* Additional Context */}
+                        <div className="mt-6 p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                          <div className="flex items-center gap-2 mb-2">
+                            <Info className="w-4 h-4 text-white/70" />
+                            <span className="text-sm font-medium text-white/80">Why This Matters</span>
+                          </div>
+                          <p className="text-sm text-white/70">
+                            {key === 'patients' && "Price transparency empowers you to make informed decisions and avoid surprise medical bills."}
+                            {key === 'researchers' && "Our comprehensive dataset enables evidence-based policy research and market analysis."}
+                            {key === 'employers' && "Strategic healthcare purchasing can significantly reduce employee benefits costs while maintaining quality."}
+                            {key === 'providers' && "Competitive benchmarking helps optimize pricing strategies and maintain market position."}
+                            {key === 'payers' && "Market intelligence ensures competitive positioning and regulatory compliance."}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
