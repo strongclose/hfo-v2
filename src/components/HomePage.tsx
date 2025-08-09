@@ -410,7 +410,7 @@ export default function HomePage() {
                     <h3 className="text-xl font-bold mb-4 text-white group-hover:text-cyan-300 transition-colors duration-300 text-center">
                       {audience.title}
                     </h3>
-                    <p className="text-white/70 group-hover:text-white/90 transition-colors duration-300 leading-relaxed text-center mb-6">
+                    <p className="text-gray-200 group-hover:text-white transition-colors duration-300 leading-relaxed text-center mb-6">
                       {audience.desc}
                     </p>
                     <div className="text-center">
