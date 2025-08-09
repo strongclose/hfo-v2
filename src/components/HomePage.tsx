@@ -42,6 +42,73 @@ import {
   Clock,
 } from "lucide-react";
 
+const dataSources = [
+  { name: "Hospital Price Files", status: "Active", count: "6,000+" },
+  { name: "Insurance Rate Files", status: "Active", count: "400+" },
+  { name: "Federal Compliance Data", status: "Monitoring", count: "Daily" }
+];
+
+const processingSteps = [
+  { step: "Raw Data Ingestion", progress: 100, color: "bg-green-500" },
+  { step: "Cleaning & Validation", progress: 100, color: "bg-blue-700" },
+  { step: "Standardization", progress: 100, color: "bg-purple-700" },
+  { step: "Search Indexing", progress: 85, color: "bg-orange-500" }
+];
+
+const priceComparison = [
+  { provider: "Hospital A", price: "$3,200", type: "Cash", best: true },
+  { provider: "Hospital B", price: "$4,800", type: "Insurance", best: false },
+  { provider: "Hospital C", price: "$6,100", type: "Insurance", best: false }
+];
+
+const exploreFeatures1 = [
+  {
+    icon: Search,
+    title: "Price Comparison Tool",
+    desc: "Search any procedure, see real prices from hospitals and insurance plans in your area.",
+    link: "/search-procedure",
+    gradient: "from-blue-500 to-cyan-500"
+  },
+  {
+    icon: Brain,
+    title: "AI Healthcare Assistant",
+    desc: "Ask natural language questions about healthcare costs and get instant, data-backed answers.",
+    link: "#",
+    gradient: "from-purple-600 to-pink-600"
+  },
+  {
+    icon: BarChart3,
+    title: "Market Analytics",
+    desc: "Analyze pricing trends, compare markets, and understand cost variations across regions.",
+    link: "/insightalytics",
+    gradient: "from-emerald-500 to-teal-500"
+  }
+];
+
+const exploreFeatures2 = [
+  {
+    icon: Building2,
+    title: "Provider Directory",
+    desc: "Find hospitals, clinics, and specialists with transparent pricing and quality metrics.",
+    link: "/hospitals",
+    gradient: "from-orange-500 to-red-500"
+  },
+  {
+    icon: Shield,
+    title: "Insurance Navigator",
+    desc: "Compare insurance plans, understand coverage, and find the best value for your needs.",
+    link: "/insurance",
+    gradient: "from-indigo-500 to-purple-500"
+  },
+  {
+    icon: Users,
+    title: "Compliance Tools",
+    desc: "Help healthcare organizations meet transparency requirements and benchmark their pricing.",
+    link: "/who-we-help/hospitals",
+    gradient: "from-yellow-500 to-orange-500"
+  }
+];
+
 export default function HomePage() {
   const [currentPage, setCurrentPage] = useState("home");
   const [selectedRadius, setSelectedRadius] = useState<number>(25);
@@ -385,18 +452,14 @@ export default function HomePage() {
                           Live Data Sources
                         </h4>
                         <div className="space-y-3">
-                          {[
-                            { name: "Hospital Price Files", status: "Active", count: "6,000+" },
-                            { name: "Insurance Rate Files", status: "Active", count: "400+" },
-                            { name: "Federal Compliance Data", status: "Monitoring", count: "Daily" }
-                          ].map((source, idx) => (
+                          {dataSources.map((source, idx) => (
                             <div key={idx} className="flex items-center justify-between p-3 bg-white rounded-xl border border-blue-100">
                               <div>
                                 <p className="font-medium text-gray-900">{source.name}</p>
                                 <p className="text-sm text-gray-600">{source.count}</p>
                               </div>
                               <div className="flex items-center gap-2">
-                                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                                 <span className="text-sm text-green-700 font-medium">{source.status}</span>
                               </div>
                             </div>
@@ -424,12 +487,7 @@ export default function HomePage() {
                           Data Processing Pipeline
                         </h4>
                         <div className="space-y-4">
-                          {[
-                            { step: "Raw Data Ingestion", progress: 100, color: "bg-green-500" },
-                            { step: "Cleaning & Validation", progress: 100, color: "bg-blue-700" },
-                            { step: "Standardization", progress: 100, color: "bg-purple-700" },
-                            { step: "Search Indexing", progress: 85, color: "bg-orange-500" }
-                          ].map((item, idx) => (
+                          {processingSteps.map((item, idx) => (
                             <div key={idx}>
                               <div className="flex justify-between items-center mb-2">
                                 <span className="text-sm font-medium text-gray-700">{item.step}</span>
@@ -574,11 +632,7 @@ export default function HomePage() {
                           Price Comparison Example
                         </h4>
                         <div className="space-y-4">
-                          {[
-                            { provider: "Hospital A", price: "$3,200", type: "Cash", best: true },
-                            { provider: "Hospital B", price: "$4,800", type: "Insurance", best: false },
-                            { provider: "Hospital C", price: "$6,100", type: "Insurance", best: false }
-                          ].map((item, idx) => (
+                          {priceComparison.map((item, idx) => (
                             <div key={idx} className={`flex items-center justify-between p-4 rounded-xl border-2 transition-all ${
                               item.best 
                                 ? 'bg-emerald-100 border-emerald-300 shadow-md' 
@@ -745,29 +799,7 @@ export default function HomePage() {
 
             {/* First Row - White background */}
             <div className="grid md:grid-cols-3 gap-8 mb-8">
-              {[
-                {
-                  icon: Search,
-                  title: "Price Comparison Tool",
-                  desc: "Search any procedure, see real prices from hospitals and insurance plans in your area.",
-                  link: "/search-procedure",
-                  gradient: "from-blue-500 to-cyan-500"
-                },
-                {
-                  icon: Brain,
-                  title: "AI Healthcare Assistant",
-                  desc: "Ask natural language questions about healthcare costs and get instant, data-backed answers.",
-                  link: "#",
-                  gradient: "from-purple-600 to-pink-600"
-                },
-                {
-                  icon: BarChart3,
-                  title: "Market Analytics",
-                  desc: "Analyze pricing trends, compare markets, and understand cost variations across regions.",
-                  link: "/insightalytics",
-                  gradient: "from-emerald-500 to-teal-500"
-                }
-              ].map((feature, index) => (
+              {exploreFeatures1.map((feature, index) => (
                 <div
                   key={index}
                   className="group relative cursor-pointer transform hover:scale-105 transition-all duration-300"
@@ -794,29 +826,7 @@ export default function HomePage() {
 
             {/* Second Row - Light gray background */}
             <div className="grid md:grid-cols-3 gap-8 p-8 rounded-3xl bg-gray-50/80">
-              {[
-                {
-                  icon: Building2,
-                  title: "Provider Directory",
-                  desc: "Find hospitals, clinics, and specialists with transparent pricing and quality metrics.",
-                  link: "/hospitals",
-                  gradient: "from-orange-500 to-red-500"
-                },
-                {
-                  icon: Shield,
-                  title: "Insurance Navigator",
-                  desc: "Compare insurance plans, understand coverage, and find the best value for your needs.",
-                  link: "/insurance",
-                  gradient: "from-indigo-500 to-purple-500"
-                },
-                {
-                  icon: Users,
-                  title: "Compliance Tools",
-                  desc: "Help healthcare organizations meet transparency requirements and benchmark their pricing.",
-                  link: "/who-we-help/hospitals",
-                  gradient: "from-yellow-500 to-orange-500"
-                }
-              ].map((feature, index) => (
+              {exploreFeatures2.map((feature, index) => (
                 <div
                   key={index}
                   className="group relative cursor-pointer transform hover:scale-105 transition-all duration-300"
