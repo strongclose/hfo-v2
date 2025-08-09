@@ -25,7 +25,7 @@ export function InsightsNavigation({
     <div className="space-y-6">
       {/* Quick Links */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <Link href="/insights/truths">
+        <a href="/insights/truths">
           <Card className="hover:shadow-md transition-shadow cursor-pointer">
             <CardHeader className="pb-2">
               <CardTitle className="text-base flex items-center gap-2">
@@ -39,9 +39,9 @@ export function InsightsNavigation({
               </p>
             </CardContent>
           </Card>
-        </Link>
+        </a>
 
-        <Link href="/insights/visualizations">
+        <a href="/insights/visualizations">
           <Card className="hover:shadow-md transition-shadow cursor-pointer">
             <CardHeader className="pb-2">
               <CardTitle className="text-base flex items-center gap-2">
@@ -55,9 +55,9 @@ export function InsightsNavigation({
               </p>
             </CardContent>
           </Card>
-        </Link>
+        </a>
 
-        <Link href="/insights/comparisons">
+        <a href="/insights/comparisons">
           <Card className="hover:shadow-md transition-shadow cursor-pointer">
             <CardHeader className="pb-2">
               <CardTitle className="text-base flex items-center gap-2">
@@ -71,7 +71,7 @@ export function InsightsNavigation({
               </p>
             </CardContent>
           </Card>
-        </Link>
+        </a>
       </div>
 
       {/* Featured Truths */}
@@ -79,17 +79,17 @@ export function InsightsNavigation({
         <div>
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold">Featured Insights</h3>
-            <Link href="/insights/truths">
+            <a href="/insights/truths">
               <Button variant="ghost" size="sm" className="gap-2">
                 View All
                 <ArrowRight className="w-4 h-4" />
               </Button>
-            </Link>
+            </a>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {featuredTruths.slice(0, 2).map((truth) => (
-              <Link key={truth.id} href={`/insights/truths/${truth.slug}`}>
+              <a key={truth.id} href={`/insights/truths/${truth.slug}`}>
                 <Card className="hover:shadow-md transition-shadow cursor-pointer">
                   <CardHeader className="pb-2">
                     <div className="flex items-center justify-between mb-2">
@@ -115,7 +115,7 @@ export function InsightsNavigation({
                     </div>
                   </CardContent>
                 </Card>
-              </Link>
+              </a>
             ))}
           </div>
         </div>
