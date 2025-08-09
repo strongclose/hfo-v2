@@ -512,7 +512,7 @@ export default function HomePage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-blue-500/25" style={{ background: 'linear-gradient(to bottom right, #3b82f6, #06b6d4)' }}>
                 <Lightbulb className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-gray-900 tracking-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-gray-900 tracking-tight">
                 Why This
                 <span className="bg-gradient-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent">
                   {" "}
