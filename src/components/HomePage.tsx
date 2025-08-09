@@ -556,7 +556,11 @@ export default function HomePage() {
         </section>
 
         {/* 3. How It Works Section - COMPLETELY REDESIGNED */}
-        <section className="relative py-24 overflow-hidden bg-white">
+        <LazySection
+          className="relative py-24 overflow-hidden bg-white"
+          minHeight="800px"
+        >
+        <section>
           {/* Subtle background pattern */}
           <div className="absolute inset-0 bg-gradient-to-br from-gray-50/50 via-blue-50/30 to-indigo-50/20"></div>
           <div className="absolute inset-0" style={{
@@ -938,7 +942,7 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-
+        </LazySection>
 
         {/* 5. Explore HealthFees.org - 8-Card Action Grid */}
         <section className="relative py-24 overflow-hidden bg-gradient-to-b from-white to-blue-50">
