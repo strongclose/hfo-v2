@@ -3,9 +3,6 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/search-procedure": "pages/search-procedure.js",
-  "/who-we-help": "pages/who-we-help.js",
   "/insightalytics": "pages/insightalytics.js",
-  "/insightalytics/procedures": "pages/insightalytics/procedures.js",
   "/insightalytics/procedures/[procedure]": "pages/insightalytics/procedures/[procedure].js"
 }

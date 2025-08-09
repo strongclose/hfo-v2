@@ -27,30 +27,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/insightalytics": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/insightalytics.js"
-    ],
-    "/insightalytics/procedures": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/insightalytics/procedures.js"
-    ],
     "/insightalytics/procedures/[procedure]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/insightalytics/procedures/[procedure].js"
-    ],
-    "/search-procedure": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/search-procedure.js"
-    ],
-    "/who-we-help": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/who-we-help.js"
     ]
   },
   "ampFirstPages": []
