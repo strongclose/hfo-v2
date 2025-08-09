@@ -571,9 +571,8 @@ export default function HomePage() {
                 
                 <Button
                   onClick={() => (window.location.href = "/about")}
-                  variant="outline"
                   size="lg"
-                  className="px-12 py-5 text-xl border-2 border-white/50 text-white hover:bg-white/20 hover:border-white rounded-2xl backdrop-blur-sm"
+                  className="px-12 py-5 text-xl bg-white/20 border-2 border-white text-white hover:bg-white/30 hover:border-white rounded-2xl backdrop-blur-sm font-semibold"
                 >
                   Learn Our Mission
                   <ArrowRight className="w-5 h-5 ml-2" />
