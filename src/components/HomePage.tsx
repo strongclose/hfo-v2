@@ -1313,7 +1313,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Support Box */}
-                <div className="p-6 rounded-2xl bg-gray-50 border-2 border-teal-300 shadow-lg mb-6">
+                <div className="hf-card p-6 mb-6 border-teal-300">
                   <h4 className="text-base font-semibold text-gray-900 mb-3 flex items-center gap-2">
                     <Lightbulb className="w-5 h-5 text-teal-600" />
                     Our Support
