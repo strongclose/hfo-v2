@@ -253,7 +253,7 @@ export default function HomePage() {
             <div className="relative">
               {/* Animated Connection Line - Desktop */}
               <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 transform -translate-x-1/2">
-                <div className="h-full bg-gradient-to-b from-blue-500 via-purple-500 to-emerald-500 rounded-full shadow-lg">
+                <div className="h-full bg-gradient-to-b from-blue-700 via-purple-700 to-emerald-700 rounded-full shadow-lg">
                   {/* Animated flow dots */}
                   <div className="absolute inset-0 overflow-hidden">
                     {[...Array(5)].map((_, i) => (
@@ -277,8 +277,8 @@ export default function HomePage() {
                 {/* Step 1: We Collect */}
                 <div className="relative">
                   {/* Timeline Node */}
-                  <div className="hidden lg:block absolute left-1/2 top-24 w-8 h-8 bg-blue-500 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10">
-                    <div className="absolute inset-0 bg-blue-500 rounded-full animate-ping opacity-30"></div>
+                  <div className="hidden lg:block absolute left-1/2 top-24 w-8 h-8 bg-blue-700 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10">
+                    <div className="absolute inset-0 bg-blue-700 rounded-full animate-ping opacity-30"></div>
                   </div>
 
                   {/* Content Grid */}
@@ -385,8 +385,8 @@ export default function HomePage() {
                 {/* Step 2: We Organize */}
                 <div className="relative">
                   {/* Timeline Node */}
-                  <div className="hidden lg:block absolute left-1/2 top-24 w-8 h-8 bg-purple-500 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10">
-                    <div className="absolute inset-0 bg-purple-500 rounded-full animate-ping opacity-30"></div>
+                  <div className="hidden lg:block absolute left-1/2 top-24 w-8 h-8 bg-purple-700 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10">
+                    <div className="absolute inset-0 bg-purple-700 rounded-full animate-ping opacity-30"></div>
                   </div>
 
                   {/* Content Grid - Reversed */}
@@ -401,8 +401,8 @@ export default function HomePage() {
                         <div className="space-y-4">
                           {[
                             { step: "Raw Data Ingestion", progress: 100, color: "bg-green-500" },
-                            { step: "Cleaning & Validation", progress: 100, color: "bg-blue-500" },
-                            { step: "Standardization", progress: 100, color: "bg-purple-500" },
+                            { step: "Cleaning & Validation", progress: 100, color: "bg-blue-700" },
+                            { step: "Standardization", progress: 100, color: "bg-purple-700" },
                             { step: "Search Indexing", progress: 85, color: "bg-orange-500" }
                           ].map((item, idx) => (
                             <div key={idx}>
@@ -484,8 +484,8 @@ export default function HomePage() {
                 {/* Step 3: You Compare */}
                 <div className="relative">
                   {/* Timeline Node */}
-                  <div className="hidden lg:block absolute left-1/2 top-24 w-8 h-8 bg-emerald-500 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10">
-                    <div className="absolute inset-0 bg-emerald-500 rounded-full animate-ping opacity-30"></div>
+                  <div className="hidden lg:block absolute left-1/2 top-24 w-8 h-8 bg-emerald-700 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10">
+                    <div className="absolute inset-0 bg-emerald-700 rounded-full animate-ping opacity-30"></div>
                   </div>
 
                   {/* Content Grid */}
