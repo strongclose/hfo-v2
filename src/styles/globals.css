@@ -299,16 +299,37 @@
     box-shadow: var(--hf-shadow-medium);
   }
 
-  /* Text Utilities */
+  /* Standardized Gradient Utilities */
+  .hf-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .hf-gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .hf-gradient-subtle {
+    background: var(--gradient-subtle);
+  }
+
+  .hf-overlay-primary {
+    background: var(--overlay-primary);
+  }
+
+  .hf-overlay-secondary {
+    background: var(--overlay-secondary);
+  }
+
+  /* Text Gradient Utilities */
   .hf-text-gradient-primary {
-    background: var(--hf-gradient-primary);
+    background: var(--text-gradient-primary);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .hf-text-gradient-accent {
-    background: var(--hf-gradient-accent);
+    background: var(--text-gradient-accent);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
