@@ -813,70 +813,70 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Right column - Horizontal Data Pipeline */}
+              {/* Right column - Convergence Data Pipeline */}
               <div className="relative">
                 <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                  {/* Pipeline Flow - Horizontal Layout */}
-                  <div className="space-y-8">
-                    {/* Stage 1: Providers */}
-                    <div className="flex items-center">
-                      <div className="flex items-center gap-4 flex-1">
-                        <div className="w-12 h-12 rounded-full bg-teal-500 flex items-center justify-center">
-                          <Hospital className="w-6 h-6 text-white" />
+                  {/* Pipeline Flow - Convergence Layout */}
+                  <div className="space-y-6">
+                    {/* Input Sources - Side by Side */}
+                    <div className="grid grid-cols-2 gap-4">
+                      {/* Providers */}
+                      <div className="flex items-center gap-3 p-3 rounded-xl bg-teal-50 border border-teal-200">
+                        <div className="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center">
+                          <Hospital className="w-5 h-5 text-white" />
                         </div>
                         <div>
-                          <p className="font-semibold text-gray-900">Providers</p>
-                          <p className="text-sm text-gray-600">6,000+ Hospitals</p>
+                          <p className="font-semibold text-gray-900 text-sm">Providers</p>
+                          <p className="text-xs text-gray-600">6,000+ Hospitals</p>
                         </div>
                       </div>
-                    </div>
 
-                    {/* Flowing Arrow with Animation */}
-                    <div className="flex items-center justify-center">
-                      <div className="relative">
-                        <div className="w-16 h-0.5 bg-gray-200 rounded"></div>
-                        <div className="absolute top-0 left-0 w-4 h-0.5 bg-teal-500 rounded animate-pulse"></div>
-                        <ArrowRight className="absolute -right-2 -top-2 w-4 h-4 text-teal-500" />
-                      </div>
-                    </div>
-
-                    {/* Stage 2: Payers */}
-                    <div className="flex items-center">
-                      <div className="flex items-center gap-4 flex-1">
-                        <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center">
-                          <Shield className="w-6 h-6 text-white" />
+                      {/* Payers */}
+                      <div className="flex items-center gap-3 p-3 rounded-xl bg-blue-50 border border-blue-200">
+                        <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center">
+                          <Shield className="w-5 h-5 text-white" />
                         </div>
                         <div>
-                          <p className="font-semibold text-gray-900">Payers</p>
-                          <p className="text-sm text-gray-600">400+ Insurers</p>
+                          <p className="font-semibold text-gray-900 text-sm">Payers</p>
+                          <p className="text-xs text-gray-600">400+ Insurers</p>
                         </div>
                       </div>
                     </div>
 
-                    {/* Flowing Arrow */}
-                    <div className="flex items-center justify-center">
-                      <div className="relative">
-                        <div className="w-16 h-0.5 bg-gray-200 rounded"></div>
-                        <div className="absolute top-0 left-0 w-4 h-0.5 bg-blue-500 rounded animate-pulse" style={{ animationDelay: '0.3s' }}></div>
-                        <ArrowRight className="absolute -right-2 -top-2 w-4 h-4 text-blue-500" />
+                    {/* Convergence Arrows */}
+                    <div className="relative flex justify-center items-center h-8">
+                      {/* Left diagonal arrow */}
+                      <div className="absolute left-1/4 top-0">
+                        <div className="transform rotate-45 w-8 h-0.5 bg-teal-400 rounded origin-left">
+                          <div className="absolute right-0 -top-1 w-2 h-2 border-r-2 border-b-2 border-teal-400 transform rotate-45"></div>
+                        </div>
+                        <div className="absolute top-0 left-0 w-1 h-1 bg-teal-500 rounded-full animate-pulse"></div>
+                      </div>
+
+                      {/* Right diagonal arrow */}
+                      <div className="absolute right-1/4 top-0">
+                        <div className="transform -rotate-45 w-8 h-0.5 bg-blue-400 rounded origin-right">
+                          <div className="absolute left-0 -top-1 w-2 h-2 border-l-2 border-b-2 border-blue-400 transform -rotate-45"></div>
+                        </div>
+                        <div className="absolute top-0 right-0 w-1 h-1 bg-blue-500 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
                       </div>
                     </div>
 
-                    {/* Stage 3: HealthFees Processing */}
-                    <div className="flex items-center">
-                      <div className="flex items-center gap-4 flex-1">
+                    {/* HealthFees Processing - Centered */}
+                    <div className="flex justify-center">
+                      <div className="flex items-center gap-4 p-4 rounded-xl bg-purple-50 border border-purple-200 max-w-xs">
                         <div className="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center">
                           <Activity className="w-6 h-6 text-white" />
                         </div>
                         <div>
-                          <p className="font-semibold text-gray-900">HealthFees Processing</p>
-                          <p className="text-sm text-gray-600">Clean, validate & standardize</p>
+                          <p className="font-semibold text-gray-900 text-sm">HealthFees Processing</p>
+                          <p className="text-xs text-gray-600">Clean, validate & standardize</p>
                         </div>
                       </div>
                     </div>
 
-                    {/* Final Arrow */}
-                    <div className="flex items-center justify-center">
+                    {/* Output Arrow */}
+                    <div className="flex justify-center">
                       <div className="relative">
                         <div className="w-16 h-0.5 bg-gray-200 rounded"></div>
                         <div className="absolute top-0 left-0 w-4 h-0.5 bg-purple-500 rounded animate-pulse" style={{ animationDelay: '0.6s' }}></div>
@@ -884,15 +884,15 @@ export default function HomePage() {
                       </div>
                     </div>
 
-                    {/* Stage 4: Searchable Data */}
-                    <div className="flex items-center">
-                      <div className="flex items-center gap-4 flex-1">
+                    {/* Searchable Data - Final Output */}
+                    <div className="flex justify-center">
+                      <div className="flex items-center gap-4 p-4 rounded-xl bg-emerald-50 border border-emerald-200 max-w-xs">
                         <div className="w-12 h-12 rounded-full bg-emerald-500 flex items-center justify-center">
                           <Search className="w-6 h-6 text-white" />
                         </div>
                         <div>
-                          <p className="font-semibold text-gray-900">Searchable Data</p>
-                          <p className="text-sm text-gray-600">Ready for price comparison</p>
+                          <p className="font-semibold text-gray-900 text-sm">Searchable Data</p>
+                          <p className="text-xs text-gray-600">Ready for price comparison</p>
                         </div>
                       </div>
                     </div>
