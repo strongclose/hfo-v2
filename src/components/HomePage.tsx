@@ -1213,10 +1213,10 @@ export default function HomePage() {
                         </div>
                         <div>
                           <div className="flex items-center gap-2">
-                            <span className="font-bold text-gray-900 text-lg">Provider C</span>
-                            <div className="px-3 py-1 rounded-full text-sm font-bold bg-amber-200 text-amber-900">Bronze</div>
+                            <span className="font-semibold text-gray-900">Provider C</span>
+                            <div className="px-3 py-1 rounded-full text-sm font-semibold bg-amber-200 text-amber-900">Bronze</div>
                           </div>
-                          <div className="text-sm text-gray-800 font-semibold">Regional Medical Center</div>
+                          <div className="text-sm text-gray-700 font-medium">Regional Medical Center</div>
                         </div>
                       </div>
                       <div className="text-right">
