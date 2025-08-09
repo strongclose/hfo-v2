@@ -618,7 +618,7 @@ export default function HomePage() {
                     {/* Right Visual - Mobile shows above, Desktop shows right */}
                     <div className="order-first lg:order-last lg:pl-16 mb-12 lg:mb-0">
                       <div className="hf-card p-8 border-blue-200" style={{ background: 'rgba(59, 130, 246, 0.05)' }}>
-                        <h4 className="text-base font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <h4 className="hf-heading-h4 hf-text-primary mb-4 flex items-center gap-2">
                           <FileText className="w-5 h-5 text-blue-600" />
                           Live Data Sources
                         </h4>
@@ -626,8 +626,8 @@ export default function HomePage() {
                           {dataSources.map((source, idx) => (
                             <div key={idx} className="hf-card flex items-center justify-between p-3 bg-white border-blue-100">
                               <div>
-                                <p className="font-medium text-gray-900">{source.name}</p>
-                                <p className="text-sm text-gray-600">{source.count}</p>
+                                <p className="hf-heading-h6 hf-text-primary">{source.name}</p>
+                                <p className="text-sm hf-text-muted">{source.count}</p>
                               </div>
                               <div className="flex items-center gap-2">
                                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
