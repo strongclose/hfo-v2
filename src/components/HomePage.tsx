@@ -200,19 +200,14 @@ export default function HomePage() {
                 {/* Step 1 - We Collect */}
                 <div className="relative flex items-center">
                   {/* Timeline Node */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-blue-500 rounded-full border-4 border-white shadow-lg z-10 hidden md:block"></div>
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white rounded-full border-2 border-blue-500 shadow-lg z-10 hidden md:block"></div>
 
                   {/* Content */}
                   <div className="w-full md:w-5/12 md:pr-8">
                     <div className="group text-center md:text-right">
                       <div className="flex items-center justify-center md:justify-end mb-6">
-                        <div className="relative">
-                          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                            <Database className="w-10 h-10 text-white" />
-                          </div>
-                          <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-200 rounded-full flex items-center justify-center">
-                            <span className="text-blue-700 font-bold text-sm">1</span>
-                          </div>
+                        <div className="w-20 h-20 rounded-full bg-blue-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                          <Database className="w-10 h-10 text-white" />
                         </div>
                       </div>
                       <h3 className="text-2xl font-bold text-gray-900 mb-4">We Collect</h3>
@@ -225,20 +220,15 @@ export default function HomePage() {
 
                 {/* Step 2 - We Organize */}
                 <div className="relative flex items-center justify-end">
-                  {/* Timeline Node */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-purple-500 rounded-full border-4 border-white shadow-lg z-10 hidden md:block"></div>
+                  {/* Timeline Node - Filled */}
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full shadow-lg z-10 hidden md:block"></div>
 
                   {/* Content */}
                   <div className="w-full md:w-5/12 md:pl-8 md:ml-auto">
                     <div className="group text-center md:text-left">
                       <div className="flex items-center justify-center md:justify-start mb-6">
-                        <div className="relative">
-                          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                            <Workflow className="w-10 h-10 text-white" />
-                          </div>
-                          <div className="absolute -top-2 -right-2 w-8 h-8 bg-purple-200 rounded-full flex items-center justify-center">
-                            <span className="text-purple-700 font-bold text-sm">2</span>
-                          </div>
+                        <div className="w-20 h-20 rounded-full bg-purple-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                          <Workflow className="w-10 h-10 text-white" />
                         </div>
                       </div>
                       <h3 className="text-2xl font-bold text-gray-900 mb-4">We Organize</h3>
@@ -252,19 +242,14 @@ export default function HomePage() {
                 {/* Step 3 - You Compare */}
                 <div className="relative flex items-center">
                   {/* Timeline Node */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-emerald-500 rounded-full border-4 border-white shadow-lg z-10 hidden md:block"></div>
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white rounded-full border-2 border-emerald-500 shadow-lg z-10 hidden md:block"></div>
 
                   {/* Content */}
                   <div className="w-full md:w-5/12 md:pr-8">
                     <div className="group text-center md:text-right">
                       <div className="flex items-center justify-center md:justify-end mb-6">
-                        <div className="relative">
-                          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                            <Search className="w-10 h-10 text-white" />
-                          </div>
-                          <div className="absolute -top-2 -right-2 w-8 h-8 bg-emerald-200 rounded-full flex items-center justify-center">
-                            <span className="text-emerald-700 font-bold text-sm">3</span>
-                          </div>
+                        <div className="w-20 h-20 rounded-full bg-emerald-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                          <Search className="w-10 h-10 text-white" />
                         </div>
                       </div>
                       <h3 className="text-2xl font-bold text-gray-900 mb-4">You Compare</h3>
