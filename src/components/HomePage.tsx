@@ -1255,13 +1255,13 @@ export default function HomePage() {
                         {/* Background circle */}
                         <circle cx="50" cy="50" r="35" fill="transparent" stroke="#e5e7eb" strokeWidth="8"/>
                         {/* Fully Compliant - 45% */}
-                        <circle cx="50" cy="50" r="35" fill="transparent" stroke="#14b8a6" strokeWidth="8"
+                        <circle cx="50" cy="50" r="35" fill="transparent" stroke="#10b981" strokeWidth="8"
                                 strokeDasharray="63 157" strokeLinecap="round"/>
                         {/* Partially Compliant - 35% */}
                         <circle cx="50" cy="50" r="35" fill="transparent" stroke="#3b82f6" strokeWidth="8"
                                 strokeDasharray="49 171" strokeDashoffset="-63" strokeLinecap="round"/>
                         {/* Non Compliant - 20% */}
-                        <circle cx="50" cy="50" r="35" fill="transparent" stroke="#9ca3af" strokeWidth="8"
+                        <circle cx="50" cy="50" r="35" fill="transparent" stroke="#6b7280" strokeWidth="8"
                                 strokeDasharray="28 192" strokeDashoffset="-112" strokeLinecap="round"/>
                       </svg>
                       <div className="absolute inset-0 flex items-center justify-center">
