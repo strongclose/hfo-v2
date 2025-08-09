@@ -1044,7 +1044,7 @@ export default function HomePage() {
                   <div className={`relative p-8 md:p-12 rounded-3xl bg-gradient-to-br ${persona.bgColor} bg-opacity-20 backdrop-blur-xl border border-white/20 shadow-2xl`}>
 
                     {/* Hero Content Grid */}
-                    <div className="grid lg:grid-cols-2 gap-12 items-start">
+                    <div className="grid lg:grid-cols-2 gap-12 items-start lg:items-start">
 
                       {/* Left: Primary Content */}
                       <div className="space-y-8">
