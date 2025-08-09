@@ -20,7 +20,7 @@
  */
 
 import * as React from "react";
-import Link from "next/link";
+// Removed Next.js Link - using regular anchor tags instead
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "./utils";
 
