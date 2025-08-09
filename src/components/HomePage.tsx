@@ -1102,7 +1102,7 @@ export default function HomePage() {
                       </div>
 
                       {/* Right: Mini Visualization & Supporting Data */}
-                      <div className="order-first lg:order-last space-y-6 lg:pt-20">
+                      <div className="order-first lg:order-last space-y-6 lg:pt-32">
                         {getMiniVisualization(key)}
 
                         {/* Supporting Data Point */}
