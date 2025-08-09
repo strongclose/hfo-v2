@@ -369,10 +369,10 @@ export default function HomePage() {
 
   // Mini Visualization Components
   const PriceRangeChart = () => (
-    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30">
-      <div className="text-sm text-white/80 mb-2">Knee Replacement Price Range (CA)</div>
+    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30 w-full">
+      <div className="text-sm text-white/80 mb-3">Knee Replacement Price Range (CA)</div>
       <div className="relative">
-        <div className="flex justify-between text-xs text-white/70 mb-1">
+        <div className="flex justify-between text-xs text-white/70 mb-2">
           <span>Low</span>
           <span>Avg</span>
           <span>High</span>
@@ -380,7 +380,7 @@ export default function HomePage() {
         <div className="h-4 bg-white/20 rounded-full overflow-hidden">
           <div className="h-full bg-gradient-to-r from-green-400 via-yellow-400 to-red-400 rounded-full"></div>
         </div>
-        <div className="flex justify-between text-xs text-white mt-1">
+        <div className="flex justify-between text-xs text-white mt-2">
           <span>$18K</span>
           <span>$42K</span>
           <span>$67K</span>
@@ -390,19 +390,20 @@ export default function HomePage() {
   );
 
   const VariationBarChart = () => (
-    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30">
+    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30 w-full">
       <div className="text-sm text-white/80 mb-3">Cost Variation - Same Procedure</div>
-      <div className="space-y-2">
+      <div className="space-y-3">
         {[
           { label: "Provider A", value: 20, color: "bg-green-400" },
           { label: "Provider B", value: 60, color: "bg-yellow-400" },
           { label: "Provider C", value: 100, color: "bg-red-400" }
         ].map((item, idx) => (
-          <div key={idx} className="flex items-center gap-2">
-            <span className="text-xs text-white/70 w-16">{item.label}</span>
-            <div className="flex-1 h-3 bg-white/20 rounded">
-              <div className={`h-full ${item.color} rounded`} style={{ width: `${item.value}%` }}></div>
+          <div key={idx} className="flex items-center gap-3">
+            <span className="text-xs text-white/70 w-20 flex-shrink-0">{item.label}</span>
+            <div className="flex-1 h-3 bg-white/20 rounded-full">
+              <div className={`h-full ${item.color} rounded-full transition-all duration-500`} style={{ width: `${item.value}%` }}></div>
             </div>
+            <span className="text-xs text-white/70 w-8 text-right">{item.value}%</span>
           </div>
         ))}
       </div>
@@ -410,10 +411,10 @@ export default function HomePage() {
   );
 
   const SavingsPieChart = () => (
-    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30">
+    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30 w-full">
       <div className="text-sm text-white/80 mb-3">Potential Savings Breakdown</div>
-      <div className="flex items-center gap-3">
-        <div className="relative w-16 h-16">
+      <div className="flex items-center gap-4">
+        <div className="relative w-16 h-16 flex-shrink-0">
           <svg className="w-16 h-16 transform -rotate-90" viewBox="0 0 32 32">
             <circle cx="16" cy="16" r="14" fill="transparent" stroke="rgba(255,255,255,0.2)" strokeWidth="4"/>
             <circle cx="16" cy="16" r="14" fill="transparent" stroke="#10b981" strokeWidth="4" strokeDasharray="70 100" strokeLinecap="round"/>
@@ -421,8 +422,8 @@ export default function HomePage() {
           <div className="absolute inset-0 flex items-center justify-center text-xs text-white font-bold">70%</div>
         </div>
         <div className="text-xs text-white/80">
-          <div>Potential Savings</div>
-          <div className="text-emerald-300">$1,800 avg</div>
+          <div className="mb-1">Potential Savings</div>
+          <div className="text-emerald-300 font-semibold">$1,800 avg</div>
         </div>
       </div>
     </div>
