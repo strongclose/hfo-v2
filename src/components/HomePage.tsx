@@ -560,7 +560,7 @@ export default function HomePage() {
 
                         <div className="text-center lg:text-right">
                           <div className="flex items-center justify-center lg:justify-end gap-2 mb-4">
-                            <h3 className="text-2xl font-bold text-gray-900">We Collect</h3>
+                            <h3 className="hf-heading-h3 hf-text-primary">We Collect</h3>
                             <Tooltip content="Federal law requires providers and payers to publish machine-readable files with their negotiated rates under transparency regulations.">
                               <Info className="w-5 h-5 text-blue-500 cursor-help" />
                             </Tooltip>
