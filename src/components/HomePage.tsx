@@ -239,43 +239,68 @@ export default function HomePage() {
   const personas = {
     patients: {
       title: "Patients & Families",
-      insight: "Patients who compare prices before care save an average of $3,200 per procedure.",
-      support: "Easily check provider, payer, and cash prices side-by-side so you know what to expect before you go.",
-      cta: "Check prices near you",
-      icon: Stethoscope,
-      link: "/who-we-help/patients"
+      primaryInsight: "Save an average of $3,200 per procedure by comparing prices before care.",
+      primaryNumber: 3200,
+      supportingData: "Price range for a knee replacement in California: $18,000 – $67,000.",
+      primaryCTA: "Check Prices Near You",
+      primaryCTALink: "/price-comparison",
+      secondaryCTA: "See Top Savings by Procedure",
+      secondaryCTALink: "/insights?filter=savings",
+      icon: Heart,
+      bgColor: "from-rose-400 to-pink-500",
+      accentColor: "text-rose-600"
     },
     researchers: {
-      title: "Researchers & Analysts", 
-      insight: "Access over 2.4 trillion pricing records across 6,000+ providers and 400+ payers — updated monthly.",
-      support: "Download structured, machine-readable files to power your analysis, policy research, or market studies.",
-      cta: "Explore the data",
+      title: "Researchers & Analysts",
+      primaryInsight: "Uncover price variations of up to 900% for the same procedure.",
+      primaryNumber: 900,
+      supportingData: "Access 2.4T+ pricing records from 6,000+ providers and 400+ payers.",
+      primaryCTA: "Explore the Data",
+      primaryCTALink: "/data-explorer",
+      secondaryCTA: "Read Market Insights",
+      secondaryCTALink: "/insights",
       icon: BarChart3,
-      link: "/who-we-help/researchers"
+      bgColor: "from-blue-400 to-indigo-500",
+      accentColor: "text-blue-600"
     },
     employers: {
       title: "Healthcare Employers",
-      insight: "Employers can cut common procedure costs by up to 18% by steering employees to lower-cost providers.",
-      support: "Identify high-value care options and reduce total benefits spending without reducing quality.",
-      cta: "Compare provider rates",
-      icon: Building2,
-      link: "/who-we-help/employers"
+      primaryInsight: "Reduce benefits spend by steering employees toward cost-effective care.",
+      primaryNumber: 1800,
+      supportingData: "Average savings potential: $1,800 per procedure when employees compare.",
+      primaryCTA: "Get a Custom Savings Report",
+      primaryCTALink: "/compliance-tool?type=employer",
+      secondaryCTA: "See Real-World Savings Data",
+      secondaryCTALink: "/insights",
+      icon: Briefcase,
+      bgColor: "from-emerald-400 to-teal-500",
+      accentColor: "text-emerald-600"
     },
     providers: {
       title: "Providers",
-      insight: "Benchmark your prices against competitors in and out of network to identify strengths and opportunities.",
-      support: "Monitor competitor rates and track changes in published transparency files each month.",
-      cta: "Run a compliance scan",
+      primaryInsight: "Benchmark your rates against peers and the market instantly.",
+      primaryNumber: 0, // No specific number for this persona
+      supportingData: "Compare your rates with competitors in your region and across the U.S.",
+      primaryCTA: "Benchmark Your Rates",
+      primaryCTALink: "/provider-directory?view=benchmark",
+      secondaryCTA: "Learn How to Use HFO for Compliance",
+      secondaryCTALink: "/compliance-tool",
       icon: Hospital,
-      link: "/who-we-help/hospitals"
+      bgColor: "from-purple-400 to-violet-500",
+      accentColor: "text-purple-600"
     },
-    insurers: {
+    payers: {
       title: "Payers",
-      insight: "Track competitor networks and published rates to stay competitive in your region.",
-      support: "Use our organized data to monitor market changes and meet federal transparency requirements.",
-      cta: "See network pricing",
+      primaryInsight: "Ensure network competitiveness and meet transparency compliance.",
+      primaryNumber: 0, // No specific number for this persona
+      supportingData: "View all in-network, out-of-network, and cash rates in one place.",
+      primaryCTA: "Access Payer Data",
+      primaryCTALink: "/payer-directory",
+      secondaryCTA: "Partner with HFO to Host Your Data",
+      secondaryCTALink: "/enterprise-data-hosting",
       icon: Shield,
-      link: "/who-we-help/insurance-providers"
+      bgColor: "from-cyan-400 to-blue-500",
+      accentColor: "text-cyan-600"
     }
   };
 
