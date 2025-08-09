@@ -184,7 +184,7 @@ export default function HomePage() {
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 tracking-tight">
                 How It
-                <span className="bg-gradient-to-r from-blue-900 to-teal-700 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-900 to-slate-800 bg-clip-text text-transparent">
                   {" "}
                   Works
                 </span>
