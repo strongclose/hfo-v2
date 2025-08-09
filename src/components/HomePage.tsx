@@ -408,22 +408,22 @@ export default function HomePage() {
                   link: "/who-we-help/journalists"
                 }
               ].map((audience, index) => (
-                <div key={index} className="group">
-                  <div className="relative p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-white/10">
+                <div key={index} className="group h-full">
+                  <div className="relative p-8 rounded-3xl bg-white/25 backdrop-blur-xl border border-white/30 hover:bg-white/35 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-white/10 h-full flex flex-col">
                     <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${audience.gradient} flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                       <audience.icon className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-xl font-bold mb-4 text-white group-hover:text-cyan-300 transition-colors duration-300 text-center">
                       {audience.title}
                     </h3>
-                    <p className="text-gray-200 group-hover:text-white transition-colors duration-300 leading-relaxed text-center mb-6">
+                    <p className="text-white/90 group-hover:text-white transition-colors duration-300 leading-relaxed text-center mb-6 flex-grow">
                       {audience.desc}
                     </p>
-                    <div className="text-center">
+                    <div className="text-center mt-auto">
                       <Button
                         onClick={() => window.location.href = audience.link}
                         variant="outline"
-                        className="border-white/30 text-white hover:bg-white/20 hover:border-white/50 transition-all duration-300"
+                        className="border-white/50 text-white hover:bg-white/30 hover:border-white/70 transition-all duration-300"
                       >
                         Learn More
                         <ArrowRight className="w-4 h-4 ml-2" />
