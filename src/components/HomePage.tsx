@@ -776,7 +776,7 @@ export default function HomePage() {
 
                         <div className="text-center lg:text-left">
                           <div className="flex items-center justify-center lg:justify-start gap-2 mb-4">
-                            <h3 className="text-3xl font-bold text-gray-900">We Organize</h3>
+                            <h3 className="text-2xl font-bold text-gray-900">We Organize</h3>
                             <Tooltip content="We use advanced algorithms to clean, validate, and structure raw pricing data into searchable formats.">
                               <Info className="w-5 h-5 text-purple-500 cursor-help" />
                             </Tooltip>
