@@ -508,7 +508,7 @@ export default function HomePage() {
 
           <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-blue-500/25" style={{ background: 'linear-gradient(to bottom right, #3b82f6, #06b6d4)' }}>
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-blue-500/25 hf-gradient-accent">
                 <Lightbulb className="w-8 h-8 text-white" />
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-gray-900 tracking-tight">
