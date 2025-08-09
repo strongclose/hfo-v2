@@ -929,12 +929,12 @@ export default function HomePage() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-base font-bold text-gray-900 mb-2 leading-tight">
+                  <h3 className="hf-heading-h4 hf-text-primary mb-2">
                     {card.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-sm hf-text-secondary mb-4">
                     {card.desc}
                   </p>
 
