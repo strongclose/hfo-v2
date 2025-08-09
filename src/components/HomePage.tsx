@@ -1441,68 +1441,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 9. Join the Movement - Enhanced with gradient overlay */}
-        <section className="relative py-16 overflow-hidden bg-gradient-to-br from-blue-950 via-slate-900 to-blue-900">
-          {/* Enhanced gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-slate-900/60 to-purple-900/80"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(20,184,166,0.12),transparent_50%)]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(59,130,246,0.1),transparent_50%)]"></div>
-
-          <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6 shadow-lg shadow-teal-500/25" style={{ background: 'linear-gradient(to bottom right, #2dd4bf, #3b82f6)' }}>
-                <Globe className="w-8 h-8 text-white" />
-              </div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-white tracking-tight">
-                Join the Movement for
-                <span className="text-white">
-                  {" "}
-                  Healthcare Transparency
-                </span>
-              </h2>
-              <p className="text-lg md:text-xl text-gray-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Ready to save money on your next healthcare procedure? Join thousands who've already saved by comparing prices first.
-              </p>
-
-              <div className="mb-8 flex flex-col sm:flex-row gap-3 justify-center">
-                <PriceComparisonCTA
-                  size="lg"
-                  variant="primary"
-                >
-                  Start Comparing Prices Now
-                </PriceComparisonCTA>
-
-                <Button
-                  onClick={() => {
-                    if (typeof window !== 'undefined') {
-                      window.location.href = "/about";
-                    }
-                  }}
-                  variant="glass"
-                  size="lg"
-                >
-                  Learn Our Mission
-                  <ArrowRight className="w-5 h-5" />
-                </Button>
-              </div>
-
-              <div className="flex justify-center gap-3 max-w-xl mx-auto">
-                <Button
-                  variant="glass"
-                  size="default"
-                  onClick={() => {
-                    if (typeof window !== 'undefined' && navigator.clipboard) {
-                      navigator.clipboard.writeText(window.location.href);
-                    }
-                  }}
-                >
-                  <Lightbulb className="w-4 h-4" />
-                  Share
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
       </div>
 
       {/* Footer with Get Data Updates field */}
