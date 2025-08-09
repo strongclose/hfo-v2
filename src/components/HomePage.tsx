@@ -1108,10 +1108,7 @@ export default function HomePage() {
 
                       {/* Right: Mini Visualization */}
                       <div className="order-first lg:order-last">
-                        <div className="relative">
-                          <div className="absolute -top-4 -left-4 w-full h-full bg-gradient-to-br from-white/10 to-transparent rounded-2xl"></div>
-                          {getMiniVisualization(key)}
-                        </div>
+                        {getMiniVisualization(key)}
                       </div>
                     </div>
                   </div>
