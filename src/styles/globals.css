@@ -1,4 +1,4 @@
-@import '../styles/dropdown-blur.css';
+@import './dropdown-blur.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
