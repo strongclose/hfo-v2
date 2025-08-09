@@ -524,7 +524,7 @@ export default function HomePage() {
               
               <div className="hf-card-glass mt-8 p-8 backdrop-blur-xl max-w-4xl mx-auto" style={{ background: 'rgba(255, 255, 255, 0.8)' }}>
                 <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'linear-gradient(to bottom right, #3b82f6, #0891b2)' }}>
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 hf-gradient-accent">
                     <CheckCircle className="w-6 h-6 text-white" />
                   </div>
                   <div className="text-left">
@@ -774,7 +774,7 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-start mb-8">
                           <div className="relative">
-                            <div className="w-24 h-24 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300" style={{ background: 'linear-gradient(to bottom right, #6b21a8, #be185d)' }}>
+                            <div className="w-24 h-24 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300 hf-gradient-accent">
                               <Sparkles className="w-12 h-12 text-white fill-current" />
                             </div>
                           </div>
@@ -846,7 +846,7 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-end mb-8">
                           <div className="relative">
-                            <div className="w-24 h-24 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300" style={{ background: 'linear-gradient(to bottom right, #065f46, #0f766e)' }}>
+                            <div className="w-24 h-24 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300 hf-gradient-primary">
                               <Search className="w-12 h-12 text-white fill-current" />
                             </div>
                           </div>
@@ -950,7 +950,7 @@ export default function HomePage() {
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Header */}
             <div className="text-center mb-16">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-blue-500/25" style={{ background: 'linear-gradient(to bottom right, #3b82f6, #9333ea)' }}>
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-blue-500/25 hf-gradient-primary">
                 <Target className="w-8 h-8 text-white" />
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 tracking-tight">
@@ -1015,7 +1015,7 @@ export default function HomePage() {
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-emerald-500/25" style={{ background: 'linear-gradient(to bottom right, #34d399, #22d3ee)' }}>
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-emerald-500/25 hf-gradient-accent">
                 <Users className="w-8 h-8 text-white" />
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white tracking-tight">
@@ -1152,7 +1152,7 @@ export default function HomePage() {
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div className="text-center mb-16">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-teal-500/25" style={{ background: 'linear-gradient(to bottom right, #14b8a6, #2563eb)' }}>
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-teal-500/25 hf-gradient-accent">
                 <Shield className="w-8 h-8 text-white" />
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 tracking-tight">
@@ -1345,7 +1345,7 @@ export default function HomePage() {
             <div className="hf-card mt-16 p-8 bg-gray-100 border-gray-400">
               <div className="flex flex-col lg:flex-row items-center gap-6">
                 <div className="flex items-center gap-4 flex-1">
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg flex-shrink-0" style={{ background: 'linear-gradient(to bottom right, #14b8a6, #2563eb)' }}>
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg flex-shrink-0 hf-gradient-accent">
                     <Shield className="w-8 h-8 text-white" />
                   </div>
                   <div>
@@ -1395,7 +1395,7 @@ export default function HomePage() {
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-rose-500/25" style={{ background: 'linear-gradient(to bottom right, #f43f5e, #f97316)' }}>
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-rose-500/25 hf-gradient-accent">
                 <BarChart3 className="w-8 h-8 text-white" />
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 tracking-tight">
