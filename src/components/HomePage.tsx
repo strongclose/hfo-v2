@@ -1475,7 +1475,7 @@ export default function HomePage() {
 
               <div className="mb-8 flex flex-col sm:flex-row gap-3 justify-center">
                 <PriceComparisonCTA
-                  size="xl"
+                  size="lg"
                   variant="primary"
                 >
                   Start Comparing Prices
@@ -1488,7 +1488,7 @@ export default function HomePage() {
                     }
                   }}
                   variant="glass"
-                  size="xl"
+                  size="lg"
                 >
                   Learn Our Mission
                   <ArrowRight className="w-5 h-5" />
