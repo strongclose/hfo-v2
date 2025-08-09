@@ -331,12 +331,10 @@ export default function HomePage() {
       }}
       size={size}
       variant={variant}
-      className={`${className} transition-all duration-300 hover:scale-105`}
+      className={className}
     >
-      <span className="flex items-center gap-2">
-        {children}
-        <ArrowRight className="w-5 h-5" />
-      </span>
+      {children}
+      <ArrowRight className="w-5 h-5" />
     </Button>
   );
 
@@ -541,9 +539,9 @@ export default function HomePage() {
               </div>
               
               <div className="mt-12">
-                <PriceComparisonCTA 
-                  size="lg" 
-                  className="px-10 py-4 text-lg bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white rounded-2xl shadow-lg"
+                <PriceComparisonCTA
+                  size="xl"
+                  variant="accent"
                 >
                   Start Comparing Prices Now
                 </PriceComparisonCTA>
@@ -649,15 +647,17 @@ export default function HomePage() {
                           </div>
 
                           <div className="mt-6">
-                            <a 
-                              href="https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-E/part-180" 
-                              target="_blank" 
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors"
+                            <Button
+                              variant="link"
+                              onClick={() => {
+                                if (typeof window !== 'undefined') {
+                                  window.open('https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-E/part-180', '_blank');
+                                }
+                              }}
                             >
                               Learn about the federal requirements
                               <ExternalLink className="w-4 h-4" />
-                            </a>
+                            </Button>
                           </div>
                         </div>
                       </div>
@@ -808,10 +808,17 @@ export default function HomePage() {
                           </div>
 
                           <div className="mt-6">
-                            <button className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium transition-colors">
+                            <Button
+                              variant="link"
+                              onClick={() => {
+                                if (typeof window !== 'undefined') {
+                                  window.location.href = "/data-methodology";
+                                }
+                              }}
+                            >
                               See our data methodology
                               <ArrowRight className="w-4 h-4" />
-                            </button>
+                            </Button>
                           </div>
                         </div>
                       </div>
@@ -862,8 +869,8 @@ export default function HomePage() {
                           </div>
 
                           <div className="flex justify-center lg:justify-end">
-                            <PriceComparisonCTA 
-                              className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-xl shadow-lg"
+                            <PriceComparisonCTA
+                              variant="success"
                             >
                               Start Comparing Now
                             </PriceComparisonCTA>
