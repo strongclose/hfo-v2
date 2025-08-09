@@ -1315,9 +1315,9 @@ export default function HomePage() {
                         window.location.href = "/compliance-tool";
                       }
                     }}
-                    variant="primary"
+                    variant="secondary"
                   >
-                    See How We Can Help
+                    Get Compliance Help
                     <ArrowRight className="w-5 h-5" />
                   </Button>
                 </div>
