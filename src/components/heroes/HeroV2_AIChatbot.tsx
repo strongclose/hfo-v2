@@ -79,7 +79,7 @@ export function HeroV2_AIChatbot({
           height="sm"
           context="healthcare"
           placeholder="Give it a try..."
-          initialMessage="Hi! Ask me about any medical procedure or service. Try: 'MRI price in Boston' or 'Lowest cataract surgery cost near me' and I'll return real hospital and insurance data made public by federal law to give you clear answers."
+          initialMessage="What healthcare price would you like to see? Try: 'MRI price in Boston'."
           className="max-w-4xl"
         />
       </div>
