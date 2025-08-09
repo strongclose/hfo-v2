@@ -1,18 +1,6 @@
-import { Github, Twitter, Linkedin, Mail } from "lucide-react";
-import { useState } from "react";
+import { Github, Twitter, Linkedin } from "lucide-react";
 
 export function FooterExpanded() {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubscribed(true);
-      setEmail("");
-    }
-  };
-
   const footerSections = [
     {
       title: "🧰 Tools",
