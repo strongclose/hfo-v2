@@ -888,7 +888,7 @@ export default function HomePage() {
                         </h4>
                         <div className="space-y-4">
                           {priceComparison.map((item, idx) => (
-                            <div key={idx} className={`flex items-center justify-between p-4 rounded-xl border-2 transition-all ${
+                            <div key={idx} className={`hf-card flex items-center justify-between p-4 border-2 transition-all ${
                               item.best 
                                 ? 'bg-emerald-100 border-emerald-300 shadow-md' 
                                 : 'bg-white border-gray-200'
