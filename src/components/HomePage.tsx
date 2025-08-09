@@ -945,7 +945,11 @@ export default function HomePage() {
         </LazySection>
 
         {/* 5. Explore HealthFees.org - 8-Card Action Grid */}
-        <section className="relative py-24 overflow-hidden bg-gradient-to-b from-white to-blue-50">
+        <LazySection
+          className="relative py-24 overflow-hidden bg-gradient-to-b from-white to-blue-50"
+          minHeight="600px"
+        >
+        <section>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Header */}
             <div className="text-center mb-16">
@@ -1000,6 +1004,7 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+        </LazySection>
 
         {/* 6. Who Uses HealthFees.org - Enhanced Persona Insights */}
         <section className="relative py-24 overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
