@@ -15,5 +15,11 @@ export default defineConfig({
   },
   devToolbar: {
     enabled: false
+  },
+  vite: {
+    define: {
+      'process.env.NODE_ENV': JSON.stringify('development'),
+      'process': '{}',
+    },
   }
 });
