@@ -1327,7 +1327,7 @@ export default function HomePage() {
             <div className="p-8 rounded-3xl bg-gray-100 border-2 border-gray-400 shadow-xl">
               <div className="flex flex-col lg:flex-row items-center gap-6">
                 <div className="flex items-center gap-4 flex-1">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-teal-500 to-blue-600 flex items-center justify-center shadow-lg flex-shrink-0">
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg flex-shrink-0" style={{ background: 'linear-gradient(to bottom right, #14b8a6, #2563eb)' }}>
                     <Shield className="w-8 h-8 text-white" />
                   </div>
                   <div>
