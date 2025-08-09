@@ -585,7 +585,7 @@ export default function HomePage() {
                   onClick={() =>
                     navigator.clipboard.writeText(window.location.href)
                   }
-                  className="flex items-center gap-3 px-6 py-4 text-lg rounded-2xl bg-white/10 hover:bg-white/20 border-white/20 hover:border-white/30 backdrop-blur-sm transition-all duration-300 hover:scale-105 text-white"
+                  className="flex items-center gap-3 px-6 py-4 text-lg rounded-2xl bg-white/30 hover:bg-white/40 border-white/50 hover:border-white/70 backdrop-blur-sm transition-all duration-300 hover:scale-105 text-white font-semibold"
                 >
                   <Lightbulb className="w-5 h-5" />
                   Copy Page Link
@@ -599,7 +599,7 @@ export default function HomePage() {
                       "_blank",
                     )
                   }
-                  className="flex items-center gap-3 px-6 py-4 text-lg rounded-2xl bg-white/10 hover:bg-white/20 border-white/20 hover:border-white/30 backdrop-blur-sm transition-all duration-300 hover:scale-105 text-white"
+                  className="flex items-center gap-3 px-6 py-4 text-lg rounded-2xl bg-white/30 hover:bg-white/40 border-white/50 hover:border-white/70 backdrop-blur-sm transition-all duration-300 hover:scale-105 text-white font-semibold"
                 >
                   <ChevronRight className="w-5 h-5" />
                   Email a Colleague
@@ -613,7 +613,7 @@ export default function HomePage() {
                       "_blank",
                     )
                   }
-                  className="flex items-center gap-3 px-6 py-4 text-lg rounded-2xl bg-white/10 hover:bg-white/20 border-white/20 hover:border-white/30 backdrop-blur-sm transition-all duration-300 hover:scale-105 text-white"
+                  className="flex items-center gap-3 px-6 py-4 text-lg rounded-2xl bg-white/30 hover:bg-white/40 border-white/50 hover:border-white/70 backdrop-blur-sm transition-all duration-300 hover:scale-105 text-white font-semibold"
                 >
                   <Users className="w-5 h-5" />
                   Share on LinkedIn
