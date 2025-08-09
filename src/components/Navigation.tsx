@@ -130,19 +130,21 @@ export function Navigation() {
               stroke="white"
               strokeWidth={1}
             />
-            <defs>
-              <linearGradient
-                id="heroGradient"
-                x1="0%"
-                y1="0%"
-                x2="100%"
-                y2="100%"
-              >
-                <stop offset="0%" stopColor="#1E3A8A" />
-                <stop offset="50%" stopColor="#1E40AF" />
-                <stop offset="100%" stopColor="#2563EB" />
-              </linearGradient>
-            </defs>
+            <svg width="0" height="0">
+              <defs>
+                <linearGradient
+                  id="heroGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop offset="0%" stopColor="#1E3A8A" />
+                  <stop offset="50%" stopColor="#1E40AF" />
+                  <stop offset="100%" stopColor="#2563EB" />
+                </linearGradient>
+              </defs>
+            </svg>
             <div className="absolute inset-0 flex items-center justify-center">
               <Search className="w-5 h-5 text-white" strokeWidth={2.5} />
             </div>
