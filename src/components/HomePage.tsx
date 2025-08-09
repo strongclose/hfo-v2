@@ -188,7 +188,7 @@ const personas = {
     title: "Providers",
     primaryInsight: "Benchmark your rates against peers and the market instantly.",
     primaryNumber: 0, // No specific number for this persona
-    supportingData: "Compare rates with regional & national competitors.",
+    supportingData: "Compare with competitors.",
     primaryCTA: "Benchmark Your Rates",
     primaryCTALink: "/provider-directory?view=benchmark",
     secondaryCTA: "Learn How to Use HFO for Compliance",
