@@ -209,62 +209,6 @@
     }
   }
 
-  /* Floating Gradient Orbs */
-  .floating-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(30px);
-    opacity: 0.25;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    z-index: 0;
-  }
-
-  .floating-orb-1 {
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, #14b8a6, #06b6d4);
-    top: 10%;
-    left: 10%;
-    animation: float-1 8s infinite;
-  }
-
-  .floating-orb-2 {
-    width: 250px;
-    height: 250px;
-    background: radial-gradient(circle, #3b82f6, #8b5cf6);
-    top: 50%;
-    right: 15%;
-    animation: float-2 10s infinite;
-  }
-
-  .floating-orb-3 {
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, #06b6d4, #14b8a6);
-    bottom: 20%;
-    left: 60%;
-    animation: float-3 12s infinite;
-  }
-
-  @keyframes float-1 {
-    0% { transform: translate(0, 0) scale(1); opacity: 0.25; }
-    50% { transform: translate(40px, -30px) scale(1.2); opacity: 0.35; }
-    100% { transform: translate(0, 0) scale(1); opacity: 0.25; }
-  }
-
-  @keyframes float-2 {
-    0% { transform: translate(0, 0) scale(1); opacity: 0.25; }
-    50% { transform: translate(-40px, 25px) scale(0.8); opacity: 0.35; }
-    100% { transform: translate(0, 0) scale(1); opacity: 0.25; }
-  }
-
-  @keyframes float-3 {
-    0% { transform: translate(0, 0) scale(1); opacity: 0.25; }
-    50% { transform: translate(30px, -40px) scale(1.3); opacity: 0.35; }
-    100% { transform: translate(0, 0) scale(1); opacity: 0.25; }
-  }
 
   /* Data Particles */
   .data-particles {
