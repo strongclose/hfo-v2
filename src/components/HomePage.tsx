@@ -81,51 +81,62 @@ const priceComparison = [
   { provider: "Provider C", price: "$6,100", type: "Insurance", best: false }
 ];
 
-const exploreFeatures1 = [
+const exploreActionCards = [
   {
     icon: Search,
     title: "Price Comparison Tool",
-    desc: "Search any procedure, see real prices from providers and payers in your area.",
-    link: "/search-procedure",
-    gradient: "from-blue-500 to-cyan-500"
+    desc: "Compare provider, payer, and cash prices instantly.",
+    link: "/price-comparison",
+    color: "text-blue-600"
   },
   {
-    icon: Brain,
-    title: "AI Healthcare Assistant",
-    desc: "Ask natural language questions about healthcare costs and get instant, data-backed answers.",
-    link: "#",
-    gradient: "from-purple-600 to-pink-600"
+    icon: Database,
+    title: "Data Explorer",
+    desc: "Search, filter, and analyze raw pricing data.",
+    link: "/data-explorer",
+    color: "text-teal-600"
   },
   {
-    icon: BarChart3,
-    title: "Market Analytics",
-    desc: "Analyze pricing trends, compare markets, and understand cost variations across regions.",
-    link: "/insightalytics",
-    gradient: "from-emerald-500 to-teal-500"
-  }
-];
-
-const exploreFeatures2 = [
+    icon: BookOpen,
+    title: "Insights Blog",
+    desc: "Read analysis, trends, and data-driven reports.",
+    link: "/insights",
+    color: "text-purple-600"
+  },
   {
     icon: Building2,
     title: "Provider Directory",
-    desc: "Find providers, clinics, and specialists with transparent pricing and quality metrics.",
-    link: "/hospitals",
-    gradient: "from-orange-500 to-red-500"
+    desc: "Browse providers and healthcare facilities.",
+    link: "/provider-directory",
+    color: "text-emerald-600"
   },
   {
     icon: Shield,
-    title: "Insurance Navigator",
-    desc: "Compare insurance plans, understand coverage, and find the best value for your needs.",
-    link: "/insurance",
-    gradient: "from-indigo-500 to-purple-500"
+    title: "Payer Directory",
+    desc: "View insurance companies and plan data.",
+    link: "/payer-directory",
+    color: "text-indigo-600"
   },
   {
-    icon: Users,
-    title: "Compliance Tools",
-    desc: "Help healthcare organizations meet transparency requirements and benchmark their pricing.",
-    link: "/who-we-help/hospitals",
-    gradient: "from-yellow-500 to-orange-500"
+    icon: CheckCircle,
+    title: "Compliance Tool",
+    desc: "Check TiC and ADA transparency compliance.",
+    link: "/compliance-tool",
+    color: "text-orange-600"
+  },
+  {
+    icon: Activity,
+    title: "Data Methodology",
+    desc: "See how we collect, process, and verify data.",
+    link: "/data-methodology",
+    color: "text-cyan-600"
+  },
+  {
+    icon: Globe,
+    title: "Enterprise Data Hosting",
+    desc: "Partner with HFO to host and manage your data.",
+    link: "/enterprise-data-hosting",
+    color: "text-rose-600"
   }
 ];
 
@@ -745,11 +756,10 @@ export default function HomePage() {
         </section>
 
 
-        {/* 5. Explore HealthFees.org - Two rows with alternating backgrounds */}
-        <section className="relative py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-blue-50/70 to-indigo-50/60"></div>
-
+        {/* 5. Explore HealthFees.org - 8-Card Action Grid */}
+        <section className="relative py-24 overflow-hidden bg-gradient-to-b from-white to-blue-50">
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Header */}
             <div className="text-center mb-16">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 mb-8 shadow-lg shadow-blue-500/25">
                 <Target className="w-8 h-8 text-white" />
@@ -766,55 +776,36 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* First Row - White background */}
-            <div className="grid md:grid-cols-3 gap-8 mb-8">
-              {exploreFeatures1.map((feature, index) => (
+            {/* 8-Card Action Grid */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+              {exploreActionCards.map((card, index) => (
                 <div
                   key={index}
-                  className="group relative cursor-pointer transform hover:scale-105 transition-all duration-300"
+                  className="group relative cursor-pointer bg-white rounded-2xl p-6 border border-gray-200 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
                   onClick={() => {
                     if (typeof window !== 'undefined') {
-                      window.location.href = feature.link;
+                      window.location.href = card.link;
                     }
                   }}
                 >
-                  <div className="relative p-8 rounded-3xl bg-white backdrop-blur-xl border border-gray-200/50 shadow-xl hover:shadow-2xl">
-                    <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${feature.gradient} flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300`}>
-                      <feature.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-4 text-gray-900 text-center group-hover:text-blue-600 transition-colors duration-300">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-700 text-center leading-relaxed">
-                      {feature.desc}
-                    </p>
+                  {/* Icon */}
+                  <div className="mb-4">
+                    <card.icon className={`w-8 h-8 ${card.color}`} />
                   </div>
-                </div>
-              ))}
-            </div>
 
-            {/* Second Row - Light gray background */}
-            <div className="grid md:grid-cols-3 gap-8 p-8 rounded-3xl bg-gray-50/80">
-              {exploreFeatures2.map((feature, index) => (
-                <div
-                  key={index}
-                  className="group relative cursor-pointer transform hover:scale-105 transition-all duration-300"
-                  onClick={() => {
-                    if (typeof window !== 'undefined') {
-                      window.location.href = feature.link;
-                    }
-                  }}
-                >
-                  <div className="relative p-8 rounded-3xl bg-white backdrop-blur-xl border border-gray-200/50 shadow-xl hover:shadow-2xl">
-                    <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${feature.gradient} flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300`}>
-                      <feature.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-4 text-gray-900 text-center group-hover:text-blue-600 transition-colors duration-300">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-700 text-center leading-relaxed">
-                      {feature.desc}
-                    </p>
+                  {/* Title */}
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 leading-tight">
+                    {card.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                    {card.desc}
+                  </p>
+
+                  {/* Action Arrow */}
+                  <div className="flex justify-end">
+                    <ArrowRight className={`w-5 h-5 ${card.color} group-hover:translate-x-1 transition-transform duration-300`} />
                   </div>
                 </div>
               ))}
