@@ -175,7 +175,7 @@ const personas = {
     title: "Healthcare Employers",
     primaryInsight: "Reduce benefits spend by steering employees toward cost-effective care.",
     primaryNumber: 1800,
-    supportingData: "Average savings potential: $1,800 per procedure when employees compare.",
+    supportingData: "Avg potential: $1,800 per procedure.",
     primaryCTA: "Get a Custom Savings Report",
     primaryCTALink: "/compliance-tool?type=employer",
     secondaryCTA: "See Real-World Savings Data",
