@@ -624,7 +624,11 @@ export default function HomePage() {
                   <Button
                     variant="outline"
                     size="lg"
-                    onClick={() => window.location.href = "/how-it-works"}
+                    onClick={() => {
+                      if (typeof window !== 'undefined') {
+                        window.location.href = "/how-it-works";
+                      }
+                    }}
                     className="px-8 py-4 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 rounded-xl"
                   >
                     Learn More About Our Process
@@ -902,7 +906,11 @@ export default function HomePage() {
 
                       <div className="pt-6">
                         <Button
-                          onClick={() => window.location.href = persona.link}
+                          onClick={() => {
+                            if (typeof window !== 'undefined') {
+                              window.location.href = persona.link;
+                            }
+                          }}
                           className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                         >
                           {persona.cta}
@@ -1002,7 +1010,11 @@ export default function HomePage() {
               Join thousands of patients who've saved money by comparing prices first
             </p>
             <Button
-              onClick={() => window.location.href = "/search-procedure"}
+              onClick={() => {
+                if (typeof window !== 'undefined') {
+                  window.location.href = "/search-procedure";
+                }
+              }}
               size="lg"
               className="px-12 py-4 text-xl bg-white text-blue-600 hover:bg-gray-100 font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
             >
@@ -1043,7 +1055,11 @@ export default function HomePage() {
                 </PriceComparisonCTA>
                 
                 <Button
-                  onClick={() => (window.location.href = "/about")}
+                  onClick={() => {
+                    if (typeof window !== 'undefined') {
+                      window.location.href = "/about";
+                    }
+                  }}
                   size="lg"
                   className="px-12 py-5 text-xl bg-white/20 border-2 border-white text-white hover:bg-white/30 hover:border-white rounded-2xl backdrop-blur-sm font-semibold"
                 >
@@ -1056,9 +1072,11 @@ export default function HomePage() {
                 <Button
                   variant="secondary"
                   size="lg"
-                  onClick={() =>
-                    navigator.clipboard.writeText(window.location.href)
-                  }
+                  onClick={() => {
+                    if (typeof window !== 'undefined' && navigator.clipboard) {
+                      navigator.clipboard.writeText(window.location.href);
+                    }
+                  }}
                   className="flex items-center gap-3 px-6 py-4 text-lg rounded-2xl bg-white/30 hover:bg-white/40 border-white/50 hover:border-white/70 backdrop-blur-sm transition-all duration-300 hover:scale-105 text-white font-semibold"
                 >
                   <Lightbulb className="w-5 h-5" />
@@ -1067,12 +1085,14 @@ export default function HomePage() {
                 <Button
                   variant="secondary"
                   size="lg"
-                  onClick={() =>
-                    window.open(
-                      `mailto:?subject=Check out HealthFees.org&body=I found this helpful tool for comparing healthcare prices: ${window.location.href}`,
-                      "_blank",
-                    )
-                  }
+                  onClick={() => {
+                    if (typeof window !== 'undefined') {
+                      window.open(
+                        `mailto:?subject=Check out HealthFees.org&body=I found this helpful tool for comparing healthcare prices: ${window.location.href}`,
+                        "_blank",
+                      );
+                    }
+                  }}
                   className="flex items-center gap-3 px-6 py-4 text-lg rounded-2xl bg-white/30 hover:bg-white/40 border-white/50 hover:border-white/70 backdrop-blur-sm transition-all duration-300 hover:scale-105 text-white font-semibold"
                 >
                   <ChevronRight className="w-5 h-5" />
@@ -1081,12 +1101,14 @@ export default function HomePage() {
                 <Button
                   variant="secondary"
                   size="lg"
-                  onClick={() =>
-                    window.open(
-                      `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`,
-                      "_blank",
-                    )
-                  }
+                  onClick={() => {
+                    if (typeof window !== 'undefined') {
+                      window.open(
+                        `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`,
+                        "_blank",
+                      );
+                    }
+                  }}
                   className="flex items-center gap-3 px-6 py-4 text-lg rounded-2xl bg-white/30 hover:bg-white/40 border-white/50 hover:border-white/70 backdrop-blur-sm transition-all duration-300 hover:scale-105 text-white font-semibold"
                 >
                   <Users className="w-5 h-5" />
