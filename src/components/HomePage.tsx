@@ -652,7 +652,7 @@ export default function HomePage() {
                     {/* Left Visual */}
                     <div className="lg:pr-16 mb-12 lg:mb-0">
                       <div className="hf-card p-8 border-blue-200" style={{ background: 'rgba(59, 130, 246, 0.05)' }}>
-                        <h4 className="text-base font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                        <h4 className="hf-heading-h4 hf-text-primary mb-2 flex items-center gap-2">
                           <Brain className="w-5 h-5 text-purple-600" />
                           Current Monthly Data Processing Status
                         </h4>
