@@ -180,7 +180,11 @@ export function Navigation() {
         {/* Mobile Menu Button - Positioned absolutely on right */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="absolute right-0 top-0 md:hidden text-white hover:text-teal-400 transition-colors"
+          className={`absolute right-0 top-0 md:hidden transition-colors ${
+            isScrolled
+              ? "text-gray-900 hover:text-teal-600"
+              : "text-white hover:text-teal-400"
+          }`}
         >
           {isMobileMenuOpen ? (
             <X className="w-6 h-6" />
