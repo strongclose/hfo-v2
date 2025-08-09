@@ -955,7 +955,7 @@ export default function HomePage() {
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 tracking-tight">
                 Explore
-                <span className="bg-gradient-to-r from-blue-900 to-indigo-800 bg-clip-text text-transparent">
+                <span className="hf-text-gradient-primary">
                   {" "}
                   HealthFees.org
                 </span>
@@ -1400,7 +1400,7 @@ export default function HomePage() {
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 tracking-tight">
                 What the Data
-                <span className="bg-gradient-to-r from-rose-900 to-orange-800 bg-clip-text text-transparent">
+                <span className="hf-text-gradient-accent">
                   {" "}
                   Reveals
                 </span>
