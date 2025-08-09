@@ -1146,7 +1146,7 @@ export default function HomePage() {
                   & Compliance Support
                 </span>
               </h2>
-              <p className="text-xl md:text-2xl text-gray-800 max-w-5xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-900 max-w-5xl mx-auto leading-relaxed font-medium">
                 Recognizing leaders and supporting progress — we measure every provider and payer's transparency and help them achieve full compliance.
               </p>
             </div>
