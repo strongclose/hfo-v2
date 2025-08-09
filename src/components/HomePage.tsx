@@ -265,12 +265,18 @@ export default function HomePage() {
 
   const Tooltip = ({ children, content }: { children: React.ReactNode; content: string }) => {
     return (
-      <div className="group relative inline-block isolate">
-        <div className="cursor-help relative z-10">
+      <div className="group/tooltip relative inline-block">
+        <div className="cursor-help p-1 -m-1">
           {children}
         </div>
-        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 px-5 py-4 bg-white text-gray-900 text-sm leading-relaxed rounded-lg shadow-xl border border-gray-200 z-[100] w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none group-hover:pointer-events-auto">
-          {content}
+        <div
+          className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 px-5 py-4 bg-white text-gray-900 text-sm leading-relaxed rounded-lg shadow-xl border border-gray-200 w-72 opacity-0 invisible transition-all duration-300 pointer-events-none"
+          style={{ zIndex: 9999 }}
+          onMouseEnter={(e) => e.stopPropagation()}
+        >
+          <div className="group-hover/tooltip:opacity-100 group-hover/tooltip:visible opacity-0 invisible transition-all duration-300">
+            {content}
+          </div>
           <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
         </div>
       </div>
@@ -407,7 +413,7 @@ export default function HomePage() {
                           </div>
                           
                           <div className="text-lg text-gray-700 leading-relaxed mb-6">
-                            <Tooltip content="The Hospital Price Transparency Final Rule (45 CFR ������180) requires hospitals to publish machine-readable files with all their negotiated rates.">
+                            <Tooltip content="The Hospital Price Transparency Final Rule (45 CFR ����180) requires hospitals to publish machine-readable files with all their negotiated rates.">
                               <span className="underline decoration-blue-300 decoration-2 cursor-help">Federal law</span>
                             </Tooltip>
                             {" "}requires hospitals and insurers to publish their real prices under the Hospital Price Transparency Final Rule and the Transparency in Coverage Rule. We automatically monitor thousands of these{" "}
