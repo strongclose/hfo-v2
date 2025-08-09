@@ -133,6 +133,7 @@ export default function HomePage() {
   const [currentPage, setCurrentPage] = useState("home");
   const [selectedRadius, setSelectedRadius] = useState<number>(25);
   const [activePersona, setActivePersona] = useState("patients");
+  const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
 
   const handleSearch = (query: string, location?: string) => {
     console.log("Search:", query, location);
