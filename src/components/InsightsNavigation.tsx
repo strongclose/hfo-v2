@@ -1,4 +1,4 @@
-import Link from "next/link";
+// Removed Next.js Link - using regular anchor tags instead
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
