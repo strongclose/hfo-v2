@@ -8,17 +8,17 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+          "bg-blue-600 text-white shadow hover:bg-blue-700",
         primary:
           "bg-blue-600 text-white shadow hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
         destructive:
-          "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+          "bg-red-600 text-white shadow-sm hover:bg-red-700",
         outline:
-          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
+          "border border-gray-300 bg-white text-gray-900 shadow-sm hover:bg-gray-50",
         secondary:
           "bg-white text-blue-600 border border-blue-600 shadow-sm hover:bg-blue-50",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+        ghost: "text-gray-900 hover:bg-gray-100",
+        link: "text-blue-600 underline-offset-4 hover:underline",
         tertiary: "text-blue-600 hover:underline underline-offset-4",
         "ask-ai": "bg-gradient-to-r from-teal-400 to-blue-500 text-white font-semibold shadow-lg hover:from-teal-500 hover:to-blue-600 hover:shadow-xl transition-all duration-300",
       },
