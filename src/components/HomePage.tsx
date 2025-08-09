@@ -1439,31 +1439,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 9. Mid-Page CTA Banner - NEW */}
-        <section className="relative py-16 overflow-hidden bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600">
-          <div className="absolute inset-0 bg-black/20"></div>
-          <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              See how much you could save before your next appointment
-            </h3>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Join thousands of patients who've saved money by comparing prices first
-            </p>
-            <Button
-              onClick={() => {
-                if (typeof window !== 'undefined') {
-                  window.location.href = "/search-procedure";
-                }
-              }}
-              size="lg"
-              className="px-12 py-4 text-xl bg-white text-blue-600 hover:bg-gray-100 font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
-            >
-              Compare Prices Now
-            </Button>
-          </div>
-        </section>
-
-        {/* 10. Join the Movement - Enhanced with gradient overlay */}
+        {/* 9. Join the Movement - Enhanced with gradient overlay */}
         <section className="relative py-24 overflow-hidden bg-gradient-to-br from-blue-950 via-slate-900 to-blue-900">
           {/* Enhanced gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-slate-900/60 to-purple-900/80"></div>
