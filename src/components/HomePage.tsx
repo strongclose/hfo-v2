@@ -446,7 +446,7 @@ export default function HomePage() {
                   Shows
                 </span>
               </h2>
-              <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed">
                 Our analysis of healthcare pricing data reveals shocking disparities and opportunities for savings.
               </p>
             </div>
