@@ -984,7 +984,7 @@ export default function HomePage() {
                 className={`transition-all duration-500 ${activePersona === key ? 'block opacity-100' : 'hidden opacity-0'}`}
               >
                 <div className="max-w-6xl mx-auto">
-                  <div className={`relative p-8 md:p-12 rounded-3xl bg-gradient-to-br ${persona.bgColor} bg-opacity-20 backdrop-blur-xl border border-white/20 shadow-2xl`}>
+                  <div className={`relative p-8 md:p-12 rounded-3xl hf-card border-gray-200`}>
 
                     {/* Hero Content Grid */}
                     <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
@@ -996,13 +996,13 @@ export default function HomePage() {
                           <div className="w-20 h-20 rounded-full flex items-center justify-center shadow-xl flex-shrink-0" style={{ background: `linear-gradient(to bottom right, ${persona.bgColor === 'from-blue-500 to-cyan-500' ? '#3b82f6, #06b6d4' : persona.bgColor === 'from-blue-400 to-indigo-500' ? '#60a5fa, #6366f1' : persona.bgColor === 'from-emerald-400 to-teal-500' ? '#34d399, #14b8a6' : persona.bgColor === 'from-purple-400 to-violet-500' ? '#a78bfa, #8b5cf6' : '#22d3ee, #3b82f6'})` }}>
                             <persona.icon className="w-10 h-10 text-white" />
                           </div>
-                          <h3 className="hf-heading-h3 text-white">{persona.title}</h3>
+                          <h3 className="hf-heading-h3 hf-text-primary">{persona.title}</h3>
                         </div>
 
                         {/* Primary Insight with Animated Number */}
-                        <div className="p-6 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/30 mb-8 flex-grow">
-                          <p className="hf-heading-h6 text-emerald-300 mb-3">Primary Insight</p>
-                          <div className="hf-body-medium text-white">
+                        <div className="p-6 rounded-2xl bg-blue-50 border border-blue-200 mb-8 flex-grow">
+                          <p className="hf-heading-h6 text-blue-600 mb-3">Primary Insight</p>
+                          <div className="hf-body-medium hf-text-primary">
                             {persona.primaryNumber > 0 ? (
                               persona.title === "Patients & Families" ? (
                                 <>Save an average of <span className="hf-heading-h3 text-emerald-400">${animatedNumber.toLocaleString()}</span> per procedure by comparing prices before care.</>
