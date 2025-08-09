@@ -265,18 +265,27 @@ export default function HomePage() {
   };
 
   const Tooltip = ({ children, content }: { children: React.ReactNode; content: string }) => {
+    const tooltipId = content.slice(0, 20); // Use first 20 chars as unique ID
+    const isActive = activeTooltip === tooltipId;
+
     return (
-      <span className="group relative mx-1">
-        <span className="cursor-help inline-block p-1 -m-1">
+      <span className="relative inline-block mx-1">
+        <span
+          className="cursor-help inline-block"
+          onMouseEnter={() => setActiveTooltip(tooltipId)}
+          onMouseLeave={() => setActiveTooltip(null)}
+        >
           {children}
         </span>
-        <span
-          className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 px-5 py-4 bg-white text-gray-900 text-sm leading-relaxed rounded-lg shadow-xl border border-gray-200 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 pointer-events-none whitespace-normal"
-          style={{ zIndex: 99999 }}
-        >
-          {content}
-          <span className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></span>
-        </span>
+        {isActive && (
+          <span
+            className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 px-5 py-4 bg-white text-gray-900 text-sm leading-relaxed rounded-lg shadow-xl border border-gray-200 w-72 opacity-100 visible transition-all duration-300 pointer-events-none whitespace-normal"
+            style={{ zIndex: 99999 }}
+          >
+            {content}
+            <span className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></span>
+          </span>
+        )}
       </span>
     );
   };
