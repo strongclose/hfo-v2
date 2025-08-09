@@ -1,6 +1,6 @@
 "use client";
 
-import { Shield, CheckCircle, Search, Activity } from "lucide-react";
+import { Shield, CheckCircle, Search, Activity, ArrowRight } from "lucide-react";
 import { GlobalChatbot } from "../GlobalChatbot";
 import { NoSSR } from "../NoSSR";
 
