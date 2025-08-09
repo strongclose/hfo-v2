@@ -365,6 +365,124 @@ export default function HomePage() {
     );
   };
 
+  // Mini Visualization Components
+  const PriceRangeChart = () => (
+    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30">
+      <div className="text-sm text-white/80 mb-2">Knee Replacement Price Range (CA)</div>
+      <div className="relative">
+        <div className="flex justify-between text-xs text-white/70 mb-1">
+          <span>Low</span>
+          <span>Avg</span>
+          <span>High</span>
+        </div>
+        <div className="h-4 bg-white/20 rounded-full overflow-hidden">
+          <div className="h-full bg-gradient-to-r from-green-400 via-yellow-400 to-red-400 rounded-full"></div>
+        </div>
+        <div className="flex justify-between text-xs text-white mt-1">
+          <span>$18K</span>
+          <span>$42K</span>
+          <span>$67K</span>
+        </div>
+      </div>
+    </div>
+  );
+
+  const VariationBarChart = () => (
+    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30">
+      <div className="text-sm text-white/80 mb-3">Cost Variation - Same Procedure</div>
+      <div className="space-y-2">
+        {[
+          { label: "Provider A", value: 20, color: "bg-green-400" },
+          { label: "Provider B", value: 60, color: "bg-yellow-400" },
+          { label: "Provider C", value: 100, color: "bg-red-400" }
+        ].map((item, idx) => (
+          <div key={idx} className="flex items-center gap-2">
+            <span className="text-xs text-white/70 w-16">{item.label}</span>
+            <div className="flex-1 h-3 bg-white/20 rounded">
+              <div className={`h-full ${item.color} rounded`} style={{ width: `${item.value}%` }}></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
+  const SavingsPieChart = () => (
+    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30">
+      <div className="text-sm text-white/80 mb-3">Potential Savings Breakdown</div>
+      <div className="flex items-center gap-3">
+        <div className="relative w-16 h-16">
+          <svg className="w-16 h-16 transform -rotate-90" viewBox="0 0 32 32">
+            <circle cx="16" cy="16" r="14" fill="transparent" stroke="rgba(255,255,255,0.2)" strokeWidth="4"/>
+            <circle cx="16" cy="16" r="14" fill="transparent" stroke="#10b981" strokeWidth="4" strokeDasharray="70 100" strokeLinecap="round"/>
+          </svg>
+          <div className="absolute inset-0 flex items-center justify-center text-xs text-white font-bold">70%</div>
+        </div>
+        <div className="text-xs text-white/80">
+          <div>Potential Savings</div>
+          <div className="text-emerald-300">$1,800 avg</div>
+        </div>
+      </div>
+    </div>
+  );
+
+  const BenchmarkChart = () => (
+    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30">
+      <div className="text-sm text-white/80 mb-3">Rate Comparison</div>
+      <div className="space-y-2">
+        {[
+          { label: "Your Rate", value: 75, color: "bg-purple-400" },
+          { label: "Market Avg", value: 60, color: "bg-blue-400" },
+          { label: "Competitor", value: 45, color: "bg-gray-400" }
+        ].map((item, idx) => (
+          <div key={idx} className="flex items-center gap-2">
+            <span className="text-xs text-white/70 w-16">{item.label}</span>
+            <div className="flex-1 h-3 bg-white/20 rounded">
+              <div className={`h-full ${item.color} rounded`} style={{ width: `${item.value}%` }}></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
+  const CompetitivenessMap = () => (
+    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30">
+      <div className="text-sm text-white/80 mb-3">Network Competitiveness</div>
+      <div className="grid grid-cols-3 gap-1">
+        {Array.from({ length: 9 }, (_, idx) => (
+          <div
+            key={idx}
+            className={`h-4 rounded ${
+              idx < 3 ? 'bg-green-400' : idx < 6 ? 'bg-yellow-400' : 'bg-red-400'
+            }`}
+          ></div>
+        ))}
+      </div>
+      <div className="flex justify-between text-xs text-white/70 mt-1">
+        <span>Competitive</span>
+        <span>At Risk</span>
+      </div>
+    </div>
+  );
+
+  const getMiniVisualization = (persona: string) => {
+    switch (persona) {
+      case 'patients':
+        return <PriceRangeChart />;
+      case 'researchers':
+        return <VariationBarChart />;
+      case 'employers':
+        return <SavingsPieChart />;
+      case 'providers':
+        return <BenchmarkChart />;
+      case 'payers':
+        return <CompetitivenessMap />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white flex flex-col">
       {/* Global Navigation - Sticks to top for entire page */}
