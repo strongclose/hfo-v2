@@ -304,6 +304,12 @@
       -webkit-text-fill-color: transparent;
     }
 
+    .ask-ai-button {
+      animation: none !important;
+      background: #14f195 !important;
+      color: #000000 !important;
+    }
+
     .data-particle,
     .grid-overlay {
       animation: none;
@@ -315,6 +321,12 @@
 
     .grid-overlay {
       opacity: 0.02;
+    }
+
+    /* Disable homepage motion effects */
+    .motion-safe\\:animate-pulse,
+    .motion-safe\\:animate-bounce {
+      animation: none !important;
     }
   }
 }
