@@ -34,10 +34,93 @@
   --sidebar-border: 220 13% 91%;
   --sidebar-ring: 217.2 91.2% 59.8%;
 
-  /* Custom color variables - matching original */
-  --green: #10b981;
-  --teal: #14b8a6;
-  --purple: #8b5cf6;
+  /* HealthFees.org Brand Color System */
+  /* Primary Brand Colors */
+  --hf-blue-primary: #2563eb;
+  --hf-blue-secondary: #3b82f6;
+  --hf-blue-light: #60a5fa;
+  --hf-blue-dark: #1d4ed8;
+
+  /* Accent Colors */
+  --hf-teal-primary: #14b8a6;
+  --hf-teal-secondary: #0d9488;
+  --hf-teal-light: #2dd4bf;
+  --hf-cyan-primary: #06b6d4;
+  --hf-cyan-light: #22d3ee;
+
+  /* Success & Positive */
+  --hf-emerald-primary: #059669;
+  --hf-emerald-secondary: #10b981;
+  --hf-green-primary: #16a34a;
+
+  /* Secondary Brand Colors */
+  --hf-purple-primary: #9333ea;
+  --hf-purple-secondary: #8b5cf6;
+  --hf-purple-light: #a78bfa;
+  --hf-indigo-primary: #4f46e5;
+  --hf-indigo-secondary: #6366f1;
+
+  /* Warning & Alert */
+  --hf-amber-primary: #f59e0b;
+  --hf-orange-primary: #ea580c;
+  --hf-yellow-primary: #eab308;
+
+  /* Danger & Error */
+  --hf-red-primary: #dc2626;
+  --hf-rose-primary: #e11d48;
+
+  /* Neutrals */
+  --hf-gray-50: #f9fafb;
+  --hf-gray-100: #f3f4f6;
+  --hf-gray-200: #e5e7eb;
+  --hf-gray-300: #d1d5db;
+  --hf-gray-400: #9ca3af;
+  --hf-gray-500: #6b7280;
+  --hf-gray-600: #4b5563;
+  --hf-gray-700: #374151;
+  --hf-gray-800: #1f2937;
+  --hf-gray-900: #111827;
+
+  /* Brand Gradients */
+  --hf-gradient-primary: linear-gradient(to right, var(--hf-blue-primary), var(--hf-indigo-primary));
+  --hf-gradient-accent: linear-gradient(to right, var(--hf-teal-primary), var(--hf-cyan-primary));
+  --hf-gradient-success: linear-gradient(to right, var(--hf-emerald-primary), var(--hf-teal-secondary));
+  --hf-gradient-purple: linear-gradient(to right, var(--hf-purple-primary), var(--hf-purple-secondary));
+  --hf-gradient-warm: linear-gradient(to right, var(--hf-amber-primary), var(--hf-orange-primary));
+
+  /* Glass Effect Colors */
+  --hf-glass-bg: rgba(255, 255, 255, 0.2);
+  --hf-glass-border: rgba(255, 255, 255, 0.5);
+  --hf-glass-hover-bg: rgba(255, 255, 255, 0.3);
+  --hf-glass-hover-border: rgba(255, 255, 255, 0.7);
+
+  /* Background Overlays */
+  --hf-overlay-light: rgba(255, 255, 255, 0.1);
+  --hf-overlay-medium: rgba(255, 255, 255, 0.2);
+  --hf-overlay-dark: rgba(0, 0, 0, 0.1);
+
+  /* Shadow Colors */
+  --hf-shadow-light: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --hf-shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --hf-shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --hf-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* Spacing System */
+  --hf-space-xs: 0.5rem;
+  --hf-space-sm: 0.75rem;
+  --hf-space-md: 1rem;
+  --hf-space-lg: 1.5rem;
+  --hf-space-xl: 2rem;
+  --hf-space-2xl: 3rem;
+  --hf-space-3xl: 4rem;
+
+  /* Border Radius */
+  --hf-radius-sm: 0.375rem;
+  --hf-radius-md: 0.5rem;
+  --hf-radius-lg: 0.75rem;
+  --hf-radius-xl: 1rem;
+  --hf-radius-2xl: 1.5rem;
+  --hf-radius-full: 50%;
 
   /* Text sizes */
   --text-xs: 0.75rem;
@@ -107,8 +190,120 @@
   }
 }
 
-/* Custom component styles */
+/* HealthFees.org Component Styles */
 @layer components {
+  /* Standardized Button Styles */
+  .hf-btn-primary {
+    background: var(--hf-gradient-primary);
+    color: white;
+    box-shadow: var(--hf-shadow-medium);
+    border-radius: var(--hf-radius-xl);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .hf-btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: var(--hf-shadow-large);
+  }
+
+  .hf-btn-accent {
+    background: var(--hf-gradient-accent);
+    color: white;
+    box-shadow: var(--hf-shadow-medium);
+    border-radius: var(--hf-radius-xl);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .hf-btn-accent:hover {
+    transform: scale(1.05);
+    box-shadow: var(--hf-shadow-large);
+  }
+
+  .hf-btn-glass {
+    background: var(--hf-glass-bg);
+    border: 2px solid var(--hf-glass-border);
+    backdrop-filter: blur(10px);
+    color: white;
+    border-radius: var(--hf-radius-xl);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .hf-btn-glass:hover {
+    background: var(--hf-glass-hover-bg);
+    border-color: var(--hf-glass-hover-border);
+    transform: scale(1.05);
+  }
+
+  /* Standardized Card Styles */
+  .hf-card {
+    background: white;
+    border-radius: var(--hf-radius-2xl);
+    box-shadow: var(--hf-shadow-medium);
+    border: 1px solid var(--hf-gray-200);
+    transition: all 0.3s ease;
+  }
+
+  .hf-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--hf-shadow-xl);
+    border-color: var(--hf-gray-300);
+  }
+
+  .hf-card-glass {
+    background: var(--hf-overlay-light);
+    backdrop-filter: blur(10px);
+    border-radius: var(--hf-radius-2xl);
+    border: 1px solid var(--hf-glass-border);
+    transition: all 0.3s ease;
+  }
+
+  .hf-card-glass:hover {
+    background: var(--hf-overlay-medium);
+    border-color: var(--hf-glass-hover-border);
+  }
+
+  /* Icon Backgrounds */
+  .hf-icon-bg-primary {
+    background: var(--hf-gradient-primary);
+    border-radius: var(--hf-radius-full);
+    box-shadow: var(--hf-shadow-medium);
+  }
+
+  .hf-icon-bg-accent {
+    background: var(--hf-gradient-accent);
+    border-radius: var(--hf-radius-full);
+    box-shadow: var(--hf-shadow-medium);
+  }
+
+  .hf-icon-bg-success {
+    background: var(--hf-gradient-success);
+    border-radius: var(--hf-radius-full);
+    box-shadow: var(--hf-shadow-medium);
+  }
+
+  .hf-icon-bg-purple {
+    background: var(--hf-gradient-purple);
+    border-radius: var(--hf-radius-full);
+    box-shadow: var(--hf-shadow-medium);
+  }
+
+  /* Text Utilities */
+  .hf-text-gradient-primary {
+    background: var(--hf-gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hf-text-gradient-accent {
+    background: var(--hf-gradient-accent);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
   .sparkle-icon {
     animation: pulse 2s infinite;
   }
@@ -118,23 +313,24 @@
     text-transform: uppercase;
   }
 
-  /* Ask AI Button - Rolling Background Gradient */
+  /* Ask AI Button - Using Brand Colors */
   .ask-ai-button {
-    height: 36px; /* Match input height h-9 */
+    height: 36px;
     background: linear-gradient(
       45deg,
       #ffffff,
       #f0f9ff,
-      #14b8a6,
-      #0d9488,
+      var(--hf-teal-primary),
+      var(--hf-teal-secondary),
       #ffffff
     ) !important;
     background-size: 300% 300% !important;
-    border: none !important; /* No border */
-    box-shadow: 0 4px 12px rgba(20, 241, 149, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important; /* Glowing shadow */
-    font-weight: 600 !important; /* Bolder text */
-    color: #000000 !important; /* Black text for contrast */
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    font-weight: 600 !important;
+    color: #000000 !important;
     animation: ask-ai-bg-gradient 4s ease-in-out infinite !important;
+    border-radius: var(--hf-radius-lg) !important;
   }
 
   .ask-ai-button:hover {
@@ -164,14 +360,14 @@
     overflow: hidden;
   }
 
-  /* Intelligent Word Gradient Effect */
+  /* Intelligent Word Gradient Effect - Using Brand Colors */
   .intelligent-gradient-text {
     background: linear-gradient(
       45deg,
       #ffffff,
       #f0f9ff,
-      #14b8a6,
-      #0d9488,
+      var(--hf-teal-primary),
+      var(--hf-teal-secondary),
       #ffffff
     );
     background-size: 300% 300%;
@@ -211,8 +407,8 @@
     position: absolute;
     width: 3px;
     height: 3px;
-    background: #14b8a6;
-    border-radius: 50%;
+    background: var(--hf-teal-primary);
+    border-radius: var(--hf-radius-full);
     opacity: 0.7;
     animation: particle-drift 15s linear infinite;
     box-shadow: 0 0 6px rgba(20, 184, 166, 0.5);
@@ -286,7 +482,7 @@
   @media (prefers-reduced-motion: reduce) {
     .intelligent-gradient-text {
       animation: none;
-      background: #14b8a6;
+      background: var(--hf-teal-primary);
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -294,7 +490,7 @@
 
     .ask-ai-button {
       animation: none !important;
-      background: #14f195 !important;
+      background: var(--hf-teal-light) !important;
       color: #000000 !important;
     }
 
