@@ -1261,7 +1261,7 @@ export default function HomePage() {
                 </h3>
 
                 {/* Donut Chart */}
-                <div className="p-8 rounded-2xl bg-gray-50 border-2 border-gray-300 shadow-lg mb-6">
+                <div className="hf-card p-8 mb-6">
                   <div className="flex items-center justify-center mb-6">
                     <div className="relative w-48 h-48">
                       <svg className="w-48 h-48 transform -rotate-90" viewBox="0 0 100 100">
