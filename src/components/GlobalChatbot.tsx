@@ -329,7 +329,7 @@ export function GlobalChatbot({
                 disabled={!chatInput.trim() || isTyping}
                 className="transition-all duration-300 hover:scale-105 px-6"
                 style={{
-                  height: '3.75rem', // Match input with py-3 padding
+                  height: '2.25rem', // Match input h-9 exactly
                   opacity: 1,
                   filter:
                     !chatInput.trim() || isTyping ? "grayscale(20%)" : "none",
