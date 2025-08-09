@@ -203,18 +203,16 @@ export function Navigation() {
           >
             <div className="px-6 py-4 space-y-3">
               {navigation.map((item) => (
-                <button
+                <a
                   key={item.name}
-                  className={`w-full text-left font-medium py-2 ${
+                  href={item.href}
+                  className={`block w-full text-left font-medium py-2 ${
                     isScrolled ? "text-gray-900" : "text-gray-300"
                   }`}
-                  onClick={() => {
-                    item.action();
-                    setIsMobileMenuOpen(false);
-                  }}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
-                </button>
+                </a>
               ))}
             </div>
           </div>
