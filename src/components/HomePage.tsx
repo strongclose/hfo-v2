@@ -1388,7 +1388,11 @@ export default function HomePage() {
         </LazySection>
 
         {/* 8. What the Data Reveals - Enhanced with animated counters */}
-        <section className="relative py-24 overflow-hidden">
+        <LazySection
+          className="relative py-24 overflow-hidden"
+          minHeight="500px"
+        >
+        <section>
           <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-blue-50/60 to-cyan-50/50"></div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1460,6 +1464,7 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+        </LazySection>
 
       </div>
 
