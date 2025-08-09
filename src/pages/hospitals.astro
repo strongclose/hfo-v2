@@ -378,9 +378,8 @@ const featuredHospitals = mockHospitals.filter(h => h.featured);
     <FooterExpanded client:load />
   </div>
 
-  <script>
+  <script define:vars={{ hospitals: mockHospitals }}>
     // Client-side filtering and search functionality
-    const hospitals = {JSON.stringify(mockHospitals)};
     let filteredHospitals = [...hospitals];
 
     const searchInput = document.getElementById('hospitalSearch');
