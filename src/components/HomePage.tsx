@@ -1092,10 +1092,7 @@ export default function HomePage() {
                                 window.location.href = persona.primaryCTALink;
                               }
                             }}
-                            variant={key === 'patients' ? 'accent' :
-                                    key === 'researchers' ? 'primary' :
-                                    key === 'employers' ? 'success' :
-                                    key === 'providers' ? 'purple' : 'accent'}
+                            variant="primary"
                             size="lg"
                           >
                             {persona.primaryCTA}
