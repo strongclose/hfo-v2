@@ -1,0 +1,59 @@
+---
+import Layout from '../layouts/BaseLayout.astro';
+import { Navigation } from '../components/Navigation';
+import { FooterExpanded } from '../components/homepage/FooterExpanded';
+import { InsightsSection } from '../components/InsightsSection';
+---
+
+<Layout title="Healthcare Insights - HealthFees.org">
+  <div class="min-h-screen bg-white">
+    <Navigation client:load />
+    
+    <main class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl font-bold text-gray-900 mb-4">Healthcare Price Insights</h1>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Discover trends, patterns, and surprising facts about healthcare pricing in America.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-6">
+            <h3 class="text-lg font-semibold mb-3">Price Variations</h3>
+            <p class="text-gray-700">
+              Explore how prices vary by location, hospital, and insurance provider.
+            </p>
+            <a href="/insights/comparisons" class="inline-block mt-4 text-blue-600 hover:text-blue-800">
+              View Comparisons →
+            </a>
+          </div>
+          
+          <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-lg p-6">
+            <h3 class="text-lg font-semibold mb-3">Market Truths</h3>
+            <p class="text-gray-700">
+              Uncover surprising facts about healthcare pricing transparency.
+            </p>
+            <a href="/insights/truths" class="inline-block mt-4 text-green-600 hover:text-green-800">
+              Read Insights →
+            </a>
+          </div>
+          
+          <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg p-6">
+            <h3 class="text-lg font-semibold mb-3">Data Visualizations</h3>
+            <p class="text-gray-700">
+              Interactive charts and graphs showing pricing trends.
+            </p>
+            <a href="/insights/visualizations" class="inline-block mt-4 text-purple-600 hover:text-purple-800">
+              Explore Data →
+            </a>
+          </div>
+        </div>
+        
+        <InsightsSection client:load />
+      </div>
+    </main>
+    
+    <FooterExpanded client:load />
+  </div>
+</Layout>
