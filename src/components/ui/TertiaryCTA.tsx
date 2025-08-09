@@ -81,13 +81,13 @@ export function TertiaryCTA({
   ...props
 }: TertiaryCTAProps) {
   return (
-    <Link
+    <a
       className={cn(tertiaryCTAVariants({ size, withArrow }), className)}
       {...props}
     >
       <span className="capitalize-first">{children}</span>
       {withArrow && <ArrowIcon />}
-    </Link>
+    </a>
   );
 }
 
