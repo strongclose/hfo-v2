@@ -220,7 +220,12 @@ if (loading) {
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
   {items.map(item => (
     <Card key={item.id} className="w-full">
-      {/* Card content */}
+      <CardHeader>
+        <CardTitle className="text-lg font-medium">{item.title}</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p className="text-muted-foreground">{item.description}</p>
+      </CardContent>
     </Card>
   ))}
 </div>
