@@ -1400,8 +1400,8 @@ export default function HomePage() {
             {/* Animated Statistics */}
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="group relative">
-                <div className="relative p-10 rounded-3xl bg-white/90 backdrop-blur-xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105">
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg" style={{ background: 'linear-gradient(to bottom right, #ef4444, #ec4899)' }}>
+                <div className="hf-card relative p-10 bg-white/90 backdrop-blur-xl border-white/20">
+                  <div className="hf-icon-bg-primary w-16 h-16 flex items-center justify-center mx-auto mb-6" style={{ background: 'linear-gradient(to bottom right, #ef4444, #ec4899)' }}>
                     <TrendingUp className="w-8 h-8 text-white" />
                   </div>
                   <div className="text-center">
