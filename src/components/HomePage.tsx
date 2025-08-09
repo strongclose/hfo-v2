@@ -174,7 +174,7 @@ export default function HomePage() {
                     <FileText className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold mb-4 text-white text-center">Federal Requirements</h3>
-                  <p className="text-white/70 text-center leading-relaxed">
+                  <p className="text-gray-200 text-center leading-relaxed">
                     Hospitals must publish machine-readable files with all negotiated rates. Insurance companies must disclose in-network and out-of-network pricing.
                   </p>
                 </div>
@@ -186,7 +186,7 @@ export default function HomePage() {
                     <Zap className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold mb-4 text-white text-center">Automated Collection</h3>
-                  <p className="text-white/70 text-center leading-relaxed">
+                  <p className="text-gray-200 text-center leading-relaxed">
                     Our systems continuously monitor thousands of hospital websites and insurance portals, automatically processing new pricing files as they're published.
                   </p>
                 </div>
@@ -198,7 +198,7 @@ export default function HomePage() {
                     <Brain className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold mb-4 text-white text-center">Intelligence Layer</h3>
-                  <p className="text-white/70 text-center leading-relaxed">
+                  <p className="text-gray-200 text-center leading-relaxed">
                     We clean, standardize, and organize trillions of data points into a searchable format that actually makes sense for real people.
                   </p>
                 </div>
