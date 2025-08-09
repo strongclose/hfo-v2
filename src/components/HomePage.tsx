@@ -813,10 +813,14 @@ export default function HomePage() {
                   gradient: "from-yellow-500 to-orange-500"
                 }
               ].map((feature, index) => (
-                <div 
-                  key={index} 
-                  className="group relative cursor-pointer transform hover:scale-105 transition-all duration-300" 
-                  onClick={() => window.location.href = feature.link}
+                <div
+                  key={index}
+                  className="group relative cursor-pointer transform hover:scale-105 transition-all duration-300"
+                  onClick={() => {
+                    if (typeof window !== 'undefined') {
+                      window.location.href = feature.link;
+                    }
+                  }}
                 >
                   <div className="relative p-8 rounded-3xl bg-white backdrop-blur-xl border border-gray-200/50 shadow-xl hover:shadow-2xl">
                     <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${feature.gradient} flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
