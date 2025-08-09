@@ -507,7 +507,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 6. What the Data Shows Section */}
+        {/* 6. What the Data Shows Section - Infographic Style */}
         <section className="relative py-24 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30"></div>
 
@@ -520,7 +520,7 @@ export default function HomePage() {
                 What the Data
                 <span className="bg-gradient-to-r from-rose-600 via-orange-600 to-amber-600 bg-clip-text text-transparent">
                   {" "}
-                  Shows
+                  Reveals
                 </span>
               </h2>
               <p className="text-xl md:text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed">
@@ -528,63 +528,138 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-red-500 to-pink-600 rounded-3xl opacity-75 blur-xl group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative p-10 rounded-3xl bg-white/90 backdrop-blur-xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center mx-auto mb-6 shadow-lg">
-                    <DollarSign className="w-8 h-8 text-white" />
+            {/* Large Visual Statistic */}
+            <div className="mb-16">
+              <div className="max-w-4xl mx-auto p-12 rounded-3xl bg-gradient-to-br from-red-50 to-pink-50 border-2 border-red-200/50 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-500/10 to-pink-500/10 rounded-full -mr-16 -mt-16"></div>
+                <div className="relative text-center">
+                  <div className="flex items-center justify-center gap-8 mb-8">
+                    <div className="text-center">
+                      <div className="text-6xl md:text-8xl font-bold text-red-600 mb-2">10x</div>
+                      <p className="text-lg text-gray-700 font-semibold">Price Difference</p>
+                    </div>
+                    <div className="hidden md:block">
+                      <div className="w-16 h-1 bg-gradient-to-r from-red-500 to-pink-500"></div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Same City</div>
+                      <p className="text-lg text-gray-700">Same Procedure</p>
+                    </div>
                   </div>
-                  <p className="text-xl text-gray-800 font-semibold leading-relaxed text-center">
-                    Same procedure can cost{" "}
-                    <span className="text-red-600 font-bold">10x more</span> at
-                    different hospitals in the same city
-                  </p>
-                </div>
-              </div>
-
-              <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-600 rounded-3xl opacity-75 blur-xl group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative p-10 rounded-3xl bg-white/90 backdrop-blur-xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center mx-auto mb-6 shadow-lg">
-                    <AlertTriangle className="w-8 h-8 text-white" />
-                  </div>
-                  <p className="text-xl text-gray-800 font-semibold leading-relaxed text-center">
-                    <span className="text-amber-600 font-bold">
-                      "In-network"
-                    </span>{" "}
-                    doesn't guarantee you'll pay less than cash prices
-                  </p>
-                </div>
-              </div>
-
-              <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl opacity-75 blur-xl group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative p-10 rounded-3xl bg-white/90 backdrop-blur-xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center mx-auto mb-6 shadow-lg">
-                    <TrendingUp className="w-8 h-8 text-white" />
-                  </div>
-                  <p className="text-xl text-gray-800 font-semibold leading-relaxed text-center">
-                    Patients who compare prices save an average of{" "}
-                    <span className="text-emerald-600 font-bold">$3,200</span>{" "}
-                    per procedure
+                  <p className="text-xl text-gray-800 font-semibold max-w-2xl mx-auto">
+                    The same medical procedure can cost 10 times more at different hospitals in the same city
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-16">
-              <div className="p-8 rounded-3xl bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200/50">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Regional Variations</h3>
-                <p className="text-gray-800 leading-relaxed">
-                  Healthcare costs vary dramatically by region. A knee replacement that costs $15,000 in one state might cost $45,000 in another—for the exact same procedure.
+            {/* Visual Comparison Charts */}
+            <div className="grid lg:grid-cols-2 gap-12 mb-16">
+              {/* Insurance vs Cash Comparison */}
+              <div className="p-8 rounded-3xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200/50">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
+                    <AlertTriangle className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">Insurance Surprise</h3>
+                </div>
+
+                <p className="text-gray-800 mb-6 leading-relaxed">
+                  "In-network" doesn't guarantee you'll pay less than cash prices
+                </p>
+
+                {/* Visual Comparison */}
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-4 bg-white rounded-xl border border-amber-200">
+                    <span className="font-semibold text-gray-800">Insurance Rate</span>
+                    <div className="flex items-center gap-2">
+                      <div className="w-32 h-4 bg-amber-200 rounded-full">
+                        <div className="w-24 h-4 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"></div>
+                      </div>
+                      <span className="font-bold text-amber-600">$4,200</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between p-4 bg-white rounded-xl border border-emerald-200">
+                    <span className="font-semibold text-gray-800">Cash Price</span>
+                    <div className="flex items-center gap-2">
+                      <div className="w-32 h-4 bg-emerald-200 rounded-full">
+                        <div className="w-16 h-4 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full"></div>
+                      </div>
+                      <span className="font-bold text-emerald-600">$2,800</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-amber-100 rounded-lg">
+                  <p className="text-sm text-amber-800 font-medium text-center">
+                    💡 You could save $1,400 by paying cash instead of using insurance
+                  </p>
+                </div>
+              </div>
+
+              {/* Savings Potential Chart */}
+              <div className="p-8 rounded-3xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200/50">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                    <TrendingUp className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">Average Savings</h3>
+                </div>
+
+                <p className="text-gray-800 mb-6 leading-relaxed">
+                  Patients who compare prices save an average of $3,200 per procedure
+                </p>
+
+                {/* Savings Visualization */}
+                <div className="relative">
+                  <div className="text-center mb-6">
+                    <div className="text-5xl font-bold text-emerald-600 mb-2">$3,200</div>
+                    <p className="text-gray-700 font-semibold">Average Savings</p>
+                  </div>
+
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-gray-600">Without Comparison</span>
+                      <span className="text-gray-600">With Comparison</span>
+                    </div>
+                    <div className="relative h-6 bg-gray-200 rounded-full overflow-hidden">
+                      <div className="absolute left-0 top-0 h-full w-3/5 bg-gradient-to-r from-red-500 to-red-600 rounded-full"></div>
+                      <div className="absolute right-0 top-0 h-full w-2/5 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full"></div>
+                    </div>
+                    <div className="flex items-center justify-between text-sm font-semibold">
+                      <span className="text-red-600">$8,200</span>
+                      <span className="text-emerald-600">$5,000</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Regional Insights */}
+            <div className="mb-16 p-10 rounded-3xl bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-200/50">
+              <div className="text-center mb-8">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">Regional Price Variations</h3>
+                <p className="text-gray-800 leading-relaxed max-w-3xl mx-auto">
+                  Healthcare costs vary dramatically by region. The same knee replacement procedure shows massive price differences across states.
                 </p>
               </div>
-              <div className="p-8 rounded-3xl bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200/50">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Insurance Surprises</h3>
-                <p className="text-gray-800 leading-relaxed">
-                  Your insurance "in-network" rate might be higher than the cash price. We've found cases where patients could save thousands by paying cash instead of using insurance.
-                </p>
+
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="text-center p-6 bg-white rounded-2xl shadow-sm border border-blue-200/30">
+                  <div className="text-3xl font-bold text-blue-600 mb-2">$15,000</div>
+                  <p className="text-gray-600 font-semibold mb-1">Lowest Cost State</p>
+                  <p className="text-sm text-gray-500">Knee Replacement</p>
+                </div>
+                <div className="text-center p-6 bg-white rounded-2xl shadow-sm border border-purple-200/30">
+                  <div className="text-3xl font-bold text-purple-600 mb-2">$30,000</div>
+                  <p className="text-gray-600 font-semibold mb-1">National Average</p>
+                  <p className="text-sm text-gray-500">Knee Replacement</p>
+                </div>
+                <div className="text-center p-6 bg-white rounded-2xl shadow-sm border border-red-200/30">
+                  <div className="text-3xl font-bold text-red-600 mb-2">$45,000</div>
+                  <p className="text-gray-600 font-semibold mb-1">Highest Cost State</p>
+                  <p className="text-sm text-gray-500">Knee Replacement</p>
+                </div>
               </div>
             </div>
 
@@ -598,9 +673,9 @@ export default function HomePage() {
                   <ChevronRight className="w-5 h-5 ml-2" />
                 </span>
               </Button>
-              
-              <PriceComparisonCTA 
-                variant="outline" 
+
+              <PriceComparisonCTA
+                variant="outline"
                 size="lg"
                 className="px-10 py-4 text-lg border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded-2xl"
               >
