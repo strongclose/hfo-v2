@@ -64,7 +64,7 @@ export function HeroV2_AIChatbot({
         {/* Headline */}
         <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight max-w-6xl">
           Healthcare Prices Are Now Public.
-          <span className="bg-gradient-to-r from-teal-300 via-cyan-300 to-emerald-300 bg-clip-text text-transparent">
+          <span className="text-white font-bold">
             {" "}
             Dig In.
           </span>
