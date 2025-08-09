@@ -1476,44 +1476,43 @@ export default function HomePage() {
                 Every search helps build a more transparent healthcare system. Share HealthFees.org with others so they can make informed decisions too.
               </p>
 
-              <div className="mb-12">
-                <PriceComparisonCTA 
-                  size="lg"
-                  className="px-12 py-5 text-xl font-semibold bg-gradient-to-r from-teal-400 to-blue-500 hover:from-teal-500 hover:to-blue-600 text-white rounded-2xl shadow-xl mr-4 mb-4 md:mb-0"
+              <div className="mb-12 flex flex-col sm:flex-row gap-4 justify-center">
+                <PriceComparisonCTA
+                  size="xl"
+                  variant="accent"
                 >
                   Start Comparing Prices
                 </PriceComparisonCTA>
-                
+
                 <Button
                   onClick={() => {
                     if (typeof window !== 'undefined') {
                       window.location.href = "/about";
                     }
                   }}
-                  size="lg"
-                  className="px-12 py-5 text-xl bg-white/20 border-2 border-white text-white hover:bg-white/30 hover:border-white rounded-2xl backdrop-blur-sm font-semibold"
+                  variant="glass"
+                  size="xl"
                 >
                   Learn Our Mission
-                  <ArrowRight className="w-5 h-5 ml-2" />
+                  <ArrowRight className="w-5 h-5" />
                 </Button>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
                 <Button
-                  variant="secondary"
+                  variant="glass"
                   size="lg"
                   onClick={() => {
                     if (typeof window !== 'undefined' && navigator.clipboard) {
                       navigator.clipboard.writeText(window.location.href);
                     }
                   }}
-                  className="flex items-center gap-3 px-6 py-4 text-lg rounded-2xl bg-white/30 hover:bg-white/40 border-white/50 hover:border-white/70 backdrop-blur-sm transition-all duration-300 hover:scale-105 text-white font-semibold"
                 >
                   <Lightbulb className="w-5 h-5" />
-                  Copy Page Link
+                  Copy Link
                 </Button>
                 <Button
-                  variant="secondary"
+                  variant="glass"
                   size="lg"
                   onClick={() => {
                     if (typeof window !== 'undefined') {
@@ -1523,13 +1522,12 @@ export default function HomePage() {
                       );
                     }
                   }}
-                  className="flex items-center gap-3 px-6 py-4 text-lg rounded-2xl bg-white/30 hover:bg-white/40 border-white/50 hover:border-white/70 backdrop-blur-sm transition-all duration-300 hover:scale-105 text-white font-semibold"
                 >
                   <ChevronRight className="w-5 h-5" />
-                  Email a Colleague
+                  Email
                 </Button>
                 <Button
-                  variant="secondary"
+                  variant="glass"
                   size="lg"
                   onClick={() => {
                     if (typeof window !== 'undefined') {
@@ -1539,10 +1537,9 @@ export default function HomePage() {
                       );
                     }
                   }}
-                  className="flex items-center gap-3 px-6 py-4 text-lg rounded-2xl bg-white/30 hover:bg-white/40 border-white/50 hover:border-white/70 backdrop-blur-sm transition-all duration-300 hover:scale-105 text-white font-semibold"
                 >
                   <Users className="w-5 h-5" />
-                  Share on LinkedIn
+                  LinkedIn
                 </Button>
               </div>
             </div>
