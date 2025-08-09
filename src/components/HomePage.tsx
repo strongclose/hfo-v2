@@ -698,7 +698,7 @@ export default function HomePage() {
                 {/* Step 2: We Organize */}
                 <div className="relative">
                   {/* Timeline Node */}
-                  <div className="hidden lg:block absolute left-1/2 top-24 w-8 h-8 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10" style={{ backgroundColor: '#6b21a8' }}>
+                  <div className="hidden lg:block absolute left-1/2 top-24 w-8 h-8 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10 hf-gradient-accent">
                   </div>
 
                   {/* Content Grid - Reversed */}
@@ -835,7 +835,7 @@ export default function HomePage() {
                 {/* Step 3: You Compare */}
                 <div className="relative">
                   {/* Timeline Node */}
-                  <div className="hidden lg:block absolute left-1/2 top-24 w-8 h-8 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10" style={{ backgroundColor: '#065f46' }}>
+                  <div className="hidden lg:block absolute left-1/2 top-24 w-8 h-8 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10 hf-gradient-primary">
                   </div>
 
                   {/* Content Grid */}
@@ -1294,21 +1294,21 @@ export default function HomePage() {
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full" style={{ backgroundColor: '#10b981' }}></div>
+                        <div className="w-5 h-5 rounded-full bg-emerald-500"></div>
                         <span className="text-gray-900 font-bold text-lg">Fully Compliant</span>
                       </div>
                       <span className="text-gray-900 font-semibold text-lg">45%</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full" style={{ backgroundColor: '#3b82f6' }}></div>
+                        <div className="w-5 h-5 rounded-full bg-blue-500"></div>
                         <span className="text-gray-900 font-medium text-base">Partially Compliant</span>
                       </div>
                       <span className="text-gray-900 font-semibold text-lg">35%</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full" style={{ backgroundColor: '#6b7280' }}></div>
+                        <div className="w-5 h-5 rounded-full bg-gray-500"></div>
                         <span className="text-gray-900 font-medium text-base">Non Compliant</span>
                       </div>
                       <span className="text-gray-900 font-semibold text-lg">20%</span>
