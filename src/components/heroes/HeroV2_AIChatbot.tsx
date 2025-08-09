@@ -66,13 +66,12 @@ export function HeroV2_AIChatbot({
       <div className="relative z-20 flex flex-col items-center justify-center min-h-[calc(100vh-120px)] text-center px-6 pt-16">
         {/* Headline */}
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight max-w-6xl">
-          Compare Healthcare Costs Before You Go. Just Ask.
+          Healthcare Prices Are Now Public. Just Ask AI.
         </h1>
 
         {/* Subheadline */}
         <p className="text-xl md:text-2xl text-white mb-12 max-w-4xl leading-relaxed">
-          Describe your procedure to get an estimated cost, based on actual
-          hospital and healthcare pricing.
+          Federal transparency laws require hospitals and insurers to publish their real prices. Our AI searches trillions of data points so you can compare costs, spot patterns, and make informed decisions, simply by asking.
         </p>
 
         {/* Global Chatbot Component */}
@@ -81,7 +80,7 @@ export function HeroV2_AIChatbot({
           context="healthcare"
           placeholder="Give it a try..."
           initialMessage='Hi! I can help you find the best prices for any medical procedure. Try asking: "MRI cost in Boston" or "Cheapest CT scan near me" What healthcare costs would you like to learn more about?'
-          className="max-w-6xl"
+          className="max-w-4xl"
         />
       </div>
     </div>
