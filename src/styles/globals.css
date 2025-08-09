@@ -304,14 +304,9 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .floating-orb,
     .data-particle,
     .grid-overlay {
       animation: none;
-    }
-
-    .floating-orb {
-      opacity: 0.08;
     }
 
     .data-particle {
