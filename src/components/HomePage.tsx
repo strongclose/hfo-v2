@@ -1110,8 +1110,8 @@ export default function HomePage() {
                         </div>
 
                         {/* Supporting Data Point */}
-                        <div className="p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 min-h-[4rem] flex items-center">
-                          <p className="text-white/90 font-medium text-sm leading-relaxed">{persona.supportingData}</p>
+                        <div className="p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 h-16 flex items-center">
+                          <p className="text-white/90 font-medium text-sm whitespace-nowrap overflow-hidden text-ellipsis">{persona.supportingData}</p>
                         </div>
                       </div>
                     </div>
