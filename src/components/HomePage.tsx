@@ -430,8 +430,8 @@ export default function HomePage() {
   );
 
   const BenchmarkChart = () => (
-    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30 w-full">
-      <div className="text-sm text-white/80 mb-3">Rate Comparison</div>
+    <div className="bg-white rounded-xl p-4 border border-gray-200 w-full shadow-sm">
+      <div className="text-sm hf-text-primary font-semibold mb-3">Rate Comparison</div>
       <div className="space-y-3">
         {[
           { label: "Your Rate", value: 75, color: "bg-purple-400" },
