@@ -906,7 +906,7 @@ export default function HomePage() {
                             </div>
                           ))}
                         </div>
-                        <div className="mt-4 p-3 bg-emerald-100 rounded-xl">
+                        <div className="hf-card mt-4 p-3 bg-emerald-100">
                           <p className="text-sm text-emerald-800 font-semibold">💡 You could save $2,900 by choosing Provider A</p>
                         </div>
                       </div>
