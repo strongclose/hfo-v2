@@ -1092,7 +1092,11 @@ export default function HomePage() {
                                 window.location.href = persona.primaryCTALink;
                               }
                             }}
-                            className={`px-6 py-3 bg-gradient-to-r ${persona.bgColor} hover:scale-105 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2`}
+                            variant={key === 'patients' ? 'accent' :
+                                    key === 'researchers' ? 'primary' :
+                                    key === 'employers' ? 'success' :
+                                    key === 'providers' ? 'purple' : 'accent'}
+                            size="lg"
                           >
                             {persona.primaryCTA}
                             <ArrowRight className="w-4 h-4" />
@@ -1103,7 +1107,8 @@ export default function HomePage() {
                                 window.location.href = persona.secondaryCTALink;
                               }
                             }}
-                            className="px-6 py-3 bg-white/20 backdrop-blur-sm border-2 border-white/50 text-white hover:bg-white/30 hover:border-white/70 hover:scale-105 rounded-xl transition-all duration-300 font-semibold"
+                            variant="glass"
+                            size="lg"
                           >
                             {persona.secondaryCTA}
                           </Button>
