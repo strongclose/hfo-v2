@@ -1345,7 +1345,7 @@ export default function HomePage() {
                         window.location.href = "/compliance-tool";
                       }
                     }}
-                    variant="primary"
+                    variant="secondary"
                     size="lg"
                   >
                     Check Your Score
