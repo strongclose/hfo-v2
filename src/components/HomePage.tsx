@@ -422,8 +422,7 @@ export default function HomePage() {
                     <div className="text-center mt-auto">
                       <Button
                         onClick={() => window.location.href = audience.link}
-                        variant="outline"
-                        className="border-white/50 text-white hover:bg-white/30 hover:border-white/70 transition-all duration-300"
+                        className="bg-white text-gray-900 border-2 border-white hover:bg-gray-100 hover:text-gray-800 transition-all duration-300 font-semibold"
                       >
                         Learn More
                         <ArrowRight className="w-4 h-4 ml-2" />
