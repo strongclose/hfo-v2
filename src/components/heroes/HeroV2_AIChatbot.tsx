@@ -42,8 +42,8 @@ export function HeroV2_AIChatbot({
       {/* Subtle Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Radial Gradient Overlays */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(20,184,166,0.08),transparent_50%)] motion-safe:animate-pulse motion-safe:animation-duration-[8s]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.06),transparent_50%)] motion-safe:animate-pulse motion-safe:animation-duration-[10s]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(20,184,166,0.15),transparent_50%)] motion-safe:animate-pulse motion-safe:animation-duration-[8s]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(124,58,237,0.12),transparent_50%)] motion-safe:animate-pulse motion-safe:animation-duration-[10s]"></div>
       </div>
       {/* Subtle decorative elements */}
       <div className="absolute top-1/2 right-0 transform translate-x-1/4 -translate-y-1/2 opacity-10 z-0">
