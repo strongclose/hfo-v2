@@ -182,9 +182,9 @@ export default function HomePage() {
         <section className="relative py-24 overflow-hidden bg-white">
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 tracking-tight">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 tracking-tight">
                 How It
-                <span className="text-blue-900">
+                <span className="bg-gradient-to-r from-blue-900 to-purple-800 bg-clip-text text-transparent">
                   {" "}
                   Works
                 </span>
