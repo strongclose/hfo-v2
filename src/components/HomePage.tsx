@@ -288,148 +288,89 @@ export default function HomePage() {
               </PriceComparisonCTA>
             </div>
 
-            {/* Tab Categories */}
-            <div className="mb-12">
-              <div className="flex flex-wrap justify-center gap-4 mb-8">
-                {[
-                  { id: 'patients', label: 'For Patients', active: true },
-                  { id: 'professionals', label: 'For Professionals', active: false },
-                  { id: 'organizations', label: 'For Organizations', active: false }
-                ].map(tab => (
-                  <button
-                    key={tab.id}
-                    className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                      tab.active
-                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-                        : 'bg-white text-gray-600 border border-gray-300 hover:border-blue-300 hover:text-blue-600'
-                    }`}
-                  >
-                    {tab.label}
-                  </button>
-                ))}
-              </div>
-
-              {/* Tab Content - Patients (Default Active) */}
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {[
-                  {
-                    icon: Search,
-                    title: "Price Comparison Tool",
-                    desc: "Search any procedure, see real prices from hospitals and insurance plans in your area.",
-                    detail: "Compare costs across providers, insurance plans, and payment options to find the best deal.",
-                    link: "/search-procedure",
-                    featured: true
-                  },
-                  {
-                    icon: Brain,
-                    title: "AI Healthcare Assistant",
-                    desc: "Ask natural language questions about healthcare costs and get instant, data-backed answers.",
-                    detail: "Simply ask 'What does an MRI cost in Boston?' and get real pricing data immediately.",
-                    link: "#"
-                  },
-                  {
-                    icon: Calculator,
-                    title: "Cost Calculator",
-                    desc: "Estimate your total out-of-pocket costs including deductibles, copays, and coinsurance.",
-                    detail: "Input your insurance details and get personalized cost estimates for any procedure.",
-                    link: "/calculator"
-                  },
-                  {
-                    icon: Map,
-                    title: "Provider Finder",
-                    desc: "Find nearby hospitals and clinics with quality ratings and transparent pricing.",
-                    detail: "Filter by distance, specialty, quality scores, and price ranges to find the right provider.",
-                    link: "/hospitals"
-                  },
-                  {
-                    icon: Shield,
-                    title: "Insurance Guide",
-                    desc: "Understand your coverage and find ways to maximize your healthcare benefits.",
-                    detail: "Learn about in-network vs out-of-network costs and how to appeal denials.",
-                    link: "/insurance-guide"
-                  },
-                  {
-                    icon: Activity,
-                    title: "Health Savings Tips",
-                    desc: "Discover strategies to reduce healthcare costs without compromising quality of care.",
-                    detail: "From generic medications to preventive care, learn how to save on healthcare.",
-                    link: "/savings-tips"
-                  }
-                ].map((feature, index) => (
-                  <div key={index} className="group relative">
-                    <div className={`relative p-8 rounded-3xl bg-white backdrop-blur-xl border shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 ${
-                      feature.featured
-                        ? 'border-blue-300 ring-2 ring-blue-200'
-                        : 'border-gray-200/50'
-                    }`}>
-                      {feature.featured && (
-                        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                          <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                            Most Popular
-                          </span>
-                        </div>
-                      )}
-
-                      <div
-                        className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300"
-                        style={{
-                          background: feature.title === "AI Healthcare Assistant"
-                            ? "linear-gradient(135deg, #9333ea, #db2777)"
-                            : feature.title === "Price Comparison Tool"
-                            ? "linear-gradient(135deg, #3b82f6, #06b6d4)"
-                            : feature.title === "Cost Calculator"
-                            ? "linear-gradient(135deg, #10b981, #14b8a6)"
-                            : feature.title === "Provider Finder"
-                            ? "linear-gradient(135deg, #f97316, #ef4444)"
-                            : feature.title === "Insurance Guide"
-                            ? "linear-gradient(135deg, #6366f1, #a855f7)"
-                            : "linear-gradient(135deg, #eab308, #f97316)"
-                        }}
-                      >
-                        <feature.icon className="w-8 h-8 text-white" />
-                      </div>
-
-                      <h3 className="text-xl font-bold mb-4 text-gray-900 text-center group-hover:text-blue-600 transition-colors duration-300">
-                        {feature.title}
-                      </h3>
-
-                      <p className="text-gray-700 text-center leading-relaxed mb-4">
-                        {feature.desc}
-                      </p>
-
-                      <p className="text-gray-500 text-sm text-center leading-relaxed mb-6">
-                        {feature.detail}
-                      </p>
-
-                      <div className="text-center">
-                        <Button
-                          onClick={() => window.location.href = feature.link}
-                          variant={feature.featured ? "primary" : "outline"}
-                          className={`${
-                            feature.featured
-                              ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700'
-                              : 'border-gray-300 text-gray-700 hover:bg-gray-50'
-                          } transition-all duration-300 hover:scale-105`}
-                        >
-                          {feature.featured ? 'Try Now' : 'Learn More'}
-                          <ArrowRight className="w-4 h-4 ml-2" />
-                        </Button>
-                      </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: Search,
+                  title: "Price Comparison Tool",
+                  desc: "Search any procedure, see real prices from hospitals and insurance plans in your area.",
+                  link: "/search-procedure"
+                },
+                {
+                  icon: Brain,
+                  title: "AI Healthcare Assistant",
+                  desc: "Ask natural language questions about healthcare costs and get instant, data-backed answers.",
+                  link: "#"
+                },
+                {
+                  icon: BarChart3,
+                  title: "Market Analytics",
+                  desc: "Analyze pricing trends, compare markets, and understand cost variations across regions.",
+                  link: "/insightalytics"
+                },
+                {
+                  icon: Building2,
+                  title: "Provider Directory",
+                  desc: "Find hospitals, clinics, and specialists with transparent pricing and quality metrics.",
+                  link: "/hospitals"
+                },
+                {
+                  icon: Shield,
+                  title: "Insurance Navigator",
+                  desc: "Compare insurance plans, understand coverage, and find the best value for your needs.",
+                  link: "/insurance"
+                },
+                {
+                  icon: Users,
+                  title: "Compliance Tools",
+                  desc: "Help healthcare organizations meet transparency requirements and benchmark their pricing.",
+                  link: "/who-we-help/hospitals"
+                }
+              ].map((feature, index) => (
+                <div
+                  key={index}
+                  className="group relative cursor-pointer"
+                  onClick={() => window.location.href = feature.link}
+                >
+                  <div className="relative p-8 rounded-3xl bg-white backdrop-blur-xl border border-gray-200/50 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105">
+                    <div
+                      className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300"
+                      style={{
+                        background: feature.title === "AI Healthcare Assistant"
+                          ? "linear-gradient(135deg, #9333ea, #db2777)"
+                          : feature.title === "Price Comparison Tool"
+                          ? "linear-gradient(135deg, #3b82f6, #06b6d4)"
+                          : feature.title === "Market Analytics"
+                          ? "linear-gradient(135deg, #10b981, #14b8a6)"
+                          : feature.title === "Provider Directory"
+                          ? "linear-gradient(135deg, #f97316, #ef4444)"
+                          : feature.title === "Insurance Navigator"
+                          ? "linear-gradient(135deg, #6366f1, #a855f7)"
+                          : "linear-gradient(135deg, #eab308, #f97316)"
+                      }}
+                    >
+                      <feature.icon className="w-8 h-8 text-white" />
                     </div>
+                    <h3 className="text-xl font-bold mb-4 text-gray-900 text-center group-hover:text-blue-600 transition-colors duration-300">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-700 text-center leading-relaxed">
+                      {feature.desc}
+                    </p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* 5. Who Uses HealthFees.org Section - Timeline/Journey Format */}
+        {/* 5. Who Uses HealthFees.org Section */}
         <section className="relative py-24 overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.15),transparent_40%)] motion-safe:animate-pulse motion-safe:animation-duration-[10s]"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(147,51,234,0.15),transparent_40%)] motion-safe:animate-pulse motion-safe:animation-duration-[12s]"></div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-20">
+            <div className="text-center mb-16">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-emerald-400 to-cyan-400 mb-8 shadow-lg shadow-emerald-500/25">
                 <Users className="w-8 h-8 text-white" />
               </div>
@@ -445,110 +386,69 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Journey Timeline */}
-            <div className="relative">
-              {/* Central Timeline Line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-emerald-400 via-cyan-400 to-purple-400 h-full hidden lg:block"></div>
-
-              {/* Timeline Items */}
-              <div className="space-y-16">
-                {[
-                  {
-                    icon: Stethoscope,
-                    title: "Patients & Families",
-                    desc: "Compare costs before scheduling procedures and make informed healthcare decisions.",
-                    detail: "Search for procedures, view real negotiated rates, and find the most affordable options in your area.",
-                    gradient: "from-blue-500 to-cyan-500",
-                    link: "/who-we-help/patients",
-                    side: "left"
-                  },
-                  {
-                    icon: Building2,
-                    title: "Healthcare Employers",
-                    desc: "Help employees make cost-effective healthcare choices and reduce overall benefits costs.",
-                    detail: "Integrate our API to provide employees with cost transparency tools and reduce benefits spend.",
-                    gradient: "from-purple-500 to-pink-500",
-                    link: "/who-we-help/employers",
-                    side: "right"
-                  },
-                  {
-                    icon: BarChart3,
-                    title: "Researchers & Analysts",
-                    desc: "Study healthcare pricing trends, market dynamics, and cost variations across regions.",
-                    detail: "Access comprehensive datasets and analytics tools for market research and policy analysis.",
-                    gradient: "from-emerald-500 to-teal-500",
-                    link: "/who-we-help/researchers",
-                    side: "left"
-                  },
-                  {
-                    icon: Shield,
-                    title: "Insurance Companies",
-                    desc: "Benchmark pricing, analyze network performance, and ensure competitive rates.",
-                    detail: "Compare your negotiated rates against market standards and optimize network contracts.",
-                    gradient: "from-orange-500 to-red-500",
-                    link: "/who-we-help/insurance-providers",
-                    side: "right"
-                  },
-                  {
-                    icon: Hospital,
-                    title: "Healthcare Providers",
-                    desc: "Compare pricing against competitors and ensure transparency compliance.",
-                    detail: "Meet federal transparency requirements and understand your competitive position in the market.",
-                    gradient: "from-indigo-500 to-purple-500",
-                    link: "/who-we-help/hospitals",
-                    side: "left"
-                  },
-                  {
-                    icon: FileText,
-                    title: "Journalists & Advocates",
-                    desc: "Access reliable healthcare pricing data for investigative reporting and advocacy work.",
-                    detail: "Uncover pricing disparities and hold healthcare systems accountable with verified data.",
-                    gradient: "from-yellow-500 to-orange-500",
-                    link: "/who-we-help/journalists",
-                    side: "right"
-                  }
-                ].map((audience, index) => (
-                  <div key={index} className={`relative flex items-center ${audience.side === 'left' ? 'lg:justify-start' : 'lg:justify-end'} justify-center`}>
-                    {/* Timeline Node */}
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-white border-4 border-emerald-400 z-10 hidden lg:block"></div>
-
-                    {/* Content Card */}
-                    <div className={`w-full lg:w-5/12 ${audience.side === 'right' ? 'lg:ml-auto' : ''}`}>
-                      <div className="group relative">
-                        <div className="relative p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-white/10">
-                          {/* Icon and Number */}
-                          <div className="flex items-center gap-4 mb-6">
-                            <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${audience.gradient} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                              <audience.icon className="w-8 h-8 text-white" />
-                            </div>
-                            <div className="text-3xl font-bold text-white/30">0{index + 1}</div>
-                          </div>
-
-                          <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-cyan-300 transition-colors duration-300">
-                            {audience.title}
-                          </h3>
-
-                          <p className="text-white/90 group-hover:text-white transition-colors duration-300 leading-relaxed mb-4">
-                            {audience.desc}
-                          </p>
-
-                          <p className="text-white/70 text-sm leading-relaxed mb-6">
-                            {audience.detail}
-                          </p>
-
-                          <Button
-                            onClick={() => window.location.href = audience.link}
-                            className="bg-white/20 text-white border-2 border-white/30 hover:bg-white hover:text-gray-900 transition-all duration-300 font-semibold backdrop-blur-sm"
-                          >
-                            Explore Solutions
-                            <ArrowRight className="w-4 h-4 ml-2" />
-                          </Button>
-                        </div>
-                      </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: Stethoscope,
+                  title: "Patients & Families",
+                  desc: "Compare costs before scheduling procedures and make informed healthcare decisions.",
+                  gradient: "from-blue-500 to-cyan-500",
+                  link: "/who-we-help/patients"
+                },
+                {
+                  icon: BarChart3,
+                  title: "Researchers & Analysts",
+                  desc: "Study healthcare pricing trends, market dynamics, and cost variations across regions.",
+                  gradient: "from-emerald-500 to-teal-500",
+                  link: "/who-we-help/researchers"
+                },
+                {
+                  icon: Building2,
+                  title: "Healthcare Employers",
+                  desc: "Help employees make cost-effective healthcare choices and reduce overall benefits costs.",
+                  gradient: "from-purple-500 to-pink-500",
+                  link: "/who-we-help/employers"
+                },
+                {
+                  icon: Shield,
+                  title: "Insurance Companies",
+                  desc: "Benchmark pricing, analyze network performance, and ensure competitive rates.",
+                  gradient: "from-orange-500 to-red-500",
+                  link: "/who-we-help/insurance-providers"
+                },
+                {
+                  icon: Hospital,
+                  title: "Healthcare Providers",
+                  desc: "Compare pricing against competitors and ensure transparency compliance.",
+                  gradient: "from-indigo-500 to-purple-500",
+                  link: "/who-we-help/hospitals"
+                },
+                {
+                  icon: FileText,
+                  title: "Journalists & Advocates",
+                  desc: "Access reliable healthcare pricing data for investigative reporting and advocacy work.",
+                  gradient: "from-yellow-500 to-orange-500",
+                  link: "/who-we-help/journalists"
+                }
+              ].map((audience, index) => (
+                <div
+                  key={index}
+                  className="group h-full cursor-pointer"
+                  onClick={() => window.location.href = audience.link}
+                >
+                  <div className="relative p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-white/10 h-full flex flex-col">
+                    <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${audience.gradient} flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                      <audience.icon className="w-8 h-8 text-white" />
                     </div>
+                    <h3 className="text-xl font-bold mb-4 text-white group-hover:text-cyan-300 transition-colors duration-300 text-center">
+                      {audience.title}
+                    </h3>
+                    <p className="text-white/90 group-hover:text-white transition-colors duration-300 leading-relaxed text-center flex-grow">
+                      {audience.desc}
+                    </p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
