@@ -1099,8 +1099,7 @@ export default function HomePage() {
                                 window.location.href = persona.secondaryCTALink;
                               }
                             }}
-                            variant="outline"
-                            className="px-6 py-4 border-2 border-white/50 text-white hover:bg-white/20 hover:scale-105 rounded-xl transition-all duration-300"
+                            className="px-6 py-4 bg-white/20 backdrop-blur-sm border-2 border-white/50 text-white hover:bg-white/30 hover:border-white/70 hover:scale-105 rounded-xl transition-all duration-300 font-semibold"
                           >
                             {persona.secondaryCTA}
                           </Button>
