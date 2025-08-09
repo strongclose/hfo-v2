@@ -1277,7 +1277,7 @@ export default function HomePage() {
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full bg-teal-500"></div>
+                        <div className="w-5 h-5 rounded-full" style={{ backgroundColor: '#14b8a6' }}></div>
                         <span className="text-gray-900 font-bold text-lg">Fully Compliant</span>
                       </div>
                       <span className="text-gray-900 font-semibold text-lg">45%</span>
