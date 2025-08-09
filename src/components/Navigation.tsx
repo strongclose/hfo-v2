@@ -108,9 +108,10 @@ export function Navigation() {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 px-8 py-6 backdrop-blur-md transition-all duration-500 border-b border-white/10"
+      className={`fixed top-0 left-0 right-0 z-50 px-8 py-6 backdrop-blur-md transition-all duration-500 border-b ${
+        isScrolled ? "border-gray-200/20 bg-white/80" : "border-white/10 bg-white/5"
+      }`}
       style={{
-        background: "rgba(255, 255, 255, 0.05)",
         transform: isVisible ? "translateY(0)" : "translateY(-100%)",
         transition:
           "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease",
