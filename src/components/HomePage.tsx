@@ -931,7 +931,7 @@ export default function HomePage() {
                     Compare Prices Now
                   </PriceComparisonCTA>
                   <Button
-                    variant="secondary"
+                    variant="outline"
                     size="lg"
                     onClick={() => {
                       if (typeof window !== 'undefined') {
