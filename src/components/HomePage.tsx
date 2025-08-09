@@ -352,7 +352,7 @@ export default function HomePage() {
                   HealthFees.org
                 </span>
               </h2>
-              <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-100 max-w-4xl mx-auto leading-relaxed">
                 From individual patients to large healthcare organizations, our platform serves everyone who values transparency in healthcare pricing.
               </p>
             </div>
