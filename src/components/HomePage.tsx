@@ -566,7 +566,7 @@ export default function HomePage() {
                             </Tooltip>
                           </div>
                           
-                          <div className="text-lg text-gray-700 leading-relaxed mb-6">
+                          <div className="hf-body-medium hf-text-secondary mb-6">
                             <Tooltip content="The Hospital Price Transparency Final Rule (45 CFR ����180) requires providers to publish machine-readable files with all their negotiated rates.">
                               <span className="underline decoration-blue-300 decoration-2 cursor-help">Federal law</span>
                             </Tooltip>
