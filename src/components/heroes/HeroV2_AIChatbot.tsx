@@ -79,14 +79,29 @@ export function HeroV2_AIChatbot({
           to make this information accessible, easy to use, and free for everyone.
         </p>
 
-        {/* Global Chatbot Component */}
-        <GlobalChatbot
-          height="sm"
-          context="healthcare"
-          placeholder="Give it a try..."
-          initialMessage="What healthcare price would you like to see? Try: 'MRI price in Boston'."
-          className="max-w-4xl"
-        />
+        {/* AI Chatbot and Check Prices Button */}
+        <div className="flex flex-col lg:flex-row items-center gap-6 w-full max-w-6xl">
+          {/* Global Chatbot Component */}
+          <div className="flex-1 w-full lg:max-w-4xl">
+            <GlobalChatbot
+              height="sm"
+              context="healthcare"
+              placeholder="Give it a try..."
+              initialMessage="What healthcare price would you like to see? Try: 'MRI price in Boston'."
+              className="w-full"
+            />
+          </div>
+
+          {/* Check Prices Button */}
+          <div className="flex-shrink-0">
+            <button
+              onClick={() => window.location.href = "/search-procedure"}
+              className="px-8 py-4 bg-teal-500 hover:bg-teal-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 whitespace-nowrap"
+            >
+              Check Prices
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
