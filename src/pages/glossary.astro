@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/BaseLayout.astro';
+import { Navigation } from '../components/Navigation';
+import { FooterExpanded } from '../components/homepage/FooterExpanded';
+---
+
+<Layout title="Healthcare Glossary - HealthFees.org">
+  <div class="min-h-screen bg-white">
+    <Navigation client:load />
+    
+    <main class="py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl font-bold text-gray-900 mb-8">Healthcare Glossary</h1>
+        
+        <div class="prose prose-lg max-w-none">
+          <p class="text-xl text-gray-700 leading-relaxed mb-8">
+            Understanding healthcare terminology helps you make better decisions about your care and costs.
+          </p>
+          
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-xl font-semibold text-blue-900 mb-2">Allowed Amount</h3>
+              <p class="text-gray-700">
+                The maximum amount a health plan will pay for a covered healthcare service. 
+                May also be called "eligible expense," "payment allowance," or "negotiated rate."
+              </p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-blue-900 mb-2">Coinsurance</h3>
+              <p class="text-gray-700">
+                The percentage of costs of a covered healthcare service you pay after you've 
+                paid your deductible. For example, if your coinsurance is 20%, you pay 20% 
+                of each medical bill, and your health insurance pays 80%.
+              </p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-blue-900 mb-2">Copayment (Copay)</h3>
+              <p class="text-gray-700">
+                A fixed amount you pay for a covered healthcare service, usually at the time 
+                of service. For example, you might pay $20 for a doctor visit or $10 for a prescription.
+              </p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-blue-900 mb-2">Deductible</h3>
+              <p class="text-gray-700">
+                The amount you owe for healthcare services before your health insurance begins to pay. 
+                For example, if your deductible is $1,000, you must pay the first $1,000 of covered services.
+              </p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-blue-900 mb-2">In-Network Provider</h3>
+              <p class="text-gray-700">
+                A healthcare provider who has a contract with your health insurance plan. 
+                You'll typically pay less when using in-network providers.
+              </p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-blue-900 mb-2">Out-of-Network Provider</h3>
+              <p class="text-gray-700">
+                A healthcare provider who doesn't have a contract with your health insurance plan. 
+                You'll typically pay more when using out-of-network providers.
+              </p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-blue-900 mb-2">Out-of-Pocket Maximum</h3>
+              <p class="text-gray-700">
+                The most you have to pay for covered services in a plan year. After reaching this limit, 
+                your insurance pays 100% of covered benefits.
+              </p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-blue-900 mb-2">Premium</h3>
+              <p class="text-gray-700">
+                The amount you pay for your health insurance every month. You pay this even if 
+                you don't use medical services.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <FooterExpanded client:load />
+  </div>
+</Layout>
