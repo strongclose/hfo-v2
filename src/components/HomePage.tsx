@@ -144,11 +144,46 @@ const exploreActionCards = [
   }
 ];
 
+  // Custom hook for animated number counting
+  const useCountUp = (target: number, duration: number = 1000) => {
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+      if (target === 0) {
+        setCount(0);
+        return;
+      }
+
+      const startTime = Date.now();
+      const startCount = 0;
+
+      const timer = setInterval(() => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+        const currentCount = Math.round(startCount + (target - startCount) * easeOutCubic);
+
+        setCount(currentCount);
+
+        if (progress >= 1) {
+          clearInterval(timer);
+          setCount(target);
+        }
+      }, 16);
+
+      return () => clearInterval(timer);
+    }, [target, duration]);
+
+    return count;
+  };
+
 export default function HomePage() {
   const [currentPage, setCurrentPage] = useState("home");
   const [selectedRadius, setSelectedRadius] = useState<number>(25);
   const [activePersona, setActivePersona] = useState("patients");
   const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
+  const animatedNumber = useCountUp(personas[activePersona].primaryNumber, 1200);
 
   const handleSearch = (query: string, location?: string) => {
     console.log("Search:", query, location);
