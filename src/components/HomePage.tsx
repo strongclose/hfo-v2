@@ -54,23 +54,61 @@ export default function HomePage() {
   // Navigation handlers for Header component
   const handleNavigateToHomepage = () => setCurrentPage("home");
   const handleNavigateToInternalSearch = () => setCurrentPage("internalSearch");
-  const handleNavigateToComparePrices = () =>
-    (window.location.href = "/compare-prices");
-  const handleNavigateToPriceComparison = () =>
-    (window.location.href = "/price-comparison");
-  const handleNavigateToSearchByProcedure = () =>
-    (window.location.href = "/search-procedure");
-  const handleNavigateToFAQ = () => (window.location.href = "/faq");
-  const handleNavigateToExplore = () => (window.location.href = "/explore");
-  const handleNavigateToExploreByLocation = () =>
-    (window.location.href = "/explore/location");
-  const handleNavigateToInsights = () => (window.location.href = "/insights");
-  const handleNavigateToPatientResources = () =>
-    (window.location.href = "/learn");
-  const handleNavigateToTools = () => (window.location.href = "/tools");
-  const handleNavigateToCommunity = () => (window.location.href = "/community");
-  const handleNavigateToProfessionals = () =>
-    (window.location.href = "/professionals");
+  const handleNavigateToComparePrices = () => {
+    if (typeof window !== 'undefined') {
+      window.location.href = "/compare-prices";
+    }
+  };
+  const handleNavigateToPriceComparison = () => {
+    if (typeof window !== 'undefined') {
+      window.location.href = "/price-comparison";
+    }
+  };
+  const handleNavigateToSearchByProcedure = () => {
+    if (typeof window !== 'undefined') {
+      window.location.href = "/search-procedure";
+    }
+  };
+  const handleNavigateToFAQ = () => {
+    if (typeof window !== 'undefined') {
+      window.location.href = "/faq";
+    }
+  };
+  const handleNavigateToExplore = () => {
+    if (typeof window !== 'undefined') {
+      window.location.href = "/explore";
+    }
+  };
+  const handleNavigateToExploreByLocation = () => {
+    if (typeof window !== 'undefined') {
+      window.location.href = "/explore/location";
+    }
+  };
+  const handleNavigateToInsights = () => {
+    if (typeof window !== 'undefined') {
+      window.location.href = "/insights";
+    }
+  };
+  const handleNavigateToPatientResources = () => {
+    if (typeof window !== 'undefined') {
+      window.location.href = "/learn";
+    }
+  };
+  const handleNavigateToTools = () => {
+    if (typeof window !== 'undefined') {
+      window.location.href = "/tools";
+    }
+  };
+  const handleNavigateToCommunity = () => {
+    if (typeof window !== 'undefined') {
+      window.location.href = "/community";
+    }
+  };
+  const handleNavigateToProfessionals = () => {
+    if (typeof window !== 'undefined') {
+      window.location.href = "/professionals";
+    }
+  };
 
   const PriceComparisonCTA = ({ 
     size = "default", 
