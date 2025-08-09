@@ -841,7 +841,7 @@ export default function HomePage() {
 
                         <div className="text-center lg:text-right">
                           <div className="flex items-center justify-center lg:justify-end gap-2 mb-4">
-                            <h3 className="text-3xl font-bold text-gray-900">You Compare</h3>
+                            <h3 className="text-2xl font-bold text-gray-900">You Compare</h3>
                             <Tooltip content="Compare prices across providers, payers, and cash payment options to find the best value for your healthcare needs.">
                               <Info className="w-5 h-5 text-emerald-500 cursor-help" />
                             </Tooltip>
