@@ -513,7 +513,7 @@ export default function HomePage() {
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-gray-900 tracking-tight">
                 Why This
-                <span className="bg-gradient-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent">
+                <span className="hf-text-gradient-primary">
                   {" "}
                   Matters
                 </span>
