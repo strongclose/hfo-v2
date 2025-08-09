@@ -49,12 +49,12 @@ export function HeroV2_AIChatbot({
       <div className="absolute top-1/2 right-0 transform translate-x-1/4 -translate-y-1/2 opacity-10 z-0">
         <div className="relative">
           <Shield
-            className="w-64 h-64 text-teal-600"
+            className="w-64 h-64 text-teal-300"
             strokeWidth={1}
-            fill="rgba(20, 184, 166, 0.05)"
+            fill="rgba(20, 184, 166, 0.1)"
           />
           <div className="absolute inset-0 flex items-center justify-center">
-            <Search className="w-32 h-32 text-blue-600/30" strokeWidth={1} />
+            <Search className="w-32 h-32 text-white/20" strokeWidth={1} />
           </div>
         </div>
       </div>
