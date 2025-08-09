@@ -1016,7 +1016,7 @@ export default function HomePage() {
                         {/* Primary Insight with Animated Number */}
                         <div className="p-6 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/30 mb-8 flex-grow">
                           <p className="text-base font-semibold text-emerald-300 mb-3">Primary Insight</p>
-                          <div className="text-lg lg:text-xl text-white leading-relaxed">
+                          <div className="hf-body-medium text-white">
                             {persona.primaryNumber > 0 ? (
                               persona.title === "Patients & Families" ? (
                                 <>Save an average of <span className="text-2xl font-bold text-emerald-400">${animatedNumber.toLocaleString()}</span> per procedure by comparing prices before care.</>
