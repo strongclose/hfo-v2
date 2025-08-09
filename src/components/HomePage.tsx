@@ -537,8 +537,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 7. Regional Updates / Now Live Section */}
-        <StateCoverageBanner />
 
         {/* 8. Help Others Save / Join the Movement Section */}
         <section className="relative py-24 overflow-hidden bg-gradient-to-br from-teal-900 via-blue-900 to-purple-900">
