@@ -1142,7 +1142,11 @@ export default function HomePage() {
         </LazySection>
 
         {/* 7. Transparency Scoring & Compliance Support */}
-        <section className="relative py-24 overflow-hidden bg-white">
+        <LazySection
+          className="relative py-24 overflow-hidden bg-white"
+          minHeight="800px"
+        >
+        <section>
           {/* Subtle accent elements */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(20,184,166,0.03),transparent_70%)]"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(59,130,246,0.03),transparent_70%)]"></div>
@@ -1381,6 +1385,7 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+        </LazySection>
 
         {/* 8. What the Data Reveals - Enhanced with animated counters */}
         <section className="relative py-24 overflow-hidden">
