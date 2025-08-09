@@ -157,7 +157,7 @@ export default function HomePage() {
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-gray-900 tracking-tight">
               Why This
-              <span className="text-blue-900">
+              <span className="bg-gradient-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent">
                 {" "}
                 Matters
               </span>
