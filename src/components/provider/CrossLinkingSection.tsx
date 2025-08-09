@@ -136,7 +136,7 @@ export function CrossLinkingSection({
             {relatedLinks
               .filter((link) => link.category === category)
               .map((link, idx) => (
-                <Link key={idx} href={link.href}>
+                <a key={idx} href={link.href}>
                   <Card className="hover:shadow-md transition-shadow cursor-pointer h-full">
                     <CardHeader className="pb-2">
                       <CardTitle className="text-base flex items-center gap-2">
@@ -154,7 +154,7 @@ export function CrossLinkingSection({
                       </div>
                     </CardContent>
                   </Card>
-                </Link>
+                </a>
               ))}
           </div>
         </div>
