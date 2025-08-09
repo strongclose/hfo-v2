@@ -1411,58 +1411,28 @@ export default function HomePage() {
             </div>
 
             {/* Animated Statistics */}
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <div className="group relative">
-                <div className="hf-card relative p-10 bg-white/90 backdrop-blur-xl border-white/20">
-                  <div className="hf-icon-bg-primary w-16 h-16 flex items-center justify-center mx-auto mb-6" style={{ background: 'linear-gradient(to bottom right, #ef4444, #ec4899)' }}>
-                    <TrendingUp className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="text-center">
-                    <div className="text-4xl font-bold text-red-600 mb-2">10x</div>
-                    <div className="w-full bg-red-200 rounded-full h-2 mb-4">
-                      <div className="bg-red-600 h-2 rounded-full" style={{width: '100%'}}></div>
-                    </div>
-                    <p className="text-lg text-gray-800 font-semibold leading-relaxed">
-                      Same procedure can cost 10x more at different providers in the same city
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="group relative">
-                <div className="hf-card relative p-10 bg-white/90 backdrop-blur-xl border-white/20">
-                  <div className="hf-icon-bg-primary w-16 h-16 flex items-center justify-center mx-auto mb-6" style={{ background: 'linear-gradient(to bottom right, #f59e0b, #ea580c)' }}>
-                    <AlertTriangle className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-amber-600 mb-2">33%</div>
-                    <div className="w-full bg-amber-200 rounded-full h-2 mb-4">
-                      <div className="bg-amber-600 h-2 rounded-full" style={{width: '33%'}}></div>
-                    </div>
-                    <p className="text-lg text-gray-800 font-semibold leading-relaxed">
-                      Of the time, "in-network" costs more than cash prices
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="group relative">
-                <div className="hf-card relative p-10 bg-white/90 backdrop-blur-xl border-white/20">
-                  <div className="hf-icon-bg-primary w-16 h-16 flex items-center justify-center mx-auto mb-6" style={{ background: 'linear-gradient(to bottom right, #10b981, #0d9488)' }}>
-                    <DollarSign className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-emerald-600 mb-2">$3,200</div>
-                    <div className="w-full bg-emerald-200 rounded-full h-2 mb-4">
-                      <div className="bg-emerald-600 h-2 rounded-full" style={{width: '80%'}}></div>
-                    </div>
-                    <p className="text-lg text-gray-800 font-semibold leading-relaxed">
-                      Average savings when patients compare prices before care
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <LazyAnimatedStats
+              stats={[
+                {
+                  value: "10x",
+                  label: "Same procedure can cost 10x more at different providers in the same city",
+                  icon: TrendingUp,
+                  color: "linear-gradient(to bottom right, #ef4444, #ec4899)"
+                },
+                {
+                  value: "33%",
+                  label: 'Of the time, "in-network" costs more than cash prices',
+                  icon: AlertTriangle,
+                  color: "linear-gradient(to bottom right, #f59e0b, #ea580c)"
+                },
+                {
+                  value: "$3,200",
+                  label: "Average savings when patients compare prices before care",
+                  icon: DollarSign,
+                  color: "linear-gradient(to bottom right, #10b981, #0d9488)"
+                }
+              ]}
+            />
           </div>
         </section>
         </LazySection>
