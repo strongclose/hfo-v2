@@ -15,7 +15,7 @@ export const HERO_VERSIONS = {
 } as const;
 
 // 🎯 Change this to switch hero versions
-export const ACTIVE_HERO = HERO_VERSIONS.V2_AI_CHATBOT;
+export const ACTIVE_HERO = HERO_VERSIONS.V1_SIMPLE;
 
 interface HeroProps {
   onSearch: (procedure: string, location: string) => void;
