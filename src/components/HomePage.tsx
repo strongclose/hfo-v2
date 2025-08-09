@@ -968,7 +968,7 @@ export default function HomePage() {
                   className={`px-8 py-4 rounded-full hf-heading-h5 transition-all duration-500 flex items-center gap-3 ${
                     activePersona === key
                       ? `bg-gradient-to-r ${persona.bgColor} text-white shadow-xl scale-105`
-                      : 'bg-black/20 text-white border border-white/50 hover:bg-black/30 hover:scale-105'
+                      : 'bg-gray-100 hf-text-primary border border-gray-300 hover:bg-gray-200 hover:scale-105'
                   }`}
                 >
                   <persona.icon className="w-5 h-5" />
