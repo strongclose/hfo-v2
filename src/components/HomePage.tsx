@@ -1461,7 +1461,7 @@ export default function HomePage() {
                 </span>
               </h2>
               <p className="text-lg md:text-xl text-gray-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Every search helps build a more transparent healthcare system. Share HealthFees.org with others so they can make informed decisions too.
+                Ready to save money on your next healthcare procedure? Join thousands who've already saved by comparing prices first.
               </p>
 
               <div className="mb-8 flex flex-col sm:flex-row gap-3 justify-center">
@@ -1469,7 +1469,7 @@ export default function HomePage() {
                   size="lg"
                   variant="primary"
                 >
-                  Start Comparing Prices
+                  Start Comparing Prices Now
                 </PriceComparisonCTA>
 
                 <Button
