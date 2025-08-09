@@ -266,7 +266,7 @@ export default function HomePage() {
                   icon: Brain,
                   title: "AI Healthcare Assistant",
                   desc: "Ask natural language questions about healthcare costs and get instant, data-backed answers.",
-                  gradient: "from-purple-500 to-pink-500",
+                  gradient: "from-purple-600 to-pink-600",
                   link: "#"
                 },
                 {
