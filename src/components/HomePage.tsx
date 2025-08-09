@@ -1128,10 +1128,10 @@ export default function HomePage() {
         </section>
 
         {/* 7. Transparency Scoring & Compliance Support */}
-        <section className="relative py-24 overflow-hidden bg-gradient-to-br from-blue-50 via-teal-50 to-cyan-50">
-          {/* Subtle shield watermark */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(20,184,166,0.08),transparent_50%)]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(59,130,246,0.06),transparent_50%)]"></div>
+        <section className="relative py-24 overflow-hidden bg-white">
+          {/* Subtle accent elements */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(20,184,166,0.03),transparent_70%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(59,130,246,0.03),transparent_70%)]"></div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
