@@ -314,11 +314,11 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-end mb-8">
                           <div className="relative">
-                            <div className="w-24 h-24 bg-gradient-to-br from-blue-700 to-cyan-700 rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-500">
+                            <div className="w-24 h-24 bg-gradient-to-br from-blue-700 to-cyan-700 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300">
                               <Database className="w-12 h-12 text-white" />
                             </div>
                             {/* Pulse animation */}
-                            <div className="absolute inset-0 bg-blue-400 rounded-3xl animate-ping opacity-20"></div>
+                            <div className="absolute inset-0 bg-blue-400 rounded-full animate-pulse opacity-10"></div>
                           </div>
                         </div>
 
@@ -453,11 +453,11 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-start mb-8">
                           <div className="relative">
-                            <div className="w-24 h-24 bg-gradient-to-br from-purple-700 to-pink-700 rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-500">
+                            <div className="w-24 h-24 bg-gradient-to-br from-purple-700 to-pink-700 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300">
                               <Sparkles className="w-12 h-12 text-white animate-pulse" />
                             </div>
                             {/* Pulse animation */}
-                            <div className="absolute inset-0 bg-purple-400 rounded-3xl animate-ping opacity-20"></div>
+                            <div className="absolute inset-0 bg-purple-400 rounded-full animate-pulse opacity-10"></div>
                           </div>
                         </div>
 
@@ -521,7 +521,7 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-end mb-8">
                           <div className="relative">
-                            <div className="w-24 h-24 bg-gradient-to-br from-emerald-700 to-teal-700 rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-500">
+                            <div className="w-24 h-24 bg-gradient-to-br from-emerald-700 to-teal-700 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300">
                               <Search className="w-12 h-12 text-white" />
                               {/* Search pulse animation */}
                               <div className="absolute inset-0 flex items-center justify-center">
@@ -529,7 +529,7 @@ export default function HomePage() {
                               </div>
                             </div>
                             {/* Pulse animation */}
-                            <div className="absolute inset-0 bg-emerald-400 rounded-3xl animate-ping opacity-20"></div>
+                            <div className="absolute inset-0 bg-emerald-400 rounded-full animate-pulse opacity-10"></div>
                           </div>
                         </div>
 
