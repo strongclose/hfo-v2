@@ -744,83 +744,164 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 4. Where Our Data Comes From - Split layout */}
-        <section className="relative py-24 overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-teal-900">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(20,184,166,0.15),transparent_40%)]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(59,130,246,0.15),transparent_40%)]"></div>
+        {/* 4. Verified Data from Providers and Payers - Redesigned */}
+        <section className="relative py-24 overflow-hidden bg-gradient-to-br from-blue-500 via-blue-400 to-blue-300">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(255,255,255,0.1),transparent_60%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(20,184,166,0.08),transparent_50%)]"></div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* Left column - Content */}
-              <div>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-teal-400 to-blue-500 flex items-center justify-center shadow-lg">
-                    <MapPin className="w-8 h-8 text-white" />
+              <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-xl border border-white/50">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-teal-500 to-blue-600 flex items-center justify-center shadow-lg">
+                    <Shield className="w-7 h-7 text-white" />
                   </div>
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
-                    Where Our Data
-                    <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
+                    Verified Data from
+                    <span className="bg-gradient-to-r from-teal-600 to-blue-700 bg-clip-text text-transparent">
                       {" "}
-                      Comes From
+                      Providers and Payers
                     </span>
                   </h2>
                 </div>
-                
-                <p className="text-xl text-gray-100 leading-relaxed mb-8">
-                  We collect, organize, and update pricing data from official government-mandated hospital and insurance disclosures across the United States.
+
+                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                  We collect official hospital and insurer price files directly from provider and payer websites under federal transparency laws, then process and update them every month.
                 </p>
 
-                {/* By the Numbers */}
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
-                    <p className="text-3xl font-bold text-teal-400 mb-2">6,000+</p>
-                    <p className="text-gray-200 font-medium">Hospitals</p>
+                <div className="mb-8">
+                  <Tooltip content="Required under the Hospital Price Transparency Final Rule (45 CFR §180) and the Transparency in Coverage Rule.">
+                    <span className="text-sm text-gray-600 underline decoration-gray-300 cursor-help">
+                      Federal transparency mandate compliance
+                    </span>
+                  </Tooltip>
+                </div>
+
+                {/* Stats in horizontal row */}
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div className="text-center p-4 rounded-xl bg-gradient-to-br from-teal-50 to-blue-50 border border-teal-200">
+                    <div className="flex items-center justify-center gap-1 mb-2">
+                      <p className="text-2xl font-bold text-teal-600">6,000+</p>
+                      <Tooltip content="Data collected directly from official hospital websites as required by law.">
+                        <Info className="w-4 h-4 text-gray-500 cursor-help" />
+                      </Tooltip>
+                    </div>
+                    <p className="text-sm text-gray-700 font-medium">Hospitals</p>
                   </div>
-                  <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
-                    <p className="text-3xl font-bold text-blue-400 mb-2">400+</p>
-                    <p className="text-gray-200 font-medium">Insurers</p>
+
+                  <div className="text-center p-4 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200">
+                    <div className="flex items-center justify-center gap-1 mb-2">
+                      <p className="text-2xl font-bold text-blue-600">400+</p>
+                      <Tooltip content="Data collected directly from official insurer websites as required by law.">
+                        <Info className="w-4 h-4 text-gray-500 cursor-help" />
+                      </Tooltip>
+                    </div>
+                    <p className="text-sm text-gray-700 font-medium">Insurers</p>
                   </div>
-                  <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
-                    <p className="text-3xl font-bold text-purple-400 mb-2">2.4T+</p>
-                    <p className="text-gray-200 font-medium">Pricing Records</p>
+
+                  <div className="text-center p-4 rounded-xl bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200">
+                    <div className="flex items-center justify-center gap-1 mb-2">
+                      <p className="text-2xl font-bold text-purple-600">2.4T+</p>
+                      <Tooltip content="Includes in-network, out-of-network, and cash price entries from hospitals and insurers.">
+                        <Info className="w-4 h-4 text-gray-500 cursor-help" />
+                      </Tooltip>
+                    </div>
+                    <p className="text-sm text-gray-700 font-medium">Pricing Records</p>
                   </div>
-                  <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
-                    <p className="text-3xl font-bold text-emerald-400 mb-2">Monthly</p>
-                    <p className="text-gray-200 font-medium">Updates</p>
+
+                  <div className="text-center p-4 rounded-xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200">
+                    <div className="flex items-center justify-center gap-1 mb-2">
+                      <p className="text-2xl font-bold text-emerald-600">Monthly</p>
+                      <Tooltip content="We refresh and process all pricing data every month to keep it current.">
+                        <Info className="w-4 h-4 text-gray-500 cursor-help" />
+                      </Tooltip>
+                    </div>
+                    <p className="text-sm text-gray-700 font-medium">Updates</p>
                   </div>
                 </div>
               </div>
 
-              {/* Right column - Animated US Map placeholder */}
+              {/* Right column - Data Pipeline Graphic */}
               <div className="relative">
-                <div className="p-8 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/20">
-                  <div className="text-center mb-6">
-                    <h3 className="text-2xl font-bold text-white mb-4">Data Coverage Nationwide</h3>
+                <div className="p-8 rounded-3xl bg-white/90 backdrop-blur-sm border border-white/60 shadow-xl">
+                  <div className="text-center mb-8">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Data Pipeline</h3>
+                    <p className="text-gray-600">Official sources to searchable insights</p>
                   </div>
-                  
-                  {/* Simple animated US map representation */}
-                  <div className="relative bg-gradient-to-br from-teal-500/20 to-blue-500/20 rounded-2xl p-8 h-64 flex items-center justify-center">
-                    <div className="relative">
-                      <Globe className="w-32 h-32 text-white/30" />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="grid grid-cols-3 gap-2">
-                          <div className="w-3 h-3 bg-teal-400 rounded-full" />
-                          <div className="w-3 h-3 bg-teal-400 rounded-full" />
-                          <div className="w-3 h-3 bg-teal-400 rounded-full" />
-                          <div className="w-3 h-3 bg-teal-400 rounded-full" />
-                          <div className="w-3 h-3 bg-teal-400 rounded-full" />
-                          <div className="w-3 h-3 bg-teal-400 rounded-full" />
-                          <div className="w-3 h-3 bg-teal-400 rounded-full" />
-                          <div className="w-3 h-3 bg-teal-400 rounded-full" />
-                          <div className="w-3 h-3 bg-teal-400 rounded-full" />
+
+                  {/* Pipeline Flow */}
+                  <div className="space-y-6">
+                    {/* Providers + Payers */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-teal-100 to-blue-100 border border-teal-200">
+                          <div className="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center">
+                            <Hospital className="w-5 h-5 text-white" />
+                          </div>
+                          <div>
+                            <p className="font-semibold text-gray-900 text-sm">Providers</p>
+                            <p className="text-xs text-gray-600">6,000+ Hospitals</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-blue-100 to-indigo-100 border border-blue-200 mt-2">
+                          <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center">
+                            <Shield className="w-5 h-5 text-white" />
+                          </div>
+                          <div>
+                            <p className="font-semibold text-gray-900 text-sm">Payers</p>
+                            <p className="text-xs text-gray-600">400+ Insurers</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Arrow with animated flow */}
+                    <div className="flex justify-center">
+                      <div className="relative">
+                        <ArrowRight className="w-8 h-8 text-gray-400" />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="w-1 h-1 bg-teal-500 rounded-full animate-pulse" style={{ animationDelay: '0s' }} />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* HealthFees Processing */}
+                    <div className="p-4 rounded-xl bg-gradient-to-r from-purple-100 to-pink-100 border border-purple-200">
+                      <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center">
+                          <Database className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-gray-900 text-sm">HealthFees Processing</p>
+                          <p className="text-xs text-gray-600">Clean, validate & standardize</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Arrow */}
+                    <div className="flex justify-center">
+                      <div className="relative">
+                        <ArrowRight className="w-8 h-8 text-gray-400" />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="w-1 h-1 bg-emerald-500 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Searchable Data */}
+                    <div className="p-4 rounded-xl bg-gradient-to-r from-emerald-100 to-teal-100 border border-emerald-200">
+                      <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center">
+                          <Search className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-gray-900 text-sm">Searchable Data</p>
+                          <p className="text-xs text-gray-600">Ready for price comparison</p>
                         </div>
                       </div>
                     </div>
                   </div>
-                  
-                  <p className="text-center text-gray-300 mt-4">
-                    Real-time data collection from all 50 states
-                  </p>
                 </div>
               </div>
             </div>
