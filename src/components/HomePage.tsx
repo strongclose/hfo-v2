@@ -267,8 +267,7 @@ export default function HomePage() {
                   title: "AI Healthcare Assistant",
                   desc: "Ask natural language questions about healthcare costs and get instant, data-backed answers.",
                   gradient: "from-purple-500 to-pink-500",
-                  link: "#",
-                  badge: "Featured"
+                  link: "#"
                 },
                 {
                   icon: BarChart3,
