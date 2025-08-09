@@ -162,7 +162,7 @@ const personas = {
     title: "Researchers & Analysts",
     primaryInsight: "Uncover price variations of up to 900% for the same procedure.",
     primaryNumber: 900,
-    supportingData: "Access 2.4T+ pricing records from 6,000+ providers and 400+ payers.",
+    supportingData: "2.4T+ records, 6K+ providers, 400+ payers.",
     primaryCTA: "Explore the Data",
     primaryCTALink: "/data-explorer",
     secondaryCTA: "Read Market Insights",
