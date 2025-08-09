@@ -1284,14 +1284,14 @@ export default function HomePage() {
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full bg-blue-500"></div>
+                        <div className="w-5 h-5 rounded-full" style={{ backgroundColor: '#3b82f6' }}></div>
                         <span className="text-gray-900 font-medium text-base">Partially Compliant</span>
                       </div>
                       <span className="text-gray-900 font-semibold text-lg">35%</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full bg-gray-400"></div>
+                        <div className="w-5 h-5 rounded-full" style={{ backgroundColor: '#9ca3af' }}></div>
                         <span className="text-gray-900 font-medium text-base">Non Compliant</span>
                       </div>
                       <span className="text-gray-900 font-semibold text-lg">20%</span>
