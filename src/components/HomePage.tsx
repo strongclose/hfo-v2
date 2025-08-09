@@ -400,7 +400,7 @@ export default function HomePage() {
         ].map((item, idx) => (
           <div key={idx} className="flex items-center gap-3">
             <span className="text-xs hf-text-secondary w-20 flex-shrink-0">{item.label}</span>
-            <div className="flex-1 h-3 bg-white/20 rounded-full">
+            <div className="flex-1 h-3 bg-gray-200 rounded-full">
               <div className={`h-full ${item.color} rounded-full transition-all duration-500`} style={{ width: `${item.value}%` }}></div>
             </div>
             <span className="text-xs text-white/70 w-8 text-right">{item.value}%</span>
@@ -440,7 +440,7 @@ export default function HomePage() {
         ].map((item, idx) => (
           <div key={idx} className="flex items-center gap-3">
             <span className="text-xs hf-text-secondary w-20 flex-shrink-0">{item.label}</span>
-            <div className="flex-1 h-3 bg-white/20 rounded-full">
+            <div className="flex-1 h-3 bg-gray-200 rounded-full">
               <div className={`h-full ${item.color} rounded-full transition-all duration-500`} style={{ width: `${item.value}%` }}></div>
             </div>
             <span className="text-xs text-white/70 w-8 text-right">{item.value}%</span>
