@@ -1248,12 +1248,12 @@ export default function HomePage() {
                 </h3>
 
                 {/* Donut Chart */}
-                <div className="p-8 rounded-2xl bg-white border border-gray-200 shadow-lg mb-6">
+                <div className="p-8 rounded-2xl bg-gray-50 border-2 border-gray-300 shadow-lg mb-6">
                   <div className="flex items-center justify-center mb-6">
                     <div className="relative w-48 h-48">
                       <svg className="w-48 h-48 transform -rotate-90" viewBox="0 0 100 100">
                         {/* Background circle */}
-                        <circle cx="50" cy="50" r="35" fill="transparent" stroke="#f3f4f6" strokeWidth="8"/>
+                        <circle cx="50" cy="50" r="35" fill="transparent" stroke="#e5e7eb" strokeWidth="8"/>
                         {/* Fully Compliant - 45% */}
                         <circle cx="50" cy="50" r="35" fill="transparent" stroke="#14b8a6" strokeWidth="8"
                                 strokeDasharray="63 157" strokeLinecap="round"/>
@@ -1266,46 +1266,46 @@ export default function HomePage() {
                       </svg>
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="text-center">
-                          <div className="text-2xl font-bold text-gray-900">6,400+</div>
-                          <div className="text-sm text-gray-700 font-medium">Entities Scored</div>
+                          <div className="text-3xl font-black text-gray-900">6,400+</div>
+                          <div className="text-sm text-gray-800 font-bold">Entities Scored</div>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   {/* Legend */}
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-4 h-4 rounded-full bg-teal-500"></div>
-                        <span className="text-gray-900 font-medium">Fully Compliant</span>
+                        <div className="w-5 h-5 rounded-full bg-teal-500"></div>
+                        <span className="text-gray-900 font-bold text-lg">Fully Compliant</span>
                       </div>
-                      <span className="text-gray-900 font-bold">45%</span>
+                      <span className="text-gray-900 font-black text-xl">45%</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-4 h-4 rounded-full bg-blue-500"></div>
-                        <span className="text-gray-900 font-medium">Partially Compliant</span>
+                        <div className="w-5 h-5 rounded-full bg-blue-500"></div>
+                        <span className="text-gray-900 font-bold text-lg">Partially Compliant</span>
                       </div>
-                      <span className="text-gray-900 font-bold">35%</span>
+                      <span className="text-gray-900 font-black text-xl">35%</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-4 h-4 rounded-full bg-gray-400"></div>
-                        <span className="text-gray-900 font-medium">Non Compliant</span>
+                        <div className="w-5 h-5 rounded-full bg-gray-400"></div>
+                        <span className="text-gray-900 font-bold text-lg">Non Compliant</span>
                       </div>
-                      <span className="text-gray-900 font-bold">20%</span>
+                      <span className="text-gray-900 font-black text-xl">20%</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Support Box */}
-                <div className="p-6 rounded-2xl bg-white border border-teal-200 shadow-lg mb-6">
-                  <h4 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
-                    <Lightbulb className="w-5 h-5 text-teal-600" />
+                <div className="p-6 rounded-2xl bg-gray-50 border-2 border-teal-300 shadow-lg mb-6">
+                  <h4 className="text-xl font-black text-gray-900 mb-3 flex items-center gap-2">
+                    <Lightbulb className="w-6 h-6 text-teal-600" />
                     Our Support
                   </h4>
-                  <p className="text-gray-900 leading-relaxed mb-4 font-medium">
+                  <p className="text-gray-900 leading-relaxed mb-4 font-bold text-lg">
                     We provide guidance, tools, and remediation services to help all entities reach 100% compliance.
                   </p>
                   <Button
