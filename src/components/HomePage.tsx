@@ -502,10 +502,9 @@ export default function HomePage() {
 
         {/* 2. Why This Matters Section - Updated content */}
         <section className="relative py-24 overflow-hidden" id="why-matters">
-          {/* Background with gradient mesh */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-blue-50/50 to-cyan-50/40"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(20,184,166,0.12),transparent_50%)] pointer-events-none"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.10),transparent_50%)] pointer-events-none"></div>
+          {/* Standardized background with design tokens */}
+          <div className="absolute inset-0 hf-gradient-subtle"></div>
+          <div className="absolute inset-0 hf-overlay-primary pointer-events-none"></div>
 
           <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
