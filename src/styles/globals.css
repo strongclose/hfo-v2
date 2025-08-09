@@ -130,14 +130,20 @@
     text-transform: uppercase;
   }
 
-  /* Ask AI Button - No Animation */
+  /* Ask AI Button - Enhanced Contrast */
   .ask-ai-button {
     height: 36px; /* Match input height h-9 */
-    background: #10b981 !important; /* Emerald green */
+    background: #14f195 !important; /* Bright teal */
+    border: 2px solid #ffffff !important; /* White border */
+    box-shadow: 0 4px 12px rgba(20, 241, 149, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important; /* Glowing shadow */
+    color: #000000 !important; /* Black text for maximum contrast */
+    font-weight: 600 !important; /* Bolder text */
   }
 
   .ask-ai-button:hover {
-    background: #059669 !important;
+    background: #0dd180 !important;
+    box-shadow: 0 6px 16px rgba(20, 241, 149, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-1px) !important; /* Slight lift effect */
   }
 }
 
