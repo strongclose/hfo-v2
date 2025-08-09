@@ -566,10 +566,6 @@ export default function HomePage() {
                           <div className="relative">
                             <div className="w-24 h-24 bg-gradient-to-br from-emerald-800 to-teal-800 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300">
                               <Search className="w-12 h-12 text-white fill-current" />
-                              {/* Search pulse animation */}
-                              <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="w-16 h-16 border-2 border-white rounded-full animate-pulse opacity-15"></div>
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -876,9 +872,7 @@ export default function HomePage() {
             {Object.entries(personas).map(([key, persona]) => (
               <div
                 key={key}
-                className={`transition-all duration-500 ${
-                  activePersona === key ? 'opacity-100 block' : 'opacity-0 hidden'
-                }`}
+                className={activePersona === key ? 'block' : 'hidden'}
               >
                 <div className="max-w-4xl mx-auto">
                   <div className="relative p-12 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20">
