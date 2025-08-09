@@ -870,7 +870,7 @@ export default function HomePage() {
 
                           <div className="flex justify-center lg:justify-end">
                             <PriceComparisonCTA
-                              variant="success"
+                              variant="primary"
                             >
                               Start Comparing Now
                             </PriceComparisonCTA>
