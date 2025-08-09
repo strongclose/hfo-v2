@@ -534,7 +534,7 @@ export default function HomePage() {
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 tracking-tight">
                 What the Data
-                <span className="text-gray-900">
+                <span className="bg-gradient-to-r from-rose-900 to-orange-800 bg-clip-text text-transparent">
                   {" "}
                   Reveals
                 </span>
