@@ -1324,14 +1324,14 @@ export default function HomePage() {
             </div>
 
             {/* Call to Action Strip */}
-            <div className="p-8 rounded-3xl bg-gradient-to-r from-white/80 to-blue-50/80 backdrop-blur-xl border border-white/40 shadow-xl">
+            <div className="p-8 rounded-3xl bg-white border border-gray-200 shadow-xl">
               <div className="flex flex-col lg:flex-row items-center gap-6">
                 <div className="flex items-center gap-4 flex-1">
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-teal-500 to-blue-600 flex items-center justify-center shadow-lg flex-shrink-0">
                     <Shield className="w-8 h-8 text-white" />
                   </div>
                   <div>
-                    <p className="text-lg md:text-xl text-gray-900 font-semibold leading-relaxed">
+                    <p className="text-lg md:text-xl text-gray-900 font-bold leading-relaxed">
                       Check your Transparency Score or request compliance support to join the leaders in healthcare transparency.
                     </p>
                   </div>
