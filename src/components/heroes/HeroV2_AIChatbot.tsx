@@ -39,17 +39,11 @@ export function HeroV2_AIChatbot({
           'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       }}
     >
-      {/* Animated Background Elements */}
+      {/* Subtle Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Data Particles */}
-        <div className="data-particles">
-          {Array.from({ length: 12 }).map((_, i) => (
-            <div key={i} className={`data-particle data-particle-${i + 1}`}></div>
-          ))}
-        </div>
-
-        {/* Subtle Grid Overlay */}
-        <div className="grid-overlay"></div>
+        {/* Radial Gradient Overlays */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(20,184,166,0.08),transparent_50%)] motion-safe:animate-pulse motion-safe:animation-duration-[8s]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.06),transparent_50%)] motion-safe:animate-pulse motion-safe:animation-duration-[10s]"></div>
       </div>
       {/* Large decorative shield in background with magnifying glass */}
       <div className="absolute top-1/2 right-0 transform translate-x-1/3 -translate-y-1/2 opacity-5 z-0">
