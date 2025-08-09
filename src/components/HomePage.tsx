@@ -499,13 +499,13 @@ export default function HomePage() {
             <div className="grid md:grid-cols-2 gap-8 mb-16">
               <div className="p-8 rounded-3xl bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200/50">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Regional Variations</h3>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-800 leading-relaxed">
                   Healthcare costs vary dramatically by region. A knee replacement that costs $15,000 in one state might cost $45,000 in another—for the exact same procedure.
                 </p>
               </div>
               <div className="p-8 rounded-3xl bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200/50">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Insurance Surprises</h3>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-800 leading-relaxed">
                   Your insurance "in-network" rate might be higher than the cash price. We've found cases where patients could save thousands by paying cash instead of using insurance.
                 </p>
               </div>
