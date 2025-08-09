@@ -573,7 +573,7 @@ export default function HomePage() {
                 </span>
               </h2>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                From scattered government files to instant price comparisons — here's how we make healthcare pricing transparent.
+                From scattered government files to instant price comparisons ��� here's how we make healthcare pricing transparent.
               </p>
             </div>
 
@@ -1103,7 +1103,9 @@ export default function HomePage() {
 
                       {/* Right: Mini Visualization & Supporting Data */}
                       <div className="order-first lg:order-last space-y-6 lg:pt-32">
-                        {getMiniVisualization(key)}
+                        <div className="w-full">
+                          {getMiniVisualization(key)}
+                        </div>
 
                         {/* Supporting Data Point */}
                         <div className="p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
