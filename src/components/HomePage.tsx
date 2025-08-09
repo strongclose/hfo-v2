@@ -1374,7 +1374,7 @@ export default function HomePage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-rose-500/25" style={{ background: 'linear-gradient(to bottom right, #f43f5e, #f97316)' }}>
                 <BarChart3 className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 tracking-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 tracking-tight">
                 What the Data
                 <span className="bg-gradient-to-r from-rose-900 to-orange-800 bg-clip-text text-transparent">
                   {" "}
