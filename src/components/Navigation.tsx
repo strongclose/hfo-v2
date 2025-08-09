@@ -207,7 +207,7 @@ export function Navigation() {
                   key={item.name}
                   href={item.href}
                   className={`block w-full text-left font-medium py-2 ${
-                    isScrolled ? "text-gray-900" : "text-gray-300"
+                    isScrolled ? "text-gray-900" : "text-white"
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
