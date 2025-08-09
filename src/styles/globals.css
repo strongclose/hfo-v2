@@ -85,7 +85,6 @@
 /* Global typography styles - matching original */
 @layer base {
   * {
-    border-color: hsl(var(--border));
     font-family:
       "Inter",
       -apple-system,
@@ -98,24 +97,13 @@
       "Fira Sans",
       "Droid Sans",
       "Helvetica Neue",
-      sans-serif !important;
+      sans-serif;
   }
 
   body {
     color: hsl(var(--foreground));
     background: hsl(var(--background));
     font-feature-settings: "rlig" 1, "calt" 1;
-  }
-
-  h4 {
-    color: hsl(var(--primary)) !important;
-  }
-}
-
-/* Ensure primary color utilities work correctly */
-@layer utilities {
-  .text-primary {
-    color: hsl(var(--primary)) !important;
   }
 }
 
