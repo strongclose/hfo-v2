@@ -1075,11 +1075,6 @@ export default function HomePage() {
                           </div>
                         </div>
 
-                        {/* Supporting Data Point */}
-                        <div className="p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
-                          <p className="text-white/90 font-medium">{persona.supportingData}</p>
-                        </div>
-
                         {/* CTAs */}
                         <div className="flex flex-col sm:flex-row gap-4">
                           <Button
@@ -1106,9 +1101,14 @@ export default function HomePage() {
                         </div>
                       </div>
 
-                      {/* Right: Mini Visualization */}
-                      <div className="order-first lg:order-last">
+                      {/* Right: Mini Visualization & Supporting Data */}
+                      <div className="order-first lg:order-last space-y-6">
                         {getMiniVisualization(key)}
+
+                        {/* Supporting Data Point */}
+                        <div className="p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                          <p className="text-white/90 font-medium">{persona.supportingData}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
