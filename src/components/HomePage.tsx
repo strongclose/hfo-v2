@@ -1083,7 +1083,7 @@ export default function HomePage() {
                                 window.location.href = persona.primaryCTALink;
                               }
                             }}
-                            variant="primary"
+                            variant="secondary"
                             size="lg"
                           >
                             {persona.primaryCTA}
