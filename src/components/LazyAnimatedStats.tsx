@@ -21,8 +21,8 @@ function AnimatedStat({ value, label, icon: Icon, color, delay = 0 }: AnimatedSt
   }, [delay]);
 
   return (
-    <div className="group relative">
-      <div className={`hf-card relative p-10 bg-white/90 backdrop-blur-xl border-white/20 transform transition-all duration-1000 ${
+    <div className="group relative h-full">
+      <div className={`hf-card relative p-10 bg-white/90 backdrop-blur-xl border-white/20 transform transition-all duration-1000 h-full flex flex-col ${
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
       }`}>
         <div className={`hf-icon-bg-primary w-16 h-16 flex items-center justify-center mx-auto mb-6`} style={{ background: color }}>
