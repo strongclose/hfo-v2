@@ -155,7 +155,7 @@ export default function HomePage() {
                 <Database className="w-8 h-8 text-white" />
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white tracking-tight">
-                Where the Data
+                Where our Data
                 <span className="bg-gradient-to-r from-teal-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
                   {" "}
                   Comes From
