@@ -162,19 +162,36 @@ export default function HomePage() {
                 Matters
               </span>
             </h2>
-            <p className="text-xl md:text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed font-medium mb-12">
-              Transparent prices help you save money, avoid surprises, and choose with confidence.
+            <p className="text-xl md:text-2xl text-gray-800 max-w-5xl mx-auto leading-relaxed font-medium mb-8">
+              For decades, healthcare pricing was kept secret. Hospitals could charge anything, and patients only found out the cost after receiving care—sometimes leading to financial devastation.
             </p>
+
+            <div className="mt-8 p-8 rounded-3xl bg-gradient-to-br from-white/80 to-blue-50/80 backdrop-blur-xl border border-white/40 shadow-xl shadow-black/5 max-w-4xl mx-auto">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center flex-shrink-0">
+                  <CheckCircle className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-left">
+                  <p className="text-lg text-gray-800 font-semibold mb-2">Federal Law Changed Everything</p>
+                  <p className="text-gray-800">
+                    New transparency regulations require hospitals and insurers to publish their real negotiated rates. But the data is scattered across thousands of files and websites.
+                  </p>
+                </div>
+              </div>
+              <p className="text-lg text-gray-800 font-medium text-center">
+                <span className="text-blue-600 font-bold">We've organized it all</span> in one searchable platform, so you can finally see what you'll actually pay before you get care.
+              </p>
+            </div>
 
             <div className="mt-12">
               <PriceComparisonCTA
                 size="lg"
                 className="px-10 py-4 text-lg bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white rounded-2xl shadow-lg"
               >
-                Start Comparing Prices
+                Start Comparing Prices Now
               </PriceComparisonCTA>
             </div>
-            </div>
+          </div>
           </div>
         </section>
 
