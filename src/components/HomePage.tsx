@@ -30,11 +30,18 @@ import {
   Globe,
   PieChart,
   Activity,
+  ArrowDown,
+  MapPin,
+  Filter,
+  Workflow,
+  BookOpen,
+  TrendingDown,
 } from "lucide-react";
 
 export default function HomePage() {
   const [currentPage, setCurrentPage] = useState("home");
   const [selectedRadius, setSelectedRadius] = useState<number>(25);
+  const [activePersona, setActivePersona] = useState("patients");
 
   const handleSearch = (query: string, location?: string) => {
     console.log("Search:", query, location);
@@ -80,25 +87,68 @@ export default function HomePage() {
     </Button>
   );
 
+  const personas = {
+    patients: {
+      title: "Patients & Families",
+      insight: "Patients who compare prices before care save an average of $3,200 per procedure.",
+      support: "Easily check hospital, insurer, and cash prices side-by-side so you know what to expect before you go.",
+      cta: "Check prices near you",
+      icon: Stethoscope,
+      link: "/who-we-help/patients"
+    },
+    researchers: {
+      title: "Researchers & Analysts", 
+      insight: "Access over 2.4 trillion pricing records across 6,000+ hospitals and 400+ insurers — updated monthly.",
+      support: "Download structured, machine-readable files to power your analysis, policy research, or market studies.",
+      cta: "Explore the data",
+      icon: BarChart3,
+      link: "/who-we-help/researchers"
+    },
+    employers: {
+      title: "Healthcare Employers",
+      insight: "Employers can cut common procedure costs by up to 18% by steering employees to lower-cost providers.",
+      support: "Identify high-value care options and reduce total benefits spending without reducing quality.",
+      cta: "Compare provider rates",
+      icon: Building2,
+      link: "/who-we-help/employers"
+    },
+    providers: {
+      title: "Providers",
+      insight: "Benchmark your prices against competitors in and out of network to identify strengths and opportunities.",
+      support: "Monitor competitor rates and track changes in published transparency files each month.",
+      cta: "Run a compliance scan",
+      icon: Hospital,
+      link: "/who-we-help/hospitals"
+    },
+    insurers: {
+      title: "Insurance Companies",
+      insight: "Track competitor networks and published rates to stay competitive in your region.",
+      support: "Use our organized data to monitor market changes and meet federal transparency requirements.",
+      cta: "See network pricing",
+      icon: Shield,
+      link: "/who-we-help/insurance-providers"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white flex flex-col">
       {/* Global Navigation - Sticks to top for entire page */}
       <Navigation />
 
       <div className="flex-1">
-        {/* 1. Hero Section - PRESERVED EXACTLY AS IS */}
+        {/* 1. Hero Section - PRESERVED EXACTLY AS IS with added Check Prices button */}
         <Hero
           onSearch={handleSearch}
           selectedRadius={selectedRadius}
           onRadiusChange={setSelectedRadius}
         />
 
-        {/* 2. Why This Matters Section */}
+        {/* 2. Why This Matters Section - Updated content */}
         <section className="relative py-24 overflow-hidden" id="why-matters">
           {/* Background with gradient mesh */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20 motion-safe:animate-pulse motion-safe:animation-duration-[8s]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(20,184,166,0.08),transparent_50%)] pointer-events-none motion-safe:animate-bounce motion-safe:animation-duration-[12s]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.06),transparent_50%)] pointer-events-none motion-safe:animate-pulse motion-safe:animation-duration-[10s]"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(20,184,166,0.08),transparent_50%)] pointer-events-none"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.06),transparent_50%)] pointer-events-none"></div>
 
           <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
@@ -112,157 +162,179 @@ export default function HomePage() {
                   Matters
                 </span>
               </h2>
-              <p className="text-xl md:text-2xl text-gray-800 max-w-5xl mx-auto leading-relaxed font-medium mb-8">
-                For decades, healthcare pricing was kept secret. Hospitals could charge anything, and patients only found out the cost after receiving care—sometimes leading to financial devastation.
+              <p className="text-xl md:text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed font-medium mb-12">
+                Transparent prices help you save money, avoid surprises, and choose with confidence.
               </p>
-              <div className="mt-8 p-8 rounded-3xl bg-gradient-to-br from-white/80 to-blue-50/80 backdrop-blur-xl border border-white/40 shadow-xl shadow-black/5 max-w-4xl mx-auto">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center flex-shrink-0">
-                    <CheckCircle className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-lg text-gray-800 font-semibold mb-2">Federal Law Changed Everything</p>
-                    <p className="text-gray-800">
-                      New transparency regulations require hospitals and insurers to publish their real negotiated rates. But the data is scattered across thousands of files and websites.
-                    </p>
-                  </div>
-                </div>
-                <p className="text-lg text-gray-800 font-medium text-center">
-                  <span className="text-teal-600 font-bold">We've organized it all</span> in one searchable platform, so you can finally see what you'll actually pay before you get care.
-                </p>
-              </div>
               
               <div className="mt-12">
                 <PriceComparisonCTA 
                   size="lg" 
                   className="px-10 py-4 text-lg bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white rounded-2xl shadow-lg"
                 >
-                  Start Comparing Prices Now
+                  Start Comparing Prices
                 </PriceComparisonCTA>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 3. How It Works / Where Data Comes From Section - Side-by-Side Layout */}
-        <section className="relative py-24 overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-teal-900">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(20,184,166,0.15),transparent_40%)] motion-safe:animate-pulse motion-safe:animation-duration-[6s]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(59,130,246,0.15),transparent_40%)] motion-safe:animate-pulse motion-safe:animation-duration-[8s]"></div>
-
+        {/* 3. How It Works Section - NEW */}
+        <section className="relative py-24 overflow-hidden bg-white">
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Split Layout: Content Left, Visual Right */}
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Left Column - Content */}
-              <div className="space-y-8">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-teal-400 to-blue-500 flex items-center justify-center shadow-lg shadow-teal-500/25">
-                    <Database className="w-8 h-8 text-white" />
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 tracking-tight">
+                How It
+                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
+                  {" "}
+                  Works
+                </span>
+              </h2>
+            </div>
+
+            {/* Three horizontal steps */}
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
+              <div className="text-center group">
+                <div className="relative mb-8">
+                  <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <Database className="w-10 h-10 text-white" />
                   </div>
-                  <div>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-                      Where our Data
-                      <span className="bg-gradient-to-r from-teal-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                        {" "}
-                        Comes From
-                      </span>
-                    </h2>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                    <span className="text-blue-600 font-bold text-sm">1</span>
                   </div>
                 </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">We Collect</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Federal law requires hospitals and insurers to publish prices. We monitor thousands of sources automatically.
+                </p>
+              </div>
 
-                <p className="text-xl text-gray-100 leading-relaxed">
-                  We collect, organize, and update pricing data from official government-mandated hospital and insurance disclosures.
+              <div className="text-center group">
+                <div className="relative mb-8">
+                  <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <Workflow className="w-10 h-10 text-white" />
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                    <span className="text-purple-600 font-bold text-sm">2</span>
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">We Organize</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Trillions of data points, cleaned and structured into a searchable format that makes sense.
+                </p>
+              </div>
+
+              <div className="text-center group">
+                <div className="relative mb-8">
+                  <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <Search className="w-10 h-10 text-white" />
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center">
+                    <span className="text-emerald-600 font-bold text-sm">3</span>
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">You Compare</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Find the right price for your care. Compare hospitals, insurance plans, and cash prices instantly.
+                </p>
+              </div>
+            </div>
+
+            {/* Arrow flow on larger screens */}
+            <div className="hidden md:flex justify-center items-center space-x-8 mb-16">
+              <div className="flex-1 h-0.5 bg-gradient-to-r from-blue-300 to-purple-300"></div>
+              <ArrowRight className="w-6 h-6 text-purple-400" />
+              <div className="flex-1 h-0.5 bg-gradient-to-r from-purple-300 to-emerald-300"></div>
+            </div>
+          </div>
+        </section>
+
+        {/* 4. Where Our Data Comes From - Split layout */}
+        <section className="relative py-24 overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-teal-900">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(20,184,166,0.15),transparent_40%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(59,130,246,0.15),transparent_40%)]"></div>
+
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Left column - Content */}
+              <div>
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-teal-400 to-blue-500 flex items-center justify-center shadow-lg">
+                    <MapPin className="w-8 h-8 text-white" />
+                  </div>
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+                    Where Our Data
+                    <span className="bg-gradient-to-r from-teal-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                      {" "}
+                      Comes From
+                    </span>
+                  </h2>
+                </div>
+                
+                <p className="text-xl text-gray-100 leading-relaxed mb-8">
+                  We collect, organize, and update pricing data from official government-mandated hospital and insurance disclosures across the United States.
                 </p>
 
-                {/* Process Steps */}
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4 p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/15 transition-all duration-300">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
-                      <FileText className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-white mb-2">Federal Requirements</h3>
-                      <p className="text-gray-200 leading-relaxed">
-                        Hospitals must publish machine-readable files with all negotiated rates, and insurance companies must disclose pricing under new transparency laws.
-                      </p>
-                    </div>
+                {/* By the Numbers */}
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
+                    <p className="text-3xl font-bold text-teal-400 mb-2">6,000+</p>
+                    <p className="text-gray-200 font-medium">Hospitals</p>
                   </div>
-
-                  <div className="flex items-start gap-4 p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/15 transition-all duration-300">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-teal-500 to-emerald-500 flex items-center justify-center flex-shrink-0">
-                      <Zap className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-white mb-2">Automated Collection</h3>
-                      <p className="text-gray-200 leading-relaxed">
-                        Our systems continuously monitor thousands of hospital websites and insurance portals, automatically processing new pricing files.
-                      </p>
-                    </div>
+                  <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
+                    <p className="text-3xl font-bold text-blue-400 mb-2">400+</p>
+                    <p className="text-gray-200 font-medium">Insurers</p>
                   </div>
-
-                  <div className="flex items-start gap-4 p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/15 transition-all duration-300">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
-                      <Brain className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-white mb-2">Intelligence Layer</h3>
-                      <p className="text-gray-200 leading-relaxed">
-                        We clean, standardize, and organize trillions of data points into a searchable format that makes sense for real people.
-                      </p>
-                    </div>
+                  <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
+                    <p className="text-3xl font-bold text-purple-400 mb-2">2.4T+</p>
+                    <p className="text-gray-200 font-medium">Pricing Records</p>
+                  </div>
+                  <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
+                    <p className="text-3xl font-bold text-emerald-400 mb-2">Monthly</p>
+                    <p className="text-gray-200 font-medium">Updates</p>
                   </div>
                 </div>
               </div>
 
-              {/* Right Column - Visual Data Stats */}
+              {/* Right column - Animated US Map placeholder */}
               <div className="relative">
                 <div className="p-8 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/20">
-                  <h3 className="text-2xl font-bold text-white text-center mb-8">By the Numbers</h3>
-
-                  {/* Large Stats Display */}
-                  <div className="space-y-6">
-                    <div className="text-center p-6 rounded-2xl bg-gradient-to-r from-teal-500/20 to-blue-500/20 border border-teal-400/30">
-                      <p className="text-4xl md:text-5xl font-bold text-teal-400 mb-2">6,000+</p>
-                      <p className="text-gray-200 font-medium">Hospitals Tracked</p>
-                      <div className="w-full bg-white/20 rounded-full h-2 mt-3">
-                        <div className="bg-gradient-to-r from-teal-400 to-blue-500 h-2 rounded-full" style={{width: '85%'}}></div>
-                      </div>
-                    </div>
-
-                    <div className="text-center p-6 rounded-2xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30">
-                      <p className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">400+</p>
-                      <p className="text-gray-200 font-medium">Insurance Plans</p>
-                      <div className="w-full bg-white/20 rounded-full h-2 mt-3">
-                        <div className="bg-gradient-to-r from-blue-400 to-purple-500 h-2 rounded-full" style={{width: '70%'}}></div>
-                      </div>
-                    </div>
-
-                    <div className="text-center p-6 rounded-2xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-400/30">
-                      <p className="text-4xl md:text-5xl font-bold text-purple-400 mb-2">2.4T+</p>
-                      <p className="text-gray-200 font-medium">Data Points Processed</p>
-                      <div className="w-full bg-white/20 rounded-full h-2 mt-3">
-                        <div className="bg-gradient-to-r from-purple-400 to-pink-500 h-2 rounded-full" style={{width: '95%'}}></div>
+                  <div className="text-center mb-6">
+                    <h3 className="text-2xl font-bold text-white mb-4">Data Coverage Nationwide</h3>
+                  </div>
+                  
+                  {/* Simple animated US map representation */}
+                  <div className="relative bg-gradient-to-br from-teal-500/20 to-blue-500/20 rounded-2xl p-8 h-64 flex items-center justify-center">
+                    <div className="relative">
+                      <Globe className="w-32 h-32 text-white/30" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="grid grid-cols-3 gap-2">
+                          {[...Array(9)].map((_, i) => (
+                            <div 
+                              key={i}
+                              className="w-3 h-3 bg-teal-400 rounded-full animate-pulse"
+                              style={{
+                                animationDelay: `${i * 0.2}s`,
+                                animationDuration: '2s'
+                              }}
+                            />
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
-
-                  <div className="mt-8 p-4 rounded-xl bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border border-emerald-400/30">
-                    <div className="flex items-center justify-center gap-2">
-                      <Activity className="w-5 h-5 text-emerald-400" />
-                      <p className="text-emerald-400 font-semibold">Updated Monthly</p>
-                    </div>
-                    <p className="text-gray-200 text-sm text-center mt-2">Fresh data from the latest disclosures</p>
-                  </div>
+                  
+                  <p className="text-center text-gray-300 mt-4">
+                    Real-time data collection from all 50 states
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 4. Platform Features Section - Interactive Tabbed Interface */}
+        {/* 5. Explore HealthFees.org - Two rows with alternating backgrounds */}
         <section className="relative py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.08),transparent_50%)] pointer-events-none"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(124,58,237,0.06),transparent_50%)] pointer-events-none"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50"></div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -279,76 +351,85 @@ export default function HomePage() {
               <p className="text-xl md:text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed mb-8">
                 From quick price comparisons to in-depth market analysis, we have tools for every healthcare stakeholder.
               </p>
-
-              <PriceComparisonCTA
-                size="lg"
-                className="px-10 py-4 text-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-2xl shadow-lg mb-16"
-              >
-                Start with Price Comparison
-              </PriceComparisonCTA>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* First Row - White background */}
+            <div className="grid md:grid-cols-3 gap-8 mb-8">
               {[
                 {
                   icon: Search,
                   title: "Price Comparison Tool",
                   desc: "Search any procedure, see real prices from hospitals and insurance plans in your area.",
-                  link: "/search-procedure"
+                  link: "/search-procedure",
+                  gradient: "from-blue-500 to-cyan-500"
                 },
                 {
                   icon: Brain,
                   title: "AI Healthcare Assistant",
                   desc: "Ask natural language questions about healthcare costs and get instant, data-backed answers.",
-                  link: "#"
+                  link: "#",
+                  gradient: "from-purple-600 to-pink-600"
                 },
                 {
                   icon: BarChart3,
                   title: "Market Analytics",
                   desc: "Analyze pricing trends, compare markets, and understand cost variations across regions.",
-                  link: "/insightalytics"
-                },
+                  link: "/insightalytics",
+                  gradient: "from-emerald-500 to-teal-500"
+                }
+              ].map((feature, index) => (
+                <div 
+                  key={index} 
+                  className="group relative cursor-pointer transform hover:scale-105 transition-all duration-300" 
+                  onClick={() => window.location.href = feature.link}
+                >
+                  <div className="relative p-8 rounded-3xl bg-white backdrop-blur-xl border border-gray-200/50 shadow-xl hover:shadow-2xl">
+                    <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${feature.gradient} flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                      <feature.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-4 text-gray-900 text-center group-hover:text-blue-600 transition-colors duration-300">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-700 text-center leading-relaxed">
+                      {feature.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Second Row - Light gray background */}
+            <div className="grid md:grid-cols-3 gap-8 p-8 rounded-3xl bg-gray-50/80">
+              {[
                 {
                   icon: Building2,
                   title: "Provider Directory",
                   desc: "Find hospitals, clinics, and specialists with transparent pricing and quality metrics.",
-                  link: "/hospitals"
+                  link: "/hospitals",
+                  gradient: "from-orange-500 to-red-500"
                 },
                 {
                   icon: Shield,
                   title: "Insurance Navigator",
                   desc: "Compare insurance plans, understand coverage, and find the best value for your needs.",
-                  link: "/insurance"
+                  link: "/insurance",
+                  gradient: "from-indigo-500 to-purple-500"
                 },
                 {
                   icon: Users,
                   title: "Compliance Tools",
                   desc: "Help healthcare organizations meet transparency requirements and benchmark their pricing.",
-                  link: "/who-we-help/hospitals"
+                  link: "/who-we-help/hospitals",
+                  gradient: "from-yellow-500 to-orange-500"
                 }
               ].map((feature, index) => (
-                <div
-                  key={index}
-                  className="group relative cursor-pointer"
+                <div 
+                  key={index} 
+                  className="group relative cursor-pointer transform hover:scale-105 transition-all duration-300" 
                   onClick={() => window.location.href = feature.link}
                 >
-                  <div className="relative p-8 rounded-3xl bg-white backdrop-blur-xl border border-gray-200/50 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105">
-                    <div
-                      className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300"
-                      style={{
-                        background: feature.title === "AI Healthcare Assistant"
-                          ? "linear-gradient(135deg, #9333ea, #db2777)"
-                          : feature.title === "Price Comparison Tool"
-                          ? "linear-gradient(135deg, #3b82f6, #06b6d4)"
-                          : feature.title === "Market Analytics"
-                          ? "linear-gradient(135deg, #10b981, #14b8a6)"
-                          : feature.title === "Provider Directory"
-                          ? "linear-gradient(135deg, #f97316, #ef4444)"
-                          : feature.title === "Insurance Navigator"
-                          ? "linear-gradient(135deg, #6366f1, #a855f7)"
-                          : "linear-gradient(135deg, #eab308, #f97316)"
-                      }}
-                    >
+                  <div className="relative p-8 rounded-3xl bg-white backdrop-blur-xl border border-gray-200/50 shadow-xl hover:shadow-2xl">
+                    <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${feature.gradient} flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                       <feature.icon className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-xl font-bold mb-4 text-gray-900 text-center group-hover:text-blue-600 transition-colors duration-300">
@@ -364,10 +445,10 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 5. Who Uses HealthFees.org Section */}
+        {/* 6. Who Uses HealthFees.org - Persona Insights with Tabs */}
         <section className="relative py-24 overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.15),transparent_40%)] motion-safe:animate-pulse motion-safe:animation-duration-[10s]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(147,51,234,0.15),transparent_40%)] motion-safe:animate-pulse motion-safe:animation-duration-[12s]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.15),transparent_40%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(147,51,234,0.15),transparent_40%)]"></div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -381,79 +462,68 @@ export default function HomePage() {
                   HealthFees.org
                 </span>
               </h2>
-              <p className="text-xl md:text-2xl text-gray-100 max-w-4xl mx-auto leading-relaxed">
-                From individual patients to large healthcare organizations, our platform serves everyone who values transparency in healthcare pricing.
-              </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  icon: Stethoscope,
-                  title: "Patients & Families",
-                  desc: "Compare costs before scheduling procedures and make informed healthcare decisions.",
-                  gradient: "from-blue-500 to-cyan-500",
-                  link: "/who-we-help/patients"
-                },
-                {
-                  icon: BarChart3,
-                  title: "Researchers & Analysts",
-                  desc: "Study healthcare pricing trends, market dynamics, and cost variations across regions.",
-                  gradient: "from-emerald-500 to-teal-500",
-                  link: "/who-we-help/researchers"
-                },
-                {
-                  icon: Building2,
-                  title: "Healthcare Employers",
-                  desc: "Help employees make cost-effective healthcare choices and reduce overall benefits costs.",
-                  gradient: "from-purple-500 to-pink-500",
-                  link: "/who-we-help/employers"
-                },
-                {
-                  icon: Shield,
-                  title: "Insurance Companies",
-                  desc: "Benchmark pricing, analyze network performance, and ensure competitive rates.",
-                  gradient: "from-orange-500 to-red-500",
-                  link: "/who-we-help/insurance-providers"
-                },
-                {
-                  icon: Hospital,
-                  title: "Healthcare Providers",
-                  desc: "Compare pricing against competitors and ensure transparency compliance.",
-                  gradient: "from-indigo-500 to-purple-500",
-                  link: "/who-we-help/hospitals"
-                },
-                {
-                  icon: FileText,
-                  title: "Journalists & Advocates",
-                  desc: "Access reliable healthcare pricing data for investigative reporting and advocacy work.",
-                  gradient: "from-yellow-500 to-orange-500",
-                  link: "/who-we-help/journalists"
-                }
-              ].map((audience, index) => (
-                <div
-                  key={index}
-                  className="group h-full cursor-pointer"
-                  onClick={() => window.location.href = audience.link}
+            {/* Persona Tabs */}
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              {Object.entries(personas).map(([key, persona]) => (
+                <button
+                  key={key}
+                  onClick={() => setActivePersona(key)}
+                  className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                    activePersona === key
+                      ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-white shadow-lg'
+                      : 'bg-white/20 text-white border border-white/30 hover:bg-white/30'
+                  }`}
                 >
-                  <div className="relative p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-white/10 h-full flex flex-col">
-                    <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${audience.gradient} flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                      <audience.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-4 text-white group-hover:text-cyan-300 transition-colors duration-300 text-center">
-                      {audience.title}
-                    </h3>
-                    <p className="text-white/90 group-hover:text-white transition-colors duration-300 leading-relaxed text-center flex-grow">
-                      {audience.desc}
-                    </p>
-                  </div>
-                </div>
+                  {persona.title}
+                </button>
               ))}
             </div>
+
+            {/* Active Persona Content */}
+            {Object.entries(personas).map(([key, persona]) => (
+              <div
+                key={key}
+                className={`transition-all duration-500 ${
+                  activePersona === key ? 'opacity-100 block' : 'opacity-0 hidden'
+                }`}
+              >
+                <div className="max-w-4xl mx-auto">
+                  <div className="relative p-12 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20">
+                    <div className="text-center mb-8">
+                      <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center mb-6 shadow-lg">
+                        <persona.icon className="w-10 h-10 text-white" />
+                      </div>
+                      <h3 className="text-3xl font-bold text-white mb-6">{persona.title}</h3>
+                    </div>
+
+                    <div className="space-y-6 text-center">
+                      <div className="p-6 rounded-2xl bg-white/10 border border-white/20">
+                        <p className="text-xl font-semibold text-emerald-300 mb-3">Key Insight</p>
+                        <p className="text-lg text-white leading-relaxed">{persona.insight}</p>
+                      </div>
+
+                      <p className="text-lg text-gray-200 leading-relaxed">{persona.support}</p>
+
+                      <div className="pt-6">
+                        <Button
+                          onClick={() => window.location.href = persona.link}
+                          className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                        >
+                          {persona.cta}
+                          <ArrowRight className="w-5 h-5 ml-2" />
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* 6. What the Data Shows Section - Infographic Style */}
+        {/* 7. What the Data Reveals - Enhanced with animated counters */}
         <section className="relative py-24 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30"></div>
 
@@ -469,173 +539,90 @@ export default function HomePage() {
                   Reveals
                 </span>
               </h2>
-              <p className="text-xl md:text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed">
-                Our analysis of healthcare pricing data reveals shocking disparities and opportunities for savings.
-              </p>
             </div>
 
-            {/* Large Visual Statistic */}
-            <div className="mb-16">
-              <div className="max-w-4xl mx-auto p-12 rounded-3xl bg-gradient-to-br from-red-50 to-pink-50 border-2 border-red-200/50 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-500/10 to-pink-500/10 rounded-full -mr-16 -mt-16"></div>
-                <div className="relative text-center">
-                  <div className="flex items-center justify-center gap-8 mb-8">
-                    <div className="text-center">
-                      <div className="text-6xl md:text-8xl font-bold text-red-600 mb-2">10x</div>
-                      <p className="text-lg text-gray-700 font-semibold">Price Difference</p>
-                    </div>
-                    <div className="hidden md:block">
-                      <div className="w-16 h-1 bg-gradient-to-r from-red-500 to-pink-500"></div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Same City</div>
-                      <p className="text-lg text-gray-700">Same Procedure</p>
-                    </div>
+            {/* Animated Statistics */}
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
+              <div className="group relative">
+                <div className="relative p-10 rounded-3xl bg-white/90 backdrop-blur-xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center mx-auto mb-6 shadow-lg">
+                    <TrendingUp className="w-8 h-8 text-white" />
                   </div>
-                  <p className="text-xl text-gray-800 font-semibold max-w-2xl mx-auto">
-                    The same medical procedure can cost 10 times more at different hospitals in the same city
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Visual Comparison Charts */}
-            <div className="grid lg:grid-cols-2 gap-12 mb-16">
-              {/* Insurance vs Cash Comparison */}
-              <div className="p-8 rounded-3xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200/50">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
-                    <AlertTriangle className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Insurance Surprise</h3>
-                </div>
-
-                <p className="text-gray-800 mb-6 leading-relaxed">
-                  "In-network" doesn't guarantee you'll pay less than cash prices
-                </p>
-
-                {/* Visual Comparison */}
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between p-4 bg-white rounded-xl border border-amber-200">
-                    <span className="font-semibold text-gray-800">Insurance Rate</span>
-                    <div className="flex items-center gap-2">
-                      <div className="w-32 h-4 bg-amber-200 rounded-full">
-                        <div className="w-24 h-4 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"></div>
-                      </div>
-                      <span className="font-bold text-amber-600">$4,200</span>
+                  <div className="text-center">
+                    <div className="text-4xl font-bold text-red-600 mb-2">10x</div>
+                    <div className="w-full bg-red-100 rounded-full h-2 mb-4">
+                      <div className="bg-red-500 h-2 rounded-full" style={{width: '100%'}}></div>
                     </div>
-                  </div>
-                  <div className="flex items-center justify-between p-4 bg-white rounded-xl border border-emerald-200">
-                    <span className="font-semibold text-gray-800">Cash Price</span>
-                    <div className="flex items-center gap-2">
-                      <div className="w-32 h-4 bg-emerald-200 rounded-full">
-                        <div className="w-16 h-4 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full"></div>
-                      </div>
-                      <span className="font-bold text-emerald-600">$2,800</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-4 p-3 bg-amber-100 rounded-lg">
-                  <p className="text-sm text-amber-800 font-medium text-center">
-                    💡 You could save $1,400 by paying cash instead of using insurance
-                  </p>
-                </div>
-              </div>
-
-              {/* Savings Potential Chart */}
-              <div className="p-8 rounded-3xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200/50">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                    <TrendingUp className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Average Savings</h3>
-                </div>
-
-                <p className="text-gray-800 mb-6 leading-relaxed">
-                  Patients who compare prices save an average of $3,200 per procedure
-                </p>
-
-                {/* Savings Visualization */}
-                <div className="relative">
-                  <div className="text-center mb-6">
-                    <div className="text-5xl font-bold text-emerald-600 mb-2">$3,200</div>
-                    <p className="text-gray-700 font-semibold">Average Savings</p>
-                  </div>
-
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-600">Without Comparison</span>
-                      <span className="text-gray-600">With Comparison</span>
-                    </div>
-                    <div className="relative h-6 bg-gray-200 rounded-full overflow-hidden">
-                      <div className="absolute left-0 top-0 h-full w-3/5 bg-gradient-to-r from-red-500 to-red-600 rounded-full"></div>
-                      <div className="absolute right-0 top-0 h-full w-2/5 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full"></div>
-                    </div>
-                    <div className="flex items-center justify-between text-sm font-semibold">
-                      <span className="text-red-600">$8,200</span>
-                      <span className="text-emerald-600">$5,000</span>
-                    </div>
+                    <p className="text-lg text-gray-800 font-semibold leading-relaxed">
+                      Same procedure can cost 10x more at different hospitals in the same city
+                    </p>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Regional Insights */}
-            <div className="mb-16 p-10 rounded-3xl bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-200/50">
-              <div className="text-center mb-8">
-                <h3 className="text-3xl font-bold text-gray-900 mb-4">Regional Price Variations</h3>
-                <p className="text-gray-800 leading-relaxed max-w-3xl mx-auto">
-                  Healthcare costs vary dramatically by region. The same knee replacement procedure shows massive price differences across states.
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="text-center p-6 bg-white rounded-2xl shadow-sm border border-blue-200/30">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">$15,000</div>
-                  <p className="text-gray-600 font-semibold mb-1">Lowest Cost State</p>
-                  <p className="text-sm text-gray-500">Knee Replacement</p>
-                </div>
-                <div className="text-center p-6 bg-white rounded-2xl shadow-sm border border-purple-200/30">
-                  <div className="text-3xl font-bold text-purple-600 mb-2">$30,000</div>
-                  <p className="text-gray-600 font-semibold mb-1">National Average</p>
-                  <p className="text-sm text-gray-500">Knee Replacement</p>
-                </div>
-                <div className="text-center p-6 bg-white rounded-2xl shadow-sm border border-red-200/30">
-                  <div className="text-3xl font-bold text-red-600 mb-2">$45,000</div>
-                  <p className="text-gray-600 font-semibold mb-1">Highest Cost State</p>
-                  <p className="text-sm text-gray-500">Knee Replacement</p>
+              <div className="group relative">
+                <div className="relative p-10 rounded-3xl bg-white/90 backdrop-blur-xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center mx-auto mb-6 shadow-lg">
+                    <AlertTriangle className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-amber-600 mb-2">33%</div>
+                    <div className="w-full bg-amber-100 rounded-full h-2 mb-4">
+                      <div className="bg-amber-500 h-2 rounded-full" style={{width: '33%'}}></div>
+                    </div>
+                    <p className="text-lg text-gray-800 font-semibold leading-relaxed">
+                      Of the time, "in-network" costs more than cash prices
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="text-center">
-              <Button
-                onClick={() => (window.location.href = "/insights")}
-                className="relative px-10 py-4 text-lg font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 mr-4"
-              >
-                <span className="relative z-10 flex items-center">
-                  Explore the Insights
-                  <ChevronRight className="w-5 h-5 ml-2" />
-                </span>
-              </Button>
-
-              <PriceComparisonCTA
-                variant="outline"
-                size="lg"
-                className="px-10 py-4 text-lg border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded-2xl"
-              >
-                See Your Local Prices
-              </PriceComparisonCTA>
+              <div className="group relative">
+                <div className="relative p-10 rounded-3xl bg-white/90 backdrop-blur-xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center mx-auto mb-6 shadow-lg">
+                    <DollarSign className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-emerald-600 mb-2">$3,200</div>
+                    <div className="w-full bg-emerald-100 rounded-full h-2 mb-4">
+                      <div className="bg-emerald-500 h-2 rounded-full" style={{width: '80%'}}></div>
+                    </div>
+                    <p className="text-lg text-gray-800 font-semibold leading-relaxed">
+                      Average savings when patients compare prices before care
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
+        {/* 8. Mid-Page CTA Banner - NEW */}
+        <section className="relative py-16 overflow-hidden bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600">
+          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              See how much you could save before your next appointment
+            </h2>
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              Join thousands of patients who've saved money by comparing prices first
+            </p>
+            <Button
+              onClick={() => window.location.href = "/search-procedure"}
+              size="lg"
+              className="px-12 py-4 text-xl bg-white text-blue-600 hover:bg-gray-100 font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+            >
+              Compare Prices Now
+            </Button>
+          </div>
+        </section>
 
-        {/* 8. Help Others Save / Join the Movement Section */}
+        {/* 9. Join the Movement - Enhanced with gradient overlay */}
         <section className="relative py-24 overflow-hidden bg-gradient-to-br from-blue-950 via-slate-900 to-blue-900">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(20,184,166,0.12),transparent_50%)] motion-safe:animate-pulse motion-safe:animation-duration-[8s]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(59,130,246,0.1),transparent_50%)] motion-safe:animate-pulse motion-safe:animation-duration-[10s]"></div>
+          {/* Enhanced gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-slate-900/60 to-purple-900/80"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(20,184,166,0.12),transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(59,130,246,0.1),transparent_50%)]"></div>
 
           <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
@@ -717,7 +704,7 @@ export default function HomePage() {
         </section>
       </div>
 
-      {/* Footer */}
+      {/* Footer with Get Data Updates field */}
       <FooterExpanded />
     </div>
   );
