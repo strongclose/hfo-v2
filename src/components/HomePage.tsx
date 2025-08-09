@@ -144,99 +144,116 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 3. How It Works / Where Data Comes From Section */}
+        {/* 3. How It Works / Where Data Comes From Section - Side-by-Side Layout */}
         <section className="relative py-24 overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-teal-900">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(20,184,166,0.15),transparent_40%)] motion-safe:animate-pulse motion-safe:animation-duration-[6s]"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(59,130,246,0.15),transparent_40%)] motion-safe:animate-pulse motion-safe:animation-duration-[8s]"></div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-teal-400 to-blue-500 mb-8 shadow-lg shadow-teal-500/25">
-                <Database className="w-8 h-8 text-white" />
-              </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white tracking-tight">
-                Where our Data
-                <span className="bg-gradient-to-r from-teal-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                  {" "}
-                  Comes From
-                </span>
-              </h2>
-              <p className="text-xl md:text-2xl text-gray-100 max-w-4xl mx-auto leading-relaxed">
-                We collect, organize, and update pricing data from official government-mandated hospital and insurance disclosures.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <div className="group h-full">
-                <div className="relative p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/20 h-full flex flex-col">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <FileText className="w-8 h-8 text-white" />
+            {/* Split Layout: Content Left, Visual Right */}
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Left Column - Content */}
+              <div className="space-y-8">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-teal-400 to-blue-500 flex items-center justify-center shadow-lg shadow-teal-500/25">
+                    <Database className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold mb-4 text-white text-center">Federal Requirements</h3>
-                  <p className="text-gray-200 text-center leading-relaxed flex-grow">
-                    Hospitals must publish machine-readable files with all negotiated rates (
-                    <a
-                      href="https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-E/part-180"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-teal-300 hover:text-teal-200 underline"
-                    >
-                      45 CFR §180
-                    </a>
-                    ), and insurance companies must disclose in-network and out-of-network pricing (
-                    <a
-                      href="https://www.cms.gov/healthplan-price-transparency"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-teal-300 hover:text-teal-200 underline"
-                    >
-                      Transparency in Coverage Rule
-                    </a>
-                    ).
-                  </p>
-                </div>
-              </div>
-
-              <div className="group h-full">
-                <div className="relative p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/20 h-full flex flex-col">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-teal-500 to-emerald-500 flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <Zap className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-4 text-white text-center">Automated Collection</h3>
-                  <p className="text-gray-200 text-center leading-relaxed flex-grow">
-                    Our systems continuously monitor thousands of hospital websites and insurance portals, automatically processing new pricing files as they're published.
-                  </p>
-                </div>
-              </div>
-
-              <div className="group h-full">
-                <div className="relative p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/20 h-full flex flex-col">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <Brain className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-4 text-white text-center">Intelligence Layer</h3>
-                  <p className="text-gray-200 text-center leading-relaxed flex-grow">
-                    We clean, standardize, and organize trillions of data points into a searchable format that actually makes sense for real people.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Data Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-              {[
-                { number: "6,000+", label: "Hospitals" },
-                { number: "400+", label: "Insurance Plans" },
-                { number: "2.4T+", label: "Data Points" },
-                { number: "Monthly", label: "Updates" }
-              ].map((stat, index) => (
-                <div key={index} className="text-center group">
-                  <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 group-hover:bg-white/10 transition-all duration-300">
-                    <p className="text-2xl md:text-3xl font-bold text-teal-400 mb-2">{stat.number}</p>
-                    <p className="text-gray-200 text-sm font-medium">{stat.label}</p>
+                  <div>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+                      Where our Data
+                      <span className="bg-gradient-to-r from-teal-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                        {" "}
+                        Comes From
+                      </span>
+                    </h2>
                   </div>
                 </div>
-              ))}
+
+                <p className="text-xl text-gray-100 leading-relaxed">
+                  We collect, organize, and update pricing data from official government-mandated hospital and insurance disclosures.
+                </p>
+
+                {/* Process Steps */}
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4 p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/15 transition-all duration-300">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
+                      <FileText className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white mb-2">Federal Requirements</h3>
+                      <p className="text-gray-200 leading-relaxed">
+                        Hospitals must publish machine-readable files with all negotiated rates, and insurance companies must disclose pricing under new transparency laws.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4 p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/15 transition-all duration-300">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-teal-500 to-emerald-500 flex items-center justify-center flex-shrink-0">
+                      <Zap className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white mb-2">Automated Collection</h3>
+                      <p className="text-gray-200 leading-relaxed">
+                        Our systems continuously monitor thousands of hospital websites and insurance portals, automatically processing new pricing files.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4 p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/15 transition-all duration-300">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
+                      <Brain className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white mb-2">Intelligence Layer</h3>
+                      <p className="text-gray-200 leading-relaxed">
+                        We clean, standardize, and organize trillions of data points into a searchable format that makes sense for real people.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column - Visual Data Stats */}
+              <div className="relative">
+                <div className="p-8 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/20">
+                  <h3 className="text-2xl font-bold text-white text-center mb-8">By the Numbers</h3>
+
+                  {/* Large Stats Display */}
+                  <div className="space-y-6">
+                    <div className="text-center p-6 rounded-2xl bg-gradient-to-r from-teal-500/20 to-blue-500/20 border border-teal-400/30">
+                      <p className="text-4xl md:text-5xl font-bold text-teal-400 mb-2">6,000+</p>
+                      <p className="text-gray-200 font-medium">Hospitals Tracked</p>
+                      <div className="w-full bg-white/20 rounded-full h-2 mt-3">
+                        <div className="bg-gradient-to-r from-teal-400 to-blue-500 h-2 rounded-full" style={{width: '85%'}}></div>
+                      </div>
+                    </div>
+
+                    <div className="text-center p-6 rounded-2xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30">
+                      <p className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">400+</p>
+                      <p className="text-gray-200 font-medium">Insurance Plans</p>
+                      <div className="w-full bg-white/20 rounded-full h-2 mt-3">
+                        <div className="bg-gradient-to-r from-blue-400 to-purple-500 h-2 rounded-full" style={{width: '70%'}}></div>
+                      </div>
+                    </div>
+
+                    <div className="text-center p-6 rounded-2xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-400/30">
+                      <p className="text-4xl md:text-5xl font-bold text-purple-400 mb-2">2.4T+</p>
+                      <p className="text-gray-200 font-medium">Data Points Processed</p>
+                      <div className="w-full bg-white/20 rounded-full h-2 mt-3">
+                        <div className="bg-gradient-to-r from-purple-400 to-pink-500 h-2 rounded-full" style={{width: '95%'}}></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-8 p-4 rounded-xl bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border border-emerald-400/30">
+                    <div className="flex items-center justify-center gap-2">
+                      <Activity className="w-5 h-5 text-emerald-400" />
+                      <p className="text-emerald-400 font-semibold">Updated Monthly</p>
+                    </div>
+                    <p className="text-gray-200 text-sm text-center mt-2">Fresh data from the latest disclosures</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
