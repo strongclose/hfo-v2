@@ -963,7 +963,7 @@ export default function HomePage() {
                 <button
                   key={key}
                   onClick={() => setActivePersona(key)}
-                  className={`px-8 py-4 rounded-full font-semibold transition-all duration-500 flex items-center gap-3 ${
+                  className={`px-8 py-4 rounded-full hf-heading-h6 transition-all duration-500 flex items-center gap-3 ${
                     activePersona === key
                       ? `bg-gradient-to-r ${persona.bgColor} text-white shadow-xl scale-105`
                       : 'bg-black/20 text-white border border-white/50 hover:bg-black/30 hover:scale-105'
@@ -999,13 +999,13 @@ export default function HomePage() {
 
                         {/* Primary Insight with Animated Number */}
                         <div className="p-6 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/30 mb-8 flex-grow">
-                          <p className="text-base font-semibold text-emerald-300 mb-3">Primary Insight</p>
+                          <p className="hf-heading-h6 text-emerald-300 mb-3">Primary Insight</p>
                           <div className="hf-body-medium text-white">
                             {persona.primaryNumber > 0 ? (
                               persona.title === "Patients & Families" ? (
-                                <>Save an average of <span className="text-2xl font-bold text-emerald-400">${animatedNumber.toLocaleString()}</span> per procedure by comparing prices before care.</>
+                                <>Save an average of <span className="hf-heading-h3 text-emerald-400">${animatedNumber.toLocaleString()}</span> per procedure by comparing prices before care.</>
                               ) : persona.title === "Researchers & Analysts" ? (
-                                <>Uncover price variations of up to <span className="text-2xl font-bold text-blue-400">{animatedNumber}%</span> for the same procedure.</>
+                                <>Uncover price variations of up to <span className="hf-heading-h3 text-blue-400">{animatedNumber}%</span> for the same procedure.</>
                               ) : persona.title === "Healthcare Employers" ? (
                                 <>Reduce benefits spend by steering employees toward cost-effective care.</>
                               ) : (
