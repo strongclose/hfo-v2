@@ -1007,10 +1007,11 @@ export default function HomePage() {
         <LazySection
           className="relative py-24 overflow-hidden"
           minHeight="700px"
+          style={{ background: 'linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #4338ca 100%)' }}
         >
         <section>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.15),transparent_40%)]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(147,51,234,0.15),transparent_40%)]"></div>
+          <div className="absolute inset-0 hf-overlay-primary"></div>
+          <div className="absolute inset-0 hf-overlay-secondary"></div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
