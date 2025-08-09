@@ -324,10 +324,10 @@ export function GlobalChatbot({
                 />
               </div>
               <Button
-                variant="ask-ai"
+                variant="secondary"
                 onClick={handleSendMessage}
                 disabled={!chatInput.trim() || isTyping}
-                className="ask-ai-button transition-all duration-300 hover:scale-105 h-9"
+                className="transition-all duration-300 hover:scale-105 h-9"
                 style={{
                   opacity: 1,
                   filter:
