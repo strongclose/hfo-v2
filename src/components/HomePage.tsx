@@ -561,7 +561,7 @@ export default function HomePage() {
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
-            <div className="text-center mb-20">
+            <div className="text-center mb-16">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-blue-500/25" style={{ background: 'linear-gradient(to bottom right, #3b82f6, #14b8a6)' }}>
                 <Workflow className="w-8 h-8 text-white" />
               </div>
@@ -1163,7 +1163,7 @@ export default function HomePage() {
             </div>
 
             {/* Main Content Grid */}
-            <div className="grid lg:grid-cols-2 gap-12 mb-16">
+            <div className="grid lg:grid-cols-2 gap-12 mb-12">
 
               {/* Left Column - Leaderboard Snapshot */}
               <div>
@@ -1337,7 +1337,7 @@ export default function HomePage() {
             </div>
 
             {/* Call to Action Strip */}
-            <div className="p-8 rounded-3xl bg-gray-100 border-2 border-gray-400 shadow-xl">
+            <div className="mt-16 p-8 rounded-3xl bg-gray-100 border-2 border-gray-400 shadow-xl">
               <div className="flex flex-col lg:flex-row items-center gap-6">
                 <div className="flex items-center gap-4 flex-1">
                   <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg flex-shrink-0" style={{ background: 'linear-gradient(to bottom right, #14b8a6, #2563eb)' }}>
@@ -1398,7 +1398,7 @@ export default function HomePage() {
             </div>
 
             {/* Animated Statistics */}
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="group relative">
                 <div className="relative p-10 rounded-3xl bg-white/90 backdrop-blur-xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105">
                   <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg" style={{ background: 'linear-gradient(to bottom right, #ef4444, #ec4899)' }}>
