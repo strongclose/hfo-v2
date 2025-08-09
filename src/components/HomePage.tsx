@@ -369,18 +369,18 @@ export default function HomePage() {
 
   // Mini Visualization Components
   const PriceRangeChart = () => (
-    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30 w-full">
-      <div className="text-sm text-white/80 mb-3">Knee Replacement Price Range (CA)</div>
+    <div className="bg-white rounded-xl p-4 border border-gray-200 w-full shadow-sm">
+      <div className="text-sm hf-text-primary font-semibold mb-3">Knee Replacement Price Range (CA)</div>
       <div className="relative">
-        <div className="flex justify-between text-xs text-white/70 mb-2">
+        <div className="flex justify-between text-xs hf-text-secondary mb-2">
           <span>Low</span>
           <span>Avg</span>
           <span>High</span>
         </div>
-        <div className="h-4 bg-white/20 rounded-full overflow-hidden">
-          <div className="h-full bg-gradient-to-r from-green-400 via-yellow-400 to-red-400 rounded-full"></div>
+        <div className="h-4 bg-gray-200 rounded-full overflow-hidden">
+          <div className="h-full bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 rounded-full"></div>
         </div>
-        <div className="flex justify-between text-xs text-white mt-2">
+        <div className="flex justify-between text-xs hf-text-primary font-semibold mt-2">
           <span>$18K</span>
           <span>$42K</span>
           <span>$67K</span>
@@ -390,8 +390,8 @@ export default function HomePage() {
   );
 
   const VariationBarChart = () => (
-    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30 w-full">
-      <div className="text-sm text-white/80 mb-3">Cost Variation - Same Procedure</div>
+    <div className="bg-white rounded-xl p-4 border border-gray-200 w-full shadow-sm">
+      <div className="text-sm hf-text-primary font-semibold mb-3">Cost Variation - Same Procedure</div>
       <div className="space-y-3">
         {[
           { label: "Provider A", value: 20, color: "bg-green-400" },
