@@ -240,7 +240,7 @@ export default function HomePage() {
                   HealthFees.org
                 </span>
               </h2>
-              <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed mb-8">
+              <p className="text-xl md:text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed mb-8">
                 From quick price comparisons to in-depth market analysis, we have tools for every healthcare stakeholder.
               </p>
               
