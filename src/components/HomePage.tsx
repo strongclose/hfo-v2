@@ -162,7 +162,7 @@ export default function HomePage() {
                   Comes From
                 </span>
               </h2>
-              <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-100 max-w-4xl mx-auto leading-relaxed">
                 We collect, organize, and update pricing data from official government-mandated hospital and insurance disclosures.
               </p>
             </div>
