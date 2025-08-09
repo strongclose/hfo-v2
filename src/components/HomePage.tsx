@@ -1058,8 +1058,8 @@ export default function HomePage() {
                         </div>
 
                         {/* Supporting Data Point */}
-                        <div className="p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
-                          <p className="text-white/90 hf-heading-h6">{persona.supportingData}</p>
+                        <div className="p-4 rounded-xl bg-gray-50 border border-gray-200">
+                          <p className="hf-text-secondary hf-heading-h6">{persona.supportingData}</p>
                         </div>
                       </div>
                     </div>
