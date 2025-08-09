@@ -553,7 +553,7 @@ export default function HomePage() {
                   Healthcare Transparency
                 </span>
               </h2>
-              <p className="text-xl md:text-2xl text-white/80 mb-12 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-100 mb-12 max-w-4xl mx-auto leading-relaxed">
                 Every search helps build a more transparent healthcare system. Share HealthFees.org with others so they can make informed decisions too.
               </p>
 
