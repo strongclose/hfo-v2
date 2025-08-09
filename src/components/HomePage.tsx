@@ -377,13 +377,13 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 5. Who Uses HealthFees.org Section */}
+        {/* 5. Who Uses HealthFees.org Section - Timeline/Journey Format */}
         <section className="relative py-24 overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.15),transparent_40%)] motion-safe:animate-pulse motion-safe:animation-duration-[10s]"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(147,51,234,0.15),transparent_40%)] motion-safe:animate-pulse motion-safe:animation-duration-[12s]"></div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-20">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-emerald-400 to-cyan-400 mb-8 shadow-lg shadow-emerald-500/25">
                 <Users className="w-8 h-8 text-white" />
               </div>
@@ -399,74 +399,110 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  icon: Stethoscope,
-                  title: "Patients & Families",
-                  desc: "Compare costs before scheduling procedures and make informed healthcare decisions.",
-                  gradient: "from-blue-500 to-cyan-500",
-                  link: "/who-we-help/patients"
-                },
-                {
-                  icon: BarChart3,
-                  title: "Researchers & Analysts",
-                  desc: "Study healthcare pricing trends, market dynamics, and cost variations across regions.",
-                  gradient: "from-emerald-500 to-teal-500",
-                  link: "/who-we-help/researchers"
-                },
-                {
-                  icon: Building2,
-                  title: "Healthcare Employers",
-                  desc: "Help employees make cost-effective healthcare choices and reduce overall benefits costs.",
-                  gradient: "from-purple-500 to-pink-500",
-                  link: "/who-we-help/employers"
-                },
-                {
-                  icon: Shield,
-                  title: "Insurance Companies",
-                  desc: "Benchmark pricing, analyze network performance, and ensure competitive rates.",
-                  gradient: "from-orange-500 to-red-500",
-                  link: "/who-we-help/insurance-providers"
-                },
-                {
-                  icon: Hospital,
-                  title: "Healthcare Providers",
-                  desc: "Compare pricing against competitors and ensure transparency compliance.",
-                  gradient: "from-indigo-500 to-purple-500",
-                  link: "/who-we-help/hospitals"
-                },
-                {
-                  icon: FileText,
-                  title: "Journalists & Advocates",
-                  desc: "Access reliable healthcare pricing data for investigative reporting and advocacy work.",
-                  gradient: "from-yellow-500 to-orange-500",
-                  link: "/who-we-help/journalists"
-                }
-              ].map((audience, index) => (
-                <div key={index} className="group h-full">
-                  <div className="relative p-8 rounded-3xl bg-white/25 backdrop-blur-xl border border-white/30 hover:bg-white/35 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-white/10 h-full flex flex-col">
-                    <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${audience.gradient} flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                      <audience.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-4 text-white group-hover:text-cyan-300 transition-colors duration-300 text-center">
-                      {audience.title}
-                    </h3>
-                    <p className="text-white/90 group-hover:text-white transition-colors duration-300 leading-relaxed text-center mb-6 flex-grow">
-                      {audience.desc}
-                    </p>
-                    <div className="text-center mt-auto">
-                      <Button
-                        onClick={() => window.location.href = audience.link}
-                        className="bg-white text-gray-900 border-2 border-white hover:bg-gray-100 hover:text-gray-800 transition-all duration-300 font-semibold"
-                      >
-                        Learn More
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
+            {/* Journey Timeline */}
+            <div className="relative">
+              {/* Central Timeline Line */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-emerald-400 via-cyan-400 to-purple-400 h-full hidden lg:block"></div>
+
+              {/* Timeline Items */}
+              <div className="space-y-16">
+                {[
+                  {
+                    icon: Stethoscope,
+                    title: "Patients & Families",
+                    desc: "Compare costs before scheduling procedures and make informed healthcare decisions.",
+                    detail: "Search for procedures, view real negotiated rates, and find the most affordable options in your area.",
+                    gradient: "from-blue-500 to-cyan-500",
+                    link: "/who-we-help/patients",
+                    side: "left"
+                  },
+                  {
+                    icon: Building2,
+                    title: "Healthcare Employers",
+                    desc: "Help employees make cost-effective healthcare choices and reduce overall benefits costs.",
+                    detail: "Integrate our API to provide employees with cost transparency tools and reduce benefits spend.",
+                    gradient: "from-purple-500 to-pink-500",
+                    link: "/who-we-help/employers",
+                    side: "right"
+                  },
+                  {
+                    icon: BarChart3,
+                    title: "Researchers & Analysts",
+                    desc: "Study healthcare pricing trends, market dynamics, and cost variations across regions.",
+                    detail: "Access comprehensive datasets and analytics tools for market research and policy analysis.",
+                    gradient: "from-emerald-500 to-teal-500",
+                    link: "/who-we-help/researchers",
+                    side: "left"
+                  },
+                  {
+                    icon: Shield,
+                    title: "Insurance Companies",
+                    desc: "Benchmark pricing, analyze network performance, and ensure competitive rates.",
+                    detail: "Compare your negotiated rates against market standards and optimize network contracts.",
+                    gradient: "from-orange-500 to-red-500",
+                    link: "/who-we-help/insurance-providers",
+                    side: "right"
+                  },
+                  {
+                    icon: Hospital,
+                    title: "Healthcare Providers",
+                    desc: "Compare pricing against competitors and ensure transparency compliance.",
+                    detail: "Meet federal transparency requirements and understand your competitive position in the market.",
+                    gradient: "from-indigo-500 to-purple-500",
+                    link: "/who-we-help/hospitals",
+                    side: "left"
+                  },
+                  {
+                    icon: FileText,
+                    title: "Journalists & Advocates",
+                    desc: "Access reliable healthcare pricing data for investigative reporting and advocacy work.",
+                    detail: "Uncover pricing disparities and hold healthcare systems accountable with verified data.",
+                    gradient: "from-yellow-500 to-orange-500",
+                    link: "/who-we-help/journalists",
+                    side: "right"
+                  }
+                ].map((audience, index) => (
+                  <div key={index} className={`relative flex items-center ${audience.side === 'left' ? 'lg:justify-start' : 'lg:justify-end'} justify-center`}>
+                    {/* Timeline Node */}
+                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-white border-4 border-emerald-400 z-10 hidden lg:block"></div>
+
+                    {/* Content Card */}
+                    <div className={`w-full lg:w-5/12 ${audience.side === 'right' ? 'lg:ml-auto' : ''}`}>
+                      <div className="group relative">
+                        <div className="relative p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-white/10">
+                          {/* Icon and Number */}
+                          <div className="flex items-center gap-4 mb-6">
+                            <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${audience.gradient} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                              <audience.icon className="w-8 h-8 text-white" />
+                            </div>
+                            <div className="text-3xl font-bold text-white/30">0{index + 1}</div>
+                          </div>
+
+                          <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-cyan-300 transition-colors duration-300">
+                            {audience.title}
+                          </h3>
+
+                          <p className="text-white/90 group-hover:text-white transition-colors duration-300 leading-relaxed mb-4">
+                            {audience.desc}
+                          </p>
+
+                          <p className="text-white/70 text-sm leading-relaxed mb-6">
+                            {audience.detail}
+                          </p>
+
+                          <Button
+                            onClick={() => window.location.href = audience.link}
+                            className="bg-white/20 text-white border-2 border-white/30 hover:bg-white hover:text-gray-900 transition-all duration-300 font-semibold backdrop-blur-sm"
+                          >
+                            Explore Solutions
+                            <ArrowRight className="w-4 h-4 ml-2" />
+                          </Button>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
