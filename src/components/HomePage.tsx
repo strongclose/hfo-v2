@@ -43,8 +43,8 @@ import {
 } from "lucide-react";
 
 const dataSources = [
-  { name: "Hospital Price Files", status: "Active", count: "6,000+" },
-  { name: "Insurance Rate Files", status: "Active", count: "400+" },
+  { name: "Provider Price Files", status: "Active", count: "6,000+" },
+  { name: "Payer Rate Files", status: "Active", count: "400+" },
   { name: "Federal Compliance Data", status: "Monitoring", count: "Daily" }
 ];
 
@@ -52,7 +52,7 @@ const monthlyProcessingStatus = [
   {
     stage: "Price File Collection",
     progress: 92,
-    tooltip: "Gathering hospital and insurer machine-readable files from required transparency postings.",
+    tooltip: "Gathering provider and payer machine-readable files from required transparency postings.",
     isSearchIndexing: false
   },
   {
@@ -76,16 +76,16 @@ const monthlyProcessingStatus = [
 ];
 
 const priceComparison = [
-  { provider: "Hospital A", price: "$3,200", type: "Cash", best: true },
-  { provider: "Hospital B", price: "$4,800", type: "Insurance", best: false },
-  { provider: "Hospital C", price: "$6,100", type: "Insurance", best: false }
+  { provider: "Provider A", price: "$3,200", type: "Cash", best: true },
+  { provider: "Provider B", price: "$4,800", type: "Insurance", best: false },
+  { provider: "Provider C", price: "$6,100", type: "Insurance", best: false }
 ];
 
 const exploreFeatures1 = [
   {
     icon: Search,
     title: "Price Comparison Tool",
-    desc: "Search any procedure, see real prices from hospitals and insurance plans in your area.",
+    desc: "Search any procedure, see real prices from providers and payers in your area.",
     link: "/search-procedure",
     gradient: "from-blue-500 to-cyan-500"
   },
@@ -109,7 +109,7 @@ const exploreFeatures2 = [
   {
     icon: Building2,
     title: "Provider Directory",
-    desc: "Find hospitals, clinics, and specialists with transparent pricing and quality metrics.",
+    desc: "Find providers, clinics, and specialists with transparent pricing and quality metrics.",
     link: "/hospitals",
     gradient: "from-orange-500 to-red-500"
   },
@@ -225,14 +225,14 @@ export default function HomePage() {
     patients: {
       title: "Patients & Families",
       insight: "Patients who compare prices before care save an average of $3,200 per procedure.",
-      support: "Easily check hospital, insurer, and cash prices side-by-side so you know what to expect before you go.",
+      support: "Easily check provider, payer, and cash prices side-by-side so you know what to expect before you go.",
       cta: "Check prices near you",
       icon: Stethoscope,
       link: "/who-we-help/patients"
     },
     researchers: {
       title: "Researchers & Analysts", 
-      insight: "Access over 2.4 trillion pricing records across 6,000+ hospitals and 400+ insurers — updated monthly.",
+      insight: "Access over 2.4 trillion pricing records across 6,000+ providers and 400+ payers — updated monthly.",
       support: "Download structured, machine-readable files to power your analysis, policy research, or market studies.",
       cta: "Explore the data",
       icon: BarChart3,
@@ -255,7 +255,7 @@ export default function HomePage() {
       link: "/who-we-help/hospitals"
     },
     insurers: {
-      title: "Insurance Companies",
+      title: "Payers",
       insight: "Track competitor networks and published rates to stay competitive in your region.",
       support: "Use our organized data to monitor market changes and meet federal transparency requirements.",
       cta: "See network pricing",
@@ -323,7 +323,7 @@ export default function HomePage() {
                 </span>
               </h2>
               <p className="text-xl md:text-2xl text-gray-800 max-w-5xl mx-auto leading-relaxed font-medium mb-8">
-                For decades, healthcare pricing was kept secret. Hospitals could charge anything, and patients only found out the cost after receiving care—sometimes leading to financial devastation.
+                For decades, healthcare pricing was kept secret. Providers could charge anything, and patients only found out the cost after receiving care—sometimes leading to financial devastation.
               </p>
               
               <div className="mt-8 p-8 rounded-3xl bg-gradient-to-br from-white/80 to-blue-50/80 backdrop-blur-xl border border-white/40 shadow-xl shadow-black/5 max-w-4xl mx-auto">
@@ -334,7 +334,7 @@ export default function HomePage() {
                   <div className="text-left">
                     <p className="text-lg text-gray-800 font-semibold mb-2">Federal Law Changed Everything</p>
                     <p className="text-gray-800">
-                      New transparency regulations require hospitals and insurers to publish their real negotiated rates. But the data is scattered across thousands of files and websites.
+                      New transparency regulations require providers and payers to publish their real negotiated rates. But the data is scattered across thousands of files and websites.
                     </p>
                   </div>
                 </div>
@@ -414,16 +414,16 @@ export default function HomePage() {
                         <div className="text-center lg:text-right">
                           <div className="flex items-center justify-center lg:justify-end gap-2 mb-4">
                             <h3 className="text-3xl font-bold text-gray-900">We Collect</h3>
-                            <Tooltip content="Federal law requires hospitals and insurers to publish machine-readable files with their negotiated rates under transparency regulations.">
+                            <Tooltip content="Federal law requires providers and payers to publish machine-readable files with their negotiated rates under transparency regulations.">
                               <Info className="w-5 h-5 text-blue-500 cursor-help" />
                             </Tooltip>
                           </div>
                           
                           <div className="text-lg text-gray-700 leading-relaxed mb-6">
-                            <Tooltip content="The Hospital Price Transparency Final Rule (45 CFR ����180) requires hospitals to publish machine-readable files with all their negotiated rates.">
+                            <Tooltip content="The Hospital Price Transparency Final Rule (45 CFR ����180) requires providers to publish machine-readable files with all their negotiated rates.">
                               <span className="underline decoration-blue-300 decoration-2 cursor-help">Federal law</span>
                             </Tooltip>
-                            {" "}requires hospitals and insurers to publish their real prices under the Hospital Price Transparency Final Rule and the Transparency in Coverage Rule. We automatically monitor thousands of these{" "}
+                            {" "}requires providers and payers to publish their real prices under the Hospital Price Transparency Final Rule and the Transparency in Coverage Rule. We automatically monitor thousands of these{" "}
                             <Tooltip content="Machine-readable files are structured data files (like JSON or CSV) that computers can easily process, as opposed to human-readable PDFs.">
                               <span className="underline decoration-blue-300 decoration-2 cursor-help">machine-readable files</span>
                             </Tooltip>
@@ -434,12 +434,12 @@ export default function HomePage() {
                           <div className="inline-flex items-center gap-6 p-4 bg-blue-50 rounded-2xl border border-blue-200">
                             <div className="text-center">
                               <p className="text-2xl font-bold text-blue-600">6,000+</p>
-                              <p className="text-sm text-blue-700 font-medium">Hospitals</p>
+                              <p className="text-sm text-blue-700 font-medium">Providers</p>
                             </div>
                             <div className="w-px h-12 bg-blue-300"></div>
                             <div className="text-center">
                               <p className="text-2xl font-bold text-blue-600">400+</p>
-                              <p className="text-sm text-blue-700 font-medium">Insurers</p>
+                              <p className="text-sm text-blue-700 font-medium">Payers</p>
                             </div>
                             <div className="w-px h-12 bg-blue-300"></div>
                             <div className="text-center flex items-center gap-1">
@@ -645,13 +645,13 @@ export default function HomePage() {
                         <div className="text-center lg:text-right">
                           <div className="flex items-center justify-center lg:justify-end gap-2 mb-4">
                             <h3 className="text-3xl font-bold text-gray-900">You Compare</h3>
-                            <Tooltip content="Compare prices across hospitals, insurance plans, and cash payment options to find the best value for your healthcare needs.">
+                            <Tooltip content="Compare prices across providers, payers, and cash payment options to find the best value for your healthcare needs.">
                               <Info className="w-5 h-5 text-emerald-500 cursor-help" />
                             </Tooltip>
                           </div>
                           
                           <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                            Instantly see and compare prices for hospitals, insurers, and cash options side-by-side. Use this information to save money, avoid surprise bills, and choose what's best for you.
+                            Instantly see and compare prices for providers, payers, and cash options side-by-side. Use this information to save money, avoid surprise bills, and choose what's best for you.
                           </p>
 
                           {/* Highlighted Benefit */}
@@ -703,7 +703,7 @@ export default function HomePage() {
                           ))}
                         </div>
                         <div className="mt-4 p-3 bg-emerald-100 rounded-xl">
-                          <p className="text-sm text-emerald-800 font-semibold">💡 You could save $2,900 by choosing Hospital A</p>
+                          <p className="text-sm text-emerald-800 font-semibold">💡 You could save $2,900 by choosing Provider A</p>
                         </div>
                       </div>
                     </div>
@@ -744,7 +744,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 4. Verified Hospital & Insurer Data - Clean Two-Column Layout */}
+        {/* 4. Verified Provider & Payer Data - Clean Two-Column Layout */}
         <section className="relative py-20 overflow-hidden bg-gradient-to-b from-blue-50 to-white">
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -752,13 +752,13 @@ export default function HomePage() {
               <div>
                 {/* Headline */}
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight leading-tight">
-                  Verified Hospital &
-                  <span className="text-blue-600"> Insurer Data</span>
+                  Verified Provider &
+                  <span className="text-blue-600"> Payer Data</span>
                 </h2>
 
                 {/* Subhead */}
                 <p className="text-lg text-gray-700 leading-relaxed mb-8 max-w-xl">
-                  We collect official hospital and insurer price files directly from provider and payer websites under federal transparency laws, process them, and update monthly.
+                  We collect official provider and payer price files directly from provider and payer websites under federal transparency laws, process them, and update monthly.
                 </p>
 
                 {/* Stats Row */}
@@ -767,10 +767,10 @@ export default function HomePage() {
                     <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-teal-100 flex items-center justify-center">
                       <Hospital className="w-6 h-6 text-teal-600" />
                     </div>
-                    <Tooltip content="Hospital price files we track and update monthly.">
+                    <Tooltip content="Provider price files we track and update monthly.">
                       <div className="cursor-help">
                         <p className="text-2xl font-bold text-gray-900 mb-1">6,000+</p>
-                        <p className="text-sm text-gray-600 font-medium">Hospitals</p>
+                        <p className="text-sm text-gray-600 font-medium">Providers</p>
                       </div>
                     </Tooltip>
                   </div>
@@ -779,10 +779,10 @@ export default function HomePage() {
                     <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-blue-100 flex items-center justify-center">
                       <Shield className="w-6 h-6 text-blue-600" />
                     </div>
-                    <Tooltip content="Insurer price files we track and update monthly.">
+                    <Tooltip content="Payer price files we track and update monthly.">
                       <div className="cursor-help">
                         <p className="text-2xl font-bold text-gray-900 mb-1">400+</p>
-                        <p className="text-sm text-gray-600 font-medium">Insurers</p>
+                        <p className="text-sm text-gray-600 font-medium">Payers</p>
                       </div>
                     </Tooltip>
                   </div>
@@ -827,7 +827,7 @@ export default function HomePage() {
                         </div>
                         <div>
                           <p className="font-semibold text-gray-900 text-sm">Providers</p>
-                          <p className="text-xs text-gray-600">6,000+ Hospitals</p>
+                          <p className="text-xs text-gray-600">6,000+ Providers</p>
                         </div>
                       </div>
 
@@ -838,7 +838,7 @@ export default function HomePage() {
                         </div>
                         <div>
                           <p className="font-semibold text-gray-900 text-sm">Payers</p>
-                          <p className="text-xs text-gray-600">400+ Insurers</p>
+                          <p className="text-xs text-gray-600">400+ Payers</p>
                         </div>
                       </div>
                     </div>
@@ -1091,7 +1091,7 @@ export default function HomePage() {
                       <div className="bg-red-600 h-2 rounded-full" style={{width: '100%'}}></div>
                     </div>
                     <p className="text-lg text-gray-800 font-semibold leading-relaxed">
-                      Same procedure can cost 10x more at different hospitals in the same city
+                      Same procedure can cost 10x more at different providers in the same city
                     </p>
                   </div>
                 </div>
