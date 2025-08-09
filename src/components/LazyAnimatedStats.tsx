@@ -28,19 +28,21 @@ function AnimatedStat({ value, label, icon: Icon, color, delay = 0 }: AnimatedSt
         <div className={`hf-icon-bg-primary w-16 h-16 flex items-center justify-center mx-auto mb-6`} style={{ background: color }}>
           <Icon className="w-8 h-8 text-white" />
         </div>
-        <div className="text-center">
-          <div className={`text-4xl font-bold mb-2 transition-all duration-1000 delay-300 ${
-            isVisible ? 'scale-100 opacity-100' : 'scale-75 opacity-0'
-          }`} style={{ color: color.split(',')[0].replace('linear-gradient(to bottom right, ', '') }}>
-            {value}
-          </div>
-          <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
-            <div 
-              className={`h-2 rounded-full transition-all duration-1500 delay-500 ${
-                isVisible ? 'w-4/5' : 'w-0'
-              }`}
-              style={{ backgroundColor: color.split(',')[0].replace('linear-gradient(to bottom right, ', '') }}
-            ></div>
+        <div className="text-center flex-1 flex flex-col justify-between">
+          <div>
+            <div className={`text-4xl font-bold mb-2 transition-all duration-1000 delay-300 ${
+              isVisible ? 'scale-100 opacity-100' : 'scale-75 opacity-0'
+            }`} style={{ color: color.split(',')[0].replace('linear-gradient(to bottom right, ', '') }}>
+              {value}
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
+              <div
+                className={`h-2 rounded-full transition-all duration-1500 delay-500 ${
+                  isVisible ? 'w-4/5' : 'w-0'
+                }`}
+                style={{ backgroundColor: color.split(',')[0].replace('linear-gradient(to bottom right, ', '') }}
+              ></div>
+            </div>
           </div>
           <p className={`text-lg text-gray-800 font-semibold leading-relaxed transition-all duration-1000 delay-700 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
