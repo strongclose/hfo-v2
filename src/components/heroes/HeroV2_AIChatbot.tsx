@@ -32,10 +32,9 @@ export function HeroV2_AIChatbot({
 }: HeroV2Props) {
   return (
     <div
-      className="relative min-h-screen pt-24 hero-animated-bg"
+      className="relative py-24 pt-32 hero-animated-bg overflow-hidden"
       style={{
-        background:
-          "linear-gradient(135deg, #0A0F1C 0%, #1E3A8A 30%, #1E40AF 70%, #2563EB 100%)",
+        background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%)",
         fontFamily:
           'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       }}
