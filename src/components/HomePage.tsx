@@ -1241,7 +1241,7 @@ export default function HomePage() {
                       window.location.href = "/transparency-scores";
                     }
                   }}
-                  variant="accent"
+                  variant="primary"
                   size="lg"
                   className="w-full"
                 >
