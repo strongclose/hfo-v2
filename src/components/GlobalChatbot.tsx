@@ -169,9 +169,9 @@ export function GlobalChatbot({
   return (
     <div className={`max-w-2xl w-full ${className}`} style={style}>
       <div
-        className={`backdrop-blur-md rounded-2xl border border-white/10 overflow-hidden shadow-2xl ${heightClasses[height]} flex flex-col`}
+        className={`backdrop-blur-xl rounded-2xl border border-white/30 overflow-hidden shadow-2xl ${heightClasses[height]} flex flex-col`}
         style={{
-          background: "rgba(255, 255, 255, 0.03)",
+          background: "rgba(255, 255, 255, 0.85)",
           backdropFilter: "blur(20px)",
         }}
       >
