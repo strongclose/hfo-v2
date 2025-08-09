@@ -541,7 +541,7 @@ export default function HomePage() {
               <div className="mt-12">
                 <PriceComparisonCTA
                   size="xl"
-                  variant="accent"
+                  variant="primary"
                 >
                   Start Comparing Prices Now
                 </PriceComparisonCTA>
