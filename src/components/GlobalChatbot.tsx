@@ -51,25 +51,23 @@ export function GlobalChatbot({
   style,
 }: GlobalChatbotProps) {
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
-  const [isInitialized, setIsInitialized] = useState(false);
+  const [isClient, setIsClient] = useState(false);
   const [chatInput, setChatInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
-  // Initialize chat messages on client side only
+  // Initialize on client side only
   useEffect(() => {
-    if (!isInitialized) {
-      setChatMessages([
-        {
-          id: "initial",
-          type: "bot",
-          content: initialMessage,
-          timestamp: new Date(),
-        },
-      ]);
-      setIsInitialized(true);
-    }
-  }, [initialMessage, isInitialized]);
+    setIsClient(true);
+    setChatMessages([
+      {
+        id: "initial",
+        type: "bot",
+        content: initialMessage,
+        timestamp: new Date(),
+      },
+    ]);
+  }, [initialMessage]);
 
   // Auto-scroll to bottom when new messages are added
   useEffect(() => {
@@ -191,8 +189,13 @@ export function GlobalChatbot({
       >
         {/* Chat Messages Area */}
         <div ref={chatContainerRef} className="p-6 flex-1 overflow-y-auto">
-          <div className="space-y-4">
-            {isInitialized && chatMessages.map((message) => (
+          {!isClient ? (
+            <div className="p-6 flex items-center justify-center">
+              <div className="text-white/60 text-sm">Loading chat...</div>
+            </div>
+          ) : (
+            <div className="space-y-4">
+              {chatMessages.map((message) => (
               <div key={message.id}>
                 {message.type === "bot" && (
                   <div className="flex gap-3">
@@ -274,61 +277,67 @@ export function GlobalChatbot({
               </div>
             ))}
 
-            {/* Typing Indicator */}
-            {isTyping && (
-              <div className="flex gap-3">
-                <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-white text-sm font-bold">✨</span>
-                </div>
-                <div className="bg-white/5 backdrop-blur-sm rounded-2xl rounded-tl-md py-4 px-3 border border-white/5">
-                  <div className="flex items-center gap-1">
-                    <div className="w-1.5 h-1.5 bg-white rounded-full animate-bounce"></div>
-                    <div
-                      className="w-1.5 h-1.5 bg-white rounded-full animate-bounce"
-                      style={{ animationDelay: "0.1s" }}
-                    ></div>
-                    <div
-                      className="w-1.5 h-1.5 bg-white rounded-full animate-bounce"
-                      style={{ animationDelay: "0.2s" }}
-                    ></div>
+              {/* Typing Indicator */}
+              {isTyping && (
+                <div className="flex gap-3">
+                  <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-sm font-bold">✨</span>
+                  </div>
+                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl rounded-tl-md py-4 px-3 border border-white/5">
+                    <div className="flex items-center gap-1">
+                      <div className="w-1.5 h-1.5 bg-white rounded-full animate-bounce"></div>
+                      <div className="w-1.5 h-1.5 bg-white rounded-full animate-bounce [animation-delay:0.1s]"></div>
+                      <div className="w-1.5 h-1.5 bg-white rounded-full animate-bounce [animation-delay:0.2s]"></div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Input Area */}
         <div className="pt-4 px-4 pb-2 border-t border-white/20">
-          <div className="flex gap-3">
-            <div className="flex-1 relative">
-              <Input
-                value={chatInput}
-                onChange={(e) => setChatInput(e.target.value)}
-                onKeyPress={handleChatKeyPress}
-                placeholder={placeholder}
-                className="w-full bg-white/25 border-2 border-teal-400/60 text-white placeholder-white rounded-xl px-4 py-3 focus:border-teal-400 focus:ring-0 transition-all duration-300"
-                style={{
-                  background: "rgba(255, 255, 255, 0.25)",
-                  backdropFilter: "blur(10px)",
-                }}
-                disabled={isTyping}
-              />
+          {!isClient ? (
+            <div className="flex gap-3 opacity-50">
+              <div className="flex-1 bg-white/25 rounded-xl px-4 py-3">
+                <div className="text-white/60 text-sm">{placeholder}</div>
+              </div>
+              <div className="px-6 py-3 bg-white/25 rounded-xl text-white/60 text-sm">
+                Ask AI
+              </div>
             </div>
-            <Button
-              variant="ask-ai"
-              onClick={handleSendMessage}
-              disabled={!chatInput.trim() || isTyping}
-              className="ask-ai-button transition-all duration-300 hover:scale-105 h-9"
-              style={{
-                opacity: 1,
-                filter:
-                  !chatInput.trim() || isTyping ? "grayscale(20%)" : "none",
-              }}
-            >
-              Ask AI
-            </Button>
-          </div>
+          ) : (
+            <div className="flex gap-3">
+              <div className="flex-1 relative">
+                <Input
+                  value={chatInput}
+                  onChange={(e) => setChatInput(e.target.value)}
+                  onKeyPress={handleChatKeyPress}
+                  placeholder={placeholder}
+                  className="w-full bg-white/25 border-2 border-teal-400/60 text-white placeholder-white rounded-xl px-4 py-3 focus:border-teal-400 focus:ring-0 transition-all duration-300"
+                  style={{
+                    background: "rgba(255, 255, 255, 0.25)",
+                    backdropFilter: "blur(10px)",
+                  }}
+                  disabled={isTyping}
+                />
+              </div>
+              <Button
+                variant="ask-ai"
+                onClick={handleSendMessage}
+                disabled={!chatInput.trim() || isTyping}
+                className="ask-ai-button transition-all duration-300 hover:scale-105 h-9"
+                style={{
+                  opacity: 1,
+                  filter:
+                    !chatInput.trim() || isTyping ? "grayscale(20%)" : "none",
+                }}
+              >
+                Ask AI
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </div>
