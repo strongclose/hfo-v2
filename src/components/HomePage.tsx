@@ -411,19 +411,19 @@ export default function HomePage() {
   );
 
   const SavingsPieChart = () => (
-    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30 w-full">
-      <div className="text-sm text-white/80 mb-3">Potential Savings Breakdown</div>
+    <div className="bg-white rounded-xl p-4 border border-gray-200 w-full shadow-sm">
+      <div className="text-sm hf-text-primary font-semibold mb-3">Potential Savings Breakdown</div>
       <div className="flex items-center gap-4">
         <div className="relative w-16 h-16 flex-shrink-0">
           <svg className="w-16 h-16 transform -rotate-90" viewBox="0 0 32 32">
-            <circle cx="16" cy="16" r="14" fill="transparent" stroke="rgba(255,255,255,0.2)" strokeWidth="4"/>
+            <circle cx="16" cy="16" r="14" fill="transparent" stroke="rgba(200,200,200,0.5)" strokeWidth="4"/>
             <circle cx="16" cy="16" r="14" fill="transparent" stroke="#10b981" strokeWidth="4" strokeDasharray="70 100" strokeLinecap="round"/>
           </svg>
-          <div className="absolute inset-0 flex items-center justify-center text-xs text-white font-bold">70%</div>
+          <div className="absolute inset-0 flex items-center justify-center text-xs hf-text-primary font-bold">70%</div>
         </div>
-        <div className="text-xs text-white/80">
+        <div className="text-xs hf-text-secondary">
           <div className="mb-1">Potential Savings</div>
-          <div className="text-emerald-300 font-semibold">$1,800 avg</div>
+          <div className="text-emerald-600 font-semibold">$1,800 avg</div>
         </div>
       </div>
     </div>
