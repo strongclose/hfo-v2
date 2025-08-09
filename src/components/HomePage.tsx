@@ -1046,26 +1046,27 @@ export default function HomePage() {
                   <div className={`relative p-8 md:p-12 rounded-3xl bg-gradient-to-br ${persona.bgColor} bg-opacity-20 backdrop-blur-xl border border-white/20 shadow-2xl`}>
 
                     {/* Hero Content Grid */}
-                    <div className="grid lg:grid-cols-2 gap-12 items-start lg:items-start">
+                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
 
                       {/* Left: Primary Content */}
-                      <div className="space-y-8">
-                        <div className="flex items-center gap-6 mb-6">
-                          <div className={`w-24 h-24 rounded-full bg-gradient-to-br ${persona.bgColor} flex items-center justify-center shadow-xl flex-shrink-0`}>
-                            <persona.icon className="w-12 h-12 text-white" />
+                      <div className="flex flex-col h-full">
+                        {/* Header */}
+                        <div className="flex items-center gap-6 mb-8">
+                          <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${persona.bgColor} flex items-center justify-center shadow-xl flex-shrink-0`}>
+                            <persona.icon className="w-10 h-10 text-white" />
                           </div>
-                          <h3 className="text-3xl md:text-4xl font-bold text-white">{persona.title}</h3>
+                          <h3 className="text-2xl lg:text-3xl font-bold text-white">{persona.title}</h3>
                         </div>
 
                         {/* Primary Insight with Animated Number */}
-                        <div className="p-6 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/30">
-                          <p className="text-lg font-semibold text-emerald-300 mb-3">Primary Insight</p>
-                          <div className="text-xl md:text-2xl text-white leading-relaxed">
+                        <div className="p-6 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/30 mb-8 flex-grow">
+                          <p className="text-base font-semibold text-emerald-300 mb-3">Primary Insight</p>
+                          <div className="text-lg lg:text-xl text-white leading-relaxed">
                             {persona.primaryNumber > 0 ? (
                               persona.title === "Patients & Families" ? (
-                                <>Save an average of <span className="text-3xl font-bold text-emerald-400">${animatedNumber.toLocaleString()}</span> per procedure by comparing prices before care.</>
+                                <>Save an average of <span className="text-2xl font-bold text-emerald-400">${animatedNumber.toLocaleString()}</span> per procedure by comparing prices before care.</>
                               ) : persona.title === "Researchers & Analysts" ? (
-                                <>Uncover price variations of up to <span className="text-3xl font-bold text-blue-400">{animatedNumber}%</span> for the same procedure.</>
+                                <>Uncover price variations of up to <span className="text-2xl font-bold text-blue-400">{animatedNumber}%</span> for the same procedure.</>
                               ) : persona.title === "Healthcare Employers" ? (
                                 <>Reduce benefits spend by steering employees toward cost-effective care.</>
                               ) : (
@@ -1078,17 +1079,17 @@ export default function HomePage() {
                         </div>
 
                         {/* CTAs */}
-                        <div className="flex flex-col sm:flex-row gap-4">
+                        <div className="flex flex-col gap-3">
                           <Button
                             onClick={() => {
                               if (typeof window !== 'undefined') {
                                 window.location.href = persona.primaryCTALink;
                               }
                             }}
-                            className={`px-8 py-4 bg-gradient-to-r ${persona.bgColor} hover:scale-105 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2`}
+                            className={`px-6 py-3 bg-gradient-to-r ${persona.bgColor} hover:scale-105 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2`}
                           >
                             {persona.primaryCTA}
-                            <ArrowRight className="w-5 h-5" />
+                            <ArrowRight className="w-4 h-4" />
                           </Button>
                           <Button
                             onClick={() => {
@@ -1096,7 +1097,7 @@ export default function HomePage() {
                                 window.location.href = persona.secondaryCTALink;
                               }
                             }}
-                            className="px-6 py-4 bg-white/20 backdrop-blur-sm border-2 border-white/50 text-white hover:bg-white/30 hover:border-white/70 hover:scale-105 rounded-xl transition-all duration-300 font-semibold"
+                            className="px-6 py-3 bg-white/20 backdrop-blur-sm border-2 border-white/50 text-white hover:bg-white/30 hover:border-white/70 hover:scale-105 rounded-xl transition-all duration-300 font-semibold"
                           >
                             {persona.secondaryCTA}
                           </Button>
@@ -1104,14 +1105,18 @@ export default function HomePage() {
                       </div>
 
                       {/* Right: Mini Visualization & Supporting Data */}
-                      <div className="order-first lg:order-last space-y-6 lg:pt-32">
-                        <div className="w-full">
+                      <div className="order-first lg:order-last flex flex-col">
+                        {/* Spacer for alignment */}
+                        <div className="hidden lg:block h-28"></div>
+
+                        {/* Mini Visualization */}
+                        <div className="mb-6">
                           {getMiniVisualization(key)}
                         </div>
 
                         {/* Supporting Data Point */}
-                        <div className="p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 h-16 flex items-center">
-                          <p className="text-white/90 font-medium text-sm whitespace-nowrap overflow-hidden text-ellipsis">{persona.supportingData}</p>
+                        <div className="p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                          <p className="text-white/90 font-medium text-sm">{persona.supportingData}</p>
                         </div>
                       </div>
                     </div>
