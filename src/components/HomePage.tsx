@@ -152,28 +152,28 @@ export default function HomePage() {
 
           <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-red-500 to-orange-600 mb-8 shadow-lg shadow-red-500/25">
-                <AlertTriangle className="w-8 h-8 text-white" />
-              </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-gray-900 tracking-tight">
-                Why This
-                <span className="bg-gradient-to-r from-red-600 via-orange-600 to-amber-600 bg-clip-text text-transparent">
-                  {" "}
-                  Matters
-                </span>
-              </h2>
-              <p className="text-xl md:text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed font-medium mb-12">
-                Transparent prices help you save money, avoid surprises, and choose with confidence.
-              </p>
-              
-              <div className="mt-12">
-                <PriceComparisonCTA 
-                  size="lg" 
-                  className="px-10 py-4 text-lg bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white rounded-2xl shadow-lg"
-                >
-                  Start Comparing Prices
-                </PriceComparisonCTA>
-              </div>
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 mb-8 shadow-lg shadow-blue-500/25">
+              <Lightbulb className="w-8 h-8 text-white" />
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-gray-900 tracking-tight">
+              Why This
+              <span className="bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600 bg-clip-text text-transparent">
+                {" "}
+                Matters
+              </span>
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed font-medium mb-12">
+              Transparent prices help you save money, avoid surprises, and choose with confidence.
+            </p>
+
+            <div className="mt-12">
+              <PriceComparisonCTA
+                size="lg"
+                className="px-10 py-4 text-lg bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white rounded-2xl shadow-lg"
+              >
+                Start Comparing Prices
+              </PriceComparisonCTA>
+            </div>
             </div>
           </div>
         </section>
