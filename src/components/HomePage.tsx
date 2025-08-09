@@ -1337,7 +1337,7 @@ export default function HomePage() {
             </div>
 
             {/* Call to Action Strip */}
-            <div className="mt-16 p-8 rounded-3xl bg-gray-100 border-2 border-gray-400 shadow-xl">
+            <div className="hf-card mt-16 p-8 bg-gray-100 border-gray-400">
               <div className="flex flex-col lg:flex-row items-center gap-6">
                 <div className="flex items-center gap-4 flex-1">
                   <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg flex-shrink-0" style={{ background: 'linear-gradient(to bottom right, #14b8a6, #2563eb)' }}>
