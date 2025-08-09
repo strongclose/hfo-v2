@@ -672,7 +672,7 @@ export default function HomePage() {
                         </h4>
                         <div className="space-y-3">
                           {dataSources.map((source, idx) => (
-                            <div key={idx} className="flex items-center justify-between p-3 bg-white rounded-xl border border-blue-100">
+                            <div key={idx} className="hf-card flex items-center justify-between p-3 bg-white border-blue-100">
                               <div>
                                 <p className="font-medium text-gray-900">{source.name}</p>
                                 <p className="text-sm text-gray-600">{source.count}</p>
