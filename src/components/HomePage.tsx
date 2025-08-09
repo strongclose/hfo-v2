@@ -201,7 +201,7 @@ const personas = {
     title: "Payers",
     primaryInsight: "Ensure network competitiveness and meet transparency compliance.",
     primaryNumber: 0, // No specific number for this persona
-    supportingData: "View all in-network, out-of-network, and cash rates in one place.",
+    supportingData: "All network & cash rates in one place.",
     primaryCTA: "Access Payer Data",
     primaryCTALink: "/payer-directory",
     secondaryCTA: "Partner with HFO to Host Your Data",
