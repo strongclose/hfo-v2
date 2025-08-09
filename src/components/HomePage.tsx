@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Hero } from "./Hero";
 import { Navigation } from "./Navigation";
 import { ExploreCompareSection } from "./homepage/ExploreCompareSection";
-import { StateCoverageBanner } from "./homepage/StateCoverageBanner";
 import { FooterExpanded } from "./homepage/FooterExpanded";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
