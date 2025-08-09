@@ -50,17 +50,26 @@ export function GlobalChatbot({
   context = "healthcare",
   style,
 }: GlobalChatbotProps) {
-  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
-    {
-      id: "1",
-      type: "bot",
-      content: initialMessage,
-      timestamp: new Date(),
-    },
-  ]);
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
+  const [isInitialized, setIsInitialized] = useState(false);
   const [chatInput, setChatInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const chatContainerRef = useRef<HTMLDivElement>(null);
+
+  // Initialize chat messages on client side only
+  useEffect(() => {
+    if (!isInitialized) {
+      setChatMessages([
+        {
+          id: "initial",
+          type: "bot",
+          content: initialMessage,
+          timestamp: new Date(),
+        },
+      ]);
+      setIsInitialized(true);
+    }
+  }, [initialMessage, isInitialized]);
 
   // Auto-scroll to bottom when new messages are added
   useEffect(() => {
@@ -70,7 +79,7 @@ export function GlobalChatbot({
     }
   }, [chatMessages]);
 
-  const generateBotResponse = (userMessage: string): ChatMessage => {
+  const generateBotResponse = (userMessage: string, messageCount: number): ChatMessage => {
     const responses = {
       healthcare: [
         "I can help you find pricing for that procedure. Healthcare costs can vary significantly by location and provider. Would you like me to search for specific providers in your area?",
@@ -100,15 +109,16 @@ export function GlobalChatbot({
     };
 
     const contextResponses = responses[context] || responses.general;
-    const randomResponse =
-      contextResponses[Math.floor(Math.random() * contextResponses.length)];
+    // Use deterministic selection based on message count instead of random
+    const responseIndex = messageCount % contextResponses.length;
+    const selectedResponse = contextResponses[responseIndex];
 
-    // Add some result cards for healthcare context
-    const shouldAddCards = context === "healthcare" && Math.random() > 0.5;
+    // Add result cards for healthcare context - deterministic based on message count
+    const shouldAddCards = context === "healthcare" && messageCount % 2 === 0;
     const resultCards = shouldAddCards
       ? [
           {
-            id: "1",
+            id: "card-1",
             hospitalName: "City Medical Center",
             price: "$1,250",
             badge: "Best Value",
@@ -116,7 +126,7 @@ export function GlobalChatbot({
             savings: "40%",
           },
           {
-            id: "2",
+            id: "card-2",
             hospitalName: "Regional Health System",
             price: "$1,890",
             originalPrice: "$2,400",
@@ -126,9 +136,9 @@ export function GlobalChatbot({
       : undefined;
 
     return {
-      id: Date.now().toString(),
+      id: `bot-${messageCount}`,
       type: "bot",
-      content: randomResponse,
+      content: selectedResponse,
       timestamp: new Date(),
       resultCards,
     };
@@ -137,26 +147,30 @@ export function GlobalChatbot({
   const handleSendMessage = () => {
     if (!chatInput.trim()) return;
 
-    const userMessage: ChatMessage = {
-      id: Date.now().toString(),
-      type: "user",
-      content: chatInput,
-      timestamp: new Date(),
-    };
+    setChatMessages((prev) => {
+      const messageCount = prev.length;
+      const userMessage: ChatMessage = {
+        id: `user-${messageCount}`,
+        type: "user",
+        content: chatInput,
+        timestamp: new Date(),
+      };
 
-    setChatMessages((prev) => [...prev, userMessage]);
-    setChatInput("");
-    setIsTyping(true);
+      setChatInput("");
+      setIsTyping(true);
 
-    // Simulate bot response delay
-    setTimeout(
-      () => {
-        const botResponse = generateBotResponse(chatInput);
-        setChatMessages((prev) => [...prev, botResponse]);
-        setIsTyping(false);
-      },
-      1000 + Math.random() * 1000,
-    );
+      // Simulate bot response delay - fixed delay instead of random
+      setTimeout(
+        () => {
+          const botResponse = generateBotResponse(chatInput, messageCount + 1);
+          setChatMessages((prevMessages) => [...prevMessages, botResponse]);
+          setIsTyping(false);
+        },
+        1500, // Fixed 1.5 second delay
+      );
+
+      return [...prev, userMessage];
+    });
   };
 
   const handleChatKeyPress = (e: React.KeyboardEvent) => {
@@ -178,7 +192,7 @@ export function GlobalChatbot({
         {/* Chat Messages Area */}
         <div ref={chatContainerRef} className="p-6 flex-1 overflow-y-auto">
           <div className="space-y-4">
-            {chatMessages.map((message) => (
+            {isInitialized && chatMessages.map((message) => (
               <div key={message.id}>
                 {message.type === "bot" && (
                   <div className="flex gap-3">
