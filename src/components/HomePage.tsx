@@ -1324,7 +1324,7 @@ export default function HomePage() {
                         window.location.href = "/compliance-tool";
                       }
                     }}
-                    variant="accent"
+                    variant="primary"
                   >
                     See How We Can Help
                     <ArrowRight className="w-5 h-5" />
