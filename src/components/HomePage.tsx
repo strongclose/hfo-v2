@@ -1007,7 +1007,11 @@ export default function HomePage() {
         </LazySection>
 
         {/* 6. Who Uses HealthFees.org - Enhanced Persona Insights */}
-        <section className="relative py-24 overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
+        <LazySection
+          className="relative py-24 overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900"
+          minHeight="700px"
+        >
+        <section>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.15),transparent_40%)]"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(147,51,234,0.15),transparent_40%)]"></div>
 
@@ -1135,6 +1139,7 @@ export default function HomePage() {
             ))}
           </div>
         </section>
+        </LazySection>
 
         {/* 7. Transparency Scoring & Compliance Support */}
         <section className="relative py-24 overflow-hidden bg-white">
