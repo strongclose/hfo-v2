@@ -91,18 +91,15 @@ export function Navigation() {
   const navigation = [
     {
       name: "Data Explorer",
-      hasDropdown: false,
-      action: () => (window.location.href = "/search-procedure"),
+      href: "/search-procedure",
     },
     {
       name: "Insights",
-      hasDropdown: false,
-      action: () => (window.location.href = "/insightalytics"),
+      href: "/insights",
     },
     {
       name: "Who We Help",
-      hasDropdown: false,
-      action: () => (window.location.href = "/who-we-help"),
+      href: "/who-we-help",
     },
   ];
 
@@ -165,17 +162,17 @@ export function Navigation() {
         {/* Navigation Menu - Centered on page */}
         <div className="hidden md:flex items-center justify-center space-x-2">
           {navigation.map((item) => (
-            <button
+            <a
               key={item.name}
-              className={`px-6 py-3 font-medium transition-all duration-300 text-base rounded-full hover:scale-105 ${
+              href={item.href}
+              className={`px-6 py-3 font-medium transition-all duration-300 text-base rounded-full hover:scale-105 inline-block ${
                 isScrolled
                   ? "text-gray-600 hover:text-white hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-600/25"
                   : "text-gray-300 hover:text-white hover:bg-white/20 hover:backdrop-blur-sm hover:shadow-lg hover:shadow-white/10"
               }`}
-              onClick={item.action}
             >
               {item.name}
-            </button>
+            </a>
           ))}
         </div>
 
