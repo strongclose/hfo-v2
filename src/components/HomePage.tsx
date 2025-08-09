@@ -980,7 +980,7 @@ export default function HomePage() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 leading-tight">
+                  <h3 className="text-base font-bold text-gray-900 mb-2 leading-tight">
                     {card.title}
                   </h3>
 
