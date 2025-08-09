@@ -45,26 +45,18 @@ export function HeroV2_AIChatbot({
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(20,184,166,0.08),transparent_50%)] motion-safe:animate-pulse motion-safe:animation-duration-[8s]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.06),transparent_50%)] motion-safe:animate-pulse motion-safe:animation-duration-[10s]"></div>
       </div>
-      {/* Large decorative shield in background with magnifying glass */}
-      <div className="absolute top-1/2 right-0 transform translate-x-1/3 -translate-y-1/2 opacity-5 z-0">
+      {/* Subtle decorative elements */}
+      <div className="absolute top-1/2 right-0 transform translate-x-1/4 -translate-y-1/2 opacity-10 z-0">
         <div className="relative">
           <Shield
-            className="w-96 h-96 text-teal-500"
-            strokeWidth={1.5}
-            fill="rgba(20, 184, 166, 0.1)"
+            className="w-64 h-64 text-teal-600"
+            strokeWidth={1}
+            fill="rgba(20, 184, 166, 0.05)"
           />
           <div className="absolute inset-0 flex items-center justify-center">
-            <Search className="w-48 h-48 text-teal-300" strokeWidth={1.5} />
+            <Search className="w-32 h-32 text-blue-600/30" strokeWidth={1} />
           </div>
         </div>
-      </div>
-
-      {/* Heart pulse activity indicator - positioned away from text */}
-      <div className="absolute bottom-1/4 right-1/3 opacity-15 z-0">
-        <Activity
-          className="w-12 h-12 text-teal-400 animate-pulse"
-          strokeWidth={0.5}
-        />
       </div>
 
       {/* Main Content - Centered */}
