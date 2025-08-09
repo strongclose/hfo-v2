@@ -918,7 +918,7 @@ export default function HomePage() {
 
             {/* Call to Action Section */}
             <div className="mt-20 text-center">
-              <div className="p-8 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-3xl border border-blue-200">
+              <div className="hf-card p-8 bg-gradient-to-br from-blue-50 to-indigo-100 border-blue-200">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to see what you'll actually pay?</h3>
                 <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
                   Join thousands of patients who've saved money by comparing healthcare prices before their procedures.
