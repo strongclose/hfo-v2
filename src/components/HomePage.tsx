@@ -451,19 +451,19 @@ export default function HomePage() {
   );
 
   const CompetitivenessMap = () => (
-    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30">
+    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30 w-full">
       <div className="text-sm text-white/80 mb-3">Network Competitiveness</div>
-      <div className="grid grid-cols-3 gap-1">
+      <div className="grid grid-cols-3 gap-2 mb-3">
         {Array.from({ length: 9 }, (_, idx) => (
           <div
             key={idx}
-            className={`h-4 rounded ${
+            className={`h-6 rounded ${
               idx < 3 ? 'bg-green-400' : idx < 6 ? 'bg-yellow-400' : 'bg-red-400'
-            }`}
+            } transition-all duration-300 hover:scale-105`}
           ></div>
         ))}
       </div>
-      <div className="flex justify-between text-xs text-white/70 mt-1">
+      <div className="flex justify-between text-xs text-white/70">
         <span>Competitive</span>
         <span>At Risk</span>
       </div>
