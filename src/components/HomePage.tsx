@@ -574,7 +574,7 @@ export default function HomePage() {
                           </div>
                           
                           <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                            We take trillions of raw data points and transform them into a clean, searchable format that makes sense. No more wading through spreadsheets ��� you can get straight to the answers you need.
+                            We take trillions of raw data points and transform them into a clean, searchable format that makes sense. No more wading through spreadsheets. Now you can get straight to the answers you need.
                           </p>
 
                           {/* Stats Box */}
