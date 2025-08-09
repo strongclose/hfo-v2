@@ -937,19 +937,22 @@ export default function HomePage() {
 
         {/* 4. Who Uses HealthFees.org - Enhanced Persona Insights */}
         <LazySection
-          className="relative py-24 overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-800"
+          className="relative py-24 overflow-hidden bg-white"
           minHeight="700px"
         >
         <section>
+          {/* Standardized subtle background */}
+          <div className="absolute inset-0 hf-gradient-subtle"></div>
+          <div className="absolute inset-0 hf-overlay-secondary"></div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-emerald-500/25 hf-gradient-accent">
                 <Users className="w-8 h-8 text-white" />
               </div>
-              <h2 className="hf-heading-h2 mb-6 text-white tracking-tight">
+              <h2 className="hf-heading-h2 mb-6 hf-text-primary tracking-tight">
                 Who Uses
-                <span className="text-white">
+                <span className="hf-text-gradient-primary">
                   {" "}
                   HealthFees.org
                 </span>
