@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/BaseLayout.astro';
+---
+
+<Layout title="Test Fix - Navigation and Fonts">
+  <div class="min-h-screen bg-white p-8">
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">✅ Next.js Import Errors Fixed</h1>
+    
+    <div class="space-y-4 max-w-2xl">
+      <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+        <h2 class="text-lg font-semibold text-green-900 mb-2">Fixed Issues:</h2>
+        <ul class="text-green-800 space-y-1">
+          <li>• ❌ <code>next/link</code> imports removed</li>
+          <li>• ❌ <code>next-themes</code> dependency removed</li>
+          <li>• ✅ Process environment variables defined</li>
+          <li>• ✅ Anchor tags replacing Link components</li>
+          <li>• ✅ SVG linearGradient casing fixed</li>
+        </ul>
+      </div>
+      
+      <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+        <h2 class="text-lg font-semibold text-blue-900 mb-2">Components Fixed:</h2>
+        <ul class="text-blue-800 space-y-1">
+          <li>• CrossLinkingSection.tsx</li>
+          <li>• TertiaryCTA.tsx</li>
+          <li>• InsightsNavigation.tsx</li>
+          <li>• sonner.tsx (toaster)</li>
+          <li>• Navigation.tsx (SVG gradient)</li>
+        </ul>
+      </div>
+      
+      <div class="mt-8">
+        <a href="/" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+          ← Back to Homepage
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
