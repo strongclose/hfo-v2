@@ -744,160 +744,155 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 4. Verified Data from Providers and Payers - Redesigned */}
-        <section className="relative py-24 overflow-hidden bg-gradient-to-br from-blue-500 via-blue-400 to-blue-300">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(255,255,255,0.1),transparent_60%)]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(20,184,166,0.08),transparent_50%)]"></div>
-
+        {/* 4. Verified Hospital & Insurer Data - Clean Two-Column Layout */}
+        <section className="relative py-20 overflow-hidden bg-gradient-to-b from-blue-50 to-white">
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Left column - Content */}
-              <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-xl border border-white/50">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-teal-500 to-blue-600 flex items-center justify-center shadow-lg">
-                    <Shield className="w-7 h-7 text-white" />
-                  </div>
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
-                    Verified Data from
-                    <span className="bg-gradient-to-r from-teal-600 to-blue-700 bg-clip-text text-transparent">
-                      {" "}
-                      Providers and Payers
-                    </span>
-                  </h2>
-                </div>
+              {/* Left column - Headline, Subhead, Stats */}
+              <div>
+                {/* Headline */}
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight leading-tight">
+                  Verified Hospital &
+                  <span className="text-blue-600"> Insurer Data</span>
+                </h2>
 
-                <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  We collect official hospital and insurer price files directly from provider and payer websites under federal transparency laws, then process and update them every month.
+                {/* Subhead */}
+                <p className="text-lg text-gray-700 leading-relaxed mb-8 max-w-xl">
+                  We collect official hospital and insurer price files directly from provider and payer websites under federal transparency laws, process them, and update monthly.
                 </p>
 
-                <div className="mb-8">
-                  <Tooltip content="Required under the Hospital Price Transparency Final Rule (45 CFR §180) and the Transparency in Coverage Rule.">
-                    <span className="text-sm text-gray-600 underline decoration-gray-300 cursor-help">
-                      Federal transparency mandate compliance
-                    </span>
-                  </Tooltip>
-                </div>
-
-                {/* Stats in horizontal row */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                  <div className="text-center p-4 rounded-xl bg-gradient-to-br from-teal-50 to-blue-50 border border-teal-200">
-                    <div className="flex items-center justify-center gap-1 mb-2">
-                      <p className="text-2xl font-bold text-teal-600">6,000+</p>
-                      <Tooltip content="Data collected directly from official hospital websites as required by law.">
-                        <Info className="w-4 h-4 text-gray-500 cursor-help" />
-                      </Tooltip>
+                {/* Stats Row */}
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-teal-100 flex items-center justify-center">
+                      <Hospital className="w-6 h-6 text-teal-600" />
                     </div>
-                    <p className="text-sm text-gray-700 font-medium">Hospitals</p>
+                    <Tooltip content="Hospital price files we track and update monthly.">
+                      <div className="cursor-help">
+                        <p className="text-2xl font-bold text-gray-900 mb-1">6,000+</p>
+                        <p className="text-sm text-gray-600 font-medium">Hospitals</p>
+                      </div>
+                    </Tooltip>
                   </div>
 
-                  <div className="text-center p-4 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200">
-                    <div className="flex items-center justify-center gap-1 mb-2">
-                      <p className="text-2xl font-bold text-blue-600">400+</p>
-                      <Tooltip content="Data collected directly from official insurer websites as required by law.">
-                        <Info className="w-4 h-4 text-gray-500 cursor-help" />
-                      </Tooltip>
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-blue-100 flex items-center justify-center">
+                      <Shield className="w-6 h-6 text-blue-600" />
                     </div>
-                    <p className="text-sm text-gray-700 font-medium">Insurers</p>
+                    <Tooltip content="Insurer price files we track and update monthly.">
+                      <div className="cursor-help">
+                        <p className="text-2xl font-bold text-gray-900 mb-1">400+</p>
+                        <p className="text-sm text-gray-600 font-medium">Insurers</p>
+                      </div>
+                    </Tooltip>
                   </div>
 
-                  <div className="text-center p-4 rounded-xl bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200">
-                    <div className="flex items-center justify-center gap-1 mb-2">
-                      <p className="text-2xl font-bold text-purple-600">2.4T+</p>
-                      <Tooltip content="Includes in-network, out-of-network, and cash price entries from hospitals and insurers.">
-                        <Info className="w-4 h-4 text-gray-500 cursor-help" />
-                      </Tooltip>
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-purple-100 flex items-center justify-center">
+                      <Database className="w-6 h-6 text-purple-600" />
                     </div>
-                    <p className="text-sm text-gray-700 font-medium">Pricing Records</p>
+                    <Tooltip content="Total number of pricing records processed across providers and payers.">
+                      <div className="cursor-help">
+                        <p className="text-2xl font-bold text-gray-900 mb-1">2.4T+</p>
+                        <p className="text-sm text-gray-600 font-medium">Pricing Records</p>
+                      </div>
+                    </Tooltip>
                   </div>
 
-                  <div className="text-center p-4 rounded-xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200">
-                    <div className="flex items-center justify-center gap-1 mb-2">
-                      <p className="text-2xl font-bold text-emerald-600">Monthly</p>
-                      <Tooltip content="We refresh and process all pricing data every month to keep it current.">
-                        <Info className="w-4 h-4 text-gray-500 cursor-help" />
-                      </Tooltip>
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-emerald-100 flex items-center justify-center">
+                      <Clock className="w-6 h-6 text-emerald-600" />
                     </div>
-                    <p className="text-sm text-gray-700 font-medium">Updates</p>
+                    <Tooltip content="We refresh and reprocess all sources every month.">
+                      <div className="cursor-help">
+                        <p className="text-2xl font-bold text-gray-900 mb-1">Monthly</p>
+                        <p className="text-sm text-gray-600 font-medium">Updates</p>
+                      </div>
+                    </Tooltip>
                   </div>
                 </div>
               </div>
 
-              {/* Right column - Data Pipeline Graphic */}
+              {/* Right column - Horizontal Data Pipeline */}
               <div className="relative">
-                <div className="p-8 rounded-3xl bg-white/90 backdrop-blur-sm border border-white/60 shadow-xl">
-                  <div className="text-center mb-8">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Data Pipeline</h3>
-                    <p className="text-gray-600">Official sources to searchable insights</p>
-                  </div>
-
-                  {/* Pipeline Flow */}
-                  <div className="space-y-6">
-                    {/* Providers + Payers */}
-                    <div className="flex items-center justify-between">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-teal-100 to-blue-100 border border-teal-200">
-                          <div className="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center">
-                            <Hospital className="w-5 h-5 text-white" />
-                          </div>
-                          <div>
-                            <p className="font-semibold text-gray-900 text-sm">Providers</p>
-                            <p className="text-xs text-gray-600">6,000+ Hospitals</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-blue-100 to-indigo-100 border border-blue-200 mt-2">
-                          <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center">
-                            <Shield className="w-5 h-5 text-white" />
-                          </div>
-                          <div>
-                            <p className="font-semibold text-gray-900 text-sm">Payers</p>
-                            <p className="text-xs text-gray-600">400+ Insurers</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Arrow with animated flow */}
-                    <div className="flex justify-center">
-                      <div className="relative">
-                        <ArrowRight className="w-8 h-8 text-gray-400" />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="w-1 h-1 bg-teal-500 rounded-full animate-pulse" style={{ animationDelay: '0s' }} />
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* HealthFees Processing */}
-                    <div className="p-4 rounded-xl bg-gradient-to-r from-purple-100 to-pink-100 border border-purple-200">
-                      <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center">
-                          <Database className="w-5 h-5 text-white" />
+                <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                  {/* Pipeline Flow - Horizontal Layout */}
+                  <div className="space-y-8">
+                    {/* Stage 1: Providers */}
+                    <div className="flex items-center">
+                      <div className="flex items-center gap-4 flex-1">
+                        <div className="w-12 h-12 rounded-full bg-teal-500 flex items-center justify-center">
+                          <Hospital className="w-6 h-6 text-white" />
                         </div>
                         <div>
-                          <p className="font-semibold text-gray-900 text-sm">HealthFees Processing</p>
-                          <p className="text-xs text-gray-600">Clean, validate & standardize</p>
+                          <p className="font-semibold text-gray-900">Providers</p>
+                          <p className="text-sm text-gray-600">6,000+ Hospitals</p>
                         </div>
                       </div>
                     </div>
 
-                    {/* Arrow */}
-                    <div className="flex justify-center">
+                    {/* Flowing Arrow with Animation */}
+                    <div className="flex items-center justify-center">
                       <div className="relative">
-                        <ArrowRight className="w-8 h-8 text-gray-400" />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="w-1 h-1 bg-emerald-500 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
-                        </div>
+                        <div className="w-16 h-0.5 bg-gray-200 rounded"></div>
+                        <div className="absolute top-0 left-0 w-4 h-0.5 bg-teal-500 rounded animate-pulse"></div>
+                        <ArrowRight className="absolute -right-2 -top-2 w-4 h-4 text-teal-500" />
                       </div>
                     </div>
 
-                    {/* Searchable Data */}
-                    <div className="p-4 rounded-xl bg-gradient-to-r from-emerald-100 to-teal-100 border border-emerald-200">
-                      <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center">
-                          <Search className="w-5 h-5 text-white" />
+                    {/* Stage 2: Payers */}
+                    <div className="flex items-center">
+                      <div className="flex items-center gap-4 flex-1">
+                        <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center">
+                          <Shield className="w-6 h-6 text-white" />
                         </div>
                         <div>
-                          <p className="font-semibold text-gray-900 text-sm">Searchable Data</p>
-                          <p className="text-xs text-gray-600">Ready for price comparison</p>
+                          <p className="font-semibold text-gray-900">Payers</p>
+                          <p className="text-sm text-gray-600">400+ Insurers</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Flowing Arrow */}
+                    <div className="flex items-center justify-center">
+                      <div className="relative">
+                        <div className="w-16 h-0.5 bg-gray-200 rounded"></div>
+                        <div className="absolute top-0 left-0 w-4 h-0.5 bg-blue-500 rounded animate-pulse" style={{ animationDelay: '0.3s' }}></div>
+                        <ArrowRight className="absolute -right-2 -top-2 w-4 h-4 text-blue-500" />
+                      </div>
+                    </div>
+
+                    {/* Stage 3: HealthFees Processing */}
+                    <div className="flex items-center">
+                      <div className="flex items-center gap-4 flex-1">
+                        <div className="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center">
+                          <Activity className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-gray-900">HealthFees Processing</p>
+                          <p className="text-sm text-gray-600">Clean, validate & standardize</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Final Arrow */}
+                    <div className="flex items-center justify-center">
+                      <div className="relative">
+                        <div className="w-16 h-0.5 bg-gray-200 rounded"></div>
+                        <div className="absolute top-0 left-0 w-4 h-0.5 bg-purple-500 rounded animate-pulse" style={{ animationDelay: '0.6s' }}></div>
+                        <ArrowRight className="absolute -right-2 -top-2 w-4 h-4 text-purple-500" />
+                      </div>
+                    </div>
+
+                    {/* Stage 4: Searchable Data */}
+                    <div className="flex items-center">
+                      <div className="flex items-center gap-4 flex-1">
+                        <div className="w-12 h-12 rounded-full bg-emerald-500 flex items-center justify-center">
+                          <Search className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-gray-900">Searchable Data</p>
+                          <p className="text-sm text-gray-600">Ready for price comparison</p>
                         </div>
                       </div>
                     </div>
