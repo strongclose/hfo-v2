@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/BaseLayout.astro';
+import { Navigation } from '../components/Navigation';
+import { FooterExpanded } from '../components/homepage/FooterExpanded';
+---
+
+<Layout title="Payer Information - HealthFees.org">
+  <div class="min-h-screen bg-white">
+    <Navigation client:load />
+    
+    <main class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl font-bold text-gray-900 mb-4">Healthcare Payers</h1>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Understanding different types of healthcare payers and how they affect your medical costs.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div class="bg-blue-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4 text-blue-900">Private Insurance</h3>
+            <p class="text-blue-800 mb-4">
+              Health insurance plans offered by private companies, often through employers 
+              or purchased individually.
+            </p>
+            <ul class="text-blue-700 text-sm space-y-1">
+              <li>• Employer-sponsored plans</li>
+              <li>• Individual marketplace plans</li>
+              <li>• Short-term health insurance</li>
+            </ul>
+          </div>
+          
+          <div class="bg-green-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4 text-green-900">Medicare</h3>
+            <p class="text-green-800 mb-4">
+              Federal health insurance program primarily for people 65 and older, 
+              and some younger people with disabilities.
+            </p>
+            <ul class="text-green-700 text-sm space-y-1">
+              <li>• Part A: Hospital insurance</li>
+              <li>• Part B: Medical insurance</li>
+              <li>• Part C: Medicare Advantage</li>
+              <li>• Part D: Prescription drugs</li>
+            </ul>
+          </div>
+          
+          <div class="bg-purple-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4 text-purple-900">Medicaid</h3>
+            <p class="text-purple-800 mb-4">
+              State and federal program providing health coverage for eligible 
+              low-income individuals and families.
+            </p>
+            <ul class="text-purple-700 text-sm space-y-1">
+              <li>• Income-based eligibility</li>
+              <li>• State-specific programs</li>
+              <li>• CHIP for children</li>
+            </ul>
+          </div>
+          
+          <div class="bg-orange-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4 text-orange-900">Self-Pay/Cash</h3>
+            <p class="text-orange-800 mb-4">
+              Paying for healthcare services directly without insurance, 
+              often at discounted cash rates.
+            </p>
+            <ul class="text-orange-700 text-sm space-y-1">
+              <li>• Direct pay arrangements</li>
+              <li>• Cash discount programs</li>
+              <li>• Uninsured options</li>
+            </ul>
+          </div>
+          
+          <div class="bg-teal-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4 text-teal-900">Health Savings Accounts</h3>
+            <p class="text-teal-800 mb-4">
+              Tax-advantaged accounts used with high-deductible health plans 
+              to pay for medical expenses.
+            </p>
+            <ul class="text-teal-700 text-sm space-y-1">
+              <li>• Triple tax advantage</li>
+              <li>• Rollover funds annually</li>
+              <li>• Investment options</li>
+            </ul>
+          </div>
+          
+          <div class="bg-red-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4 text-red-900">Other Programs</h3>
+            <p class="text-red-800 mb-4">
+              Specialized healthcare coverage programs for specific populations 
+              and circumstances.
+            </p>
+            <ul class="text-red-700 text-sm space-y-1">
+              <li>• TRICARE (Military)</li>
+              <li>• Veterans Affairs</li>
+              <li>• Workers' compensation</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-gray-50 rounded-lg p-8 mb-8">
+          <h2 class="text-2xl font-semibold mb-6">How Payer Type Affects Costs</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white rounded-lg p-6">
+              <h3 class="text-lg font-semibold mb-3">Negotiated Rates</h3>
+              <p class="text-gray-700">
+                Insurance companies negotiate specific rates with healthcare providers. 
+                These negotiated rates are often different from standard "list prices" 
+                and can vary significantly between insurers.
+              </p>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6">
+              <h3 class="text-lg font-semibold mb-3">Out-of-Pocket Costs</h3>
+              <p class="text-gray-700">
+                Your actual cost depends on your specific plan's deductible, 
+                copayments, coinsurance, and whether the provider is in your 
+                insurance network.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center">
+          <h2 class="text-2xl font-semibold mb-4">Compare Costs by Payer Type</h2>
+          <p class="text-gray-600 mb-6">
+            See how different payer types affect the cost of common procedures.
+          </p>
+          <a href="/compare-prices" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors inline-block">
+            Compare Payer Costs
+          </a>
+        </div>
+      </div>
+    </main>
+    
+    <FooterExpanded client:load />
+  </div>
+</Layout>
