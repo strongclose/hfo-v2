@@ -76,7 +76,7 @@ const monthlyProcessingStatus = [
   {
     stage: "Search Indexing",
     progress: 45,
-    tooltip: "Preparing the cleaned, standardized data so it's fast and easy to search on HealthFees.org.",
+    tooltip: "Preparing the cleaned, standardized data so it's fast and easy to search on HFO.",
     isSearchIndexing: true
   }
 ];
