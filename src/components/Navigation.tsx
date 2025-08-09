@@ -168,7 +168,7 @@ export function Navigation() {
               className={`px-6 py-3 font-medium transition-all duration-300 text-base rounded-full hover:scale-105 inline-block ${
                 isScrolled
                   ? "text-gray-600 hover:text-white hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-600/25"
-                  : "text-gray-300 hover:text-white hover:bg-white/20 hover:backdrop-blur-sm hover:shadow-lg hover:shadow-white/10"
+                  : "text-white hover:text-white hover:bg-white/20 hover:backdrop-blur-sm hover:shadow-lg hover:shadow-white/10"
               }`}
             >
               {item.name}
