@@ -9,6 +9,17 @@ export default defineConfig({
   ],
   server: {
     port: 4321,
-    host: true
+    host: '0.0.0.0'
+  },
+  devToolbar: {
+    enabled: false
+  },
+  vite: {
+    server: {
+      hmr: {
+        port: 4321,
+        host: '0.0.0.0'
+      }
+    }
   }
 });
