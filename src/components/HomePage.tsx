@@ -1277,7 +1277,7 @@ export default function HomePage() {
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full" style={{ backgroundColor: '#14b8a6' }}></div>
+                        <div className="w-5 h-5 rounded-full" style={{ backgroundColor: '#10b981' }}></div>
                         <span className="text-gray-900 font-bold text-lg">Fully Compliant</span>
                       </div>
                       <span className="text-gray-900 font-semibold text-lg">45%</span>
@@ -1291,7 +1291,7 @@ export default function HomePage() {
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full" style={{ backgroundColor: '#9ca3af' }}></div>
+                        <div className="w-5 h-5 rounded-full" style={{ backgroundColor: '#6b7280' }}></div>
                         <span className="text-gray-900 font-medium text-base">Non Compliant</span>
                       </div>
                       <span className="text-gray-900 font-semibold text-lg">20%</span>
