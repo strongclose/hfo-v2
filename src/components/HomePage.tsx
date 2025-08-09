@@ -521,7 +521,7 @@ export default function HomePage() {
                 For decades, healthcare pricing was kept secret. Providers could charge anything, and patients only found out the cost after receiving care—sometimes leading to financial devastation.
               </p>
               
-              <div className="mt-8 p-8 rounded-3xl bg-gradient-to-br from-white/80 to-blue-50/80 backdrop-blur-xl border border-white/40 shadow-xl shadow-black/5 max-w-4xl mx-auto">
+              <div className="hf-card-glass mt-8 p-8 bg-gradient-to-br from-white/80 to-blue-50/80 backdrop-blur-xl max-w-4xl mx-auto">
                 <div className="flex items-start gap-4 mb-6">
                   <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'linear-gradient(to bottom right, #3b82f6, #0891b2)' }}>
                     <CheckCircle className="w-6 h-6 text-white" />
