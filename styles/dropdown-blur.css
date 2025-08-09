@@ -1,0 +1,53 @@
+/* Dropdown menus with working backdrop-filter */
+.dropdown-blur {
+  /* Critical: Position and stacking for backdrop-filter to work */
+  position: relative;
+  z-index: 1000;
+  isolation: isolate;
+
+  /* Backdrop blur effect */
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+
+  /* Background and border matching nav */
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+
+  /* Shadow matching nav depth */
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+
+  /* Ensure content behind is available for blur */
+  transform: translateZ(0);
+}
+
+/* Alternative blur implementation using pseudo-element */
+.dropdown-blur::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: inherit;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Force backdrop filter on supported browsers */
+@supports (backdrop-filter: blur(12px)) {
+  .dropdown-blur {
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not (backdrop-filter: blur(12px)) {
+  .dropdown-blur {
+    background-color: rgba(3, 27, 78, 0.85) !important;
+  }
+}
