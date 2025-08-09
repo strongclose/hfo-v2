@@ -1048,11 +1048,11 @@ export default function HomePage() {
 
                       {/* Left: Primary Content */}
                       <div className="space-y-8">
-                        <div className="text-center lg:text-left">
-                          <div className={`w-24 h-24 mx-auto lg:mx-0 rounded-full bg-gradient-to-br ${persona.bgColor} flex items-center justify-center mb-6 shadow-xl`}>
+                        <div className="flex items-center gap-6 mb-6">
+                          <div className={`w-24 h-24 rounded-full bg-gradient-to-br ${persona.bgColor} flex items-center justify-center shadow-xl flex-shrink-0`}>
                             <persona.icon className="w-12 h-12 text-white" />
                           </div>
-                          <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">{persona.title}</h3>
+                          <h3 className="text-3xl md:text-4xl font-bold text-white">{persona.title}</h3>
                         </div>
 
                         {/* Primary Insight with Animated Number */}
