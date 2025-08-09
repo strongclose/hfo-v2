@@ -386,7 +386,7 @@ export default function HomePage() {
                             </Tooltip>
                           </div>
                           
-                          <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                          <div className="text-lg text-gray-700 leading-relaxed mb-6">
                             <Tooltip content="The Hospital Price Transparency Final Rule (45 CFR ����180) requires hospitals to publish machine-readable files with all their negotiated rates.">
                               <span className="underline decoration-blue-300 decoration-2 cursor-help">Federal law</span>
                             </Tooltip>
@@ -395,7 +395,7 @@ export default function HomePage() {
                               <span className="underline decoration-blue-300 decoration-2 cursor-help">machine-readable files</span>
                             </Tooltip>
                             {" "}so you don't have to.
-                          </p>
+                          </div>
 
                           {/* Stats Box */}
                           <div className="inline-flex items-center gap-6 p-4 bg-blue-50 rounded-2xl border border-blue-200">
