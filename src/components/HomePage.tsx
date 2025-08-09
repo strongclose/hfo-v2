@@ -247,19 +247,11 @@ export default function HomePage() {
                 <div className="h-full bg-gradient-to-b from-blue-700 via-purple-700 to-emerald-700 rounded-full shadow-lg">
                   {/* Animated flow dots */}
                   <div className="absolute inset-0 overflow-hidden">
-                    {[...Array(5)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="absolute w-2 h-2 bg-white rounded-full shadow-sm animate-pulse"
-                        style={{
-                          left: '50%',
-                          transform: 'translateX(-50%)',
-                          top: `${20 + i * 15}%`,
-                          animationDelay: `${i * 0.3}s`,
-                          animationDuration: '2s'
-                        }}
-                      />
-                    ))}
+                    <div className="absolute w-2 h-2 bg-white rounded-full shadow-sm animate-pulse" style={{ left: '50%', transform: 'translateX(-50%)', top: '20%', animationDelay: '0s', animationDuration: '2s' }} />
+                    <div className="absolute w-2 h-2 bg-white rounded-full shadow-sm animate-pulse" style={{ left: '50%', transform: 'translateX(-50%)', top: '35%', animationDelay: '0.3s', animationDuration: '2s' }} />
+                    <div className="absolute w-2 h-2 bg-white rounded-full shadow-sm animate-pulse" style={{ left: '50%', transform: 'translateX(-50%)', top: '50%', animationDelay: '0.6s', animationDuration: '2s' }} />
+                    <div className="absolute w-2 h-2 bg-white rounded-full shadow-sm animate-pulse" style={{ left: '50%', transform: 'translateX(-50%)', top: '65%', animationDelay: '0.9s', animationDuration: '2s' }} />
+                    <div className="absolute w-2 h-2 bg-white rounded-full shadow-sm animate-pulse" style={{ left: '50%', transform: 'translateX(-50%)', top: '80%', animationDelay: '1.2s', animationDuration: '2s' }} />
                   </div>
                 </div>
               </div>
@@ -297,7 +289,7 @@ export default function HomePage() {
                           </div>
                           
                           <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                            <Tooltip content="The Hospital Price Transparency Final Rule (45 CFR §180) requires hospitals to publish machine-readable files with all their negotiated rates.">
+                            <Tooltip content="The Hospital Price Transparency Final Rule (45 CFR ��180) requires hospitals to publish machine-readable files with all their negotiated rates.">
                               <span className="underline decoration-blue-300 decoration-2 cursor-help">Federal law</span>
                             </Tooltip>
                             {" "}requires hospitals and insurers to publish their real prices under the Hospital Price Transparency Final Rule and the Transparency in Coverage Rule. We automatically monitor thousands of these{" "}
@@ -436,7 +428,7 @@ export default function HomePage() {
                           </div>
                           
                           <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                            We take trillions of raw data points and transform them into a clean, searchable format that makes sense. No more wading through spreadsheets — you can get straight to the answers you need.
+                            We take trillions of raw data points and transform them into a clean, searchable format that makes sense. No more wading through spreadsheets ��� you can get straight to the answers you need.
                           </p>
 
                           {/* Stats Box */}
@@ -564,7 +556,7 @@ export default function HomePage() {
                           ))}
                         </div>
                         <div className="mt-4 p-3 bg-emerald-100 rounded-xl">
-                          <p className="text-sm text-emerald-800 font-semibold">��� You could save $2,900 by choosing Hospital A</p>
+                          <p className="text-sm text-emerald-800 font-semibold">💡 You could save $2,900 by choosing Hospital A</p>
                         </div>
                       </div>
                     </div>
@@ -661,16 +653,15 @@ export default function HomePage() {
                       <Globe className="w-32 h-32 text-white/30" />
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="grid grid-cols-3 gap-2">
-                          {[...Array(9)].map((_, i) => (
-                            <div 
-                              key={i}
-                              className="w-3 h-3 bg-teal-400 rounded-full animate-pulse"
-                              style={{
-                                animationDelay: `${i * 0.2}s`,
-                                animationDuration: '2s'
-                              }}
-                            />
-                          ))}
+                          <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse" style={{ animationDelay: '0s', animationDuration: '2s' }} />
+                          <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s', animationDuration: '2s' }} />
+                          <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse" style={{ animationDelay: '0.4s', animationDuration: '2s' }} />
+                          <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse" style={{ animationDelay: '0.6s', animationDuration: '2s' }} />
+                          <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse" style={{ animationDelay: '0.8s', animationDuration: '2s' }} />
+                          <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse" style={{ animationDelay: '1.0s', animationDuration: '2s' }} />
+                          <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse" style={{ animationDelay: '1.2s', animationDuration: '2s' }} />
+                          <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse" style={{ animationDelay: '1.4s', animationDuration: '2s' }} />
+                          <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse" style={{ animationDelay: '1.6s', animationDuration: '2s' }} />
                         </div>
                       </div>
                     </div>
