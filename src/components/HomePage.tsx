@@ -157,7 +157,7 @@ export default function HomePage() {
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-gray-900 tracking-tight">
               Why This
-              <span className="bg-gradient-to-r from-blue-700 via-cyan-700 to-teal-700 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-900 via-blue-800 to-teal-800 bg-clip-text text-transparent">
                 {" "}
                 Matters
               </span>
@@ -184,7 +184,7 @@ export default function HomePage() {
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 tracking-tight">
                 How It
-                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-900 via-purple-800 to-teal-800 bg-clip-text text-transparent">
                   {" "}
                   Works
                 </span>
@@ -263,7 +263,7 @@ export default function HomePage() {
                   </div>
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
                     Where Our Data
-                    <span className="bg-gradient-to-r from-teal-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-teal-800 via-blue-800 to-cyan-800 bg-clip-text text-transparent">
                       {" "}
                       Comes From
                     </span>
@@ -343,7 +343,7 @@ export default function HomePage() {
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 text-gray-900 tracking-tight">
                 Explore
-                <span className="bg-gradient-to-r from-blue-800 via-blue-700 to-blue-900 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 bg-clip-text text-transparent">
                   {" "}
                   HealthFees.org
                 </span>
@@ -534,7 +534,7 @@ export default function HomePage() {
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 tracking-tight">
                 What the Data
-                <span className="bg-gradient-to-r from-rose-600 via-orange-600 to-amber-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-rose-800 via-orange-800 to-amber-800 bg-clip-text text-transparent">
                   {" "}
                   Reveals
                 </span>
