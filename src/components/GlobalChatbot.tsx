@@ -315,7 +315,7 @@ export function GlobalChatbot({
                   onChange={(e) => setChatInput(e.target.value)}
                   onKeyPress={handleChatKeyPress}
                   placeholder={placeholder}
-                  className="w-full bg-white/25 border-2 border-teal-400/60 text-white placeholder-white rounded-xl px-4 h-12 focus:border-teal-400 focus:ring-0 transition-all duration-300"
+                  className="w-full bg-white/25 border-2 border-teal-400/60 text-white placeholder-white rounded-xl px-4 py-3 focus:border-teal-400 focus:ring-0 transition-all duration-300"
                   style={{
                     background: "rgba(255, 255, 255, 0.25)",
                     backdropFilter: "blur(10px)",
