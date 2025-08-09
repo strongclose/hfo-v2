@@ -48,11 +48,31 @@ const dataSources = [
   { name: "Federal Compliance Data", status: "Monitoring", count: "Daily" }
 ];
 
-const processingSteps = [
-  { step: "Raw Data Ingestion", progress: 100, color: "bg-green-500" },
-  { step: "Cleaning & Validation", progress: 100, color: "bg-blue-700" },
-  { step: "Standardization", progress: 100, color: "bg-purple-700" },
-  { step: "Search Indexing", progress: 85, color: "bg-orange-500" }
+const monthlyProcessingStatus = [
+  {
+    stage: "Price File Collection",
+    progress: 92,
+    tooltip: "Gathering hospital and insurer machine-readable files from required transparency postings.",
+    isSearchIndexing: false
+  },
+  {
+    stage: "Data Cleaning & Validation",
+    progress: 78,
+    tooltip: "Checking for errors, missing values, and formatting issues to ensure accuracy.",
+    isSearchIndexing: false
+  },
+  {
+    stage: "Rate Standardization",
+    progress: 65,
+    tooltip: "Converting different file formats and structures into a consistent, comparable dataset.",
+    isSearchIndexing: false
+  },
+  {
+    stage: "Search Indexing",
+    progress: 45,
+    tooltip: "Preparing the cleaned, standardized data so it's fast and easy to search on HealthFees.org.",
+    isSearchIndexing: true
+  }
 ];
 
 const priceComparison = [
@@ -470,25 +490,65 @@ export default function HomePage() {
                     {/* Left Visual */}
                     <div className="lg:pr-16 mb-12 lg:mb-0">
                       <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 border border-purple-200">
-                        <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <h4 className="text-lg font-semibold text-gray-900 mb-2 flex items-center gap-2">
                           <Brain className="w-5 h-5 text-purple-600" />
-                          Data Processing Pipeline
+                          Current Monthly Data Processing Status
                         </h4>
-                        <div className="space-y-4">
-                          {processingSteps.map((item, idx) => (
-                            <div key={idx}>
-                              <div className="flex justify-between items-center mb-2">
-                                <span className="text-sm font-medium text-gray-700">{item.step}</span>
-                                <span className="text-sm text-gray-500">{item.progress}%</span>
+                        <p className="text-sm text-gray-600 mb-6">The percentage shows how far along we are in preparing this month's update.</p>
+
+                        <div className="space-y-5">
+                          {monthlyProcessingStatus.map((stage, idx) => (
+                            <div key={idx} className="group">
+                              {/* Mobile: Label above bar */}
+                              <div className="flex items-center justify-between mb-2 sm:hidden">
+                                <div className="flex items-center gap-2">
+                                  <span className="text-sm font-medium text-gray-800">{stage.stage}</span>
+                                  <Tooltip content={stage.tooltip}>
+                                    <Info className="w-3 h-3 text-gray-500 cursor-help" />
+                                  </Tooltip>
+                                </div>
+                                <span className="text-sm font-semibold text-gray-700">{stage.progress}%</span>
                               </div>
-                              <div className="w-full bg-gray-200 rounded-full h-2">
-                                <div 
-                                  className={`h-2 rounded-full ${item.color} transition-all duration-1000`}
-                                  style={{ width: `${item.progress}%` }}
+
+                              {/* Desktop: Label inline with bar */}
+                              <div className="hidden sm:flex items-center justify-between mb-2">
+                                <div className="flex items-center gap-2 min-w-0 flex-1">
+                                  <span className="text-sm font-medium text-gray-800 truncate">{stage.stage}</span>
+                                  <Tooltip content={stage.tooltip}>
+                                    <Info className="w-4 h-4 text-gray-500 cursor-help flex-shrink-0" />
+                                  </Tooltip>
+                                </div>
+                                <span className="text-sm font-semibold text-gray-700 ml-4">{stage.progress}%</span>
+                              </div>
+
+                              {/* Progress Bar */}
+                              <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                                <div
+                                  className={`h-full rounded-full transition-all duration-1000 ease-out ${
+                                    stage.isSearchIndexing
+                                      ? 'bg-gradient-to-r from-orange-500 to-orange-600'
+                                      : 'bg-gradient-to-r from-teal-500 to-blue-600'
+                                  }`}
+                                  style={{
+                                    width: `${stage.progress}%`,
+                                    boxShadow: stage.isSearchIndexing
+                                      ? '0 1px 3px rgba(251, 146, 60, 0.4)'
+                                      : '0 1px 3px rgba(20, 184, 166, 0.4)'
+                                  }}
                                 ></div>
                               </div>
                             </div>
                           ))}
+                        </div>
+
+                        {/* Progress Summary */}
+                        <div className="mt-6 pt-4 border-t border-purple-200">
+                          <div className="flex items-center justify-between text-xs text-gray-600">
+                            <span>Overall Progress</span>
+                            <span className="font-semibold">
+                              {Math.round(monthlyProcessingStatus.reduce((acc, stage) => acc + stage.progress, 0) / monthlyProcessingStatus.length)}% Complete
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
