@@ -1055,7 +1055,7 @@ export default function HomePage() {
                           <div className="w-20 h-20 rounded-full flex items-center justify-center shadow-xl flex-shrink-0" style={{ background: `linear-gradient(to bottom right, ${persona.bgColor === 'from-blue-500 to-cyan-500' ? '#3b82f6, #06b6d4' : persona.bgColor === 'from-blue-400 to-indigo-500' ? '#60a5fa, #6366f1' : persona.bgColor === 'from-emerald-400 to-teal-500' ? '#34d399, #14b8a6' : persona.bgColor === 'from-purple-400 to-violet-500' ? '#a78bfa, #8b5cf6' : '#22d3ee, #3b82f6'})` }}>
                             <persona.icon className="w-10 h-10 text-white" />
                           </div>
-                          <h3 className="text-2xl lg:text-3xl font-bold text-white">{persona.title}</h3>
+                          <h3 className="text-xl lg:text-2xl font-bold text-white">{persona.title}</h3>
                         </div>
 
                         {/* Primary Insight with Animated Number */}
