@@ -666,7 +666,7 @@ export default function HomePage() {
                     {/* Right Visual - Mobile shows above, Desktop shows right */}
                     <div className="order-first lg:order-last lg:pl-16 mb-12 lg:mb-0">
                       <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-8 border border-blue-200">
-                        <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <h4 className="text-base font-semibold text-gray-900 mb-4 flex items-center gap-2">
                           <FileText className="w-5 h-5 text-blue-600" />
                           Live Data Sources
                         </h4>
