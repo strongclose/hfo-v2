@@ -131,17 +131,42 @@
   --text-gradient-primary: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
   --text-gradient-accent: linear-gradient(135deg, #14b8a6 0%, #3b82f6 100%);
 
-  /* Text sizes */
+  /* Standardized Typography Scale */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
   --text-lg: 1.125rem;
   --text-xl: 1.25rem;
   --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+  --text-8xl: 6rem;
+  --text-9xl: 8rem;
+
+  /* Heading Hierarchy */
+  --heading-h1: 4rem;      /* 64px - Hero only */
+  --heading-h2: 2.5rem;    /* 40px - Section headers */
+  --heading-h3: 1.875rem;  /* 30px - Subsections */
+  --heading-h4: 1.25rem;   /* 20px - Cards/components */
+  --heading-h5: 1.125rem;  /* 18px - Small headings */
+  --heading-h6: 1rem;      /* 16px - Captions */
 
   /* Font weights */
   --font-weight-normal: 400;
   --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Line Heights */
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
 }
 
 .dark {
