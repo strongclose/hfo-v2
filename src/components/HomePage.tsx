@@ -827,7 +827,7 @@ export default function HomePage() {
                     {/* Right Visual */}
                     <div className="order-first lg:order-last lg:pl-16 mb-12 lg:mb-0">
                       <div className="hf-card p-8 border-emerald-200" style={{ background: 'rgba(16, 185, 129, 0.05)' }}>
-                        <h4 className="text-base font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <h4 className="hf-heading-h4 hf-text-primary mb-4 flex items-center gap-2">
                           <BarChart3 className="w-5 h-5 text-emerald-600" />
                           Price Comparison Example
                         </h4>
@@ -841,8 +841,8 @@ export default function HomePage() {
                               <div className="flex items-center gap-3">
                                 {item.best && <span className="text-emerald-600 font-bold text-sm">BEST VALUE</span>}
                                 <div>
-                                  <p className="font-medium text-gray-900">{item.provider}</p>
-                                  <p className="text-sm text-gray-600">{item.type} Price</p>
+                                  <p className="hf-heading-h6 hf-text-primary">{item.provider}</p>
+                                  <p className="text-sm hf-text-muted">{item.type} Price</p>
                                 </div>
                               </div>
                               <div className={`text-lg font-bold ${item.best ? 'text-emerald-700' : 'text-gray-700'}`}>
