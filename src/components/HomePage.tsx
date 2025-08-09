@@ -174,7 +174,25 @@ export default function HomePage() {
                   </div>
                   <h3 className="text-xl font-bold mb-4 text-white text-center">Federal Requirements</h3>
                   <p className="text-gray-200 text-center leading-relaxed">
-                    Hospitals must publish machine-readable files with all negotiated rates. Insurance companies must disclose in-network and out-of-network pricing.
+                    Hospitals must publish machine-readable files with all negotiated rates (
+                    <a
+                      href="https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-E/part-180"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-teal-300 hover:text-teal-200 underline"
+                    >
+                      45 CFR §180
+                    </a>
+                    ), and insurance companies must disclose in-network and out-of-network pricing (
+                    <a
+                      href="https://www.cms.gov/healthplan-price-transparency"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-teal-300 hover:text-teal-200 underline"
+                    >
+                      Transparency in Coverage Rule
+                    </a>
+                    ).
                   </p>
                 </div>
               </div>
