@@ -1127,7 +1127,245 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 7. What the Data Reveals - Enhanced with animated counters */}
+        {/* 7. Transparency Scoring & Compliance Support */}
+        <section className="relative py-24 overflow-hidden bg-gradient-to-br from-blue-50 via-teal-50 to-cyan-50">
+          {/* Subtle shield watermark */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(20,184,166,0.08),transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(59,130,246,0.06),transparent_50%)]"></div>
+
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Section Header */}
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-teal-500 to-blue-600 mb-8 shadow-lg shadow-teal-500/25">
+                <Shield className="w-8 h-8 text-white" />
+              </div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 tracking-tight">
+                Transparency Scoring
+                <span className="bg-gradient-to-r from-teal-900 to-blue-800 bg-clip-text text-transparent">
+                  {" "}
+                  & Compliance Support
+                </span>
+              </h2>
+              <p className="text-xl md:text-2xl text-gray-800 max-w-5xl mx-auto leading-relaxed">
+                Recognizing leaders and supporting progress — we measure every provider and payer's transparency and help them achieve full compliance.
+              </p>
+            </div>
+
+            {/* Main Content Grid */}
+            <div className="grid lg:grid-cols-2 gap-12 mb-16">
+
+              {/* Left Column - Leaderboard Snapshot */}
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+                  <TrendingUp className="w-6 h-6 text-teal-600" />
+                  Top Transparency Leaders
+                </h3>
+
+                <div className="space-y-4 mb-8">
+                  {/* Leaderboard Cards */}
+                  <div className="p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-500 flex items-center justify-center shadow-lg">
+                          <CheckCircle className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <span className="font-bold text-gray-900">Provider A</span>
+                            <div className="px-2 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-800">Gold</div>
+                          </div>
+                          <div className="text-sm text-gray-600">Transparency Certified</div>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-2xl font-bold text-gray-900">98</div>
+                        <div className="text-sm text-gray-600">/100</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gray-400 to-gray-500 flex items-center justify-center shadow-lg">
+                          <CheckCircle className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <span className="font-bold text-gray-900">Payer B</span>
+                            <div className="px-2 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-800">Silver</div>
+                          </div>
+                          <div className="text-sm text-gray-600">Healthcare Insurer</div>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-2xl font-bold text-gray-900">95</div>
+                        <div className="text-sm text-gray-600">/100</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-600 to-orange-500 flex items-center justify-center shadow-lg">
+                          <CheckCircle className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <span className="font-bold text-gray-900">Provider C</span>
+                            <div className="px-2 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800">Bronze</div>
+                          </div>
+                          <div className="text-sm text-gray-600">Regional Medical Center</div>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-2xl font-bold text-gray-900">92</div>
+                        <div className="text-sm text-gray-600">/100</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <Button
+                  onClick={() => {
+                    if (typeof window !== 'undefined') {
+                      window.location.href = "/transparency-scores";
+                    }
+                  }}
+                  className="w-full px-6 py-3 bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  View Full Scores
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </div>
+
+              {/* Right Column - Score Distribution Chart */}
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+                  <PieChart className="w-6 h-6 text-blue-600" />
+                  Compliance Across the Industry
+                </h3>
+
+                {/* Donut Chart */}
+                <div className="p-8 rounded-2xl bg-white/80 backdrop-blur-sm border border-white/50 shadow-lg mb-6">
+                  <div className="flex items-center justify-center mb-6">
+                    <div className="relative w-48 h-48">
+                      <svg className="w-48 h-48 transform -rotate-90" viewBox="0 0 100 100">
+                        {/* Background circle */}
+                        <circle cx="50" cy="50" r="35" fill="transparent" stroke="#f3f4f6" strokeWidth="8"/>
+                        {/* Fully Compliant - 45% */}
+                        <circle cx="50" cy="50" r="35" fill="transparent" stroke="#14b8a6" strokeWidth="8"
+                                strokeDasharray="63 157" strokeLinecap="round"/>
+                        {/* Partially Compliant - 35% */}
+                        <circle cx="50" cy="50" r="35" fill="transparent" stroke="#3b82f6" strokeWidth="8"
+                                strokeDasharray="49 171" strokeDashoffset="-63" strokeLinecap="round"/>
+                        {/* Non Compliant - 20% */}
+                        <circle cx="50" cy="50" r="35" fill="transparent" stroke="#9ca3af" strokeWidth="8"
+                                strokeDasharray="28 192" strokeDashoffset="-112" strokeLinecap="round"/>
+                      </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-gray-900">6,400+</div>
+                          <div className="text-sm text-gray-600">Entities Scored</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Legend */}
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-4 h-4 rounded-full bg-teal-500"></div>
+                        <span className="text-gray-800 font-medium">Fully Compliant</span>
+                      </div>
+                      <span className="text-gray-900 font-bold">45%</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-4 h-4 rounded-full bg-blue-500"></div>
+                        <span className="text-gray-800 font-medium">Partially Compliant</span>
+                      </div>
+                      <span className="text-gray-900 font-bold">35%</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-4 h-4 rounded-full bg-gray-400"></div>
+                        <span className="text-gray-800 font-medium">Non Compliant</span>
+                      </div>
+                      <span className="text-gray-900 font-bold">20%</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Support Box */}
+                <div className="p-6 rounded-2xl bg-gradient-to-br from-teal-50 to-blue-50 border border-teal-200 mb-6">
+                  <h4 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
+                    <Lightbulb className="w-5 h-5 text-teal-600" />
+                    Our Support
+                  </h4>
+                  <p className="text-gray-800 leading-relaxed mb-4">
+                    We provide guidance, tools, and remediation services to help all entities reach 100% compliance.
+                  </p>
+                  <Button
+                    onClick={() => {
+                      if (typeof window !== 'undefined') {
+                        window.location.href = "/compliance-tool";
+                      }
+                    }}
+                    className="px-6 py-3 bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    See How We Can Help
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            {/* Call to Action Strip */}
+            <div className="p-8 rounded-3xl bg-gradient-to-r from-white/80 to-blue-50/80 backdrop-blur-xl border border-white/40 shadow-xl">
+              <div className="flex flex-col lg:flex-row items-center gap-6">
+                <div className="flex items-center gap-4 flex-1">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-teal-500 to-blue-600 flex items-center justify-center shadow-lg flex-shrink-0">
+                    <Shield className="w-8 h-8 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-lg md:text-xl text-gray-900 font-semibold leading-relaxed">
+                      Check your Transparency Score or request compliance support to join the leaders in healthcare transparency.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0">
+                  <Button
+                    onClick={() => {
+                      if (typeof window !== 'undefined') {
+                        window.location.href = "/compliance-tool";
+                      }
+                    }}
+                    className="px-8 py-4 bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    Check Your Score
+                  </Button>
+                  <Button
+                    onClick={() => {
+                      if (typeof window !== 'undefined') {
+                        window.location.href = "/contact";
+                      }
+                    }}
+                    variant="outline"
+                    className="px-8 py-4 border-2 border-teal-600 text-teal-600 hover:bg-teal-50 font-semibold rounded-xl transition-all duration-300"
+                  >
+                    Request Support
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 8. What the Data Reveals - Enhanced with animated counters */}
         <section className="relative py-24 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-blue-50/60 to-cyan-50/50"></div>
 
