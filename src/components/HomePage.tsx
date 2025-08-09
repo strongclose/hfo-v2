@@ -1476,7 +1476,7 @@ export default function HomePage() {
                 Every search helps build a more transparent healthcare system. Share HealthFees.org with others so they can make informed decisions too.
               </p>
 
-              <div className="mb-12 flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="mb-10 flex flex-col sm:flex-row gap-4 justify-center">
                 <PriceComparisonCTA
                   size="xl"
                   variant="accent"
