@@ -300,7 +300,22 @@ export default function HomePage() {
               ].map((feature, index) => (
                 <div key={index} className="group relative">
                   <div className="relative p-8 rounded-3xl bg-white backdrop-blur-xl border border-gray-200/50 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105">
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <div
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300"
+                      style={{
+                        background: feature.title === "AI Healthcare Assistant"
+                          ? "linear-gradient(135deg, #9333ea, #db2777)"
+                          : feature.title === "Price Comparison Tool"
+                          ? "linear-gradient(135deg, #3b82f6, #06b6d4)"
+                          : feature.title === "Market Analytics"
+                          ? "linear-gradient(135deg, #10b981, #14b8a6)"
+                          : feature.title === "Provider Directory"
+                          ? "linear-gradient(135deg, #f97316, #ef4444)"
+                          : feature.title === "Insurance Navigator"
+                          ? "linear-gradient(135deg, #6366f1, #a855f7)"
+                          : "linear-gradient(135deg, #eab308, #f97316)"
+                      }}
+                    >
                       <feature.icon className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-xl font-bold mb-4 text-gray-900 text-center group-hover:text-blue-600 transition-colors duration-300">
