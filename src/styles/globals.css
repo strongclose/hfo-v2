@@ -130,20 +130,69 @@
     text-transform: uppercase;
   }
 
-  /* Ask AI Button - Enhanced Contrast */
+  /* Ask AI Button - Enhanced Contrast with Rolling Gradient */
   .ask-ai-button {
     height: 36px; /* Match input height h-9 */
     background: #14f195 !important; /* Bright teal */
     border: 2px solid #ffffff !important; /* White border */
     box-shadow: 0 4px 12px rgba(20, 241, 149, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important; /* Glowing shadow */
-    color: #000000 !important; /* Black text for maximum contrast */
     font-weight: 600 !important; /* Bolder text */
+
+    /* Rolling gradient text effect */
+    background: linear-gradient(
+      45deg,
+      #ffffff,
+      #f0f9ff,
+      #14b8a6,
+      #0d9488,
+      #ffffff
+    ) !important;
+    background-size: 300% 300% !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    animation: ask-ai-gradient 4s ease-in-out infinite !important;
+    filter: drop-shadow(0 1px 2px rgba(20, 184, 166, 0.3)) !important;
+
+    /* Fallback background for the button itself */
+    position: relative !important;
+  }
+
+  .ask-ai-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #14f195 !important;
+    border-radius: inherit;
+    z-index: -1;
   }
 
   .ask-ai-button:hover {
-    background: #0dd180 !important;
     box-shadow: 0 6px 16px rgba(20, 241, 149, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
     transform: translateY(-1px) !important; /* Slight lift effect */
+    animation-duration: 2s !important; /* Faster animation on hover */
+  }
+
+  .ask-ai-button:hover::before {
+    background: #0dd180 !important;
+  }
+
+  @keyframes ask-ai-gradient {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 100% 50%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    75% {
+      background-position: 0% 100%;
+    }
   }
 
   /* Hero Motion Effects */
