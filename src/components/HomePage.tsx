@@ -361,7 +361,7 @@ export default function HomePage() {
                 {/* Step 1: We Collect */}
                 <div className="relative">
                   {/* Timeline Node */}
-                  <div className="hidden lg:block absolute left-1/2 top-24 w-8 h-8 bg-blue-800 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10">
+                  <div className="hidden lg:block absolute left-1/2 top-24 w-8 h-8 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10" style={{ backgroundColor: '#1e40af' }}>
                   </div>
 
                   {/* Content Grid */}
@@ -372,7 +372,7 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-end mb-8">
                           <div className="relative">
-                            <div className="w-24 h-24 bg-gradient-to-br from-blue-800 to-cyan-800 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300">
+                            <div className="w-24 h-24 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300" style={{ background: 'linear-gradient(to bottom right, #1e40af, #0891b2)' }}>
                               <Database className="w-12 h-12 text-white fill-current" />
                             </div>
                           </div>
@@ -462,7 +462,7 @@ export default function HomePage() {
                 {/* Step 2: We Organize */}
                 <div className="relative">
                   {/* Timeline Node */}
-                  <div className="hidden lg:block absolute left-1/2 top-24 w-8 h-8 bg-purple-800 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10">
+                  <div className="hidden lg:block absolute left-1/2 top-24 w-8 h-8 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10" style={{ backgroundColor: '#6b21a8' }}>
                   </div>
 
                   {/* Content Grid - Reversed */}
@@ -499,7 +499,7 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-start mb-8">
                           <div className="relative">
-                            <div className="w-24 h-24 bg-gradient-to-br from-purple-800 to-pink-800 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300">
+                            <div className="w-24 h-24 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300" style={{ background: 'linear-gradient(to bottom right, #6b21a8, #be185d)' }}>
                               <Sparkles className="w-12 h-12 text-white fill-current" />
                             </div>
                           </div>
@@ -553,7 +553,7 @@ export default function HomePage() {
                 {/* Step 3: You Compare */}
                 <div className="relative">
                   {/* Timeline Node */}
-                  <div className="hidden lg:block absolute left-1/2 top-24 w-8 h-8 bg-emerald-800 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10">
+                  <div className="hidden lg:block absolute left-1/2 top-24 w-8 h-8 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10" style={{ backgroundColor: '#065f46' }}>
                   </div>
 
                   {/* Content Grid */}
@@ -564,7 +564,7 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-end mb-8">
                           <div className="relative">
-                            <div className="w-24 h-24 bg-gradient-to-br from-emerald-800 to-teal-800 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300">
+                            <div className="w-24 h-24 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300" style={{ background: 'linear-gradient(to bottom right, #065f46, #0f766e)' }}>
                               <Search className="w-12 h-12 text-white fill-current" />
                             </div>
                           </div>
