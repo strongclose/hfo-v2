@@ -112,6 +112,22 @@ export function HeroV2_AIChatbot({
             className="max-w-4xl"
           />
         </NoSSR>
+
+        {/* Primary CTA */}
+        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <button
+            onClick={() => {
+              if (typeof window !== 'undefined') {
+                window.location.href = '/search-procedure';
+              }
+            }}
+            className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl shadow-lg hover:from-blue-700 hover:to-indigo-700 hover:scale-105 transition-all duration-300 flex items-center gap-2"
+          >
+            Start Comparing Prices
+            <ArrowRight className="w-5 h-5" />
+          </button>
+          <p className="text-white/80 text-sm">Or ask our AI above for instant answers</p>
+        </div>
       </div>
     </div>
   );
