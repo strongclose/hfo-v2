@@ -1365,7 +1365,7 @@ export default function HomePage() {
                         window.location.href = "/contact";
                       }
                     }}
-                    variant="outline"
+                    variant="secondary"
                     size="lg"
                   >
                     Request Support
