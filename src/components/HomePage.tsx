@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Hero } from "./Hero";
 import { Navigation } from "./Navigation";
 import { ExploreCompareSection } from "./homepage/ExploreCompareSection";
@@ -40,6 +40,10 @@ import {
   ExternalLink,
   Sparkles,
   Clock,
+  Briefcase,
+  Heart,
+  CreditCard,
+  TrendingDown as TrendingDownIcon,
 } from "lucide-react";
 
 const dataSources = [
