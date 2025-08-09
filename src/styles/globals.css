@@ -145,6 +145,193 @@
     box-shadow: 0 6px 16px rgba(20, 241, 149, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
     transform: translateY(-1px) !important; /* Slight lift effect */
   }
+
+  /* Hero Motion Effects */
+  .hero-animated-bg {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Intelligent Word Gradient Effect */
+  .intelligent-gradient-text {
+    background: linear-gradient(
+      45deg,
+      #14b8a6,
+      #06b6d4,
+      #3b82f6,
+      #8b5cf6,
+      #14b8a6
+    );
+    background-size: 300% 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: intelligent-gradient 6s ease-in-out infinite;
+    filter: drop-shadow(0 1px 2px rgba(20, 184, 166, 0.3));
+  }
+
+  @keyframes intelligent-gradient {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 100% 50%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    75% {
+      background-position: 0% 100%;
+    }
+  }
+
+  /* Floating Gradient Orbs */
+  .floating-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.15;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  .floating-orb-1 {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #14b8a6, #06b6d4);
+    top: 20%;
+    left: 15%;
+    animation: float-1 12s infinite;
+  }
+
+  .floating-orb-2 {
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, #3b82f6, #8b5cf6);
+    top: 60%;
+    right: 20%;
+    animation: float-2 15s infinite;
+  }
+
+  .floating-orb-3 {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #06b6d4, #14b8a6);
+    bottom: 30%;
+    left: 70%;
+    animation: float-3 18s infinite;
+  }
+
+  @keyframes float-1 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(30px, -20px) scale(1.1); }
+  }
+
+  @keyframes float-2 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-25px, 15px) scale(0.9); }
+  }
+
+  @keyframes float-3 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(20px, -30px) scale(1.2); }
+  }
+
+  /* Data Particles */
+  .data-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .data-particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #14b8a6;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: particle-drift 20s linear infinite;
+  }
+
+  .data-particle-1 { top: 10%; left: 10%; animation-delay: 0s; }
+  .data-particle-2 { top: 20%; left: 80%; animation-delay: -2s; }
+  .data-particle-3 { top: 30%; left: 30%; animation-delay: -4s; }
+  .data-particle-4 { top: 50%; left: 70%; animation-delay: -6s; }
+  .data-particle-5 { top: 70%; left: 20%; animation-delay: -8s; }
+  .data-particle-6 { top: 80%; left: 90%; animation-delay: -10s; }
+  .data-particle-7 { top: 15%; left: 60%; animation-delay: -12s; }
+  .data-particle-8 { top: 40%; left: 85%; animation-delay: -14s; }
+  .data-particle-9 { top: 60%; left: 15%; animation-delay: -16s; }
+  .data-particle-10 { top: 85%; left: 45%; animation-delay: -18s; }
+  .data-particle-11 { top: 25%; left: 50%; animation-delay: -3s; }
+  .data-particle-12 { top: 75%; left: 65%; animation-delay: -7s; }
+
+  @keyframes particle-drift {
+    0% {
+      transform: translateY(0) translateX(0);
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-10px) translateX(5px);
+      opacity: 0.4;
+    }
+  }
+
+  /* Subtle Grid Overlay */
+  .grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    background-image:
+      linear-gradient(rgba(20, 184, 166, 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(20, 184, 166, 0.3) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: grid-pulse 8s ease-in-out infinite;
+  }
+
+  @keyframes grid-pulse {
+    0%, 100% { opacity: 0.03; }
+    50% { opacity: 0.06; }
+  }
+
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    .intelligent-gradient-text {
+      animation: none;
+      background: #14b8a6;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .floating-orb,
+    .data-particle,
+    .grid-overlay {
+      animation: none;
+    }
+
+    .floating-orb {
+      opacity: 0.08;
+    }
+
+    .data-particle {
+      opacity: 0.3;
+    }
+
+    .grid-overlay {
+      opacity: 0.02;
+    }
+  }
 }
 
 /* Falling confetti animation */
