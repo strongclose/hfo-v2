@@ -5,6 +5,7 @@ import { ExploreCompareSection } from "./homepage/ExploreCompareSection";
 import { FooterExpanded } from "./homepage/FooterExpanded";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
+import { LazySection } from "./LazySection";
 import {
   ChevronRight,
   Search,
