@@ -522,7 +522,7 @@ export default function HomePage() {
                 For decades, healthcare pricing was kept secret. Providers could charge anything, and patients only found out the cost after receiving care—sometimes leading to financial devastation.
               </p>
               
-              <div className="hf-card-glass mt-8 p-8 bg-gradient-to-br from-white/80 to-blue-50/80 backdrop-blur-xl max-w-4xl mx-auto">
+              <div className="hf-card-glass mt-8 p-8 backdrop-blur-xl max-w-4xl mx-auto" style={{ background: 'rgba(255, 255, 255, 0.8)' }}>
                 <div className="flex items-start gap-4 mb-6">
                   <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'linear-gradient(to bottom right, #3b82f6, #0891b2)' }}>
                     <CheckCircle className="w-6 h-6 text-white" />
@@ -671,7 +671,7 @@ export default function HomePage() {
 
                     {/* Right Visual - Mobile shows above, Desktop shows right */}
                     <div className="order-first lg:order-last lg:pl-16 mb-12 lg:mb-0">
-                      <div className="hf-card bg-gradient-to-br from-blue-50 to-cyan-50 p-8 border-blue-200">
+                      <div className="hf-card p-8 border-blue-200" style={{ background: 'rgba(59, 130, 246, 0.05)' }}>
                         <h4 className="text-base font-semibold text-gray-900 mb-4 flex items-center gap-2">
                           <FileText className="w-5 h-5 text-blue-600" />
                           Live Data Sources
@@ -705,7 +705,7 @@ export default function HomePage() {
                   <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
                     {/* Left Visual */}
                     <div className="lg:pr-16 mb-12 lg:mb-0">
-                      <div className="hf-card bg-gradient-to-br from-purple-50 to-pink-50 p-8 border-purple-200">
+                      <div className="hf-card p-8 border-blue-200" style={{ background: 'rgba(59, 130, 246, 0.05)' }}>
                         <h4 className="text-base font-semibold text-gray-900 mb-2 flex items-center gap-2">
                           <Brain className="w-5 h-5 text-purple-600" />
                           Current Monthly Data Processing Status
@@ -865,7 +865,7 @@ export default function HomePage() {
                           </p>
 
                           {/* Highlighted Benefit */}
-                          <div className="p-6 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl border border-emerald-200 mb-6">
+                          <div className="p-6 rounded-2xl border border-emerald-200 mb-6" style={{ background: 'rgba(16, 185, 129, 0.1)' }}>
                             <div className="flex items-center justify-center lg:justify-end gap-2 mb-3">
                               <TrendingDown className="w-6 h-6 text-emerald-600" />
                               <span className="text-2xl font-bold text-emerald-700">$3,200</span>
@@ -880,7 +880,7 @@ export default function HomePage() {
 
                     {/* Right Visual */}
                     <div className="order-first lg:order-last lg:pl-16 mb-12 lg:mb-0">
-                      <div className="hf-card bg-gradient-to-br from-emerald-50 to-teal-50 p-8 border-emerald-200">
+                      <div className="hf-card p-8 border-emerald-200" style={{ background: 'rgba(16, 185, 129, 0.05)' }}>
                         <h4 className="text-base font-semibold text-gray-900 mb-4 flex items-center gap-2">
                           <BarChart3 className="w-5 h-5 text-emerald-600" />
                           Price Comparison Example
@@ -917,7 +917,7 @@ export default function HomePage() {
 
             {/* Call to Action Section */}
             <div className="mt-20 text-center">
-              <div className="hf-card p-8 bg-gradient-to-br from-blue-50 to-indigo-100 border-blue-200">
+              <div className="hf-card p-8 border-blue-200" style={{ background: 'rgba(59, 130, 246, 0.05)' }}>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to see what you'll actually pay?</h3>
                 <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
                   Join thousands of patients who've saved money by comparing healthcare prices before their procedures.
@@ -1005,7 +1005,7 @@ export default function HomePage() {
 
         {/* 6. Who Uses HealthFees.org - Enhanced Persona Insights */}
         <LazySection
-          className="relative py-24 overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900"
+          className="relative py-24 overflow-hidden"
           minHeight="700px"
         >
         <section>
@@ -1390,7 +1390,7 @@ export default function HomePage() {
           minHeight="500px"
         >
         <section>
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-blue-50/60 to-cyan-50/50"></div>
+          <div className="absolute inset-0 hf-gradient-subtle"></div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
