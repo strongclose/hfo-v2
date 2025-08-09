@@ -429,19 +429,20 @@ export default function HomePage() {
   );
 
   const BenchmarkChart = () => (
-    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30">
+    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30 w-full">
       <div className="text-sm text-white/80 mb-3">Rate Comparison</div>
-      <div className="space-y-2">
+      <div className="space-y-3">
         {[
           { label: "Your Rate", value: 75, color: "bg-purple-400" },
           { label: "Market Avg", value: 60, color: "bg-blue-400" },
           { label: "Competitor", value: 45, color: "bg-gray-400" }
         ].map((item, idx) => (
-          <div key={idx} className="flex items-center gap-2">
-            <span className="text-xs text-white/70 w-16">{item.label}</span>
-            <div className="flex-1 h-3 bg-white/20 rounded">
-              <div className={`h-full ${item.color} rounded`} style={{ width: `${item.value}%` }}></div>
+          <div key={idx} className="flex items-center gap-3">
+            <span className="text-xs text-white/70 w-20 flex-shrink-0">{item.label}</span>
+            <div className="flex-1 h-3 bg-white/20 rounded-full">
+              <div className={`h-full ${item.color} rounded-full transition-all duration-500`} style={{ width: `${item.value}%` }}></div>
             </div>
+            <span className="text-xs text-white/70 w-8 text-right">{item.value}%</span>
           </div>
         ))}
       </div>
@@ -573,7 +574,7 @@ export default function HomePage() {
                 </span>
               </h2>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                From scattered government files to instant price comparisons ��� here's how we make healthcare pricing transparent.
+                From scattered government files to instant price comparisons — here's how we make healthcare pricing transparent.
               </p>
             </div>
 
