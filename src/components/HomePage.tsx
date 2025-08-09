@@ -935,7 +935,389 @@ export default function HomePage() {
         </section>
         </LazySection>
 
-        {/* 5. Explore HealthFees.org - 8-Card Action Grid */}
+        {/* 4. Who Uses HealthFees.org - Enhanced Persona Insights */}
+        <LazySection
+          className="relative py-24 overflow-hidden"
+          minHeight="700px"
+          style={{ background: 'linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #4338ca 100%)' }}
+        >
+        <section>
+          <div className="absolute inset-0 hf-overlay-primary"></div>
+          <div className="absolute inset-0 hf-overlay-secondary"></div>
+
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-emerald-500/25 hf-gradient-accent">
+                <Users className="w-8 h-8 text-white" />
+              </div>
+              <h2 className="hf-heading-h2 mb-6 text-white tracking-tight">
+                Who Uses
+                <span className="text-white">
+                  {" "}
+                  HealthFees.org
+                </span>
+              </h2>
+            </div>
+
+            {/* Enhanced Persona Tabs */}
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              {Object.entries(personas).map(([key, persona]) => (
+                <button
+                  key={key}
+                  onClick={() => setActivePersona(key)}
+                  className={`px-8 py-4 rounded-full font-semibold transition-all duration-500 flex items-center gap-3 ${
+                    activePersona === key
+                      ? `bg-gradient-to-r ${persona.bgColor} text-white shadow-xl scale-105`
+                      : 'bg-white/20 text-white border border-white/30 hover:bg-white/30 hover:scale-105'
+                  }`}
+                >
+                  <persona.icon className="w-5 h-5" />
+                  {persona.title}
+                </button>
+              ))}
+            </div>
+
+            {/* Enhanced Active Persona Content */}
+            {Object.entries(personas).map(([key, persona]) => (
+              <div
+                key={key}
+                className={`transition-all duration-500 ${activePersona === key ? 'block opacity-100' : 'hidden opacity-0'}`}
+              >
+                <div className="max-w-6xl mx-auto">
+                  <div className={`relative p-8 md:p-12 rounded-3xl bg-gradient-to-br ${persona.bgColor} bg-opacity-20 backdrop-blur-xl border border-white/20 shadow-2xl`}>
+
+                    {/* Hero Content Grid */}
+                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+
+                      {/* Left: Primary Content */}
+                      <div className="flex flex-col h-full">
+                        {/* Header */}
+                        <div className="flex items-center gap-6 mb-8">
+                          <div className="w-20 h-20 rounded-full flex items-center justify-center shadow-xl flex-shrink-0" style={{ background: `linear-gradient(to bottom right, ${persona.bgColor === 'from-blue-500 to-cyan-500' ? '#3b82f6, #06b6d4' : persona.bgColor === 'from-blue-400 to-indigo-500' ? '#60a5fa, #6366f1' : persona.bgColor === 'from-emerald-400 to-teal-500' ? '#34d399, #14b8a6' : persona.bgColor === 'from-purple-400 to-violet-500' ? '#a78bfa, #8b5cf6' : '#22d3ee, #3b82f6'})` }}>
+                            <persona.icon className="w-10 h-10 text-white" />
+                          </div>
+                          <h3 className="hf-heading-h3 text-white">{persona.title}</h3>
+                        </div>
+
+                        {/* Primary Insight with Animated Number */}
+                        <div className="p-6 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/30 mb-8 flex-grow">
+                          <p className="text-base font-semibold text-emerald-300 mb-3">Primary Insight</p>
+                          <div className="hf-body-medium text-white">
+                            {persona.primaryNumber > 0 ? (
+                              persona.title === "Patients & Families" ? (
+                                <>Save an average of <span className="text-2xl font-bold text-emerald-400">${animatedNumber.toLocaleString()}</span> per procedure by comparing prices before care.</>
+                              ) : persona.title === "Researchers & Analysts" ? (
+                                <>Uncover price variations of up to <span className="text-2xl font-bold text-blue-400">{animatedNumber}%</span> for the same procedure.</>
+                              ) : persona.title === "Healthcare Employers" ? (
+                                <>Reduce benefits spend by steering employees toward cost-effective care.</>
+                              ) : (
+                                persona.primaryInsight
+                              )
+                            ) : (
+                              persona.primaryInsight
+                            )}
+                          </div>
+                        </div>
+
+                        {/* CTAs */}
+                        <div className="flex flex-col gap-3">
+                          <Button
+                            onClick={() => {
+                              if (typeof window !== 'undefined') {
+                                window.location.href = persona.primaryCTALink;
+                              }
+                            }}
+                            variant="secondary"
+                            size="lg"
+                          >
+                            {persona.primaryCTA}
+                            <ArrowRight className="w-4 h-4" />
+                          </Button>
+                          <Button
+                            onClick={() => {
+                              if (typeof window !== 'undefined') {
+                                window.location.href = persona.secondaryCTALink;
+                              }
+                            }}
+                            variant="glass"
+                            size="lg"
+                          >
+                            {persona.secondaryCTA}
+                          </Button>
+                        </div>
+                      </div>
+
+                      {/* Right: Mini Visualization & Supporting Data */}
+                      <div className="order-first lg:order-last flex flex-col">
+                        {/* Spacer for alignment */}
+                        <div className="hidden lg:block h-28"></div>
+
+                        {/* Mini Visualization */}
+                        <div className="mb-6">
+                          {getMiniVisualization(key)}
+                        </div>
+
+                        {/* Supporting Data Point */}
+                        <div className="p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                          <p className="text-white/90 font-medium text-sm">{persona.supportingData}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+        </LazySection>
+
+        {/* 5. Transparency Scoring & Compliance Support */}
+        <LazySection
+          className="relative py-24 overflow-hidden bg-white"
+          minHeight="800px"
+        >
+        <section>
+          {/* Subtle accent elements */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(20,184,166,0.03),transparent_70%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(59,130,246,0.03),transparent_70%)]"></div>
+
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Section Header */}
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-teal-500/25 hf-gradient-accent">
+                <Shield className="w-8 h-8 text-white" />
+              </div>
+              <h2 className="hf-heading-h2 mb-6 hf-text-primary tracking-tight">
+                Transparency Scoring
+                <span className="text-teal-700">
+                  {" "}
+                  & Compliance Support
+                </span>
+              </h2>
+              <p className="hf-body-large hf-text-primary max-w-5xl mx-auto font-medium">
+                Recognizing leaders and supporting progress — we measure every provider and payer's transparency and help them achieve full compliance.
+              </p>
+            </div>
+
+            {/* Main Content Grid */}
+            <div className="grid lg:grid-cols-2 gap-12 mb-12">
+
+              {/* Left Column - Leaderboard Snapshot */}
+              <div>
+                <h3 className="hf-heading-h3 hf-text-primary mb-8 flex items-center gap-3">
+                  <TrendingUp className="w-6 h-6 text-teal-600" />
+                  Top Transparency Leaders
+                </h3>
+
+                <div className="space-y-4 mb-8">
+                  {/* Leaderboard Cards */}
+                  <div className="hf-card p-6">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg bg-gradient-to-br from-yellow-400 to-yellow-500">
+                          <CheckCircle className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <span className="hf-heading-h6 hf-text-primary">Provider A</span>
+                            <div className="px-3 py-1 rounded-full text-sm font-semibold bg-yellow-200 text-yellow-900">Gold</div>
+                          </div>
+                          <div className="text-sm text-gray-700 font-medium">Transparency Certified</div>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-3xl font-bold text-gray-900">98</div>
+                        <div className="text-sm text-gray-700 font-medium">/100</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="hf-card p-6">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg bg-gradient-to-br from-gray-400 to-gray-500">
+                          <CheckCircle className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <span className="hf-heading-h6 hf-text-primary">Payer B</span>
+                            <div className="px-3 py-1 rounded-full text-sm font-semibold bg-gray-200 text-gray-900">Silver</div>
+                          </div>
+                          <div className="text-sm text-gray-700 font-medium">Healthcare Insurer</div>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-3xl font-bold text-gray-900">95</div>
+                        <div className="text-sm text-gray-700 font-medium">/100</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="hf-card p-6">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg bg-gradient-to-br from-orange-600 to-orange-500">
+                          <CheckCircle className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <span className="hf-heading-h6 hf-text-primary">Provider C</span>
+                            <div className="px-3 py-1 rounded-full text-sm font-semibold bg-amber-200 text-amber-900">Bronze</div>
+                          </div>
+                          <div className="text-sm text-gray-700 font-medium">Regional Medical Center</div>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-3xl font-bold text-gray-900">92</div>
+                        <div className="text-sm text-gray-700 font-medium">/100</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <Button
+                  onClick={() => {
+                    if (typeof window !== 'undefined') {
+                      window.location.href = "/transparency-scores";
+                    }
+                  }}
+                  variant="secondary"
+                  size="lg"
+                  className="w-full"
+                >
+                  View Transparency Scores
+                  <ArrowRight className="w-5 h-5" />
+                </Button>
+              </div>
+
+              {/* Right Column - Score Distribution Chart */}
+              <div>
+                <h3 className="hf-heading-h3 hf-text-primary mb-8 flex items-center gap-3">
+                  <PieChart className="w-6 h-6 text-blue-600" />
+                  Compliance Across the Industry
+                </h3>
+
+                {/* Donut Chart */}
+                <div className="hf-card p-8 mb-6">
+                  <div className="flex items-center justify-center mb-6">
+                    <div className="relative w-48 h-48">
+                      <svg className="w-48 h-48 transform -rotate-90" viewBox="0 0 100 100">
+                        {/* Background circle */}
+                        <circle cx="50" cy="50" r="35" fill="transparent" stroke="#e5e7eb" strokeWidth="8"/>
+                        {/* Fully Compliant - 45% */}
+                        <circle cx="50" cy="50" r="35" fill="transparent" stroke="#10b981" strokeWidth="8"
+                                strokeDasharray="63 157" strokeLinecap="round"/>
+                        {/* Partially Compliant - 35% */}
+                        <circle cx="50" cy="50" r="35" fill="transparent" stroke="#3b82f6" strokeWidth="8"
+                                strokeDasharray="49 171" strokeDashoffset="-63" strokeLinecap="round"/>
+                        {/* Non Compliant - 20% */}
+                        <circle cx="50" cy="50" r="35" fill="transparent" stroke="#6b7280" strokeWidth="8"
+                                strokeDasharray="28 192" strokeDashoffset="-112" strokeLinecap="round"/>
+                      </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-gray-900">6,400+</div>
+                          <div className="text-sm text-gray-700 font-medium">Entities Scored</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Legend */}
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-5 h-5 rounded-full bg-emerald-500"></div>
+                        <span className="text-gray-900 font-bold text-lg">Fully Compliant</span>
+                      </div>
+                      <span className="text-gray-900 font-semibold text-lg">45%</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-5 h-5 rounded-full bg-blue-500"></div>
+                        <span className="text-gray-900 font-medium text-base">Partially Compliant</span>
+                      </div>
+                      <span className="text-gray-900 font-semibold text-lg">35%</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-5 h-5 rounded-full bg-gray-500"></div>
+                        <span className="text-gray-900 font-medium text-base">Non Compliant</span>
+                      </div>
+                      <span className="text-gray-900 font-semibold text-lg">20%</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Support Box */}
+                <div className="hf-card p-6 mb-6 border-teal-300">
+                  <h4 className="hf-heading-h4 hf-text-primary mb-3 flex items-center gap-2">
+                    <Lightbulb className="w-5 h-5 text-teal-600" />
+                    Our Support
+                  </h4>
+                  <p className="hf-text-primary mb-4 font-medium">
+                    We provide guidance, tools, and remediation services to help all entities reach 100% compliance.
+                  </p>
+                  <Button
+                    onClick={() => {
+                      if (typeof window !== 'undefined') {
+                        window.location.href = "/compliance-tool";
+                      }
+                    }}
+                    variant="secondary"
+                  >
+                    Get Compliance Help
+                    <ArrowRight className="w-5 h-5" />
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            {/* Call to Action Strip */}
+            <div className="hf-card mt-16 p-8 bg-gray-100 border-gray-400">
+              <div className="flex flex-col lg:flex-row items-center gap-6">
+                <div className="flex items-center gap-4 flex-1">
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg flex-shrink-0 hf-gradient-accent">
+                    <Shield className="w-8 h-8 text-white" />
+                  </div>
+                  <div>
+                    <p className="hf-body-medium hf-text-primary font-semibold">
+                      Check your Transparency Score or request compliance support to join the leaders in healthcare transparency.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0">
+                  <Button
+                    onClick={() => {
+                      if (typeof window !== 'undefined') {
+                        window.location.href = "/compliance-tool";
+                      }
+                    }}
+                    variant="secondary"
+                    size="lg"
+                  >
+                    Check Your Score
+                  </Button>
+                  <Button
+                    onClick={() => {
+                      if (typeof window !== 'undefined') {
+                        window.location.href = "/contact";
+                      }
+                    }}
+                    variant="secondary"
+                    size="lg"
+                  >
+                    Request Support
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        </LazySection>
+
+        {/* 6. Explore HealthFees.org - 8-Card Action Grid */}
         <LazySection
           className="relative py-24 overflow-hidden bg-gradient-to-b from-white to-blue-50"
           minHeight="600px"
