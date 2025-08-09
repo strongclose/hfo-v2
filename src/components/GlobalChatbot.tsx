@@ -186,8 +186,9 @@ export function GlobalChatbot({
                       <span className="text-white text-sm font-bold">✨</span>
                     </div>
                     <div className="flex-1">
-                      <div className="bg-white/60 backdrop-blur-sm rounded-2xl rounded-tl-md py-4 px-3 border border-white/20">
-                        <div className="text-sm leading-relaxed text-gray-800">
+
+                      <div className="bg-white/20 backdrop-blur-sm rounded-2xl rounded-tl-md py-4 px-3 border border-white/10">
+                        <div className="text-sm leading-relaxed text-white">
                           <p
                             className="text-justify break-words whitespace-normal hyphens-auto"
                             style={{
