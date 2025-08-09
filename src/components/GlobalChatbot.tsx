@@ -327,8 +327,9 @@ export function GlobalChatbot({
                 variant="secondary"
                 onClick={handleSendMessage}
                 disabled={!chatInput.trim() || isTyping}
-                className="transition-all duration-300 hover:scale-105 px-6 h-9"
+                className="transition-all duration-300 hover:scale-105 px-6"
                 style={{
+                  height: '2.25rem', // h-9 equivalent to match input
                   opacity: 1,
                   filter:
                     !chatInput.trim() || isTyping ? "grayscale(20%)" : "none",
