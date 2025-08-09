@@ -113,7 +113,7 @@ export default function HomePage() {
                   Matters
                 </span>
               </h2>
-              <p className="text-xl md:text-2xl text-gray-700 max-w-5xl mx-auto leading-relaxed font-light mb-8">
+              <p className="text-xl md:text-2xl text-gray-800 max-w-5xl mx-auto leading-relaxed font-medium mb-8">
                 For decades, healthcare pricing was kept secret. Hospitals could charge anything, and patients only found out the cost after receiving care—sometimes leading to financial devastation.
               </p>
               <div className="mt-8 p-8 rounded-3xl bg-gradient-to-br from-white/80 to-blue-50/80 backdrop-blur-xl border border-white/40 shadow-xl shadow-black/5 max-w-4xl mx-auto">
@@ -123,7 +123,7 @@ export default function HomePage() {
                   </div>
                   <div className="text-left">
                     <p className="text-lg text-gray-800 font-semibold mb-2">Federal Law Changed Everything</p>
-                    <p className="text-gray-700">
+                    <p className="text-gray-800">
                       New transparency regulations require hospitals and insurers to publish their real negotiated rates. But the data is scattered across thousands of files and websites.
                     </p>
                   </div>
