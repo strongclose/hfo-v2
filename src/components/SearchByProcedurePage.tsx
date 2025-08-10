@@ -1087,7 +1087,7 @@ export function SearchByProcedurePage({
                         <label className="block text-xs font-medium text-gray-700 mb-2">
                           Coverage Type
                         </label>
-                        <div className="space-y-2">
+                        <div className="flex flex-wrap gap-3">
                           <label className="flex items-center cursor-pointer">
                             <input
                               type="radio"
@@ -1096,8 +1096,8 @@ export function SearchByProcedurePage({
                               onChange={(e) => setCoverageType(e.target.value)}
                               className="w-3 h-3 text-blue-600 border-gray-300 focus:ring-blue-500 focus:ring-1"
                             />
-                            <span className="ml-2 text-xs text-gray-700">
-                              Cash Pay
+                            <span className="ml-1 text-xs text-gray-700">
+                              Cash
                             </span>
                           </label>
                           <label className="flex items-center cursor-pointer">
@@ -1108,8 +1108,8 @@ export function SearchByProcedurePage({
                               onChange={(e) => setCoverageType(e.target.value)}
                               className="w-3 h-3 text-blue-600 border-gray-300 focus:ring-blue-500 focus:ring-1"
                             />
-                            <span className="ml-2 text-xs text-gray-700">
-                              In-Network
+                            <span className="ml-1 text-xs text-gray-700">
+                              In-Net
                             </span>
                           </label>
                           <label className="flex items-center cursor-pointer">
@@ -1120,8 +1120,8 @@ export function SearchByProcedurePage({
                               onChange={(e) => setCoverageType(e.target.value)}
                               className="w-3 h-3 text-blue-600 border-gray-300 focus:ring-blue-500 focus:ring-1"
                             />
-                            <span className="ml-2 text-xs text-gray-700">
-                              Out-of-Network
+                            <span className="ml-1 text-xs text-gray-700">
+                              Out-Net
                             </span>
                           </label>
                         </div>
