@@ -873,34 +873,26 @@ export function SearchByProcedurePage({
                         </div>
                       </div>
 
-                      {/* Row B - Two-Column Anchored Layout */}
+                      {/* Row B - Refined Two-Column Layout */}
                       <div className="bg-gradient-to-r from-blue-50 to-indigo-50 px-5 py-4 mx-5">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                          {/* Provider Column */}
+                          {/* Provider Price Column */}
                           <div className="flex flex-col space-y-3">
                             <h4 className="text-sm font-bold text-gray-900">
-                              Provider
+                              Provider Price
                             </h4>
-                            <div>
-                              <p className="text-2xl font-bold text-gray-900 mb-1">
-                                ${provider.avgPrice.toLocaleString()}
-                              </p>
-                              <p className="text-xs text-gray-500 mb-3">
-                                Range ${Math.floor(provider.avgPrice * 0.8).toLocaleString()} – ${Math.floor(provider.avgPrice * 1.2).toLocaleString()}
-                              </p>
-                            </div>
+                            <p className="text-2xl font-bold text-gray-900">
+                              ${provider.avgPrice.toLocaleString()}
+                            </p>
 
-                            {/* Transparency Score */}
+                            {/* Score Chip Only */}
                             <div className="flex items-center gap-2">
                               <GradeChip
                                 score={provider.complianceScore}
-                                ariaLabel={`${getGradeFromScore(provider.complianceScore)} rating, high compliance`}
+                                ariaLabel={`${getGradeFromScore(provider.complianceScore)} rating, ${provider.complianceScore} out of 100`}
                                 tooltip="Based on this provider's compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available. See how we measure compliance."
                                 isProvider={true}
                               />
-                              <span className="text-xs font-medium text-gray-700">
-                                Transparency
-                              </span>
                               <Tooltip>
                                 <TooltipTrigger asChild>
                                   <button className="text-gray-400 hover:text-gray-600" aria-label="Provider Transparency Rating info">
@@ -913,42 +905,40 @@ export function SearchByProcedurePage({
                               </Tooltip>
                             </div>
 
-                            {/* State Comparison - anchored to Provider */}
-                            <div className="pt-2">
-                              <div className="flex items-center gap-2">
-                                <span
-                                  className={`flex items-center gap-1 text-sm font-medium ${
-                                    provider.comparison.includes("below")
-                                      ? "text-green-700"
-                                      : "text-red-700"
-                                  }`}
-                                >
-                                  <span className="text-base">
-                                    {provider.comparison.includes("below") ? "↓" : "↑"}
-                                  </span>
-                                  <span>
-                                    {provider.comparison.match(/\d+/)?.[0]}% vs state average
-                                  </span>
+                            {/* % vs State Average */}
+                            <div className="flex items-center gap-2">
+                              <span
+                                className={`flex items-center gap-1 text-sm font-medium ${
+                                  provider.comparison.includes("below")
+                                    ? "text-green-700"
+                                    : "text-red-700"
+                                }`}
+                              >
+                                <span className="text-base">
+                                  {provider.comparison.includes("below") ? "↓" : "↑"}
                                 </span>
-                                <Tooltip>
-                                  <TooltipTrigger asChild>
-                                    <button className="text-gray-400 hover:text-gray-600" aria-label="Price vs State Average info">
-                                      <Info className="w-3 h-3" />
-                                    </button>
-                                  </TooltipTrigger>
-                                  <TooltipContent className="bg-gray-900 text-white max-w-xs">
-                                    <p>This percentage compares the provider's price for this procedure to the average price across all providers in the state, based on the same procedure code.</p>
-                                  </TooltipContent>
-                                </Tooltip>
-                              </div>
+                                <span>
+                                  {provider.comparison.match(/\d+/)?.[0]}% vs state average
+                                </span>
+                              </span>
+                              <Tooltip>
+                                <TooltipTrigger asChild>
+                                  <button className="text-gray-400 hover:text-gray-600" aria-label="Price vs State Average info">
+                                    <Info className="w-3 h-3" />
+                                  </button>
+                                </TooltipTrigger>
+                                <TooltipContent className="bg-gray-900 text-white max-w-xs">
+                                  <p>Compares the provider's price for this procedure to the average price across all providers in the state for the same procedure code.</p>
+                                </TooltipContent>
+                              </Tooltip>
                             </div>
                           </div>
 
-                          {/* Payer Coverage Column */}
+                          {/* Payer Column */}
                           <div className="flex flex-col space-y-3">
                             <div className="flex items-center gap-1">
                               <h4 className="text-sm font-bold text-gray-900">
-                                Payer Coverage
+                                {provider.payer}
                               </h4>
                               <Tooltip>
                                 <TooltipTrigger asChild>
@@ -961,30 +951,22 @@ export function SearchByProcedurePage({
                                 </TooltipContent>
                               </Tooltip>
                             </div>
-                            <div>
-                              <p className="text-sm text-gray-500 mb-2">
-                                {provider.payer}
-                              </p>
-                              <p className="text-2xl font-bold text-gray-900 mb-3">
-                                $
-                                {(
-                                  updatedPrices[provider.id]?.coverageAmount ||
-                                  provider.coverageAmount
-                                ).toLocaleString()}
-                              </p>
-                            </div>
+                            <p className="text-2xl font-bold text-gray-900">
+                              $
+                              {(
+                                updatedPrices[provider.id]?.coverageAmount ||
+                                provider.coverageAmount
+                              ).toLocaleString()}
+                            </p>
 
-                            {/* Transparency Score */}
+                            {/* Score Chip Only */}
                             <div className="flex items-center gap-2">
                               <GradeChip
                                 score={provider.payerComplianceScore}
-                                ariaLabel={`${getGradeFromScore(provider.payerComplianceScore)} rating, high compliance`}
+                                ariaLabel={`${getGradeFromScore(provider.payerComplianceScore)} rating, ${provider.payerComplianceScore} out of 100`}
                                 tooltip="Based on this payer's compliance with federal pricing transparency mandates. Updated monthly when new payer TiC files are published. See how we measure compliance."
                                 isProvider={false}
                               />
-                              <span className="text-xs font-medium text-gray-700">
-                                Transparency
-                              </span>
                               <Tooltip>
                                 <TooltipTrigger asChild>
                                   <button className="text-gray-400 hover:text-gray-600" aria-label="Payer Transparency Rating info">
