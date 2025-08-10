@@ -751,10 +751,10 @@ export function SearchByProcedurePage({
                         <SelectValue placeholder="Select radius" className="placeholder:text-gray-400" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="10">10 miles</SelectItem>
-                        <SelectItem value="25">25 miles</SelectItem>
-                        <SelectItem value="50">50 miles</SelectItem>
-                        <SelectItem value="100">100 miles</SelectItem>
+                        <SelectItem value="10 miles">10 miles</SelectItem>
+                        <SelectItem value="25 miles">25 miles</SelectItem>
+                        <SelectItem value="50 miles">50 miles</SelectItem>
+                        <SelectItem value="100 miles">100 miles</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
