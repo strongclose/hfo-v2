@@ -75,22 +75,6 @@ export function SearchByProcedurePage({
   const [showPlanField, setShowPlanField] = useState(false);
   const [coverageType, setCoverageType] = useState("cash");
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showFloatingFilters, setShowFloatingFilters] = useState(false);
-
-  // Scroll detection for floating filters
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const filterSection = document.getElementById('main-filters');
-      if (filterSection) {
-        const filterBottom = filterSection.offsetTop + filterSection.offsetHeight;
-        setShowFloatingFilters(scrollPosition > filterBottom);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
   const [loadingProviders, setLoadingProviders] = useState<Set<number>>(
     new Set(),
   );
