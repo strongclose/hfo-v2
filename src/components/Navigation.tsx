@@ -88,8 +88,8 @@ export function Navigation() {
 
   const navigation = [
     {
-      name: "Data Explorer",
-      href: "/search-procedure",
+      name: "Compare Prices",
+      href: "/compare-prices",
     },
     {
       name: "Insights",
