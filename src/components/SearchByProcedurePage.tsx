@@ -543,10 +543,17 @@ export function SearchByProcedurePage({
                       Location
                     </label>
                     <Input
-                      placeholder="ZIP code or city"
-                      value={filterLocation}
-                      onChange={(e) => setFilterLocation(e.target.value)}
-                      className="h-14 text-lg rounded-xl border-2 border-gray-200 focus:border-blue-500"
+                      placeholder="Enter ZIP code"
+                      value={filterZipCode}
+                      onChange={(e) => {
+                        const value = e.target.value.replace(/\D/g, '').slice(0, 5);
+                        setFilterZipCode(value);
+                      }}
+                      onBlur={() => validateZipCode(filterZipCode)}
+                      className={`h-14 text-lg rounded-xl border-2 ${
+                        zipError ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-blue-500'
+                      }`}
+                      maxLength={5}
                     />
                   </div>
 
