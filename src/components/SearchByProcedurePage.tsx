@@ -934,9 +934,12 @@ export function SearchByProcedurePage({
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
                           {/* Provider Cost (Static) */}
                           <div className="text-center md:text-left">
-                            <p className="text-sm font-semibold text-gray-600 mb-2">
-                              Provider Cost
-                            </p>
+                            <div className="flex items-center justify-center md:justify-start mb-2">
+                              <Tag className="w-4 h-4 text-gray-500 mr-2" aria-hidden="true" />
+                              <p className="text-sm font-semibold text-gray-600">
+                                Provider Cost
+                              </p>
+                            </div>
                             <p className="text-3xl font-bold text-gray-900 mb-1">
                               ${provider.avgPrice.toLocaleString()}
                             </p>
