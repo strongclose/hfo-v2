@@ -100,6 +100,30 @@ export function SearchByProcedurePage({
     console.log('Filtering by payer:', payer);
   };
 
+  // Grade calculation function
+  const getGradeFromScore = (score: number): string => {
+    if (score >= 90) return 'A+';
+    if (score >= 85) return 'A';
+    if (score >= 75) return 'B';
+    if (score >= 65) return 'C';
+    return 'D';
+  };
+
+  // Grade chip styling function
+  const getGradeChipStyles = (grade: string) => {
+    switch (grade) {
+      case 'A':
+      case 'A+':
+        return 'bg-green-600 text-white';
+      case 'B':
+        return 'bg-amber-500 text-white';
+      case 'C':
+      case 'D':
+      default:
+        return 'bg-red-600 text-white';
+    }
+  };
+
   const handleCoverageFilter = (coverage: string) => {
     setCoverageType(coverage.toLowerCase());
     console.log('Filtering by coverage:', coverage);
@@ -760,172 +784,6 @@ export function SearchByProcedurePage({
                           </p>
                         </div>
                         <div className="flex items-center gap-3">
-                          {/* Compliance Badge */}
-                          <Dialog>
-                            <DialogTrigger asChild>
-                              <button
-                                className={`px-3 py-1.5 rounded-lg font-bold text-sm cursor-pointer hover:shadow-md transition-all ${
-                                  provider.isCompliant
-                                    ? "bg-white border-2 border-gray-200 text-green-600 hover:border-green-300"
-                                    : "bg-gray-100 border-2 border-gray-300 text-gray-600 hover:border-gray-400"
-                                }`}
-                                style={{
-                                  color: provider.isCompliant ? "#00A651" : "#6B7280"
-                                }}
-                                aria-label="View compliance rating details"
-                              >
-                                {provider.isCompliant ? "A+" : "C"} – {provider.complianceScore}%
-                              </button>
-                            </DialogTrigger>
-                            <DialogContent className="sm:max-w-2xl max-h-[90vh] overflow-y-auto">
-                              <DialogHeader>
-                                <DialogTitle>HealthFees.org Compliance Badge</DialogTitle>
-                              </DialogHeader>
-
-                              <Tabs value="embed" className="w-full">
-                                <TabsList className="grid w-full grid-cols-2">
-                                  <TabsTrigger value="embed">Embed Code</TabsTrigger>
-                                  <TabsTrigger value="about">About this Rating</TabsTrigger>
-                                </TabsList>
-
-                                <TabsContent value="embed" className="space-y-6 mt-4">
-                                  <div>
-                                    <h3 className="text-lg font-semibold mb-2">Add this badge to your site</h3>
-                                    <p className="text-sm text-gray-600 mb-4">
-                                      {provider.name} — ID: HFO-{provider.id.toString().padStart(5, '0')}
-                                    </p>
-                                  </div>
-
-                                  {/* Style Selector */}
-                                  <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-3">Badge Style</label>
-                                    <div className="flex gap-4">
-                                      <label className="flex items-center cursor-pointer">
-                                        <input
-                                          type="radio"
-                                          value="light"
-                                          checked={badgeStyle === 'light'}
-                                          onChange={(e) => setBadgeStyle(e.target.value as 'light' | 'dark')}
-                                          className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
-                                        />
-                                        <span className="ml-2 text-sm text-gray-700">Light</span>
-                                      </label>
-                                      <label className="flex items-center cursor-pointer">
-                                        <input
-                                          type="radio"
-                                          value="dark"
-                                          checked={badgeStyle === 'dark'}
-                                          onChange={(e) => setBadgeStyle(e.target.value as 'light' | 'dark')}
-                                          className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
-                                        />
-                                        <span className="ml-2 text-sm text-gray-700">Dark</span>
-                                      </label>
-                                    </div>
-                                  </div>
-
-                                  {/* Badge Preview */}
-                                  <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-3">Preview</label>
-                                    <div className={`inline-block p-4 rounded-lg border ${
-                                      badgeStyle === 'dark' ? 'bg-gray-900 border-gray-700' : 'bg-white border-gray-200'
-                                    }`}>
-                                      <div
-                                        className={`px-4 py-3 rounded-lg font-bold text-lg ${
-                                          provider.isCompliant
-                                            ? badgeStyle === 'dark'
-                                              ? "bg-gray-800 border-2 border-green-400 text-green-400"
-                                              : "bg-white border-2 border-green-200 text-green-600 shadow-sm"
-                                            : badgeStyle === 'dark'
-                                              ? "bg-gray-700 border-2 border-gray-500 text-gray-400"
-                                              : "bg-gray-100 border-2 border-gray-300 text-gray-600"
-                                        }`}
-                                        style={{
-                                          color: provider.isCompliant
-                                            ? badgeStyle === 'dark' ? '#4ADE80' : '#00A651'
-                                            : badgeStyle === 'dark' ? '#9CA3AF' : '#6B7280'
-                                        }}
-                                      >
-                                        {provider.isCompliant ? "A+" : "C"} – {provider.complianceScore}%
-                                      </div>
-                                    </div>
-                                  </div>
-
-                                  {/* Embed Code */}
-                                  <div>
-                                    <div className="flex items-center justify-between mb-3">
-                                      <label className="block text-sm font-medium text-gray-700">Embed Code</label>
-                                      <Button
-                                        onClick={() => handleCopyCode(generateEmbedCode(provider, badgeStyle).script)}
-                                        size="sm"
-                                        variant="outline"
-                                        className="h-8"
-                                      >
-                                        {copiedCode ? (
-                                          <><Check className="w-3 h-3 mr-1" /> Copied</>
-                                        ) : (
-                                          <><Copy className="w-3 h-3 mr-1" /> Copy</>
-                                        )}
-                                      </Button>
-                                    </div>
-                                    <textarea
-                                      readOnly
-                                      value={generateEmbedCode(provider, badgeStyle).script}
-                                      className="w-full h-32 p-3 text-xs font-mono border border-gray-300 rounded-md bg-gray-50 resize-none"
-                                    />
-                                  </div>
-
-                                  {/* Installation Steps */}
-                                  <div>
-                                    <h4 className="font-medium text-gray-900 mb-2">Installation Steps</h4>
-                                    <ol className="text-sm text-gray-600 space-y-1 list-decimal list-inside">
-                                      <li>Paste the code into your site where you want the badge to appear.</li>
-                                      <li>Do not modify the code. The badge updates automatically each month.</li>
-                                      <li>The badge links to your public rating page on HealthFees.org.</li>
-                                    </ol>
-                                  </div>
-
-                                  {/* Terms */}
-                                  <div className="text-xs text-gray-500 p-3 bg-gray-50 rounded-md">
-                                    By embedding, you agree not to alter the badge and to allow HealthFees.org to display updates to your rating.
-                                    <a href="/badge-terms" className="text-blue-600 hover:text-blue-800 underline ml-1">
-                                      Badge Terms
-                                    </a>
-                                  </div>
-                                </TabsContent>
-
-                                <TabsContent value="about" className="space-y-4 mt-4">
-                                  <div className="text-center space-y-4">
-                                    <div
-                                      className={`inline-block px-8 py-6 rounded-xl font-bold text-4xl ${
-                                        provider.isCompliant
-                                          ? "bg-white border-4 border-green-200 text-green-600 shadow-lg"
-                                          : "bg-gray-100 border-4 border-gray-300 text-gray-600"
-                                      }`}
-                                      style={{
-                                        color: provider.isCompliant ? "#00A651" : "#6B7280"
-                                      }}
-                                    >
-                                      {provider.isCompliant ? "A+" : "C"} – {provider.complianceScore}%
-                                    </div>
-
-                                    <div>
-                                      <h3 className="text-lg font-semibold mb-4">HealthFees.org Compliance Rating</h3>
-                                      <p className="text-gray-700 mb-4">
-                                        This rating reflects adherence to federal pricing transparency mandates.
-                                        Scores update monthly from public payer and provider files.
-                                      </p>
-                                      <a
-                                        href="/methodology"
-                                        className="text-blue-600 hover:text-blue-800 underline font-medium"
-                                      >
-                                        See how we measure compliance
-                                      </a>
-                                    </div>
-                                  </div>
-                                </TabsContent>
-                              </Tabs>
-                            </DialogContent>
-                          </Dialog>
                           <div
                             className="px-3 py-1.5 rounded-full font-semibold text-sm"
                             style={{
@@ -990,71 +848,87 @@ export function SearchByProcedurePage({
                         </div>
                       </div>
 
-                      {/* Row C - Meta Row */}
-                      <div className="px-5 py-3 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
-                        {/* Left group - Compliance inline */}
-                        <div className="flex items-center gap-4 text-sm">
-                          <div className="flex items-center gap-1">
-                            <span className="text-gray-700">Provider:</span>
-                            <span className="font-semibold">{provider.complianceScore}/100</span>
-                            <Tooltip>
-                              <TooltipTrigger asChild>
-                                <button className="text-gray-400 hover:text-gray-600" aria-label="Provider Compliance Rating info">
-                                  <Info className="w-3 h-3" />
-                                </button>
-                              </TooltipTrigger>
-                              <TooltipContent className="bg-gray-900 text-white max-w-xs">
-                                <p>Based on this provider's compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available. <a href="/methodology" className="underline text-blue-300">See how we measure compliance</a>.</p>
-                              </TooltipContent>
-                            </Tooltip>
+                      {/* Row C - Compliance + Coverage Row */}
+                      <div className="px-5 py-3">
+                        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-sm">
+                          {/* Line 1: Provider & Payer scores with chips */}
+                          <div className="flex flex-wrap items-center gap-4">
+                            <div className="flex items-center gap-2">
+                              <span className="text-gray-700">Provider:</span>
+                              <span className="font-semibold">{provider.complianceScore}/100</span>
+                              <span
+                                className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-bold ${getGradeChipStyles(getGradeFromScore(provider.complianceScore))}`}
+                                aria-label={`Provider compliance rating ${getGradeFromScore(provider.complianceScore)}, ${provider.complianceScore} out of 100`}
+                              >
+                                {getGradeFromScore(provider.complianceScore)}
+                              </span>
+                              <Tooltip>
+                                <TooltipTrigger asChild>
+                                  <button className="text-gray-400 hover:text-gray-600" aria-label="Provider Compliance Rating info">
+                                    <Info className="w-3 h-3" />
+                                  </button>
+                                </TooltipTrigger>
+                                <TooltipContent className="bg-gray-900 text-white max-w-xs">
+                                  <p>Based on this provider's compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available. <a href="/methodology" className="underline text-blue-300">See how we measure compliance</a>.</p>
+                                </TooltipContent>
+                              </Tooltip>
+                            </div>
+                            <span className="text-gray-400">•</span>
+                            <div className="flex items-center gap-2">
+                              <span className="text-gray-700">Payer:</span>
+                              <span className="font-semibold">{provider.payerComplianceScore}/100</span>
+                              <span
+                                className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-bold ${getGradeChipStyles(getGradeFromScore(provider.payerComplianceScore))}`}
+                                aria-label={`Payer compliance rating ${getGradeFromScore(provider.payerComplianceScore)}, ${provider.payerComplianceScore} out of 100`}
+                              >
+                                {getGradeFromScore(provider.payerComplianceScore)}
+                              </span>
+                              <Tooltip>
+                                <TooltipTrigger asChild>
+                                  <button className="text-gray-400 hover:text-gray-600" aria-label="Payer Compliance Rating info">
+                                    <Info className="w-3 h-3" />
+                                  </button>
+                                </TooltipTrigger>
+                                <TooltipContent className="bg-gray-900 text-white max-w-xs">
+                                  <p>Based on this payer's compliance with federal pricing transparency mandates. Updated monthly when new payer TiC files are published. <a href="/methodology" className="underline text-blue-300">See how we measure compliance</a>.</p>
+                                </TooltipContent>
+                              </Tooltip>
+                            </div>
                           </div>
-                          <span className="text-gray-400">•</span>
-                          <div className="flex items-center gap-1">
-                            <span className="text-gray-700">Payer:</span>
-                            <span className="font-semibold">{provider.payerComplianceScore}/100</span>
-                            <Tooltip>
-                              <TooltipTrigger asChild>
-                                <button className="text-gray-400 hover:text-gray-600" aria-label="Payer Compliance Rating info">
-                                  <Info className="w-3 h-3" />
-                                </button>
-                              </TooltipTrigger>
-                              <TooltipContent className="bg-gray-900 text-white max-w-xs">
-                                <p>Based on this payer's compliance with federal pricing transparency mandates. Updated monthly when new payer TiC files are published. <a href="/methodology" className="underline text-blue-300">See how we measure compliance</a>.</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          </div>
-                        </div>
 
-                        {/* Right group - Coverage + state delta inline */}
-                        <div className="flex items-center gap-4 text-sm">
-                          <span className="text-gray-700">Coverage:</span>
-                          <button
-                            onClick={() => handleCoverageFilter(provider.coverageType)}
-                            className="text-blue-600 hover:text-blue-800 underline transition-colors"
-                            aria-label={`Filter by ${provider.coverageType} coverage`}
-                          >
-                            {provider.coverageType}
-                          </button>
-                          <span className="text-gray-400">•</span>
-                          <div
-                            className={`flex items-center gap-1 px-2 py-1 rounded text-xs font-medium ${
-                              provider.comparison.includes("below")
-                                ? "bg-green-50 text-green-700"
-                                : "bg-red-50 text-red-700"
-                            }`}
-                          >
-                            <span>
-                              {provider.comparison.includes("below") ? "↓" : "↑"}
-                            </span>
-                            <span>
-                              {provider.comparison.match(/\d+/)?.[0]}% vs state average
-                            </span>
+                          {/* Line 2: Coverage type & % vs state average */}
+                          <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-2">
+                              <span className="text-gray-700">Coverage:</span>
+                              <button
+                                onClick={() => handleCoverageFilter(provider.coverageType)}
+                                className="text-blue-600 hover:text-blue-800 underline transition-colors"
+                                aria-label={`Filter by ${provider.coverageType} coverage`}
+                              >
+                                {provider.coverageType}
+                              </button>
+                            </div>
+                            <span className="text-gray-400">•</span>
+                            <div
+                              className={`flex items-center gap-1 px-2 py-1 rounded text-xs font-medium ${
+                                provider.comparison.includes("below")
+                                  ? "bg-green-50 text-green-700"
+                                  : "bg-red-50 text-red-700"
+                              }`}
+                            >
+                              <span>
+                                {provider.comparison.includes("below") ? "↓" : "↑"}
+                              </span>
+                              <span>
+                                {provider.comparison.match(/\d+/)?.[0]}% vs state average
+                              </span>
+                            </div>
                           </div>
                         </div>
                       </div>
 
                       {/* CTA Button */}
-                      <div className="px-5 pb-4">
+                      <div className="px-5 pb-4 mt-4">
                         <Button
                           onClick={() => handleGetCurrentPrice(provider.id)}
                           disabled={
