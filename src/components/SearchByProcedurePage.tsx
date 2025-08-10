@@ -811,12 +811,9 @@ export function SearchByProcedurePage({
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           {/* Column 1: Provider Cost */}
                           <div>
-                            <div className="flex items-center mb-1">
-                              <Tag className="w-3 h-3 text-gray-500 mr-1" aria-hidden="true" />
-                              <p className="text-sm font-medium text-gray-700">
-                                Provider Cost
-                              </p>
-                            </div>
+                            <p className="text-sm font-medium text-gray-700 mb-1">
+                              Provider Cost
+                            </p>
                             <p className="text-2xl font-bold text-gray-900 mb-1">
                               ${provider.avgPrice.toLocaleString()}
                             </p>
@@ -848,20 +845,14 @@ export function SearchByProcedurePage({
                         </div>
                       </div>
 
-                      {/* Row C - Compliance + Coverage Row */}
+                      {/* Row C - Compliance Scores Row */}
                       <div className="px-5 py-3">
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-sm">
-                          {/* Line 1: Provider & Payer scores with chips */}
+                          {/* Line 1: Provider & Payer compliance scores */}
                           <div className="flex flex-wrap items-center gap-4">
                             <div className="flex items-center gap-2">
-                              <span className="text-gray-700">Provider:</span>
-                              <span className="font-semibold">{provider.complianceScore}/100</span>
-                              <span
-                                className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-bold ${getGradeChipStyles(getGradeFromScore(provider.complianceScore))}`}
-                                aria-label={`Provider compliance rating ${getGradeFromScore(provider.complianceScore)}, ${provider.complianceScore} out of 100`}
-                              >
-                                {getGradeFromScore(provider.complianceScore)}
-                              </span>
+                              <span className="text-gray-700">Provider Compliance:</span>
+                              <span className="font-semibold">{getGradeFromScore(provider.complianceScore)} ({provider.complianceScore}/100)</span>
                               <Tooltip>
                                 <TooltipTrigger asChild>
                                   <button className="text-gray-400 hover:text-gray-600" aria-label="Provider Compliance Rating info">
@@ -875,14 +866,8 @@ export function SearchByProcedurePage({
                             </div>
                             <span className="text-gray-400">•</span>
                             <div className="flex items-center gap-2">
-                              <span className="text-gray-700">Payer:</span>
-                              <span className="font-semibold">{provider.payerComplianceScore}/100</span>
-                              <span
-                                className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-bold ${getGradeChipStyles(getGradeFromScore(provider.payerComplianceScore))}`}
-                                aria-label={`Payer compliance rating ${getGradeFromScore(provider.payerComplianceScore)}, ${provider.payerComplianceScore} out of 100`}
-                              >
-                                {getGradeFromScore(provider.payerComplianceScore)}
-                              </span>
+                              <span className="text-gray-700">Payer Compliance:</span>
+                              <span className="font-semibold">{getGradeFromScore(provider.payerComplianceScore)} ({provider.payerComplianceScore}/100)</span>
                               <Tooltip>
                                 <TooltipTrigger asChild>
                                   <button className="text-gray-400 hover:text-gray-600" aria-label="Payer Compliance Rating info">
@@ -896,24 +881,14 @@ export function SearchByProcedurePage({
                             </div>
                           </div>
 
-                          {/* Line 2: Coverage type & % vs state average */}
-                          <div className="flex items-center gap-4">
-                            <div className="flex items-center gap-2">
-                              <span className="text-gray-700">Coverage:</span>
-                              <button
-                                onClick={() => handleCoverageFilter(provider.coverageType)}
-                                className="text-blue-600 hover:text-blue-800 underline transition-colors"
-                                aria-label={`Filter by ${provider.coverageType} coverage`}
-                              >
-                                {provider.coverageType}
-                              </button>
-                            </div>
+                          {/* Line 2: % vs state average */}
+                          <div className="flex items-center gap-2">
                             <span className="text-gray-400">•</span>
-                            <div
-                              className={`flex items-center gap-1 px-2 py-1 rounded text-xs font-medium ${
+                            <span
+                              className={`flex items-center gap-1 font-medium ${
                                 provider.comparison.includes("below")
-                                  ? "bg-green-50 text-green-700"
-                                  : "bg-red-50 text-red-700"
+                                  ? "text-green-700"
+                                  : "text-red-700"
                               }`}
                             >
                               <span>
@@ -922,7 +897,7 @@ export function SearchByProcedurePage({
                               <span>
                                 {provider.comparison.match(/\d+/)?.[0]}% vs state average
                               </span>
-                            </div>
+                            </span>
                           </div>
                         </div>
                       </div>
