@@ -897,11 +897,8 @@ export function SearchByProcedurePage({
                           {/* Payer Column */}
                           <div className="flex flex-col">
                             <h4 className="text-sm font-bold text-gray-900 mb-3">
-                              Payer
-                            </h4>
-                            <p className="text-sm font-medium text-gray-600 mb-2">
                               {provider.payer}
-                            </p>
+                            </h4>
                             <p className="text-2xl font-bold text-gray-900 mb-3">
                               $
                               {(
