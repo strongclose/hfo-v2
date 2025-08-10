@@ -4,7 +4,9 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   integrations: [
-    react(),
+    react({
+      include: ['**/*.tsx', '**/*.ts'],
+    }),
     tailwind({
       applyBaseStyles: false,
     })
@@ -21,5 +23,8 @@ export default defineConfig({
       'process.env.NODE_ENV': JSON.stringify('development'),
       'process': '{}',
     },
+    esbuild: {
+      logOverride: { 'this-is-undefined-in-esm': 'silent' }
+    }
   }
 });
