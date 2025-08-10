@@ -80,13 +80,13 @@ const SelectContent = ({ className, children, open, setOpen }: SelectContentProp
 
   return (
     <>
-      <div 
-        className="fixed inset-0 z-40" 
-        onClick={() => setOpen?.(false)} 
+      <div
+        className="fixed inset-0 z-40"
+        onClick={() => setOpen?.(false)}
       />
       <div
         className={cn(
-          "absolute top-full z-50 mt-1 w-full rounded-md border bg-white text-gray-900 shadow-lg",
+          "absolute top-full left-0 right-0 z-50 mt-1 rounded-md border border-gray-200 bg-white shadow-lg max-h-60 overflow-y-auto",
           className
         )}
       >
@@ -108,7 +108,7 @@ const SelectItem = ({ value, children, className, onValueChange, setOpen }: Sele
   return (
     <div
       className={cn(
-        "relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-2 pr-8 text-sm outline-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        "relative flex w-full cursor-pointer select-none items-center px-3 py-2 text-sm outline-none hover:bg-gray-100 focus:bg-gray-100",
         className
       )}
       onClick={() => {
