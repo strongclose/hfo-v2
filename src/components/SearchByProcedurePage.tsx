@@ -691,6 +691,86 @@ export function SearchByProcedurePage({
         </div>
       </section>
 
+      {/* Floating Filter Bar */}
+      {showFloatingFilters && (
+        <div className="fixed top-0 left-0 right-0 z-40 bg-white border-b border-gray-200 shadow-lg transition-all duration-300 animate-in slide-in-from-top-2">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <div className="flex items-center gap-4 justify-between">
+              {/* Compact Filter Controls */}
+              <div className="flex items-center gap-4 flex-1">
+                <div className="flex items-center gap-2">
+                  <span className="text-sm font-medium text-gray-700">
+                    {selectedProcedure ? selectedProcedure.description : 'Select procedure'}
+                  </span>
+                  <button className="text-blue-600 hover:text-blue-700">
+                    <Search className="w-4 h-4" />
+                  </button>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm text-gray-600">
+                    {filterZipCode || 'Enter ZIP'} • {filterRadius || 'Select radius'} mi
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm text-gray-600">
+                    {filterPayer || 'Select payer'}
+                  </span>
+                </div>
+                {/* Coverage Type Segmented Control */}
+                <div className="flex items-center bg-gray-100 rounded-lg p-1">
+                  <button
+                    onClick={() => handleCoverageTypeChange('cash')}
+                    className={`px-3 py-1 text-xs font-medium rounded ${
+                      coverageType === 'cash' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-600'
+                    }`}
+                  >
+                    Cash
+                  </button>
+                  <button
+                    onClick={() => handleCoverageTypeChange('in-network')}
+                    className={`px-3 py-1 text-xs font-medium rounded ${
+                      coverageType === 'in-network' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-600'
+                    }`}
+                  >
+                    In-Network
+                  </button>
+                  <button
+                    onClick={() => handleCoverageTypeChange('out-of-network')}
+                    className={`px-3 py-1 text-xs font-medium rounded ${
+                      coverageType === 'out-of-network' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-600'
+                    }`}
+                  >
+                    Out-Network
+                  </button>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex items-center gap-3">
+                {getActiveFilters().length > 0 && (
+                  <div className="flex items-center gap-1">
+                    <span className="text-xs text-gray-500">{getActiveFilters().length} filter{getActiveFilters().length !== 1 ? 's' : ''}</span>
+                    <button
+                      onClick={clearAllFilters}
+                      className="text-xs text-gray-500 hover:text-gray-700 underline"
+                    >
+                      Clear
+                    </button>
+                  </div>
+                )}
+                <Button
+                  size="sm"
+                  disabled={!selectedProcedure || !filterZipCode || !!zipError}
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold"
+                >
+                  Search
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* 3. Price Summary Section */}
       <section className="py-16 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
