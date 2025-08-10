@@ -761,16 +761,22 @@ export function SearchByProcedurePage({
 
                   {/* Provider */}
                   <div className="lg:col-span-1">
-                    <Select
-                      value={filterPayer}
-                      onValueChange={handlePayerSelection}
-                      disabled={coverageType === 'cash'}
-                    >
-                      <SelectTrigger className={`h-14 text-lg rounded-xl border-2 border-gray-200 ${
-                        coverageType === 'cash' ? 'opacity-50 cursor-not-allowed' : ''
-                      }`}>
-                        <SelectValue placeholder="Select payer" className="placeholder:text-gray-400" />
-                      </SelectTrigger>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <div>
+                          <Select
+                            value={filterPayer}
+                            onValueChange={handlePayerSelection}
+                            disabled={coverageType === 'cash'}
+                          >
+                            <SelectTrigger className={`h-14 text-lg rounded-xl border-2 border-gray-200 ${
+                              coverageType === 'cash' ? 'opacity-50 cursor-not-allowed' : ''
+                            }`}>
+                              <SelectValue
+                                placeholder={coverageType === 'cash' ? 'Not needed for cash pay' : 'Select payer'}
+                                className="placeholder:text-gray-400"
+                              />
+                            </SelectTrigger>
                       <SelectContent>
                         <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wide">Commercial</div>
                         {predefinedPayers.filter(p => p.type === 'commercial').map(payer => (
@@ -785,7 +791,13 @@ export function SearchByProcedurePage({
                           <SelectItem key={payer.name} value={payer.name}>{payer.name}</SelectItem>
                         ))}
                       </SelectContent>
-                    </Select>
+                          </Select>
+                        </div>
+                      </TooltipTrigger>
+                      <TooltipContent className="bg-gray-900 text-white">
+                        <p>{coverageType === 'cash' ? 'Payer selection not needed for cash payments' : 'Select your insurance provider'}</p>
+                      </TooltipContent>
+                    </Tooltip>
                   </div>
                 </div>
 
