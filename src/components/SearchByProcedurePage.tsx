@@ -928,7 +928,8 @@ export function SearchByProcedurePage({
       )}
 
       {/* 4. Provider Results and 5. Insights Sidebar */}
-      <section className="py-16 bg-white">
+      {filterProcedure && (
+        <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Provider Results */}
@@ -1374,7 +1375,8 @@ export function SearchByProcedurePage({
             </div>
           </div>
         </div>
-      </section>
+        </section>
+      )}
 
       {/* Trust & Transparency Footer Strip */}
       <section className="py-6 bg-gray-100 border-t border-gray-200">
