@@ -845,7 +845,7 @@ export function SearchByProcedurePage({
                 </h3>
 
                 <div className="space-y-6">
-                  {/* Compliance Insight */}
+                  {/* 1. Compliance Insight */}
                   <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200 rounded-2xl">
                     <CardContent className="p-6">
                       <div className="flex items-center mb-3">
@@ -854,14 +854,16 @@ export function SearchByProcedurePage({
                           Compliance Insight
                         </h3>
                       </div>
-                      <p className="text-blue-800">
-                        3 of 5 hospitals in this area are compliant with federal
-                        pricing transparency rules
+                      <p className="text-blue-800 mb-3">
+                        3 of 5 hospitals in this area are compliant with federal pricing transparency rules.
                       </p>
+                      <a href="/methodology" className="text-blue-600 hover:text-blue-800 underline text-sm font-medium">
+                        See how we measure compliance
+                      </a>
                     </CardContent>
                   </Card>
 
-                  {/* Regional Comparison */}
+                  {/* 2. Regional Comparison */}
                   <Card className="bg-gradient-to-br from-green-50 to-green-100 border-green-200 rounded-2xl">
                     <CardContent className="p-6">
                       <div className="flex items-center mb-3">
@@ -871,44 +873,69 @@ export function SearchByProcedurePage({
                         </h3>
                       </div>
                       <p className="text-green-800">
-                        Average price in this area is 14% lower than the
-                        California state average for this procedure
+                        Average price in this area is 14% lower than the California state average for this procedure.
                       </p>
                     </CardContent>
                   </Card>
 
-                  {/* Glossary Section */}
+                  {/* 3. Consumer Tip */}
+                  <Card className="bg-gradient-to-br from-amber-50 to-orange-100 border-amber-200 rounded-2xl">
+                    <CardContent className="p-6">
+                      <div className="flex items-center mb-3">
+                        <Info className="w-6 h-6 text-amber-600 mr-2" />
+                        <h3 className="font-bold text-amber-900">
+                          Consumer Tip
+                        </h3>
+                      </div>
+                      <p className="text-amber-800">
+                        Confirm the price directly with the provider before your visit.
+                      </p>
+                    </CardContent>
+                  </Card>
+
+                  {/* 4. Glossary Section */}
                   <Card className="bg-white border border-gray-200 rounded-2xl">
                     <CardContent className="p-6">
                       <h3 className="font-bold text-gray-900 mb-4">Glossary</h3>
                       <div className="space-y-4">
-                        <div>
-                          <h4 className="font-semibold text-gray-800 mb-1">
-                            What is a Negotiated Rate?
-                          </h4>
-                          <p className="text-sm text-gray-600">
-                            A contracted price between a provider and insurer,
-                            typically lower than billed charges.
-                          </p>
-                        </div>
-                        <div>
-                          <h4 className="font-semibold text-gray-800 mb-1">
-                            What is an Allowed Amount?
-                          </h4>
-                          <p className="text-sm text-gray-600">
-                            The maximum that your plan will pay for a covered
-                            service.
-                          </p>
-                        </div>
-                        <div>
-                          <h4 className="font-semibold text-gray-800 mb-1">
-                            What is a Gross Charge?
-                          </h4>
-                          <p className="text-sm text-gray-600">
-                            The hospital's full, undiscounted rate before any
-                            insurance or discounts are applied.
-                          </p>
-                        </div>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <div className="cursor-help">
+                              <h4 className="font-semibold text-gray-800 mb-1 underline decoration-dotted">
+                                Negotiated Rate
+                              </h4>
+                            </div>
+                          </TooltipTrigger>
+                          <TooltipContent className="bg-gray-900 text-white max-w-xs">
+                            <p>Contracted price between a provider and insurer.</p>
+                          </TooltipContent>
+                        </Tooltip>
+
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <div className="cursor-help">
+                              <h4 className="font-semibold text-gray-800 mb-1 underline decoration-dotted">
+                                Allowed Amount
+                              </h4>
+                            </div>
+                          </TooltipTrigger>
+                          <TooltipContent className="bg-gray-900 text-white max-w-xs">
+                            <p>The maximum your plan will pay for a covered service.</p>
+                          </TooltipContent>
+                        </Tooltip>
+
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <div className="cursor-help">
+                              <h4 className="font-semibold text-gray-800 mb-1 underline decoration-dotted">
+                                Gross Charge
+                              </h4>
+                            </div>
+                          </TooltipTrigger>
+                          <TooltipContent className="bg-gray-900 text-white max-w-xs">
+                            <p>Provider's full, undiscounted rate before any insurance or discounts.</p>
+                          </TooltipContent>
+                        </Tooltip>
                       </div>
                     </CardContent>
                   </Card>
