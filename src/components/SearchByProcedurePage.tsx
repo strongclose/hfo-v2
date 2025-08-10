@@ -169,6 +169,8 @@ export function SearchByProcedurePage({
       contextTag: "Best Price",
       comparison: "12% below state average",
       complianceLevel: "High",
+      complianceScore: 92,
+      isCompliant: true,
     },
     {
       id: 2,
@@ -184,6 +186,8 @@ export function SearchByProcedurePage({
       contextTag: "Best Match",
       comparison: "8% above state average",
       complianceLevel: "High",
+      complianceScore: 88,
+      isCompliant: true,
     },
     {
       id: 3,
@@ -199,6 +203,8 @@ export function SearchByProcedurePage({
       contextTag: "Best Match",
       comparison: "18% below state average",
       complianceLevel: "Medium",
+      complianceScore: 54,
+      isCompliant: false,
     },
   ];
 
@@ -667,6 +673,16 @@ export function SearchByProcedurePage({
                           </p>
                         </div>
                         <div className="mt-4 md:mt-0 flex gap-2">
+                          {/* Compliance Badge */}
+                          <div
+                            className={`px-3 py-1 rounded-full font-bold text-xs ${
+                              provider.isCompliant
+                                ? "bg-teal-500 text-white"
+                                : "bg-gray-200 text-gray-700"
+                            }`}
+                          >
+                            {provider.isCompliant ? "Compliant" : "Non-Compliant"} – {provider.complianceScore}%
+                          </div>
                           <div
                             className="px-4 py-2 rounded-full font-semibold text-sm inline-block"
                             style={{
@@ -745,7 +761,15 @@ export function SearchByProcedurePage({
                       </div>
 
                       {/* Additional Details */}
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                        <div>
+                          <p className="text-sm font-semibold text-gray-600 mb-1">
+                            Transparency Score
+                          </p>
+                          <p className="text-lg font-bold text-gray-900">
+                            {provider.complianceScore}/100
+                          </p>
+                        </div>
                         <div>
                           <p className="text-sm font-semibold text-gray-600 mb-1">
                             Payer
@@ -764,7 +788,7 @@ export function SearchByProcedurePage({
                         </div>
                         <div>
                           <p className="text-sm font-semibold text-gray-600 mb-1">
-                            vs State Average
+                            % vs State Average
                           </p>
                           <Badge
                             className={`flex items-center gap-1 ${
