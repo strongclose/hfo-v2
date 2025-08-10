@@ -872,8 +872,14 @@ export function SearchByProcedurePage({
                               Range ${Math.floor(provider.avgPrice * 0.8).toLocaleString()} – ${Math.floor(provider.avgPrice * 1.2).toLocaleString()}
                             </p>
                             <div className="flex items-center gap-2 mt-auto">
+                              <GradeChip
+                                score={provider.complianceScore}
+                                ariaLabel={`${getGradeFromScore(provider.complianceScore)} rating, high compliance`}
+                                tooltip="HealthFees.org rating based on this provider's compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available. See how we measure compliance."
+                                isProvider={true}
+                              />
                               <span className="text-xs font-medium text-gray-700">
-                                Provider Transparency
+                                Transparency
                               </span>
                               <Tooltip>
                                 <TooltipTrigger asChild>
@@ -885,12 +891,6 @@ export function SearchByProcedurePage({
                                   <p>HealthFees.org rating based on this provider's compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available. <a href="/methodology" className="underline text-blue-300">See how we measure compliance</a>.</p>
                                 </TooltipContent>
                               </Tooltip>
-                              <GradeChip
-                                score={provider.complianceScore}
-                                ariaLabel={`${getGradeFromScore(provider.complianceScore)} rating, high compliance`}
-                                tooltip="HealthFees.org rating based on this provider's compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available. See how we measure compliance."
-                                isProvider={true}
-                              />
                             </div>
                           </div>
 
@@ -907,8 +907,14 @@ export function SearchByProcedurePage({
                               ).toLocaleString()}
                             </p>
                             <div className="flex items-center gap-2 mt-auto">
+                              <GradeChip
+                                score={provider.payerComplianceScore}
+                                ariaLabel={`${getGradeFromScore(provider.payerComplianceScore)} rating, high compliance`}
+                                tooltip="HealthFees.org rating based on this payer's compliance with federal pricing transparency mandates. Updated monthly when new payer TiC files are published. See how we measure compliance."
+                                isProvider={false}
+                              />
                               <span className="text-xs font-medium text-gray-700">
-                                Payer Transparency
+                                Transparency
                               </span>
                               <Tooltip>
                                 <TooltipTrigger asChild>
@@ -920,12 +926,6 @@ export function SearchByProcedurePage({
                                   <p>HealthFees.org rating based on this payer's compliance with federal pricing transparency mandates. Updated monthly when new payer TiC files are published. <a href="/methodology" className="underline text-blue-300">See how we measure compliance</a>.</p>
                                 </TooltipContent>
                               </Tooltip>
-                              <GradeChip
-                                score={provider.payerComplianceScore}
-                                ariaLabel={`${getGradeFromScore(provider.payerComplianceScore)} rating, high compliance`}
-                                tooltip="HealthFees.org rating based on this payer's compliance with federal pricing transparency mandates. Updated monthly when new payer TiC files are published. See how we measure compliance."
-                                isProvider={false}
-                              />
                             </div>
                           </div>
                         </div>
