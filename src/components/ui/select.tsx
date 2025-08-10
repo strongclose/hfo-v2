@@ -87,7 +87,7 @@ interface SelectContentProps {
   setOpen?: (open: boolean) => void;
 }
 
-const SelectContent = ({ className, children, open, setOpen }: SelectContentProps) => {
+const SelectContent = ({ className, children, open, setOpen, onValueChange }: SelectContentProps & { onValueChange?: (value: string) => void }) => {
   console.log('SelectContent render, open:', open);
 
   if (!open) return null;
@@ -104,7 +104,15 @@ const SelectContent = ({ className, children, open, setOpen }: SelectContentProp
           className
         )}
       >
-        {children}
+        {React.Children.map(children, (child) => {
+          if (React.isValidElement(child)) {
+            return React.cloneElement(child, {
+              onValueChange,
+              setOpen
+            } as any);
+          }
+          return child;
+        })}
       </div>
     </>
   );
