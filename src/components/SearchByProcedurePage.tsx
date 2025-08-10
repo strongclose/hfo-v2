@@ -473,7 +473,7 @@ export function SearchByProcedurePage({
       </section>
 
       {/* 2. Search and Filter Controls */}
-      <section className="py-16 bg-white">
+      <section id="main-filters" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="bg-white rounded-3xl border border-gray-200 shadow-xl p-10">
