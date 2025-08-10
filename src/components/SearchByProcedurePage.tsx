@@ -116,7 +116,7 @@ export function SearchByProcedurePage({
       case 'A+':
         return 'bg-green-600 text-white';
       case 'B':
-        return 'bg-amber-500 text-white';
+        return 'bg-yellow-500 text-white';
       case 'C':
       case 'D':
       default:
