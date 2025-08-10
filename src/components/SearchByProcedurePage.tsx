@@ -917,14 +917,9 @@ export function SearchByProcedurePage({
                               <SelectValue placeholder="Payer" />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="aetna">Aetna</SelectItem>
-                              <SelectItem value="blue-cross">
-                                Blue Cross
-                              </SelectItem>
-                              <SelectItem value="cigna">Cigna</SelectItem>
-                              <SelectItem value="kaiser">Kaiser</SelectItem>
-                              <SelectItem value="medicare">Medicare</SelectItem>
-                              <SelectItem value="medicaid">Medicaid</SelectItem>
+                              {predefinedPayers.map(payer => (
+                                <SelectItem key={payer.name} value={payer.name}>{payer.name}</SelectItem>
+                              ))}
                             </SelectContent>
                           </Select>
                         </div>
