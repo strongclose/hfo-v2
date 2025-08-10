@@ -845,60 +845,59 @@ export function SearchByProcedurePage({
                         </div>
                       </div>
 
-                      {/* Row C - Compliance Scores Row */}
+                      {/* Row C - Transparency Scores Row */}
                       <div className="px-5 py-3">
-                        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-sm">
-                          {/* Line 1: Provider & Payer compliance scores */}
-                          <div className="flex flex-wrap items-center gap-4">
-                            <div className="flex items-center gap-2">
-                              <span className="text-gray-700">Provider Compliance:</span>
-                              <span className="font-semibold">{getGradeFromScore(provider.complianceScore)} ({provider.complianceScore}/100)</span>
-                              <Tooltip>
-                                <TooltipTrigger asChild>
-                                  <button className="text-gray-400 hover:text-gray-600" aria-label="Provider Compliance Rating info">
-                                    <Info className="w-3 h-3" />
-                                  </button>
-                                </TooltipTrigger>
-                                <TooltipContent className="bg-gray-900 text-white max-w-xs">
-                                  <p>Based on this provider's compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available. <a href="/methodology" className="underline text-blue-300">See how we measure compliance</a>.</p>
-                                </TooltipContent>
-                              </Tooltip>
-                            </div>
-                            <span className="text-gray-400">•</span>
-                            <div className="flex items-center gap-2">
-                              <span className="text-gray-700">Payer Compliance:</span>
-                              <span className="font-semibold">{getGradeFromScore(provider.payerComplianceScore)} ({provider.payerComplianceScore}/100)</span>
-                              <Tooltip>
-                                <TooltipTrigger asChild>
-                                  <button className="text-gray-400 hover:text-gray-600" aria-label="Payer Compliance Rating info">
-                                    <Info className="w-3 h-3" />
-                                  </button>
-                                </TooltipTrigger>
-                                <TooltipContent className="bg-gray-900 text-white max-w-xs">
-                                  <p>Based on this payer's compliance with federal pricing transparency mandates. Updated monthly when new payer TiC files are published. <a href="/methodology" className="underline text-blue-300">See how we measure compliance</a>.</p>
-                                </TooltipContent>
-                              </Tooltip>
-                            </div>
+                        <div className="flex flex-wrap items-center gap-4 text-sm">
+                          <span className="text-gray-700">Transparency Score:</span>
+
+                          <div className="flex items-center gap-2">
+                            <span className="text-gray-700">Provider</span>
+                            <span className="font-semibold">{getGradeFromScore(provider.complianceScore)}</span>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <button className="text-gray-400 hover:text-gray-600" aria-label="Provider Transparency Rating info">
+                                  <Info className="w-3 h-3" />
+                                </button>
+                              </TooltipTrigger>
+                              <TooltipContent className="bg-gray-900 text-white max-w-xs">
+                                <p>HealthFees.org transparency rating for this provider based on compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available. <a href="/methodology" className="underline text-blue-300">See how we measure transparency</a>.</p>
+                              </TooltipContent>
+                            </Tooltip>
                           </div>
 
-                          {/* Line 2: % vs state average */}
+                          <span className="text-gray-400">•</span>
+
                           <div className="flex items-center gap-2">
-                            <span className="text-gray-400">•</span>
-                            <span
-                              className={`flex items-center gap-1 font-medium ${
-                                provider.comparison.includes("below")
-                                  ? "text-green-700"
-                                  : "text-red-700"
-                              }`}
-                            >
-                              <span>
-                                {provider.comparison.includes("below") ? "↓" : "↑"}
-                              </span>
-                              <span>
-                                {provider.comparison.match(/\d+/)?.[0]}% vs state average
-                              </span>
-                            </span>
+                            <span className="text-gray-700">Payer</span>
+                            <span className="font-semibold">{getGradeFromScore(provider.payerComplianceScore)}</span>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <button className="text-gray-400 hover:text-gray-600" aria-label="Payer Transparency Rating info">
+                                  <Info className="w-3 h-3" />
+                                </button>
+                              </TooltipTrigger>
+                              <TooltipContent className="bg-gray-900 text-white max-w-xs">
+                                <p>HealthFees.org transparency rating for this payer based on compliance with federal pricing transparency mandates. Updated monthly when new payer TiC files are published. <a href="/methodology" className="underline text-blue-300">See how we measure transparency</a>.</p>
+                              </TooltipContent>
+                            </Tooltip>
                           </div>
+
+                          <span className="text-gray-400">•</span>
+
+                          <span
+                            className={`flex items-center gap-1 font-medium ${
+                              provider.comparison.includes("below")
+                                ? "text-green-700"
+                                : "text-red-700"
+                            }`}
+                          >
+                            <span>
+                              {provider.comparison.includes("below") ? "↓" : "↑"}
+                            </span>
+                            <span>
+                              {provider.comparison.match(/\d+/)?.[0]}% vs state average
+                            </span>
+                          </span>
                         </div>
                       </div>
 
