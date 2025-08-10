@@ -994,61 +994,77 @@ export function SearchByProcedurePage({
                         </div>
                       </div>
 
+                      {/* Compliance Ratings Section */}
+                      <div className="mb-6">
+                        <div className="flex items-center mb-3">
+                          <Shield className="w-4 h-4 text-gray-500 mr-2" aria-hidden="true" />
+                          <h4 className="text-sm font-bold text-gray-700">Compliance Ratings</h4>
+                        </div>
+                        <div className="bg-gray-50 rounded-xl p-4">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                              <div className="flex items-center mb-1">
+                                <p className="text-sm font-semibold text-gray-600">
+                                  Provider Compliance Rating
+                                </p>
+                                <Tooltip>
+                                  <TooltipTrigger asChild>
+                                    <button className="ml-1 text-gray-400 hover:text-gray-600" aria-label="Provider Compliance Rating info">
+                                      <Info className="w-3 h-3" />
+                                    </button>
+                                  </TooltipTrigger>
+                                  <TooltipContent className="bg-gray-900 text-white max-w-xs">
+                                    <p>Based on this provider's compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available. <a href="/methodology" className="underline text-blue-300">See how we measure compliance</a>.</p>
+                                  </TooltipContent>
+                                </Tooltip>
+                              </div>
+                              <p className="text-lg font-bold text-gray-900">
+                                {provider.complianceScore}/100
+                              </p>
+                            </div>
+                            <div className="md:border-l md:border-gray-200 md:pl-4">
+                              <div className="flex items-center mb-1">
+                                <p className="text-sm font-semibold text-gray-600">
+                                  Payer Compliance Rating
+                                </p>
+                                <Tooltip>
+                                  <TooltipTrigger asChild>
+                                    <button className="ml-1 text-gray-400 hover:text-gray-600" aria-label="Payer Compliance Rating info">
+                                      <Info className="w-3 h-3" />
+                                    </button>
+                                  </TooltipTrigger>
+                                  <TooltipContent className="bg-gray-900 text-white max-w-xs">
+                                    <p>Based on this payer's compliance with federal pricing transparency mandates. Updated monthly when new payer TiC files are published. <a href="/methodology" className="underline text-blue-300">See how we measure compliance</a>.</p>
+                                  </TooltipContent>
+                                </Tooltip>
+                              </div>
+                              <p className="text-lg font-bold text-gray-900">
+                                {provider.payerComplianceScore}/100
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
                       {/* Additional Details */}
-                      <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
-                        <div>
-                          <Tooltip>
-                            <TooltipTrigger asChild>
-                              <div className="cursor-help">
-                                <p className="text-sm font-semibold text-gray-600 mb-1 underline decoration-dotted">
-                                  Provider Transparency Score
-                                </p>
-                                <p className="text-lg font-bold text-gray-900">
-                                  {provider.complianceScore}/100
-                                </p>
-                              </div>
-                            </TooltipTrigger>
-                            <TooltipContent className="bg-gray-900 text-white max-w-xs">
-                              <p>A HealthFees.org rating for this provider based on compliance with federal pricing transparency mandates. <a href="/methodology" className="underline">See how we measure compliance</a>.</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </div>
-                        <div>
-                          <Tooltip>
-                            <TooltipTrigger asChild>
-                              <div className="cursor-help">
-                                <p className="text-sm font-semibold text-gray-600 mb-1 underline decoration-dotted">
-                                  Payer Transparency Score
-                                </p>
-                                <p className="text-lg font-bold text-gray-900">
-                                  {provider.payerComplianceScore}/100
-                                </p>
-                              </div>
-                            </TooltipTrigger>
-                            <TooltipContent className="bg-gray-900 text-white max-w-xs">
-                              <p>A HealthFees.org rating for this payer based on compliance with federal pricing transparency mandates. <a href="/methodology" className="underline">See how we measure compliance</a>.</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </div>
-                        <div>
-                          <p className="text-sm font-semibold text-gray-600 mb-1">
-                            Payer
-                          </p>
-                          <Badge className="bg-purple-50 text-purple-700 border border-purple-200">
-                            {provider.payer}
-                          </Badge>
-                        </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                         <div>
                           <p className="text-sm font-semibold text-gray-600 mb-1">
                             Coverage Type
                           </p>
-                          <Badge className="bg-blue-50 text-blue-700 border border-blue-200">
-                            {provider.coverageType}
-                          </Badge>
+                          <button
+                            onClick={() => handleCoverageFilter(provider.coverageType)}
+                            className="inline-flex"
+                            aria-label={`Filter by ${provider.coverageType} coverage`}
+                          >
+                            <Badge className="bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 transition-colors cursor-pointer">
+                              {provider.coverageType}
+                            </Badge>
+                          </button>
                         </div>
                         <div>
                           <p className="text-sm font-semibold text-gray-600 mb-1">
-                            % vs State Average
+                            vs State Average
                           </p>
                           <Badge
                             className={`flex items-center gap-1 ${
