@@ -953,7 +953,14 @@ export function SearchByProcedurePage({
                             <p className="text-sm font-semibold text-gray-600 mb-2">
                               {recentPriceProviders.has(provider.id)
                                 ? "Most Recent Coverage"
-                                : "6-Month Average Coverage"}
+                                : "6-Month Average Coverage"}{" "}
+                              <button
+                                onClick={() => handlePayerFilter(provider.payer)}
+                                className="text-purple-600 hover:text-purple-800 underline font-medium transition-colors"
+                                aria-label={`Filter by ${provider.payer}`}
+                              >
+                                ({provider.payer})
+                              </button>
                             </p>
                             <p
                               className={`font-bold mb-1 transition-all duration-500 ease-in-out ${
