@@ -545,7 +545,7 @@ export function SearchByProcedurePage({
                             200,
                           )
                         }
-                        className="h-14 text-lg rounded-xl border-2 border-gray-200 focus:border-blue-500"
+                        className="h-14 text-lg rounded-xl border-2 border-gray-200 focus:border-blue-500 placeholder:text-gray-400"
                       />
                       {showProcedureSuggestions &&
                         filteredProcedures.length > 0 && (
@@ -589,7 +589,7 @@ export function SearchByProcedurePage({
                         setFilterZipCode(value);
                       }}
                       onBlur={() => validateZipCode(filterZipCode)}
-                      className={`h-14 text-lg rounded-xl border-2 ${
+                      className={`h-14 text-lg rounded-xl border-2 placeholder:text-gray-400 ${
                         zipError ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-blue-500'
                       }`}
                       maxLength={5}
@@ -606,7 +606,7 @@ export function SearchByProcedurePage({
                       onValueChange={setFilterRadius}
                     >
                       <SelectTrigger className="h-14 text-lg rounded-xl border-2 border-gray-200">
-                        <SelectValue placeholder="Select radius" />
+                        <SelectValue placeholder="Select radius" className="placeholder:text-gray-400" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="10">10 miles</SelectItem>
@@ -630,7 +630,7 @@ export function SearchByProcedurePage({
                       <SelectTrigger className={`h-14 text-lg rounded-xl border-2 border-gray-200 ${
                         coverageType === 'cash' ? 'opacity-50 cursor-not-allowed' : ''
                       }`}>
-                        <SelectValue placeholder="Select payer" />
+                        <SelectValue placeholder="Select payer" className="placeholder:text-gray-400" />
                       </SelectTrigger>
                       <SelectContent>
                         <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wide">Commercial</div>
@@ -1000,7 +1000,7 @@ export function SearchByProcedurePage({
                               200,
                             )
                           }
-                          className="h-8 text-xs rounded-md border border-gray-300 focus:border-blue-500"
+                          className="h-8 text-xs rounded-md border border-gray-300 focus:border-blue-500 placeholder:text-gray-400"
                         />
                         {showProcedureSuggestions &&
                           filteredProcedures.length > 0 && (
@@ -1047,7 +1047,7 @@ export function SearchByProcedurePage({
                           onValueChange={setFilterRadius}
                         >
                           <SelectTrigger className="h-8 text-xs rounded-md border border-gray-300">
-                            <SelectValue placeholder="Radius" />
+                            <SelectValue placeholder="Radius" className="placeholder:text-gray-400" />
                           </SelectTrigger>
                           <SelectContent>
                             <SelectItem value="10">10 mi</SelectItem>
@@ -1064,7 +1064,7 @@ export function SearchByProcedurePage({
                         onValueChange={handlePayerSelection}
                       >
                         <SelectTrigger className="h-8 text-xs rounded-md border border-gray-300">
-                          <SelectValue placeholder="Select payer" />
+                          <SelectValue placeholder="Select payer" className="placeholder:text-gray-400" />
                         </SelectTrigger>
                         <SelectContent>
                           <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wide">Commercial</div>
