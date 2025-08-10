@@ -125,7 +125,12 @@ export function SearchByProcedurePage({
   };
 
   // Grade chip component
-  const GradeChip = ({ score, ariaLabel }: { score: number; ariaLabel: string }) => {
+  const GradeChip = ({ score, ariaLabel, tooltip, isProvider }: {
+    score: number;
+    ariaLabel: string;
+    tooltip: string;
+    isProvider: boolean;
+  }) => {
     const grade = getGradeFromScore(score);
     const getChipColor = (grade: string) => {
       switch (grade) {
@@ -142,16 +147,23 @@ export function SearchByProcedurePage({
     };
 
     return (
-      <span
-        className="inline-flex items-center px-2 py-1 rounded text-xs font-medium text-white"
-        style={{
-          backgroundColor: getChipColor(grade),
-          height: '20px'
-        }}
-        aria-label={ariaLabel}
-      >
-        {grade}
-      </span>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <button
+            className="inline-flex items-center px-2 py-1 rounded text-xs font-medium text-white cursor-pointer hover:opacity-90 transition-opacity"
+            style={{
+              backgroundColor: getChipColor(grade),
+              height: '20px'
+            }}
+            aria-label={ariaLabel}
+          >
+            {grade}
+          </button>
+        </TooltipTrigger>
+        <TooltipContent className="bg-gray-900 text-white max-w-xs">
+          <p>{tooltip}</p>
+        </TooltipContent>
+      </Tooltip>
     );
   };
 
@@ -853,17 +865,25 @@ export function SearchByProcedurePage({
                             </p>
                           </div>
 
-                          {/* Column 2: Coverage */}
+                          {/* Column 2: Payer Coverage */}
                           <div>
-                            <p className="text-sm font-medium text-gray-700 mb-1">
-                              6‑Month Average Coverage{" "}
-                              <button
-                                onClick={() => handlePayerFilter(provider.payer)}
-                                className="text-purple-600 hover:text-purple-800 underline transition-colors"
-                                aria-label={`Filter by ${provider.payer}`}
-                              >
-                                ({provider.payer})
-                              </button>
+                            <div className="flex items-center gap-1 mb-1">
+                              <p className="text-sm font-medium text-gray-700">
+                                Payer Coverage
+                              </p>
+                              <Tooltip>
+                                <TooltipTrigger asChild>
+                                  <button className="text-gray-400 hover:text-gray-600" aria-label="Payer Coverage info">
+                                    <Info className="w-3 h-3" />
+                                  </button>
+                                </TooltipTrigger>
+                                <TooltipContent className="bg-gray-900 text-white max-w-xs">
+                                  <p>The 6-month average amount paid by this payer for this procedure.</p>
+                                </TooltipContent>
+                              </Tooltip>
+                            </div>
+                            <p className="text-xs text-gray-500 mb-1">
+                              {provider.payer}
                             </p>
                             <p className="text-2xl font-bold text-gray-900">
                               $
@@ -881,41 +901,21 @@ export function SearchByProcedurePage({
                         <div className="flex flex-wrap items-center gap-3 text-sm">
                           <span className="text-gray-700">Transparency Score:</span>
 
-                          <div className="flex items-center gap-1">
-                            <GradeChip
-                              score={provider.complianceScore}
-                              ariaLabel={`Provider transparency rating ${getGradeFromScore(provider.complianceScore)}`}
-                            />
-                            <Tooltip>
-                              <TooltipTrigger asChild>
-                                <button className="text-gray-400 hover:text-gray-600 ml-1" aria-label="Provider Transparency Rating info">
-                                  <Info className="w-3 h-3" />
-                                </button>
-                              </TooltipTrigger>
-                              <TooltipContent className="bg-gray-900 text-white max-w-xs">
-                                <p>HealthFees.org transparency rating for this provider based on compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available. <a href="/methodology" className="underline text-blue-300">See how we measure transparency</a>.</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          </div>
+                          <GradeChip
+                            score={provider.complianceScore}
+                            ariaLabel={`Provider transparency rating ${getGradeFromScore(provider.complianceScore)}`}
+                            tooltip="HealthFees.org transparency rating for this provider based on compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available. See how we measure transparency."
+                            isProvider={true}
+                          />
 
                           <span className="text-gray-400">•</span>
 
-                          <div className="flex items-center gap-1">
-                            <GradeChip
-                              score={provider.payerComplianceScore}
-                              ariaLabel={`Payer transparency rating ${getGradeFromScore(provider.payerComplianceScore)}`}
-                            />
-                            <Tooltip>
-                              <TooltipTrigger asChild>
-                                <button className="text-gray-400 hover:text-gray-600 ml-1" aria-label="Payer Transparency Rating info">
-                                  <Info className="w-3 h-3" />
-                                </button>
-                              </TooltipTrigger>
-                              <TooltipContent className="bg-gray-900 text-white max-w-xs">
-                                <p>HealthFees.org transparency rating for this payer based on compliance with federal pricing transparency mandates. Updated monthly when new payer TiC files are published. <a href="/methodology" className="underline text-blue-300">See how we measure transparency</a>.</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          </div>
+                          <GradeChip
+                            score={provider.payerComplianceScore}
+                            ariaLabel={`Payer transparency rating ${getGradeFromScore(provider.payerComplianceScore)}`}
+                            tooltip="HealthFees.org transparency rating for this payer based on compliance with federal pricing transparency mandates. Updated monthly when new payer TiC files are published. See how we measure transparency."
+                            isProvider={false}
+                          />
 
                           <span className="text-gray-400">•</span>
 
