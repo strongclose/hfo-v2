@@ -146,24 +146,32 @@ export function SearchByProcedurePage({
       }
     };
 
+    const getComplianceLevel = (grade: string) => {
+      switch (grade) {
+        case 'A':
+        case 'A+':
+          return 'high compliance';
+        case 'B':
+          return 'medium compliance';
+        case 'C':
+        case 'D':
+        default:
+          return 'low compliance';
+      }
+    };
+
     return (
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <button
-            className="inline-flex items-center px-2 py-1 rounded text-xs font-medium text-white cursor-pointer hover:opacity-90 transition-opacity"
-            style={{
-              backgroundColor: getChipColor(grade),
-              height: '20px'
-            }}
-            aria-label={ariaLabel}
-          >
-            {grade}
-          </button>
-        </TooltipTrigger>
-        <TooltipContent className="bg-gray-900 text-white max-w-xs">
-          <p>{tooltip}</p>
-        </TooltipContent>
-      </Tooltip>
+      <span
+        className="inline-flex items-center px-2 py-1 rounded text-xs font-medium text-white"
+        style={{
+          backgroundColor: getChipColor(grade),
+          height: '20px'
+        }}
+        aria-label={`${grade} rating, ${getComplianceLevel(grade)}`}
+      >
+        {grade}
+        <span className="sr-only">{getComplianceLevel(grade)}</span>
+      </span>
     );
   };
 
