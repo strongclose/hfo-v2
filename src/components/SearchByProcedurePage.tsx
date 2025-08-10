@@ -87,7 +87,6 @@ export function SearchByProcedurePage({
       { avgPrice: number; priceRange: string; coverageAmount: number }
     >
   >({});
-  const [showProcedureSuggestions, setShowProcedureSuggestions] = useState(false);
   const [showPayerSuggestions, setShowPayerSuggestions] = useState(false);
   const [showPlanSuggestions, setShowPlanSuggestions] = useState(false);
   const [selectedComplianceProvider, setSelectedComplianceProvider] = useState<number | null>(null);
@@ -393,6 +392,8 @@ export function SearchByProcedurePage({
   // Clear all filters
   const clearAllFilters = () => {
     setFilterProcedure("");
+    setMainProcedureInput("");
+    setSidebarProcedureInput("");
     setSelectedProcedure(null);
     setFilterZipCode("");
     setZipError("");
@@ -433,6 +434,8 @@ export function SearchByProcedurePage({
     switch (type) {
       case 'procedure':
         setFilterProcedure("");
+        setMainProcedureInput("");
+        setSidebarProcedureInput("");
         setSelectedProcedure(null);
         break;
       case 'location':
