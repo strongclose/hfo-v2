@@ -908,14 +908,14 @@ export function SearchByProcedurePage({
                           />
                         </div>
 
-                        {/* Provider */}
+                        {/* Payer */}
                         <div>
                           <Select
-                            value={filterProvider}
-                            onValueChange={setFilterProvider}
+                            value={filterPayer}
+                            onValueChange={handlePayerSelection}
                           >
                             <SelectTrigger className="h-9 text-sm rounded-lg border border-gray-300">
-                              <SelectValue placeholder="Provider" />
+                              <SelectValue placeholder="Payer" />
                             </SelectTrigger>
                             <SelectContent>
                               <SelectItem value="aetna">Aetna</SelectItem>
