@@ -1,8 +1,30 @@
 ---
 import Layout from '../layouts/BaseLayout.astro';
-import ComparePricesPageWrapper from '../components/ComparePricesPageWrapper';
 ---
 
 <Layout title="Compare Healthcare Prices - Find Best Costs | HealthFees.org">
-  <ComparePricesPageWrapper client:load />
+  <div id="compare-prices-root"></div>
+  
+  <script>
+    // Use the original pages/compare-prices.tsx component via direct import
+    import('/pages/compare-prices.tsx')
+      .then(module => {
+        const React = require('react');
+        const ReactDOM = require('react-dom/client');
+        const ComparePricesPage = module.default;
+        
+        const root = ReactDOM.createRoot(document.getElementById('compare-prices-root'));
+        root.render(React.createElement(ComparePricesPage));
+      })
+      .catch(() => {
+        // Fallback - redirect to the original page
+        window.location.href = '/pages/compare-prices';
+      });
+  </script>
 </Layout>
+
+<style>
+  #compare-prices-root {
+    min-height: 100vh;
+  }
+</style>
