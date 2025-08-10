@@ -64,11 +64,17 @@ export function SearchByProcedurePage({
   onCTAAssistant,
   onNavigateToDisclosures,
 }: SearchByProcedurePageProps) {
+  // Enhanced filter state
   const [filterProcedure, setFilterProcedure] = useState("");
-  const [filterLocation, setFilterLocation] = useState("");
-  const [filterRadius, setFilterRadius] = useState("100");
-  const [filterProvider, setFilterProvider] = useState("");
-  const [coverageType, setCoverageType] = useState("in-network");
+  const [selectedProcedure, setSelectedProcedure] = useState<{code: string, description: string} | null>(null);
+  const [filterZipCode, setFilterZipCode] = useState("");
+  const [zipError, setZipError] = useState("");
+  const [filterRadius, setFilterRadius] = useState("25");
+  const [filterPayer, setFilterPayer] = useState("");
+  const [filterPlan, setFilterPlan] = useState("");
+  const [showPlanField, setShowPlanField] = useState(false);
+  const [coverageType, setCoverageType] = useState("cash");
+  const [isScrolled, setIsScrolled] = useState(false);
   const [loadingProviders, setLoadingProviders] = useState<Set<number>>(
     new Set(),
   );
@@ -81,23 +87,129 @@ export function SearchByProcedurePage({
       { avgPrice: number; priceRange: string; coverageAmount: number }
     >
   >({});
-  const [showProcedureSuggestions, setShowProcedureSuggestions] =
-    useState(false);
+  const [showProcedureSuggestions, setShowProcedureSuggestions] = useState(false);
+  const [showPayerSuggestions, setShowPayerSuggestions] = useState(false);
+  const [showPlanSuggestions, setShowPlanSuggestions] = useState(false);
   const [selectedComplianceProvider, setSelectedComplianceProvider] = useState<number | null>(null);
   const [badgeStyle, setBadgeStyle] = useState<'light' | 'dark'>('light');
   const [copiedCode, setCopiedCode] = useState(false);
 
   // Handle filter clicks
   const handlePayerFilter = (payer: string) => {
-    setFilterProvider(payer.toLowerCase().replace(/\s+/g, '-'));
-    // In a real app, this would trigger a new search
+    setFilterPayer(payer);
     console.log('Filtering by payer:', payer);
   };
 
   const handleCoverageFilter = (coverage: string) => {
-    setCoverageType(coverage.toLowerCase().replace('-', '-'));
-    // In a real app, this would trigger a new search
+    setCoverageType(coverage.toLowerCase());
     console.log('Filtering by coverage:', coverage);
+  };
+
+  // ZIP code validation
+  const validateZipCode = (zip: string) => {
+    const zipRegex = /^\d{5}$/;
+    if (!zip) {
+      setZipError("");
+      return true;
+    }
+    if (!zipRegex.test(zip)) {
+      setZipError("Enter a valid 5-digit ZIP code");
+      return false;
+    }
+    setZipError("");
+    return true;
+  };
+
+  // Coverage type change handler
+  const handleCoverageTypeChange = (type: string) => {
+    setCoverageType(type);
+    if (type === 'cash') {
+      setFilterPayer("");
+      setFilterPlan("");
+      setShowPlanField(false);
+    } else if (type === 'in-network' && filterPayer) {
+      // Show plan field if payer is selected
+      setShowPlanField(true);
+    } else if (type === 'out-of-network') {
+      setFilterPlan("");
+      setShowPlanField(false);
+    }
+  };
+
+  // Payer selection handler
+  const handlePayerSelection = (payer: string) => {
+    setFilterPayer(payer);
+    if (coverageType === 'cash') {
+      setCoverageType('in-network');
+    }
+    if (['Medicare', 'Medicaid'].includes(payer)) {
+      setCoverageType('in-network');
+    }
+    setShowPlanField(coverageType !== 'out-of-network');
+  };
+
+  // Clear all filters
+  const clearAllFilters = () => {
+    setFilterProcedure("");
+    setSelectedProcedure(null);
+    setFilterZipCode("");
+    setZipError("");
+    setFilterRadius("25");
+    setFilterPayer("");
+    setFilterPlan("");
+    setShowPlanField(false);
+    setCoverageType("cash");
+  };
+
+  // Active filters for chips
+  const getActiveFilters = () => {
+    const filters = [];
+    if (selectedProcedure) {
+      filters.push({type: 'procedure', label: `${selectedProcedure.code} ${selectedProcedure.description}`, value: selectedProcedure});
+    }
+    if (filterZipCode && !zipError) {
+      filters.push({type: 'location', label: filterZipCode, value: filterZipCode});
+    }
+    if (filterRadius !== '25') {
+      filters.push({type: 'radius', label: `${filterRadius} mi`, value: filterRadius});
+    }
+    if (filterPayer) {
+      filters.push({type: 'payer', label: filterPayer, value: filterPayer});
+    }
+    if (filterPlan) {
+      filters.push({type: 'plan', label: filterPlan, value: filterPlan});
+    }
+    if (coverageType !== 'cash') {
+      const typeLabel = coverageType === 'in-network' ? 'In-Network' : 'Out-of-Network';
+      filters.push({type: 'coverage', label: typeLabel, value: coverageType});
+    }
+    return filters;
+  };
+
+  // Remove active filter
+  const removeFilter = (type: string) => {
+    switch (type) {
+      case 'procedure':
+        setFilterProcedure("");
+        setSelectedProcedure(null);
+        break;
+      case 'location':
+        setFilterZipCode("");
+        break;
+      case 'radius':
+        setFilterRadius("25");
+        break;
+      case 'payer':
+        setFilterPayer("");
+        setShowPlanField(false);
+        break;
+      case 'plan':
+        setFilterPlan("");
+        break;
+      case 'coverage':
+        setCoverageType("cash");
+        break;
+    }
   };
 
   // Generate embed code for a provider
