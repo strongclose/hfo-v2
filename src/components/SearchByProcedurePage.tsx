@@ -69,7 +69,7 @@ export function SearchByProcedurePage({
   const [selectedProcedure, setSelectedProcedure] = useState<{code: string, description: string} | null>(null);
   const [filterZipCode, setFilterZipCode] = useState("");
   const [zipError, setZipError] = useState("");
-  const [filterRadius, setFilterRadius] = useState("25");
+  const [filterRadius, setFilterRadius] = useState("");
   const [filterPayer, setFilterPayer] = useState("");
   const [filterPlan, setFilterPlan] = useState("");
   const [showPlanField, setShowPlanField] = useState(false);
@@ -403,7 +403,7 @@ export function SearchByProcedurePage({
     setSelectedProcedure(null);
     setFilterZipCode("");
     setZipError("");
-    setFilterRadius("25");
+    setFilterRadius("");
     setFilterPayer("");
     setFilterPlan("");
     setShowPlanField(false);
@@ -419,8 +419,8 @@ export function SearchByProcedurePage({
     if (filterZipCode && !zipError) {
       filters.push({type: 'location', label: filterZipCode, value: filterZipCode});
     }
-    if (filterRadius !== '25') {
-      filters.push({type: 'radius', label: `${filterRadius} mi`, value: filterRadius});
+    if (filterRadius) {
+      filters.push({type: 'radius', label: filterRadius, value: filterRadius});
     }
     if (filterPayer) {
       filters.push({type: 'payer', label: filterPayer, value: filterPayer});
@@ -448,7 +448,7 @@ export function SearchByProcedurePage({
         setFilterZipCode("");
         break;
       case 'radius':
-        setFilterRadius("25");
+        setFilterRadius("");
         break;
       case 'payer':
         setFilterPayer("");
@@ -573,14 +573,16 @@ export function SearchByProcedurePage({
   const handleMainProcedureSelect = (proc: { name: string; code: string }) => {
     const formattedValue = `${proc.name} (${proc.code})`;
     setMainProcedureInput(formattedValue);
+    setSidebarProcedureInput(formattedValue);
     setFilterProcedure(formattedValue);
     setShowMainProcedureSuggestions(false);
   };
 
   const handleSidebarProcedureSelect = (proc: { name: string; code: string }) => {
     const formattedValue = `${proc.name} (${proc.code})`;
-    setSidebarProcedureInput(formattedValue);
     setFilterProcedure(formattedValue);
+    setMainProcedureInput(formattedValue);
+    setSidebarProcedureInput(formattedValue);
     setShowSidebarProcedureSuggestions(false);
   };
 
