@@ -13,7 +13,6 @@ const Select = ({ value, onValueChange, children, disabled }: SelectProps) => {
   const [open, setOpen] = React.useState(false);
 
   const handleSetOpen = React.useCallback((newOpen: boolean) => {
-    console.log('Select setOpen called:', newOpen);
     setOpen(newOpen);
   }, []);
 
@@ -46,7 +45,6 @@ interface SelectTriggerProps {
 
 const SelectTrigger = ({ className, children, open, setOpen, disabled, value }: SelectTriggerProps) => {
   const handleClick = () => {
-    console.log('SelectTrigger clicked, disabled:', disabled, 'open:', open);
     if (!disabled && setOpen) {
       setOpen(!open);
     }
@@ -79,7 +77,6 @@ interface SelectValueProps {
 }
 
 const SelectValue = ({ placeholder, value }: SelectValueProps) => {
-  console.log('SelectValue render, value:', value, 'placeholder:', placeholder);
   return (
     <span className="block truncate">
       {value || placeholder}
@@ -96,8 +93,6 @@ interface SelectContentProps {
 }
 
 const SelectContent = ({ className, children, open, setOpen, onValueChange }: SelectContentProps) => {
-  console.log('SelectContent render, open:', open);
-
   if (!open) return null;
 
   return (
@@ -136,7 +131,6 @@ interface SelectItemProps {
 
 const SelectItem = ({ value, children, className, onValueChange, setOpen }: SelectItemProps) => {
   const handleClick = () => {
-    console.log('SelectItem clicked:', value, 'onValueChange:', !!onValueChange, 'setOpen:', !!setOpen);
     onValueChange?.(value);
     setOpen?.(false);
   };
