@@ -894,10 +894,14 @@ export function SearchByProcedurePage({
                         {/* Location */}
                         <div>
                           <Input
-                            placeholder="ZIP or city"
-                            value={filterLocation}
-                            onChange={(e) => setFilterLocation(e.target.value)}
+                            placeholder="ZIP code"
+                            value={filterZipCode}
+                            onChange={(e) => {
+                              const value = e.target.value.replace(/\D/g, '').slice(0, 5);
+                              setFilterZipCode(value);
+                            }}
                             className="h-9 text-sm rounded-lg border border-gray-300 focus:border-blue-500"
+                            maxLength={5}
                           />
                         </div>
 
