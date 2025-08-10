@@ -53,307 +53,408 @@ import { FooterExpanded } from '../components/homepage/FooterExpanded';
       </div>
     </div>
 
+    <!-- Main Content with Right Rail -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <!-- Comparison Tools -->
-      <div class="mb-16">
-        <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">
-          Choose What to Compare
-        </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        
+        <!-- Main Content Area -->
+        <div class="lg:col-span-2">
+          <!-- Comparison Tools -->
+          <div class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">
+              Choose What to Compare
+            </h2>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <a href="/hospitals" class="group">
-            <div class="bg-white rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer h-full p-6 text-center">
-              <div class="mx-auto p-3 bg-blue-100 rounded-full w-fit mb-4">
-                <svg class="h-8 w-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                </svg>
-              </div>
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">
-                Compare Hospitals
-              </h3>
-              <p class="text-gray-600 text-sm">
-                Compare costs and quality across hospitals
-              </p>
-            </div>
-          </a>
+            <div class="grid md:grid-cols-2 gap-6">
+              <a href="/hospitals" class="group">
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer h-full p-6 text-center">
+                  <div class="mx-auto p-3 bg-blue-100 rounded-full w-fit mb-4">
+                    <svg class="h-8 w-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                    Compare Hospitals
+                  </h3>
+                  <p class="text-gray-600 text-sm">
+                    Compare costs and quality across hospitals
+                  </p>
+                </div>
+              </a>
 
-          <a href="/doctors" class="group">
-            <div class="bg-white rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer h-full p-6 text-center">
-              <div class="mx-auto p-3 bg-green-100 rounded-full w-fit mb-4">
-                <svg class="h-8 w-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
-                </svg>
-              </div>
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">
-                Compare Doctors
-              </h3>
-              <p class="text-gray-600 text-sm">
-                Find and compare doctors by specialty
-              </p>
-            </div>
-          </a>
+              <a href="/doctors" class="group">
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer h-full p-6 text-center">
+                  <div class="mx-auto p-3 bg-green-100 rounded-full w-fit mb-4">
+                    <svg class="h-8 w-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                    Compare Doctors
+                  </h3>
+                  <p class="text-gray-600 text-sm">
+                    Find and compare doctors by specialty
+                  </p>
+                </div>
+              </a>
 
-          <a href="/insurers" class="group">
-            <div class="bg-white rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer h-full p-6 text-center">
-              <div class="mx-auto p-3 bg-purple-100 rounded-full w-fit mb-4">
-                <svg class="h-8 w-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                </svg>
-              </div>
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">
-                Compare Insurance
-              </h3>
-              <p class="text-gray-600 text-sm">
-                Compare insurance plans and coverage
-              </p>
-            </div>
-          </a>
+              <a href="/insurers" class="group">
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer h-full p-6 text-center">
+                  <div class="mx-auto p-3 bg-purple-100 rounded-full w-fit mb-4">
+                    <svg class="h-8 w-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                    Compare Insurance
+                  </h3>
+                  <p class="text-gray-600 text-sm">
+                    Compare insurance plans and coverage
+                  </p>
+                </div>
+              </a>
 
-          <a href="/tools/price-trends" class="group">
-            <div class="bg-white rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer h-full p-6 text-center">
-              <div class="mx-auto p-3 bg-orange-100 rounded-full w-fit mb-4">
-                <svg class="h-8 w-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                </svg>
-              </div>
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">
-                Price Trends
-              </h3>
-              <p class="text-gray-600 text-sm">
-                View pricing trends over time
-              </p>
+              <a href="/tools/price-trends" class="group">
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer h-full p-6 text-center">
+                  <div class="mx-auto p-3 bg-orange-100 rounded-full w-fit mb-4">
+                    <svg class="h-8 w-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                    Price Trends
+                  </h3>
+                  <p class="text-gray-600 text-sm">
+                    View pricing trends over time
+                  </p>
+                </div>
+              </a>
             </div>
-          </a>
+          </div>
+
+          <!-- Popular Comparisons -->
+          <div class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">
+              Popular Price Comparisons
+            </h2>
+
+            <div class="grid gap-6">
+              <div class="bg-white rounded-lg shadow hover:shadow-md transition-shadow p-6">
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="text-lg font-semibold text-gray-900">
+                    Knee Replacement
+                  </h3>
+                  <span class="px-2 py-1 bg-green-100 text-green-800 text-sm rounded-full">
+                    Save Up to 70%
+                  </span>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                  <div class="text-center p-3 bg-red-50 rounded-lg">
+                    <div class="text-sm text-gray-600">
+                      Highest Price
+                    </div>
+                    <div class="text-xl font-bold text-red-600">
+                      $50,000
+                    </div>
+                  </div>
+                  <div class="text-center p-3 bg-green-50 rounded-lg">
+                    <div class="text-sm text-gray-600">
+                      Lowest Price
+                    </div>
+                    <div class="text-xl font-bold text-green-600">
+                      $15,000
+                    </div>
+                  </div>
+                </div>
+
+                <button class="w-full py-2 px-4 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center">
+                  Compare Knee Replacement Prices
+                  <svg class="h-4 w-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <div class="bg-white rounded-lg shadow hover:shadow-md transition-shadow p-6">
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="text-lg font-semibold text-gray-900">
+                    MRI Scan
+                  </h3>
+                  <span class="px-2 py-1 bg-green-100 text-green-800 text-sm rounded-full">
+                    Save Up to 87%
+                  </span>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                  <div class="text-center p-3 bg-red-50 rounded-lg">
+                    <div class="text-sm text-gray-600">
+                      Highest Price
+                    </div>
+                    <div class="text-xl font-bold text-red-600">
+                      $3,000
+                    </div>
+                  </div>
+                  <div class="text-center p-3 bg-green-50 rounded-lg">
+                    <div class="text-sm text-gray-600">
+                      Lowest Price
+                    </div>
+                    <div class="text-xl font-bold text-green-600">
+                      $400
+                    </div>
+                  </div>
+                </div>
+
+                <button class="w-full py-2 px-4 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center">
+                  Compare MRI Scan Prices
+                  <svg class="h-4 w-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <div class="bg-white rounded-lg shadow hover:shadow-md transition-shadow p-6">
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="text-lg font-semibold text-gray-900">
+                    Colonoscopy
+                  </h3>
+                  <span class="px-2 py-1 bg-green-100 text-green-800 text-sm rounded-full">
+                    Save Up to 79%
+                  </span>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                  <div class="text-center p-3 bg-red-50 rounded-lg">
+                    <div class="text-sm text-gray-600">
+                      Highest Price
+                    </div>
+                    <div class="text-xl font-bold text-red-600">
+                      $2,800
+                    </div>
+                  </div>
+                  <div class="text-center p-3 bg-green-50 rounded-lg">
+                    <div class="text-sm text-gray-600">
+                      Lowest Price
+                    </div>
+                    <div class="text-xl font-bold text-green-600">
+                      $600
+                    </div>
+                  </div>
+                </div>
+
+                <button class="w-full py-2 px-4 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center">
+                  Compare Colonoscopy Prices
+                  <svg class="h-4 w-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Price Comparison Tools -->
+          <div class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">
+              Price Comparison Tools
+            </h2>
+
+            <div class="grid gap-6">
+              <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center gap-2 mb-4">
+                  <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                  </svg>
+                  <h3 class="text-lg font-semibold">Cost Calculator</h3>
+                </div>
+                <p class="text-gray-600 mb-4">
+                  Estimate your out-of-pocket costs based on your insurance
+                  plan and deductible.
+                </p>
+                <button class="w-full py-2 px-4 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center">
+                  <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                  </svg>
+                  Calculate Costs
+                </button>
+              </div>
+
+              <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center gap-2 mb-4">
+                  <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                  </svg>
+                  <h3 class="text-lg font-semibold">Price Trends</h3>
+                </div>
+                <p class="text-gray-600 mb-4">
+                  View how healthcare prices have changed over time in your
+                  area.
+                </p>
+                <button class="w-full py-2 px-4 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center">
+                  <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                  </svg>
+                  View Trends
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <!-- Popular Comparisons -->
-      <div class="mb-16">
-        <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">
-          Popular Price Comparisons
-        </h2>
+        <!-- Insightalytics Right Rail -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8">
+            <h3 class="text-xl font-semibold text-gray-700 mb-8">
+              Insightalytics
+            </h3>
 
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="bg-white rounded-lg shadow hover:shadow-md transition-shadow p-6">
-            <div class="flex items-center justify-between mb-4">
-              <h3 class="text-lg font-semibold text-gray-900">
-                Knee Replacement
-              </h3>
-              <span class="px-2 py-1 bg-green-100 text-green-800 text-sm rounded-full">
-                Save Up to 70%
-              </span>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4 mb-4">
-              <div class="text-center p-3 bg-red-50 rounded-lg">
-                <div class="text-sm text-gray-600">
-                  Highest Price
+            <div class="space-y-6">
+              <!-- Market Trends Card -->
+              <div class="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-2xl p-6">
+                <div class="flex items-center mb-3">
+                  <svg class="w-6 h-6 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                  </svg>
+                  <h3 class="font-bold text-blue-900">
+                    Market Trends
+                  </h3>
                 </div>
-                <div class="text-xl font-bold text-red-600">
-                  $50,000
+                <p class="text-blue-800 mb-4">
+                  Healthcare prices increased 3.2% nationwide this quarter, driven primarily by imaging and surgical procedures.
+                </p>
+                <a href="/insightalytics" class="text-blue-600 hover:text-blue-700 text-sm font-medium flex items-center">
+                  View Full Analysis
+                  <svg class="h-4 w-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </a>
+              </div>
+
+              <!-- Regional Comparison */
+              <div class="bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-2xl p-6">
+                <div class="flex items-center mb-3">
+                  <svg class="w-6 h-6 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                  <h3 class="font-bold text-green-900">
+                    Regional Insights
+                  </h3>
+                </div>
+                <p class="text-green-800 mb-4">
+                  Your area shows 18% lower costs than the national average for most common procedures.
+                </p>
+                <a href="/insightalytics/location-insights" class="text-green-600 hover:text-green-700 text-sm font-medium flex items-center">
+                  Explore by Location
+                  <svg class="h-4 w-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </a>
+              </div>
+
+              <!-- Procedure Analytics -->
+              <div class="bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-2xl p-6">
+                <div class="flex items-center mb-3">
+                  <svg class="w-6 h-6 text-purple-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                  </svg>
+                  <h3 class="font-bold text-purple-900">
+                    Procedure Analytics
+                  </h3>
+                </div>
+                <p class="text-purple-800 mb-4">
+                  MRI scans show the highest price variation (400% difference) between providers in your area.
+                </p>
+                <a href="/insightalytics/procedures" class="text-purple-600 hover:text-purple-700 text-sm font-medium flex items-center">
+                  Browse All Procedures
+                  <svg class="h-4 w-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </a>
+              </div>
+
+              <!-- Transparency Scoring -->
+              <div class="bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 rounded-2xl p-6">
+                <div class="flex items-center mb-3">
+                  <svg class="w-6 h-6 text-orange-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                  </svg>
+                  <h3 class="font-bold text-orange-900">
+                    Transparency Score
+                  </h3>
+                </div>
+                <p class="text-orange-800 mb-4">
+                  Only 67% of hospitals in your area meet federal pricing transparency requirements.
+                </p>
+                <a href="/transparency" class="text-orange-600 hover:text-orange-700 text-sm font-medium flex items-center">
+                  View Compliance Report
+                  <svg class="h-4 w-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </a>
+              </div>
+
+              <!-- Cost Variations -->
+              <div class="bg-gradient-to-br from-red-50 to-red-100 border border-red-200 rounded-2xl p-6">
+                <div class="flex items-center mb-3">
+                  <svg class="w-6 h-6 text-red-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                  </svg>
+                  <h3 class="font-bold text-red-900">
+                    Cost Variations
+                  </h3>
+                </div>
+                <p class="text-red-800 mb-4">
+                  Same-day surgery shows 300% price differences within 10 miles of your location.
+                </p>
+                <a href="/insightalytics/cost-comparisons" class="text-red-600 hover:text-red-700 text-sm font-medium flex items-center">
+                  Compare Cost Ranges
+                  <svg class="h-4 w-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </a>
+              </div>
+
+              <!-- Glossary Section -->
+              <div class="bg-white border border-gray-200 rounded-2xl p-6">
+                <h3 class="font-bold text-gray-900 mb-4">Healthcare Cost Glossary</h3>
+                <div class="space-y-4">
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-1">
+                      Negotiated Rate
+                    </h4>
+                    <p class="text-sm text-gray-600">
+                      A contracted price between a provider and insurer,
+                      typically lower than billed charges.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-1">
+                      Allowed Amount
+                    </h4>
+                    <p class="text-sm text-gray-600">
+                      The maximum that your plan will pay for a covered
+                      service.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-1">
+                      Gross Charge
+                    </h4>
+                    <p class="text-sm text-gray-600">
+                      The hospital's full, undiscounted rate before any
+                      insurance or discounts are applied.
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div class="text-center p-3 bg-green-50 rounded-lg">
-                <div class="text-sm text-gray-600">
-                  Lowest Price
-                </div>
-                <div class="text-xl font-bold text-green-600">
-                  $15,000
-                </div>
-              </div>
             </div>
-
-            <button class="w-full py-2 px-4 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center">
-              Compare Knee Replacement Prices
-              <svg class="h-4 w-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
-            </button>
-          </div>
-
-          <div class="bg-white rounded-lg shadow hover:shadow-md transition-shadow p-6">
-            <div class="flex items-center justify-between mb-4">
-              <h3 class="text-lg font-semibold text-gray-900">
-                MRI Scan
-              </h3>
-              <span class="px-2 py-1 bg-green-100 text-green-800 text-sm rounded-full">
-                Save Up to 87%
-              </span>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4 mb-4">
-              <div class="text-center p-3 bg-red-50 rounded-lg">
-                <div class="text-sm text-gray-600">
-                  Highest Price
-                </div>
-                <div class="text-xl font-bold text-red-600">
-                  $3,000
-                </div>
-              </div>
-              <div class="text-center p-3 bg-green-50 rounded-lg">
-                <div class="text-sm text-gray-600">
-                  Lowest Price
-                </div>
-                <div class="text-xl font-bold text-green-600">
-                  $400
-                </div>
-              </div>
-            </div>
-
-            <button class="w-full py-2 px-4 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center">
-              Compare MRI Scan Prices
-              <svg class="h-4 w-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
-            </button>
-          </div>
-
-          <div class="bg-white rounded-lg shadow hover:shadow-md transition-shadow p-6">
-            <div class="flex items-center justify-between mb-4">
-              <h3 class="text-lg font-semibold text-gray-900">
-                Colonoscopy
-              </h3>
-              <span class="px-2 py-1 bg-green-100 text-green-800 text-sm rounded-full">
-                Save Up to 79%
-              </span>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4 mb-4">
-              <div class="text-center p-3 bg-red-50 rounded-lg">
-                <div class="text-sm text-gray-600">
-                  Highest Price
-                </div>
-                <div class="text-xl font-bold text-red-600">
-                  $2,800
-                </div>
-              </div>
-              <div class="text-center p-3 bg-green-50 rounded-lg">
-                <div class="text-center p-3 bg-green-50 rounded-lg">
-                <div class="text-sm text-gray-600">
-                  Lowest Price
-                </div>
-                <div class="text-xl font-bold text-green-600">
-                  $600
-                </div>
-              </div>
-            </div>
-
-            <button class="w-full py-2 px-4 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center">
-              Compare Colonoscopy Prices
-              <svg class="h-4 w-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
-            </button>
-          </div>
-
-          <div class="bg-white rounded-lg shadow hover:shadow-md transition-shadow p-6">
-            <div class="flex items-center justify-between mb-4">
-              <h3 class="text-lg font-semibold text-gray-900">
-                CT Scan
-              </h3>
-              <span class="px-2 py-1 bg-green-100 text-green-800 text-sm rounded-full">
-                Save Up to 88%
-              </span>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4 mb-4">
-              <div class="text-center p-3 bg-red-50 rounded-lg">
-                <div class="text-sm text-gray-600">
-                  Highest Price
-                </div>
-                <div class="text-xl font-bold text-red-600">
-                  $2,500
-                </div>
-              </div>
-              <div class="text-center p-3 bg-green-50 rounded-lg">
-                <div class="text-sm text-gray-600">
-                  Lowest Price
-                </div>
-                <div class="text-xl font-bold text-green-600">
-                  $300
-                </div>
-              </div>
-            </div>
-
-            <button class="w-full py-2 px-4 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center">
-              Compare CT Scan Prices
-              <svg class="h-4 w-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tools Section -->
-      <div class="mb-16">
-        <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">
-          Price Comparison Tools
-        </h2>
-
-        <div class="grid lg:grid-cols-3 gap-8">
-          <div class="bg-white rounded-lg shadow p-6">
-            <div class="flex items-center gap-2 mb-4">
-              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-              </svg>
-              <h3 class="text-lg font-semibold">Cost Calculator</h3>
-            </div>
-            <p class="text-gray-600 mb-4">
-              Estimate your out-of-pocket costs based on your insurance
-              plan and deductible.
-            </p>
-            <button class="w-full py-2 px-4 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center">
-              <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-              </svg>
-              Calculate Costs
-            </button>
-          </div>
-
-          <div class="bg-white rounded-lg shadow p-6">
-            <div class="flex items-center gap-2 mb-4">
-              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-              </svg>
-              <h3 class="text-lg font-semibold">Price Trends</h3>
-            </div>
-            <p class="text-gray-600 mb-4">
-              View how healthcare prices have changed over time in your
-              area.
-            </p>
-            <button class="w-full py-2 px-4 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center">
-              <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-              </svg>
-              View Trends
-            </button>
-          </div>
-
-          <div class="bg-white rounded-lg shadow p-6">
-            <div class="flex items-center gap-2 mb-4">
-              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-              </svg>
-              <h3 class="text-lg font-semibold">Location Compare</h3>
-            </div>
-            <p class="text-gray-600 mb-4">
-              Compare prices across different cities and regions.
-            </p>
-            <button class="w-full py-2 px-4 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center">
-              <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-              </svg>
-              Compare Locations
-            </button>
           </div>
         </div>
       </div>
 
       <!-- Legal Compliance Section -->
-      <div class="space-y-6">
+      <div class="space-y-6 mt-16">
         <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
           <div class="flex items-start">
             <svg class="h-6 w-6 text-blue-600 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
