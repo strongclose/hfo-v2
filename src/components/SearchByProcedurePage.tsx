@@ -179,6 +179,8 @@ export function SearchByProcedurePage({
       complianceLevel: "High",
       complianceScore: 92,
       isCompliant: true,
+      payerComplianceScore: 88,
+      payerIsCompliant: true,
     },
     {
       id: 2,
@@ -196,6 +198,8 @@ export function SearchByProcedurePage({
       complianceLevel: "High",
       complianceScore: 88,
       isCompliant: true,
+      payerComplianceScore: 91,
+      payerIsCompliant: true,
     },
     {
       id: 3,
@@ -213,6 +217,8 @@ export function SearchByProcedurePage({
       complianceLevel: "Medium",
       complianceScore: 54,
       isCompliant: false,
+      payerComplianceScore: 76,
+      payerIsCompliant: true,
     },
   ];
 
@@ -804,14 +810,40 @@ export function SearchByProcedurePage({
                       </div>
 
                       {/* Additional Details */}
-                      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                      <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
                         <div>
-                          <p className="text-sm font-semibold text-gray-600 mb-1">
-                            Transparency Score
-                          </p>
-                          <p className="text-lg font-bold text-gray-900">
-                            {provider.complianceScore}/100
-                          </p>
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <div className="cursor-help">
+                                <p className="text-sm font-semibold text-gray-600 mb-1 underline decoration-dotted">
+                                  Provider Transparency Score
+                                </p>
+                                <p className="text-lg font-bold text-gray-900">
+                                  {provider.complianceScore}/100
+                                </p>
+                              </div>
+                            </TooltipTrigger>
+                            <TooltipContent className="bg-gray-900 text-white max-w-xs">
+                              <p>A HealthFees.org rating for this provider based on compliance with federal pricing transparency mandates. <a href="/methodology" className="underline">See how we measure compliance</a>.</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </div>
+                        <div>
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <div className="cursor-help">
+                                <p className="text-sm font-semibold text-gray-600 mb-1 underline decoration-dotted">
+                                  Payer Transparency Score
+                                </p>
+                                <p className="text-lg font-bold text-gray-900">
+                                  {provider.payerComplianceScore}/100
+                                </p>
+                              </div>
+                            </TooltipTrigger>
+                            <TooltipContent className="bg-gray-900 text-white max-w-xs">
+                              <p>A HealthFees.org rating for this payer based on compliance with federal pricing transparency mandates. <a href="/methodology" className="underline">See how we measure compliance</a>.</p>
+                            </TooltipContent>
+                          </Tooltip>
                         </div>
                         <div>
                           <p className="text-sm font-semibold text-gray-600 mb-1">
