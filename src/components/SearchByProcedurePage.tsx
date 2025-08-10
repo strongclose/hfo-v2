@@ -729,23 +729,24 @@ export function SearchByProcedurePage({
                     key={provider.id}
                     className="bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] rounded-2xl overflow-hidden"
                   >
-                    <CardContent className="p-8">
-                      <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                    <CardContent className="p-0">
+                      {/* Row A - Header */}
+                      <div className="flex items-center justify-between px-5 py-3">
                         <div>
-                          <h3 className="text-xl font-bold text-gray-900 mb-2">
+                          <h4 className="text-lg font-semibold text-gray-900 mb-1">
                             {provider.name}
-                          </h3>
-                          <p className="text-gray-600 flex items-center">
-                            <MapPin className="w-4 h-4 mr-1" />
+                          </h4>
+                          <p className="text-xs text-gray-500 flex items-center">
+                            <MapPin className="w-3 h-3 mr-1" />
                             {provider.location}
                           </p>
                         </div>
-                        <div className="mt-4 md:mt-0 flex flex-col gap-3">
-                          {/* A+ Style Compliance Badge */}
+                        <div className="flex items-center gap-3">
+                          {/* Compliance Badge */}
                           <Dialog>
                             <DialogTrigger asChild>
                               <button
-                                className={`px-3 py-2 rounded-lg font-bold text-sm cursor-pointer hover:shadow-md transition-all ${
+                                className={`px-3 py-1.5 rounded-lg font-bold text-sm cursor-pointer hover:shadow-md transition-all ${
                                   provider.isCompliant
                                     ? "bg-white border-2 border-gray-200 text-green-600 hover:border-green-300"
                                     : "bg-gray-100 border-2 border-gray-300 text-gray-600 hover:border-gray-400"
