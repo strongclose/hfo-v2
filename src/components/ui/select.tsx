@@ -92,9 +92,10 @@ interface SelectContentProps {
   children: React.ReactNode;
   open?: boolean;
   setOpen?: (open: boolean) => void;
+  onValueChange?: (value: string) => void;
 }
 
-const SelectContent = ({ className, children, open, setOpen, onValueChange }: SelectContentProps & { onValueChange?: (value: string) => void }) => {
+const SelectContent = ({ className, children, open, setOpen, onValueChange }: SelectContentProps) => {
   console.log('SelectContent render, open:', open);
 
   if (!open) return null;
@@ -112,7 +113,7 @@ const SelectContent = ({ className, children, open, setOpen, onValueChange }: Se
         )}
       >
         {React.Children.map(children, (child) => {
-          if (React.isValidElement(child)) {
+          if (React.isValidElement(child) && child.type !== 'div') {
             return React.cloneElement(child, {
               onValueChange,
               setOpen
