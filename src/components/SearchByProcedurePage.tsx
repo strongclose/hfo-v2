@@ -849,84 +849,94 @@ export function SearchByProcedurePage({
                         </div>
                       </div>
 
-                      {/* Row B - Pricing Band */}
-                      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 px-4 py-3 mx-5">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          {/* Column 1: Provider Cost */}
-                          <div>
-                            <p className="text-sm font-medium text-gray-700 mb-1">
-                              Provider Cost
-                            </p>
+                      {/* Row B - Two-Column Anchored Layout */}
+                      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 px-4 py-4 mx-5">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          {/* Provider Column */}
+                          <div className="flex flex-col">
+                            <h4 className="text-sm font-bold text-gray-900 mb-3">
+                              Provider
+                            </h4>
                             <p className="text-2xl font-bold text-gray-900 mb-1">
                               ${provider.avgPrice.toLocaleString()}
                             </p>
-                            <p className="text-xs text-gray-500">
+                            <p className="text-xs text-gray-500 mb-3">
                               Range ${Math.floor(provider.avgPrice * 0.8).toLocaleString()} – ${Math.floor(provider.avgPrice * 1.2).toLocaleString()}
                             </p>
-                          </div>
-
-                          {/* Column 2: Payer Coverage */}
-                          <div>
-                            <div className="flex items-center gap-1 mb-1">
-                              <p className="text-sm font-medium text-gray-700">
-                                Payer Coverage
-                              </p>
+                            <div className="flex items-center gap-2 mt-auto">
+                              <span className="text-xs font-medium text-gray-700">
+                                Provider Transparency
+                              </span>
                               <Tooltip>
                                 <TooltipTrigger asChild>
-                                  <button className="text-gray-400 hover:text-gray-600" aria-label="Payer Coverage info">
+                                  <button className="text-gray-400 hover:text-gray-600" aria-label="Provider Transparency Rating info">
                                     <Info className="w-3 h-3" />
                                   </button>
                                 </TooltipTrigger>
                                 <TooltipContent className="bg-gray-900 text-white max-w-xs">
-                                  <p>The 6-month average amount paid by this payer for this procedure.</p>
+                                  <p>HealthFees.org rating based on this provider's compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available. <a href="/methodology" className="underline text-blue-300">See how we measure compliance</a>.</p>
                                 </TooltipContent>
                               </Tooltip>
+                              <GradeChip
+                                score={provider.complianceScore}
+                                ariaLabel={`${getGradeFromScore(provider.complianceScore)} rating, high compliance`}
+                                tooltip="HealthFees.org rating based on this provider's compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available. See how we measure compliance."
+                                isProvider={true}
+                              />
                             </div>
-                            <p className="text-xs text-gray-500 mb-1">
+                          </div>
+
+                          {/* Payer Column */}
+                          <div className="flex flex-col">
+                            <h4 className="text-sm font-bold text-gray-900 mb-3">
+                              Payer
+                            </h4>
+                            <p className="text-sm font-medium text-gray-600 mb-2">
                               {provider.payer}
                             </p>
-                            <p className="text-2xl font-bold text-gray-900">
+                            <p className="text-2xl font-bold text-gray-900 mb-3">
                               $
                               {(
                                 updatedPrices[provider.id]?.coverageAmount ||
                                 provider.coverageAmount
                               ).toLocaleString()}
                             </p>
+                            <div className="flex items-center gap-2 mt-auto">
+                              <span className="text-xs font-medium text-gray-700">
+                                Payer Transparency
+                              </span>
+                              <Tooltip>
+                                <TooltipTrigger asChild>
+                                  <button className="text-gray-400 hover:text-gray-600" aria-label="Payer Transparency Rating info">
+                                    <Info className="w-3 h-3" />
+                                  </button>
+                                </TooltipTrigger>
+                                <TooltipContent className="bg-gray-900 text-white max-w-xs">
+                                  <p>HealthFees.org rating based on this payer's compliance with federal pricing transparency mandates. Updated monthly when new payer TiC files are published. <a href="/methodology" className="underline text-blue-300">See how we measure compliance</a>.</p>
+                                </TooltipContent>
+                              </Tooltip>
+                              <GradeChip
+                                score={provider.payerComplianceScore}
+                                ariaLabel={`${getGradeFromScore(provider.payerComplianceScore)} rating, high compliance`}
+                                tooltip="HealthFees.org rating based on this payer's compliance with federal pricing transparency mandates. Updated monthly when new payer TiC files are published. See how we measure compliance."
+                                isProvider={false}
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
 
-                      {/* Row C - Transparency Scores Row */}
-                      <div className="px-5 py-3">
-                        <div className="flex flex-wrap items-center gap-3 text-sm">
-                          <span className="text-gray-700">Transparency Score:</span>
-
-                          <GradeChip
-                            score={provider.complianceScore}
-                            ariaLabel={`Provider transparency rating ${getGradeFromScore(provider.complianceScore)}`}
-                            tooltip="HealthFees.org transparency rating for this provider based on compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available. See how we measure transparency."
-                            isProvider={true}
-                          />
-
-                          <span className="text-gray-400">•</span>
-
-                          <GradeChip
-                            score={provider.payerComplianceScore}
-                            ariaLabel={`Payer transparency rating ${getGradeFromScore(provider.payerComplianceScore)}`}
-                            tooltip="HealthFees.org transparency rating for this payer based on compliance with federal pricing transparency mandates. Updated monthly when new payer TiC files are published. See how we measure transparency."
-                            isProvider={false}
-                          />
-
-                          <span className="text-gray-400">•</span>
-
+                      {/* Row C - State Comparison */}
+                      <div className="px-5 py-3 border-t border-gray-100">
+                        <div className="flex items-center justify-center">
                           <span
-                            className={`flex items-center gap-1 font-medium ${
+                            className={`flex items-center gap-2 text-sm font-medium ${
                               provider.comparison.includes("below")
                                 ? "text-green-700"
                                 : "text-red-700"
                             }`}
                           >
-                            <span>
+                            <span className="text-base">
                               {provider.comparison.includes("below") ? "↓" : "↑"}
                             </span>
                             <span>
