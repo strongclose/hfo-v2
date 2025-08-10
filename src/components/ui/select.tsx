@@ -6,20 +6,22 @@ interface SelectProps {
   value?: string;
   onValueChange?: (value: string) => void;
   children: React.ReactNode;
+  disabled?: boolean;
 }
 
-const Select = ({ value, onValueChange, children }: SelectProps) => {
+const Select = ({ value, onValueChange, children, disabled }: SelectProps) => {
   const [open, setOpen] = React.useState(false);
-  
+
   return (
     <div className="relative">
       {React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
-          return React.cloneElement(child, { 
-            open, 
-            setOpen, 
-            value, 
-            onValueChange 
+          return React.cloneElement(child, {
+            open,
+            setOpen,
+            value,
+            onValueChange,
+            disabled
           } as any);
         }
         return child;
@@ -33,17 +35,19 @@ interface SelectTriggerProps {
   children: React.ReactNode;
   open?: boolean;
   setOpen?: (open: boolean) => void;
+  disabled?: boolean;
 }
 
-const SelectTrigger = ({ className, children, open, setOpen }: SelectTriggerProps) => {
+const SelectTrigger = ({ className, children, open, setOpen, disabled }: SelectTriggerProps) => {
   return (
     <button
       type="button"
+      disabled={disabled}
       className={cn(
         "flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
         className
       )}
-      onClick={() => setOpen?.(!open)}
+      onClick={() => !disabled && setOpen?.(!open)}
     >
       {children}
       <ChevronDown className="h-4 w-4 opacity-50" />
@@ -82,7 +86,7 @@ const SelectContent = ({ className, children, open, setOpen }: SelectContentProp
       />
       <div
         className={cn(
-          "absolute top-full z-50 mt-1 w-full rounded-md border bg-popover text-popover-foreground shadow-md",
+          "absolute top-full z-50 mt-1 w-full rounded-md border bg-white text-gray-900 shadow-lg",
           className
         )}
       >
