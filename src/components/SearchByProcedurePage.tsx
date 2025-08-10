@@ -4,6 +4,7 @@ import { Input } from "./ui/input";
 import { Badge } from "./ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Slider } from "./ui/slider";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import {
   Select,
   SelectContent,
@@ -377,42 +378,63 @@ export function SearchByProcedurePage({
                     Coverage Type
                   </label>
                   <div className="flex flex-wrap gap-6">
-                    <label className="flex items-center cursor-pointer">
-                      <input
-                        type="radio"
-                        value="cash"
-                        checked={coverageType === "cash"}
-                        onChange={(e) => setCoverageType(e.target.value)}
-                        className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 focus:ring-2"
-                      />
-                      <span className="ml-2 text-gray-700 font-medium">
-                        Cash Pay
-                      </span>
-                    </label>
-                    <label className="flex items-center cursor-pointer">
-                      <input
-                        type="radio"
-                        value="in-network"
-                        checked={coverageType === "in-network"}
-                        onChange={(e) => setCoverageType(e.target.value)}
-                        className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 focus:ring-2"
-                      />
-                      <span className="ml-2 text-gray-700 font-medium">
-                        In-Network
-                      </span>
-                    </label>
-                    <label className="flex items-center cursor-pointer">
-                      <input
-                        type="radio"
-                        value="out-of-network"
-                        checked={coverageType === "out-of-network"}
-                        onChange={(e) => setCoverageType(e.target.value)}
-                        className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 focus:ring-2"
-                      />
-                      <span className="ml-2 text-gray-700 font-medium">
-                        Out-of-Network
-                      </span>
-                    </label>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <label className="flex items-center cursor-pointer">
+                          <input
+                            type="radio"
+                            value="cash"
+                            checked={coverageType === "cash"}
+                            onChange={(e) => setCoverageType(e.target.value)}
+                            className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 focus:ring-2"
+                          />
+                          <span className="ml-2 text-gray-700 font-medium">
+                            Cash Pay
+                          </span>
+                        </label>
+                      </TooltipTrigger>
+                      <TooltipContent className="bg-gray-900 text-white">
+                        <p>Price without insurance, paid directly to the provider.</p>
+                      </TooltipContent>
+                    </Tooltip>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <label className="flex items-center cursor-pointer">
+                          <input
+                            type="radio"
+                            value="in-network"
+                            checked={coverageType === "in-network"}
+                            onChange={(e) => setCoverageType(e.target.value)}
+                            className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 focus:ring-2"
+                          />
+                          <span className="ml-2 text-gray-700 font-medium">
+                            In-Network
+                          </span>
+                        </label>
+                      </TooltipTrigger>
+                      <TooltipContent className="bg-gray-900 text-white">
+                        <p>Contracted price between your insurer and provider.</p>
+                      </TooltipContent>
+                    </Tooltip>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <label className="flex items-center cursor-pointer">
+                          <input
+                            type="radio"
+                            value="out-of-network"
+                            checked={coverageType === "out-of-network"}
+                            onChange={(e) => setCoverageType(e.target.value)}
+                            className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 focus:ring-2"
+                          />
+                          <span className="ml-2 text-gray-700 font-medium">
+                            Out-of-Network
+                          </span>
+                        </label>
+                      </TooltipTrigger>
+                      <TooltipContent className="bg-gray-900 text-white">
+                        <p>Price when provider is not contracted with your insurer.</p>
+                      </TooltipContent>
+                    </Tooltip>
                   </div>
                 </div>
               </div>
