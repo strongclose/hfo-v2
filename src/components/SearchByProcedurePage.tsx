@@ -753,6 +753,7 @@ export function SearchByProcedurePage({
                                 style={{
                                   color: provider.isCompliant ? "#00A651" : "#6B7280"
                                 }}
+                                aria-label="View compliance rating details"
                               >
                                 {provider.isCompliant ? "A+" : "C"} – {provider.complianceScore}%
                               </button>
