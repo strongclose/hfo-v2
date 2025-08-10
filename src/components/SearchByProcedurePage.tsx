@@ -205,8 +205,14 @@ export function SearchByProcedurePage({
   const filterResults = (providers: typeof allSampleProviders) => {
     return providers.filter(provider => {
       // Filter by procedure if selected
-      if (filterProcedure && !provider.procedureName.toLowerCase().includes(filterProcedure.toLowerCase()) && !provider.cptCode.includes(filterProcedure)) {
-        return false;
+      if (filterProcedure) {
+        const procedureMatch = provider.procedureName.toLowerCase().includes(filterProcedure.toLowerCase()) ||
+                              provider.cptCode.includes(filterProcedure) ||
+                              filterProcedure.toLowerCase().includes(provider.procedureName.toLowerCase()) ||
+                              filterProcedure.includes(provider.cptCode);
+        if (!procedureMatch) {
+          return false;
+        }
       }
 
       // Filter by payer if selected
@@ -878,13 +884,6 @@ export function SearchByProcedurePage({
                   ) : (
                     <><Search className="w-6 h-6 mr-3" /> Search Prices</>
                   )}
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="lg"
-                  className="h-16 px-8 text-lg text-gray-600 hover:text-gray-900 rounded-2xl"
-                >
-                  Clear Filters
                 </Button>
               </div>
             </div>
