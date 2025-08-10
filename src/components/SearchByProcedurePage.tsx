@@ -740,7 +740,7 @@ export function SearchByProcedurePage({
                             {provider.location}
                           </p>
                         </div>
-                        <div className="mt-4 md:mt-0 flex gap-2">
+                        <div className="mt-4 md:mt-0 flex flex-col gap-3">
                           {/* A+ Style Compliance Badge */}
                           <Dialog>
                             <DialogTrigger asChild>
