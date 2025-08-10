@@ -250,6 +250,34 @@ export function SearchByProcedurePage({
     }
   };
 
+  // Predefined payers list
+  const predefinedPayers = [
+    // Commercial
+    { name: "Aetna", type: "commercial" },
+    { name: "Anthem", type: "commercial" },
+    { name: "Blue Cross Blue Shield", type: "commercial" },
+    { name: "Cigna", type: "commercial" },
+    { name: "Humana", type: "commercial" },
+    { name: "Kaiser Permanente", type: "commercial" },
+    { name: "UnitedHealthcare", type: "commercial" },
+    { name: "Molina Healthcare", type: "commercial" },
+    { name: "Centene", type: "commercial" },
+    { name: "WellCare", type: "commercial" },
+    // Public
+    { name: "Medicare", type: "public" },
+    { name: "Medicaid", type: "public" },
+    // Other
+    { name: "Self-Pay", type: "other" },
+  ];
+
+  // Predefined plans (conditional on payer)
+  const predefinedPlans = {
+    "Aetna": ["Aetna PPO", "Aetna HMO", "Aetna Open Access"],
+    "Blue Cross Blue Shield": ["Blue Shield Silver 70", "Blue Shield Gold", "Blue Shield Bronze"],
+    "Cigna": ["Cigna PPO", "Cigna HMO", "Cigna Open Access Plus"],
+    "UnitedHealthcare": ["United Choice Plus", "United Navigate", "United Select Plus"],
+  };
+
   // Predefined procedures list
   const predefinedProcedures = [
     { name: "MRI Brain without Contrast", code: "70553" },
