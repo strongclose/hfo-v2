@@ -87,6 +87,19 @@ export function SearchByProcedurePage({
   const [badgeStyle, setBadgeStyle] = useState<'light' | 'dark'>('light');
   const [copiedCode, setCopiedCode] = useState(false);
 
+  // Handle filter clicks
+  const handlePayerFilter = (payer: string) => {
+    setFilterProvider(payer.toLowerCase().replace(/\s+/g, '-'));
+    // In a real app, this would trigger a new search
+    console.log('Filtering by payer:', payer);
+  };
+
+  const handleCoverageFilter = (coverage: string) => {
+    setCoverageType(coverage.toLowerCase().replace('-', '-'));
+    // In a real app, this would trigger a new search
+    console.log('Filtering by coverage:', coverage);
+  };
+
   // Generate embed code for a provider
   const generateEmbedCode = (provider: any, style: 'light' | 'dark') => {
     const entityId = `HFO-${provider.id.toString().padStart(5, '0')}`;
