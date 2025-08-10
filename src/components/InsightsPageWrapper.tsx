@@ -1,6 +1,4 @@
-"use client";
-
-import { useState } from "react";
+import React, { useState } from "react";
 import { Navigation } from "./Navigation";
 import { FooterExpanded } from "./homepage/FooterExpanded";
 import { StandardizedCTA } from "./StandardizedCTA";
