@@ -41,6 +41,7 @@ interface SelectTriggerProps {
   open?: boolean;
   setOpen?: (open: boolean) => void;
   disabled?: boolean;
+  value?: string;
 }
 
 const SelectTrigger = ({ className, children, open, setOpen, disabled }: SelectTriggerProps) => {
