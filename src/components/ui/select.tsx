@@ -73,6 +73,7 @@ interface SelectValueProps {
 }
 
 const SelectValue = ({ placeholder, value }: SelectValueProps) => {
+  console.log('SelectValue render, value:', value, 'placeholder:', placeholder);
   return (
     <span className="block truncate">
       {value || placeholder}
