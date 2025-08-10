@@ -6,6 +6,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Slider } from "./ui/slider";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog";
+import {
   Select,
   SelectContent,
   SelectItem,
@@ -72,6 +79,7 @@ export function SearchByProcedurePage({
   >({});
   const [showProcedureSuggestions, setShowProcedureSuggestions] =
     useState(false);
+  const [selectedComplianceProvider, setSelectedComplianceProvider] = useState<number | null>(null);
 
   // Predefined procedures list
   const predefinedProcedures = [
@@ -670,16 +678,54 @@ export function SearchByProcedurePage({
                           </p>
                         </div>
                         <div className="mt-4 md:mt-0 flex gap-2">
-                          {/* Compliance Badge */}
-                          <div
-                            className={`px-3 py-1 rounded-full font-bold text-xs ${
-                              provider.isCompliant
-                                ? "bg-teal-500 text-white"
-                                : "bg-gray-200 text-gray-700"
-                            }`}
-                          >
-                            {provider.isCompliant ? "Compliant" : "Non-Compliant"} – {provider.complianceScore}%
-                          </div>
+                          {/* A+ Style Compliance Badge */}
+                          <Dialog>
+                            <DialogTrigger asChild>
+                              <button
+                                className={`px-3 py-2 rounded-lg font-bold text-sm cursor-pointer hover:shadow-md transition-all ${
+                                  provider.isCompliant
+                                    ? "bg-white border-2 border-gray-200 text-green-600 hover:border-green-300"
+                                    : "bg-gray-100 border-2 border-gray-300 text-gray-600 hover:border-gray-400"
+                                }`}
+                                style={{
+                                  color: provider.isCompliant ? "#00A651" : "#6B7280"
+                                }}
+                              >
+                                {provider.isCompliant ? "A+" : "C"} – {provider.complianceScore}%
+                              </button>
+                            </DialogTrigger>
+                            <DialogContent className="sm:max-w-md">
+                              <DialogHeader>
+                                <DialogTitle>HealthFees.org Compliance Rating</DialogTitle>
+                              </DialogHeader>
+                              <div className="flex flex-col items-center space-y-4 py-4">
+                                {/* Full-size A+ badge graphic */}
+                                <div
+                                  className={`px-8 py-6 rounded-xl font-bold text-4xl ${
+                                    provider.isCompliant
+                                      ? "bg-white border-4 border-green-200 text-green-600 shadow-lg"
+                                      : "bg-gray-100 border-4 border-gray-300 text-gray-600"
+                                  }`}
+                                  style={{
+                                    color: provider.isCompliant ? "#00A651" : "#6B7280"
+                                  }}
+                                >
+                                  {provider.isCompliant ? "A+" : "C"} – {provider.complianceScore}%
+                                </div>
+                                <div className="text-center space-y-3">
+                                  <p className="text-gray-700">
+                                    HealthFees.org Compliance Rating based on federal pricing transparency mandates.
+                                  </p>
+                                  <a
+                                    href="/methodology"
+                                    className="text-blue-600 hover:text-blue-800 underline font-medium"
+                                  >
+                                    Learn more about HealthFees.org Ratings
+                                  </a>
+                                </div>
+                              </div>
+                            </DialogContent>
+                          </Dialog>
                           <div
                             className="px-4 py-2 rounded-full font-semibold text-sm inline-block"
                             style={{
