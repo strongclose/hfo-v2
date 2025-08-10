@@ -594,19 +594,18 @@ export function SearchByProcedurePage({
                         <SelectValue placeholder="Select payer" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="aetna">Aetna</SelectItem>
-                        <SelectItem value="anthem">Anthem</SelectItem>
-                        <SelectItem value="blue-cross">
-                          Blue Cross Blue Shield
-                        </SelectItem>
-                        <SelectItem value="cigna">Cigna</SelectItem>
-                        <SelectItem value="humana">Humana</SelectItem>
-                        <SelectItem value="kaiser">
-                          Kaiser Permanente
-                        </SelectItem>
-                        <SelectItem value="united">UnitedHealth</SelectItem>
-                        <SelectItem value="medicare">Medicare</SelectItem>
-                        <SelectItem value="medicaid">Medicaid</SelectItem>
+                        <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wide">Commercial</div>
+                        {predefinedPayers.filter(p => p.type === 'commercial').map(payer => (
+                          <SelectItem key={payer.name} value={payer.name}>{payer.name}</SelectItem>
+                        ))}
+                        <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wide">Public</div>
+                        {predefinedPayers.filter(p => p.type === 'public').map(payer => (
+                          <SelectItem key={payer.name} value={payer.name}>{payer.name}</SelectItem>
+                        ))}
+                        <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wide">Other</div>
+                        {predefinedPayers.filter(p => p.type === 'other').map(payer => (
+                          <SelectItem key={payer.name} value={payer.name}>{payer.name}</SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                   </div>
