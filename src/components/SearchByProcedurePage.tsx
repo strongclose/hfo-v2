@@ -127,12 +127,26 @@ export function SearchByProcedurePage({
   // Grade chip component
   const GradeChip = ({ score, ariaLabel }: { score: number; ariaLabel: string }) => {
     const grade = getGradeFromScore(score);
+    const getChipColor = (grade: string) => {
+      switch (grade) {
+        case 'A':
+        case 'A+':
+          return '#00A651';
+        case 'B':
+          return '#FFC107';
+        case 'C':
+        case 'D':
+        default:
+          return '#E53935';
+      }
+    };
+
     return (
       <span
-        className={`inline-flex items-center px-2 py-1 rounded text-xs font-medium h-5 ${getGradeChipStyles(grade)}`}
+        className="inline-flex items-center px-2 py-1 rounded text-xs font-medium text-white"
         style={{
-          backgroundColor: grade === 'A' || grade === 'A+' ? '#00A651' :
-                          grade === 'B' ? '#FFC107' : '#E53935'
+          backgroundColor: getChipColor(grade),
+          height: '20px'
         }}
         aria-label={ariaLabel}
       >
