@@ -73,7 +73,7 @@ export function SearchByProcedurePage({
   const [filterPayer, setFilterPayer] = useState("");
   const [filterPlan, setFilterPlan] = useState("");
   const [showPlanField, setShowPlanField] = useState(false);
-  const [coverageType, setCoverageType] = useState("cash");
+  const [coverageType, setCoverageType] = useState("in-network");
   const [isScrolled, setIsScrolled] = useState(false);
   const [loadingProviders, setLoadingProviders] = useState<Set<number>>(
     new Set(),
@@ -809,25 +809,6 @@ export function SearchByProcedurePage({
                         <label className="flex items-center cursor-pointer">
                           <input
                             type="radio"
-                            value="cash"
-                            checked={coverageType === "cash"}
-                            onChange={(e) => setCoverageType(e.target.value)}
-                            className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 focus:ring-2"
-                          />
-                          <span className="ml-2 text-gray-700 font-medium">
-                            Cash Pay
-                          </span>
-                        </label>
-                      </TooltipTrigger>
-                      <TooltipContent className="bg-gray-900 text-white">
-                        <p>Price without insurance, paid directly to the provider.</p>
-                      </TooltipContent>
-                    </Tooltip>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <label className="flex items-center cursor-pointer">
-                          <input
-                            type="radio"
                             value="in-network"
                             checked={coverageType === "in-network"}
                             onChange={(e) => setCoverageType(e.target.value)}
@@ -859,6 +840,25 @@ export function SearchByProcedurePage({
                       </TooltipTrigger>
                       <TooltipContent className="bg-gray-900 text-white">
                         <p>Price when provider is not contracted with your insurer.</p>
+                      </TooltipContent>
+                    </Tooltip>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <label className="flex items-center cursor-pointer">
+                          <input
+                            type="radio"
+                            value="cash"
+                            checked={coverageType === "cash"}
+                            onChange={(e) => setCoverageType(e.target.value)}
+                            className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 focus:ring-2"
+                          />
+                          <span className="ml-2 text-gray-700 font-medium">
+                            Cash Price
+                          </span>
+                        </label>
+                      </TooltipTrigger>
+                      <TooltipContent className="bg-gray-900 text-white">
+                        <p>Price without insurance, paid directly to the provider.</p>
                       </TooltipContent>
                     </Tooltip>
                   </div>
