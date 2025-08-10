@@ -37,6 +37,8 @@ import {
   Star,
   Clock,
   Loader2,
+  Shield,
+  Tag,
 } from "lucide-react";
 
 interface SearchByProcedurePageProps {
