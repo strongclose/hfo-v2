@@ -1086,20 +1086,19 @@ export function SearchByProcedurePage({
 
             {/* Insights Sidebar */}
             <div className="lg:col-span-1">
-              <div className="sticky top-8">
+              <div className="sticky top-4 space-y-6">
                 {/* Compact Filter Tool */}
-                <Card className="bg-white border border-gray-200 rounded-2xl mb-8">
-                  <CardContent className="p-4">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                <Card className="bg-white border border-gray-200 rounded-xl">
+                  <CardContent className="p-3">
+                    <h4 className="text-sm font-semibold text-gray-900 mb-3">
                       Filter Results
-                    </h3>
+                    </h4>
 
-                    <div className="space-y-3">
+                    <div className="space-y-2">
                       {/* Procedure Search */}
                       <div className="relative">
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Procedure</label>
                         <Input
-                          placeholder="Procedure or CPT code"
+                          placeholder="Procedure or CPT"
                           value={filterProcedure}
                           onChange={(e) => {
                             setFilterProcedure(e.target.value);
@@ -1118,13 +1117,13 @@ export function SearchByProcedurePage({
                               200,
                             )
                           }
-                          className="h-9 text-sm rounded-lg border border-gray-300 focus:border-blue-500"
+                          className="h-8 text-xs rounded-md border border-gray-300 focus:border-blue-500"
                         />
                         {showProcedureSuggestions &&
                           filteredProcedures.length > 0 && (
-                            <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-48 overflow-y-auto">
+                            <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-32 overflow-y-auto">
                               {filteredProcedures
-                                .slice(0, 4)
+                                .slice(0, 3)
                                 .map((proc, index) => (
                                   <button
                                     key={index}
@@ -1134,13 +1133,13 @@ export function SearchByProcedurePage({
                                       );
                                       setShowProcedureSuggestions(false);
                                     }}
-                                    className="w-full text-left px-3 py-2 hover:bg-blue-50 focus:bg-blue-50 focus:outline-none border-b border-gray-100 last:border-b-0"
+                                    className="w-full text-left px-2 py-1.5 hover:bg-blue-50 focus:bg-blue-50 focus:outline-none border-b border-gray-100 last:border-b-0"
                                   >
-                                    <div className="font-medium text-gray-900 text-sm">
+                                    <div className="font-medium text-gray-900 text-xs">
                                       {proc.name}
                                     </div>
                                     <div className="text-xs text-gray-500 font-mono">
-                                      CPT: {proc.code}
+                                      {proc.code}
                                     </div>
                                   </button>
                                 ))}
@@ -1148,79 +1147,24 @@ export function SearchByProcedurePage({
                           )}
                       </div>
 
-                      {/* Location */}
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                      {/* Location & Radius in one row */}
+                      <div className="grid grid-cols-2 gap-2">
                         <Input
-                          placeholder="ZIP code"
+                          placeholder="ZIP"
                           value={filterZipCode}
                           onChange={(e) => {
                             const value = e.target.value.replace(/\D/g, '').slice(0, 5);
                             setFilterZipCode(value);
                           }}
-                          className="h-9 text-sm rounded-lg border border-gray-300 focus:border-blue-500"
+                          className="h-8 text-xs rounded-md border border-gray-300 focus:border-blue-500"
                           maxLength={5}
                         />
-                      </div>
-
-                      {/* Payer */}
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Payer</label>
-                        <Select
-                          value={filterPayer}
-                          onValueChange={handlePayerSelection}
-                        >
-                          <SelectTrigger className="h-9 text-sm rounded-lg border border-gray-300">
-                            <SelectValue placeholder="Select payer" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wide">Commercial</div>
-                            {predefinedPayers.filter(p => p.type === 'commercial').map(payer => (
-                              <SelectItem key={payer.name} value={payer.name}>{payer.name}</SelectItem>
-                            ))}
-                            <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wide">Public</div>
-                            {predefinedPayers.filter(p => p.type === 'public').map(payer => (
-                              <SelectItem key={payer.name} value={payer.name}>{payer.name}</SelectItem>
-                            ))}
-                            <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wide">Other</div>
-                            {predefinedPayers.filter(p => p.type === 'other').map(payer => (
-                              <SelectItem key={payer.name} value={payer.name}>{payer.name}</SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
-
-                      {/* Coverage Type */}
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Coverage</label>
-                        <Select
-                          value={coverageType}
-                          onValueChange={setCoverageType}
-                        >
-                          <SelectTrigger className="h-9 text-sm rounded-lg border border-gray-300">
-                            <SelectValue placeholder="Coverage type" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="cash">Cash Pay</SelectItem>
-                            <SelectItem value="in-network">
-                              In-Network
-                            </SelectItem>
-                            <SelectItem value="out-of-network">
-                              Out-of-Network
-                            </SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-
-                      {/* Radius */}
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Radius</label>
                         <Select
                           value={filterRadius}
                           onValueChange={setFilterRadius}
                         >
-                          <SelectTrigger className="h-9 text-sm rounded-lg border border-gray-300">
-                            <SelectValue placeholder="Search radius" />
+                          <SelectTrigger className="h-8 text-xs rounded-md border border-gray-300">
+                            <SelectValue placeholder="Radius" />
                           </SelectTrigger>
                           <SelectContent>
                             <SelectItem value="10">10 mi</SelectItem>
@@ -1230,6 +1174,49 @@ export function SearchByProcedurePage({
                           </SelectContent>
                         </Select>
                       </div>
+
+                      {/* Payer */}
+                      <Select
+                        value={filterPayer}
+                        onValueChange={handlePayerSelection}
+                      >
+                        <SelectTrigger className="h-8 text-xs rounded-md border border-gray-300">
+                          <SelectValue placeholder="Select payer" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wide">Commercial</div>
+                          {predefinedPayers.filter(p => p.type === 'commercial').map(payer => (
+                            <SelectItem key={payer.name} value={payer.name}>{payer.name}</SelectItem>
+                          ))}
+                          <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wide">Public</div>
+                          {predefinedPayers.filter(p => p.type === 'public').map(payer => (
+                            <SelectItem key={payer.name} value={payer.name}>{payer.name}</SelectItem>
+                          ))}
+                          <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wide">Other</div>
+                          {predefinedPayers.filter(p => p.type === 'other').map(payer => (
+                            <SelectItem key={payer.name} value={payer.name}>{payer.name}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+
+                      {/* Coverage Type */}
+                      <Select
+                        value={coverageType}
+                        onValueChange={setCoverageType}
+                      >
+                        <SelectTrigger className="h-8 text-xs rounded-md border border-gray-300">
+                          <SelectValue placeholder="Coverage type" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="cash">Cash Pay</SelectItem>
+                          <SelectItem value="in-network">
+                            In-Network
+                          </SelectItem>
+                          <SelectItem value="out-of-network">
+                            Out-of-Network
+                          </SelectItem>
+                        </SelectContent>
+                      </Select>
                     </div>
                   </CardContent>
                 </Card>
