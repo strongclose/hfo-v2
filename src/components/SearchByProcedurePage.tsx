@@ -116,12 +116,29 @@ export function SearchByProcedurePage({
       case 'A+':
         return 'bg-green-600 text-white';
       case 'B':
-        return 'bg-yellow-500 text-white';
+        return 'bg-amber-500 text-white';
       case 'C':
       case 'D':
       default:
         return 'bg-red-600 text-white';
     }
+  };
+
+  // Grade chip component
+  const GradeChip = ({ score, ariaLabel }: { score: number; ariaLabel: string }) => {
+    const grade = getGradeFromScore(score);
+    return (
+      <span
+        className={`inline-flex items-center px-2 py-1 rounded text-xs font-medium h-5 ${getGradeChipStyles(grade)}`}
+        style={{
+          backgroundColor: grade === 'A' || grade === 'A+' ? '#00A651' :
+                          grade === 'B' ? '#FFC107' : '#E53935'
+        }}
+        aria-label={ariaLabel}
+      >
+        {grade}
+      </span>
+    );
   };
 
   const handleCoverageFilter = (coverage: string) => {
@@ -847,15 +864,17 @@ export function SearchByProcedurePage({
 
                       {/* Row C - Transparency Scores Row */}
                       <div className="px-5 py-3">
-                        <div className="flex flex-wrap items-center gap-4 text-sm">
+                        <div className="flex flex-wrap items-center gap-3 text-sm">
                           <span className="text-gray-700">Transparency Score:</span>
 
-                          <div className="flex items-center gap-2">
-                            <span className="text-gray-700">Provider</span>
-                            <span className="font-semibold">{getGradeFromScore(provider.complianceScore)}</span>
+                          <div className="flex items-center gap-1">
+                            <GradeChip
+                              score={provider.complianceScore}
+                              ariaLabel={`Provider transparency rating ${getGradeFromScore(provider.complianceScore)}`}
+                            />
                             <Tooltip>
                               <TooltipTrigger asChild>
-                                <button className="text-gray-400 hover:text-gray-600" aria-label="Provider Transparency Rating info">
+                                <button className="text-gray-400 hover:text-gray-600 ml-1" aria-label="Provider Transparency Rating info">
                                   <Info className="w-3 h-3" />
                                 </button>
                               </TooltipTrigger>
@@ -867,12 +886,14 @@ export function SearchByProcedurePage({
 
                           <span className="text-gray-400">•</span>
 
-                          <div className="flex items-center gap-2">
-                            <span className="text-gray-700">Payer</span>
-                            <span className="font-semibold">{getGradeFromScore(provider.payerComplianceScore)}</span>
+                          <div className="flex items-center gap-1">
+                            <GradeChip
+                              score={provider.payerComplianceScore}
+                              ariaLabel={`Payer transparency rating ${getGradeFromScore(provider.payerComplianceScore)}`}
+                            />
                             <Tooltip>
                               <TooltipTrigger asChild>
-                                <button className="text-gray-400 hover:text-gray-600" aria-label="Payer Transparency Rating info">
+                                <button className="text-gray-400 hover:text-gray-600 ml-1" aria-label="Payer Transparency Rating info">
                                   <Info className="w-3 h-3" />
                                 </button>
                               </TooltipTrigger>
