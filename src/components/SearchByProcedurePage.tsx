@@ -873,49 +873,50 @@ export function SearchByProcedurePage({
 
 
       {/* 3. Price Summary Section */}
-      <section className="py-16 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto">
-            <Card className="bg-white/80 backdrop-blur-xl border border-white/20 shadow-2xl rounded-3xl p-8">
-              <CardHeader>
-                <CardTitle className="text-2xl md:text-3xl font-bold text-gray-900 text-center">
-                  Price Range for MRI Brain in San Francisco, CA
-                </CardTitle>
-                <p className="text-gray-600 text-center mt-2">
-                  Based on six-month averages across 12 facilities
-                </p>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                  <div className="text-center">
-                    <p className="text-sm font-semibold text-gray-600 mb-2">
-                      Lowest Price
-                    </p>
-                    <p className="text-3xl font-bold text-green-600">$6,200</p>
+      {hasSearched && searchResults.length > 0 && (
+        <section className="py-16 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-5xl mx-auto">
+              <Card className="bg-white/80 backdrop-blur-xl border border-white/20 shadow-2xl rounded-3xl p-8">
+                <CardHeader>
+                  <CardTitle className="text-2xl md:text-3xl font-bold text-gray-900 text-center">
+                    Price Range for {filterProcedure || 'Selected Procedure'} in {filterZipCode ? `ZIP ${filterZipCode}` : 'Your Area'}
+                  </CardTitle>
+                  <p className="text-gray-600 text-center mt-2">
+                    Based on {searchResults.length} provider{searchResults.length !== 1 ? 's' : ''} in your search results
+                  </p>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                    <div className="text-center">
+                      <p className="text-sm font-semibold text-gray-600 mb-2">
+                        Lowest Price
+                      </p>
+                      <p className="text-3xl font-bold text-green-600">${minPrice.toLocaleString()}</p>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-sm font-semibold text-gray-600 mb-2">
+                        Average Price
+                      </p>
+                      <p className="text-3xl font-bold text-blue-600">${Math.round((minPrice + maxPrice) / 2).toLocaleString()}</p>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-sm font-semibold text-gray-600 mb-2">
+                        Highest Price
+                      </p>
+                      <p className="text-3xl font-bold text-red-600">${maxPrice.toLocaleString()}</p>
+                    </div>
                   </div>
-                  <div className="text-center">
-                    <p className="text-sm font-semibold text-gray-600 mb-2">
-                      Average Price
-                    </p>
-                    <p className="text-3xl font-bold text-blue-600">$8,470</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-sm font-semibold text-gray-600 mb-2">
-                      Highest Price
-                    </p>
-                    <p className="text-3xl font-bold text-red-600">$12,100</p>
-                  </div>
-                </div>
-                <div className="w-full h-4 bg-gradient-to-r from-green-400 via-blue-400 to-red-400 rounded-full mb-4"></div>
-                <p className="text-xs text-gray-500 text-center">
-                  Average price is calculated from all available records over
-                  the past six months and weighted by provider availability.
-                </p>
-              </CardContent>
-            </Card>
+                  <div className="w-full h-4 bg-gradient-to-r from-green-400 via-blue-400 to-red-400 rounded-full mb-4"></div>
+                  <p className="text-xs text-gray-500 text-center">
+                    Price range is calculated from your search results. Actual prices may vary based on specific procedure details and payer agreements.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 4. Provider Results and 5. Insights Sidebar */}
       <section className="py-16 bg-white">
