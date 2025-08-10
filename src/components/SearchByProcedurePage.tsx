@@ -576,10 +576,10 @@ export function SearchByProcedurePage({
                     </div>
                   </div>
 
-                  {/* Location */}
+                  {/* ZIP Code */}
                   <div className="lg:col-span-1">
                     <label className="block text-sm font-bold text-gray-900 mb-3">
-                      Location
+                      ZIP Code
                     </label>
                     <Input
                       placeholder="Enter ZIP code"
@@ -1030,16 +1030,16 @@ export function SearchByProcedurePage({
                           )}
                       </div>
 
-                      {/* Location & Radius in one row */}
+                      {/* ZIP Code & Radius in one row */}
                       <div className="grid grid-cols-2 gap-2">
                         <Input
-                          placeholder="ZIP"
+                          placeholder="ZIP code"
                           value={filterZipCode}
                           onChange={(e) => {
                             const value = e.target.value.replace(/\D/g, '').slice(0, 5);
                             setFilterZipCode(value);
                           }}
-                          className="h-8 text-xs rounded-md border border-gray-300 focus:border-blue-500"
+                          className="h-8 text-xs rounded-md border border-gray-300 focus:border-blue-500 placeholder:text-gray-400"
                           maxLength={5}
                         />
                         <Select
@@ -1083,23 +1083,49 @@ export function SearchByProcedurePage({
                       </Select>
 
                       {/* Coverage Type */}
-                      <Select
-                        value={coverageType}
-                        onValueChange={setCoverageType}
-                      >
-                        <SelectTrigger className="h-8 text-xs rounded-md border border-gray-300">
-                          <SelectValue placeholder="Coverage type" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="cash">Cash Pay</SelectItem>
-                          <SelectItem value="in-network">
-                            In-Network
-                          </SelectItem>
-                          <SelectItem value="out-of-network">
-                            Out-of-Network
-                          </SelectItem>
-                        </SelectContent>
-                      </Select>
+                      <div>
+                        <label className="block text-xs font-medium text-gray-700 mb-2">
+                          Coverage Type
+                        </label>
+                        <div className="space-y-2">
+                          <label className="flex items-center cursor-pointer">
+                            <input
+                              type="radio"
+                              value="cash"
+                              checked={coverageType === "cash"}
+                              onChange={(e) => setCoverageType(e.target.value)}
+                              className="w-3 h-3 text-blue-600 border-gray-300 focus:ring-blue-500 focus:ring-1"
+                            />
+                            <span className="ml-2 text-xs text-gray-700">
+                              Cash Pay
+                            </span>
+                          </label>
+                          <label className="flex items-center cursor-pointer">
+                            <input
+                              type="radio"
+                              value="in-network"
+                              checked={coverageType === "in-network"}
+                              onChange={(e) => setCoverageType(e.target.value)}
+                              className="w-3 h-3 text-blue-600 border-gray-300 focus:ring-blue-500 focus:ring-1"
+                            />
+                            <span className="ml-2 text-xs text-gray-700">
+                              In-Network
+                            </span>
+                          </label>
+                          <label className="flex items-center cursor-pointer">
+                            <input
+                              type="radio"
+                              value="out-of-network"
+                              checked={coverageType === "out-of-network"}
+                              onChange={(e) => setCoverageType(e.target.value)}
+                              className="w-3 h-3 text-blue-600 border-gray-300 focus:ring-blue-500 focus:ring-1"
+                            />
+                            <span className="ml-2 text-xs text-gray-700">
+                              Out-of-Network
+                            </span>
+                          </label>
+                        </div>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
