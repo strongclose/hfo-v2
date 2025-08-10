@@ -124,7 +124,7 @@ export function SearchByProcedurePage({
     }
   };
 
-  // Grade chip component
+  // Grade chip component with conditional colors
   const GradeChip = ({ score, ariaLabel, tooltip, isProvider }: {
     score: number;
     ariaLabel: string;
@@ -132,17 +132,22 @@ export function SearchByProcedurePage({
     isProvider: boolean;
   }) => {
     const grade = getGradeFromScore(score);
+
     const getChipColor = (grade: string) => {
       switch (grade) {
         case 'A':
         case 'A+':
-          return '#00A651';
+          return '#00A651'; // Green
         case 'B':
-          return '#FFC107';
+        case 'B+':
+          return '#F59E0B'; // Yellow/Amber
         case 'C':
+        case 'C+':
+          return '#F97316'; // Orange
         case 'D':
+        case 'F':
         default:
-          return '#E53935';
+          return '#EF4444'; // Red
       }
     };
 
@@ -152,26 +157,37 @@ export function SearchByProcedurePage({
         case 'A+':
           return 'high compliance';
         case 'B':
-          return 'medium compliance';
+        case 'B+':
+          return 'good compliance';
         case 'C':
+        case 'C+':
+          return 'fair compliance';
         case 'D':
+        case 'F':
         default:
           return 'low compliance';
       }
     };
 
     return (
-      <span
-        className="inline-flex items-center px-2 py-1 rounded text-xs font-medium text-white"
-        style={{
-          backgroundColor: getChipColor(grade),
-          height: '20px'
-        }}
-        aria-label={`${grade} rating, ${getComplianceLevel(grade)}`}
-      >
-        {grade}
-        <span className="sr-only">{getComplianceLevel(grade)}</span>
-      </span>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <span
+            className="inline-flex items-center px-2 py-1 rounded text-xs font-medium text-white cursor-pointer"
+            style={{
+              backgroundColor: getChipColor(grade),
+              height: '20px'
+            }}
+            aria-label={`${grade} rating, ${getComplianceLevel(grade)}`}
+          >
+            {grade}
+            <span className="sr-only">{getComplianceLevel(grade)}</span>
+          </span>
+        </TooltipTrigger>
+        <TooltipContent className="bg-gray-900 text-white max-w-xs">
+          <p>{tooltip}</p>
+        </TooltipContent>
+      </Tooltip>
     );
   };
 
