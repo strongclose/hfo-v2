@@ -651,56 +651,28 @@ export function SearchByProcedurePage({
                     <label className="block text-sm font-bold text-gray-900 mb-3">
                       Search by Procedure or Code
                     </label>
-                    <div className="relative">
-                      <Input
-                        placeholder="e.g., MRI, 70553, colonoscopy"
-                        value={filterProcedure}
-                        onChange={(e) => {
-                          setFilterProcedure(e.target.value);
-                          setShowProcedureSuggestions(
-                            e.target.value.length > 0,
-                          );
-                        }}
-                        onFocus={() =>
-                          setShowProcedureSuggestions(
-                            filterProcedure.length > 0,
-                          )
-                        }
-                        onBlur={() =>
-                          setTimeout(
-                            () => setShowProcedureSuggestions(false),
-                            200,
-                          )
-                        }
-                        className="h-14 text-lg rounded-xl border-2 border-gray-200 focus:border-blue-500 placeholder:text-gray-400"
-                      />
-                      {showProcedureSuggestions &&
-                        filteredProcedures.length > 0 && (
-                          <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-xl shadow-lg z-50 max-h-64 overflow-y-auto">
-                            {filteredProcedures
-                              .slice(0, 8)
-                              .map((proc, index) => (
-                                <button
-                                  key={index}
-                                  onClick={() => {
-                                    setFilterProcedure(
-                                      `${proc.name} (${proc.code})`,
-                                    );
-                                    setShowProcedureSuggestions(false);
-                                  }}
-                                  className="w-full text-left px-4 py-3 hover:bg-blue-50 focus:bg-blue-50 focus:outline-none border-b border-gray-100 last:border-b-0"
-                                >
-                                  <div className="font-medium text-gray-900">
-                                    {proc.name}
-                                  </div>
-                                  <div className="text-sm text-gray-500 font-mono">
-                                    CPT: {proc.code}
-                                  </div>
-                                </button>
-                              ))}
-                          </div>
-                        )}
-                    </div>
+                    <Select
+                      value={filterProcedure}
+                      onValueChange={setFilterProcedure}
+                    >
+                      <SelectTrigger className="h-14 text-lg rounded-xl border-2 border-gray-200">
+                        <SelectValue placeholder="Select a procedure or CPT code" className="placeholder:text-gray-400" />
+                      </SelectTrigger>
+                      <SelectContent className="max-h-80">
+                        {predefinedProcedures.map((proc) => (
+                          <SelectItem key={proc.code} value={`${proc.name} (${proc.code})`}>
+                            <div>
+                              <div className="font-medium text-gray-900">
+                                {proc.name}
+                              </div>
+                              <div className="text-sm text-gray-500 font-mono">
+                                CPT: {proc.code}
+                              </div>
+                            </div>
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </div>
 
                   {/* ZIP Code */}
@@ -1123,55 +1095,30 @@ export function SearchByProcedurePage({
 
                     <div className="space-y-2">
                       {/* Procedure Search */}
-                      <div className="relative">
-                        <Input
-                          placeholder="Procedure or CPT"
+                      <div>
+                        <label className="block text-xs font-medium text-gray-700 mb-1">Procedure</label>
+                        <Select
                           value={filterProcedure}
-                          onChange={(e) => {
-                            setFilterProcedure(e.target.value);
-                            setShowProcedureSuggestions(
-                              e.target.value.length > 0,
-                            );
-                          }}
-                          onFocus={() =>
-                            setShowProcedureSuggestions(
-                              filterProcedure.length > 0,
-                            )
-                          }
-                          onBlur={() =>
-                            setTimeout(
-                              () => setShowProcedureSuggestions(false),
-                              200,
-                            )
-                          }
-                          className="h-8 text-xs rounded-md border border-gray-300 focus:border-blue-500 placeholder:text-gray-400"
-                        />
-                        {showProcedureSuggestions &&
-                          filteredProcedures.length > 0 && (
-                            <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-32 overflow-y-auto">
-                              {filteredProcedures
-                                .slice(0, 3)
-                                .map((proc, index) => (
-                                  <button
-                                    key={index}
-                                    onClick={() => {
-                                      setFilterProcedure(
-                                        `${proc.name} (${proc.code})`,
-                                      );
-                                      setShowProcedureSuggestions(false);
-                                    }}
-                                    className="w-full text-left px-2 py-1.5 hover:bg-blue-50 focus:bg-blue-50 focus:outline-none border-b border-gray-100 last:border-b-0"
-                                  >
-                                    <div className="font-medium text-gray-900 text-xs">
-                                      {proc.name}
-                                    </div>
-                                    <div className="text-xs text-gray-500 font-mono">
-                                      {proc.code}
-                                    </div>
-                                  </button>
-                                ))}
-                            </div>
-                          )}
+                          onValueChange={setFilterProcedure}
+                        >
+                          <SelectTrigger className="h-8 text-xs rounded-md border border-gray-300">
+                            <SelectValue placeholder="Select procedure" className="placeholder:text-gray-400" />
+                          </SelectTrigger>
+                          <SelectContent className="max-h-60">
+                            {predefinedProcedures.map((proc) => (
+                              <SelectItem key={proc.code} value={`${proc.name} (${proc.code})`}>
+                                <div>
+                                  <div className="font-medium text-gray-900 text-xs">
+                                    {proc.name}
+                                  </div>
+                                  <div className="text-xs text-gray-500 font-mono">
+                                    CPT: {proc.code}
+                                  </div>
+                                </div>
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                       </div>
 
                       {/* ZIP Code & Radius in one row */}
