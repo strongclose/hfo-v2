@@ -865,11 +865,8 @@ export function SearchByProcedurePage({
                             <h4 className="text-sm font-bold text-gray-900 mb-3">
                               Provider
                             </h4>
-                            <p className="text-2xl font-bold text-gray-900 mb-1">
+                            <p className="text-2xl font-bold text-gray-900 mb-3">
                               ${provider.avgPrice.toLocaleString()}
-                            </p>
-                            <p className="text-xs text-gray-500 mb-3">
-                              Range ${Math.floor(provider.avgPrice * 0.8).toLocaleString()} – ${Math.floor(provider.avgPrice * 1.2).toLocaleString()}
                             </p>
                             <div className="flex items-center gap-2 mt-auto">
                               <GradeChip
