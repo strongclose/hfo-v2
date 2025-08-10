@@ -21,6 +21,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
+import { Combobox } from "./ui/combobox";
 import { Navigation } from "./Navigation";
 import { Footer } from "./Footer";
 import {
@@ -544,6 +545,13 @@ export function SearchByProcedurePage({
     { name: "Blood Test Complete Metabolic Panel", code: "80053" },
   ];
 
+  // Convert procedures to combobox options
+  const procedureOptions = predefinedProcedures.map(proc => ({
+    value: `${proc.name} (${proc.code})`,
+    label: proc.name,
+    secondary: `CPT: ${proc.code}`
+  }));
+
   // Filter procedures based on search input
   const filteredProcedures = predefinedProcedures.filter(
     (proc) =>
@@ -648,38 +656,19 @@ export function SearchByProcedurePage({
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                   {/* Search by Procedure */}
                   <div className="lg:col-span-1 relative">
-                    <label className="block text-sm font-bold text-gray-900 mb-3">
-                      Search by Procedure or Code
-                    </label>
-                    <Select
+                    <Combobox
+                      options={procedureOptions}
                       value={filterProcedure}
                       onValueChange={setFilterProcedure}
-                    >
-                      <SelectTrigger className="h-14 text-lg rounded-xl border-2 border-gray-200">
-                        <SelectValue placeholder="Select a procedure or CPT code" className="placeholder:text-gray-400" />
-                      </SelectTrigger>
-                      <SelectContent className="max-h-80">
-                        {predefinedProcedures.map((proc) => (
-                          <SelectItem key={proc.code} value={`${proc.name} (${proc.code})`}>
-                            <div>
-                              <div className="font-medium text-gray-900">
-                                {proc.name}
-                              </div>
-                              <div className="text-sm text-gray-500 font-mono">
-                                CPT: {proc.code}
-                              </div>
-                            </div>
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                      placeholder="Search procedure or CPT code"
+                      searchPlaceholder="Type to search procedures..."
+                      emptyMessage="No procedures found."
+                      className="h-14 text-lg rounded-xl border-2 border-gray-200 justify-start"
+                    />
                   </div>
 
                   {/* ZIP Code */}
                   <div className="lg:col-span-1">
-                    <label className="block text-sm font-bold text-gray-900 mb-3">
-                      ZIP Code
-                    </label>
                     <Input
                       placeholder="Enter ZIP code"
                       value={filterZipCode}
@@ -697,9 +686,6 @@ export function SearchByProcedurePage({
 
                   {/* Radius */}
                   <div className="lg:col-span-1">
-                    <label className="block text-sm font-bold text-gray-900 mb-3">
-                      Search Radius
-                    </label>
                     <Select
                       value={filterRadius}
                       onValueChange={setFilterRadius}
@@ -718,9 +704,6 @@ export function SearchByProcedurePage({
 
                   {/* Provider */}
                   <div className="lg:col-span-1">
-                    <label className="block text-sm font-bold text-gray-900 mb-3">
-                      Payer
-                    </label>
                     <Select
                       value={filterPayer}
                       onValueChange={handlePayerSelection}
@@ -751,9 +734,6 @@ export function SearchByProcedurePage({
 
                 {/* Second Row: Coverage Type Radio Buttons */}
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-4">
-                    Coverage Type
-                  </label>
                   <div className="flex flex-wrap gap-6">
                     <Tooltip>
                       <TooltipTrigger asChild>
@@ -1096,29 +1076,15 @@ export function SearchByProcedurePage({
                     <div className="space-y-2">
                       {/* Procedure Search */}
                       <div>
-                        <label className="block text-xs font-medium text-gray-700 mb-1">Procedure</label>
-                        <Select
+                        <Combobox
+                          options={procedureOptions}
                           value={filterProcedure}
                           onValueChange={setFilterProcedure}
-                        >
-                          <SelectTrigger className="h-8 text-xs rounded-md border border-gray-300">
-                            <SelectValue placeholder="Select procedure" className="placeholder:text-gray-400" />
-                          </SelectTrigger>
-                          <SelectContent className="max-h-60">
-                            {predefinedProcedures.map((proc) => (
-                              <SelectItem key={proc.code} value={`${proc.name} (${proc.code})`}>
-                                <div>
-                                  <div className="font-medium text-gray-900 text-xs">
-                                    {proc.name}
-                                  </div>
-                                  <div className="text-xs text-gray-500 font-mono">
-                                    CPT: {proc.code}
-                                  </div>
-                                </div>
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
+                          placeholder="Search procedure"
+                          searchPlaceholder="Type to search..."
+                          emptyMessage="No procedures found."
+                          className="h-8 text-xs rounded-md border border-gray-300 justify-start"
+                        />
                       </div>
 
                       {/* ZIP Code & Radius in one row */}
@@ -1175,9 +1141,6 @@ export function SearchByProcedurePage({
 
                       {/* Coverage Type */}
                       <div>
-                        <label className="block text-xs font-medium text-gray-700 mb-2">
-                          Coverage Type
-                        </label>
                         <div className="flex flex-wrap gap-3">
                           <label className="flex items-center cursor-pointer">
                             <input
