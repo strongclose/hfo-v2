@@ -93,11 +93,162 @@ export function SearchByProcedurePage({
   const [selectedComplianceProvider, setSelectedComplianceProvider] = useState<number | null>(null);
   const [badgeStyle, setBadgeStyle] = useState<'light' | 'dark'>('light');
   const [copiedCode, setCopiedCode] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
+  const [searchResults, setSearchResults] = useState<typeof sampleProviders>([]);
+  const [isSearching, setIsSearching] = useState(false);
 
   // Handle filter clicks
   const handlePayerFilter = (payer: string) => {
     setFilterPayer(payer);
     console.log('Filtering by payer:', payer);
+  };
+
+  // Enhanced sample data with more variety
+  const allSampleProviders = [
+    {
+      id: 1,
+      name: "Stanford Medical Center",
+      location: "Palo Alto, CA – 7.2 miles away",
+      procedureName: "MRI Brain without Contrast",
+      cptCode: "70553",
+      avgPrice: 8340,
+      priceRange: "$6,700 – $10,200",
+      coverageType: "In-Network",
+      payer: "Blue Cross Blue Shield",
+      coverageAmount: 6672,
+      contextTag: "Best Price",
+      comparison: "12% below state average",
+      complianceLevel: "High",
+      complianceScore: 92,
+      isCompliant: true,
+      payerComplianceScore: 88,
+      payerIsCompliant: true,
+    },
+    {
+      id: 2,
+      name: "UCSF Medical Center",
+      location: "San Francisco, CA – 12.4 miles away",
+      procedureName: "MRI Brain without Contrast",
+      cptCode: "70553",
+      avgPrice: 9650,
+      priceRange: "$7,800 – $12,100",
+      coverageType: "In-Network",
+      payer: "Aetna",
+      coverageAmount: 8685,
+      contextTag: "Best Match",
+      comparison: "8% above state average",
+      complianceLevel: "High",
+      complianceScore: 88,
+      isCompliant: true,
+      payerComplianceScore: 91,
+      payerIsCompliant: true,
+    },
+    {
+      id: 3,
+      name: "Kaiser Permanente",
+      location: "San Jose, CA – 15.1 miles away",
+      procedureName: "MRI Brain without Contrast",
+      cptCode: "70553",
+      avgPrice: 7520,
+      priceRange: "$6,200 – $9,400",
+      coverageType: "In-Network",
+      payer: "Kaiser Permanente",
+      coverageAmount: 7144,
+      contextTag: "Best Match",
+      comparison: "18% below state average",
+      complianceLevel: "Medium",
+      complianceScore: 54,
+      isCompliant: false,
+      payerComplianceScore: 76,
+      payerIsCompliant: true,
+    },
+    {
+      id: 4,
+      name: "Sutter Health",
+      location: "Sacramento, CA – 22.8 miles away",
+      procedureName: "MRI Brain without Contrast",
+      cptCode: "70553",
+      avgPrice: 8950,
+      priceRange: "$7,200 – $11,500",
+      coverageType: "Out-of-Network",
+      payer: "UnitedHealthcare",
+      coverageAmount: 5370,
+      contextTag: "Closest",
+      comparison: "5% above state average",
+      complianceLevel: "High",
+      complianceScore: 95,
+      isCompliant: true,
+      payerComplianceScore: 82,
+      payerIsCompliant: true,
+    },
+    {
+      id: 5,
+      name: "Alta Bates Summit Medical Center",
+      location: "Berkeley, CA – 18.6 miles away",
+      procedureName: "CT Chest without Contrast",
+      cptCode: "71250",
+      avgPrice: 1250,
+      priceRange: "$950 – $1,650",
+      coverageType: "In-Network",
+      payer: "Cigna",
+      coverageAmount: 1000,
+      contextTag: "Best Price",
+      comparison: "25% below state average",
+      complianceLevel: "Medium",
+      complianceScore: 67,
+      isCompliant: false,
+      payerComplianceScore: 73,
+      payerIsCompliant: true,
+    },
+  ];
+
+  // Filter results based on current criteria
+  const filterResults = (providers: typeof allSampleProviders) => {
+    return providers.filter(provider => {
+      // Filter by procedure if selected
+      if (filterProcedure && !provider.procedureName.toLowerCase().includes(filterProcedure.toLowerCase()) && !provider.cptCode.includes(filterProcedure)) {
+        return false;
+      }
+
+      // Filter by payer if selected
+      if (filterPayer && provider.payer !== filterPayer) {
+        return false;
+      }
+
+      // Filter by coverage type
+      if (coverageType !== 'cash' && provider.coverageType.toLowerCase().replace('-', '') !== coverageType.replace('-', '')) {
+        return false;
+      }
+
+      return true;
+    });
+  };
+
+  // Handle main search submission
+  const handleMainSearch = () => {
+    setIsSearching(true);
+
+    // Simulate API call delay
+    setTimeout(() => {
+      const results = filterResults(allSampleProviders);
+      setSearchResults(results);
+      setHasSearched(true);
+      setIsSearching(false);
+    }, 1000);
+  };
+
+  // Handle sidebar filter submission
+  const handleSidebarFilter = () => {
+    if (!hasSearched) return;
+
+    setIsSearching(true);
+
+    // Simulate filter update delay
+    setTimeout(() => {
+      const results = filterResults(allSampleProviders);
+      setSearchResults(results);
+      setIsSearching(false);
+    }, 500);
   };
 
   // Grade calculation function
@@ -449,72 +600,12 @@ export function SearchByProcedurePage({
     }
   };
 
-  // Sample data for demonstration
-  const sampleProviders = [
-    {
-      id: 1,
-      name: "Stanford Medical Center",
-      location: "Palo Alto, CA – 7.2 miles away",
-      procedureName: "MRI Brain without Contrast",
-      cptCode: "70553",
-      avgPrice: 8340,
-      priceRange: "$6,700 – $10,200",
-      coverageType: "In-Network",
-      payer: "Blue Cross Blue Shield",
-      coverageAmount: 6672, // 80% coverage example
-      contextTag: "Best Price",
-      comparison: "12% below state average",
-      complianceLevel: "High",
-      complianceScore: 92,
-      isCompliant: true,
-      payerComplianceScore: 88,
-      payerIsCompliant: true,
-    },
-    {
-      id: 2,
-      name: "UCSF Medical Center",
-      location: "San Francisco, CA – 12.4 miles away",
-      procedureName: "MRI Brain without Contrast",
-      cptCode: "70553",
-      avgPrice: 9650,
-      priceRange: "$7,800 – $12,100",
-      coverageType: "In-Network",
-      payer: "Aetna",
-      coverageAmount: 8685, // 90% coverage example
-      contextTag: "Best Match",
-      comparison: "8% above state average",
-      complianceLevel: "High",
-      complianceScore: 88,
-      isCompliant: true,
-      payerComplianceScore: 91,
-      payerIsCompliant: true,
-    },
-    {
-      id: 3,
-      name: "Kaiser Permanente",
-      location: "San Jose, CA – 15.1 miles away",
-      procedureName: "MRI Brain without Contrast",
-      cptCode: "70553",
-      avgPrice: 7520,
-      priceRange: "$6,200 – $9,400",
-      coverageType: "In-Network",
-      payer: "Kaiser Permanente",
-      coverageAmount: 7144, // 95% coverage example
-      contextTag: "Best Match",
-      comparison: "18% below state average",
-      complianceLevel: "Medium",
-      complianceScore: 54,
-      isCompliant: false,
-      payerComplianceScore: 76,
-      payerIsCompliant: true,
-    },
-  ];
-
-  // Calculate price range from all providers
-  const allPrices = sampleProviders.map((p) => p.avgPrice);
-  const minPrice = Math.min(...allPrices);
-  const maxPrice = Math.max(...allPrices);
-  const priceRange = `$${minPrice.toLocaleString()} - $${maxPrice.toLocaleString()}`;
+  // Calculate price range from search results
+  const displayProviders = hasSearched ? searchResults : [];
+  const allPrices = displayProviders.map((p) => p.avgPrice);
+  const minPrice = allPrices.length > 0 ? Math.min(...allPrices) : 0;
+  const maxPrice = allPrices.length > 0 ? Math.max(...allPrices) : 0;
+  const priceRange = allPrices.length > 0 ? `$${minPrice.toLocaleString()} - $${maxPrice.toLocaleString()}` : "$0 - $0";
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -756,11 +847,16 @@ export function SearchByProcedurePage({
               {/* Search Actions */}
               <div className="flex flex-col sm:flex-row items-center justify-center mt-12 space-y-4 sm:space-y-0 sm:space-x-4">
                 <Button
+                  onClick={handleMainSearch}
+                  disabled={isSearching}
                   size="lg"
-                  className="h-16 px-12 text-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                  className="h-16 px-12 text-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 disabled:opacity-50"
                 >
-                  <Search className="w-6 h-6 mr-3" />
-                  Search Prices
+                  {isSearching ? (
+                    <><Loader2 className="w-6 h-6 mr-3 animate-spin" /> Searching...</>
+                  ) : (
+                    <><Search className="w-6 h-6 mr-3" /> Search Prices</>
+                  )}
                 </Button>
                 <Button
                   variant="ghost"
@@ -1173,6 +1269,19 @@ export function SearchByProcedurePage({
                           </label>
                         </div>
                       </div>
+
+                      {/* Submit Button */}
+                      <Button
+                        onClick={handleSidebarFilter}
+                        disabled={!hasSearched || isSearching}
+                        className="w-full mt-3 h-8 text-xs bg-blue-600 hover:bg-blue-700 text-white rounded-md disabled:opacity-50"
+                      >
+                        {isSearching ? (
+                          <><Loader2 className="w-3 h-3 mr-2 animate-spin" /> Updating...</>
+                        ) : (
+                          "Update Results"
+                        )}
+                      </Button>
                     </div>
                   </CardContent>
                 </Card>
