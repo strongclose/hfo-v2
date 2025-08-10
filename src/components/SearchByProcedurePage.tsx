@@ -225,15 +225,12 @@ export function SearchByProcedurePage({
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 mb-8 shadow-lg shadow-blue-500/25">
-              <Search className="w-8 h-8 text-white" />
-            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-gray-900 tracking-tight">
-              Explore Real-World Healthcare Prices with the
+              Explore{" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
-                {" "}
-                Data Explorer
+                Real-World
               </span>
+              {" "}Healthcare Prices
             </h1>
             <p className="text-xl md:text-2xl text-gray-700 max-w-5xl mx-auto leading-relaxed font-light mb-8">
               Search billions of prices collected from federally mandated hospital and insurer disclosures. Compare cash, in-network, and out-of-network rates side by side to see what providers typically charge for care.
