@@ -12,6 +12,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "./ui/tabs";
+import { Copy, Check } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -80,6 +82,46 @@ export function SearchByProcedurePage({
   const [showProcedureSuggestions, setShowProcedureSuggestions] =
     useState(false);
   const [selectedComplianceProvider, setSelectedComplianceProvider] = useState<number | null>(null);
+  const [badgeStyle, setBadgeStyle] = useState<'light' | 'dark'>('light');
+  const [copiedCode, setCopiedCode] = useState(false);
+
+  // Generate embed code for a provider
+  const generateEmbedCode = (provider: any, style: 'light' | 'dark') => {
+    const entityId = `HFO-${provider.id.toString().padStart(5, '0')}`;
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...';
+
+    return {
+      script: `<!-- HealthFees.org Compliance Rating Badge -->
+<div id="hfo-badge"></div>
+<script
+  src="https://cdn.healthfees.org/badge/v1.js"
+  async
+  data-entity-type="provider"
+  data-entity-id="${entityId}"
+  data-style="${style}"
+  data-token="${token}">
+</script>`,
+      iframe: `<iframe
+  title="HealthFees.org Compliance Rating"
+  src="https://badge.healthfees.org/embed?entity=provider&id=${entityId}&style=${style}&token=${token}"
+  width="280"
+  height="180"
+  loading="lazy"
+  referrerpolicy="no-referrer"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>`
+    };
+  };
+
+  const handleCopyCode = async (code: string) => {
+    try {
+      await navigator.clipboard.writeText(code);
+      setCopiedCode(true);
+      setTimeout(() => setCopiedCode(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy code:', err);
+    }
+  };
 
   // Predefined procedures list
   const predefinedProcedures = [
@@ -700,36 +742,153 @@ export function SearchByProcedurePage({
                                 {provider.isCompliant ? "A+" : "C"} – {provider.complianceScore}%
                               </button>
                             </DialogTrigger>
-                            <DialogContent className="sm:max-w-md">
+                            <DialogContent className="sm:max-w-2xl max-h-[90vh] overflow-y-auto">
                               <DialogHeader>
-                                <DialogTitle>HealthFees.org Compliance Rating</DialogTitle>
+                                <DialogTitle>HealthFees.org Compliance Badge</DialogTitle>
                               </DialogHeader>
-                              <div className="flex flex-col items-center space-y-4 py-4">
-                                {/* Full-size A+ badge graphic */}
-                                <div
-                                  className={`px-8 py-6 rounded-xl font-bold text-4xl ${
-                                    provider.isCompliant
-                                      ? "bg-white border-4 border-green-200 text-green-600 shadow-lg"
-                                      : "bg-gray-100 border-4 border-gray-300 text-gray-600"
-                                  }`}
-                                  style={{
-                                    color: provider.isCompliant ? "#00A651" : "#6B7280"
-                                  }}
-                                >
-                                  {provider.isCompliant ? "A+" : "C"} – {provider.complianceScore}%
-                                </div>
-                                <div className="text-center space-y-3">
-                                  <p className="text-gray-700">
-                                    HealthFees.org Compliance Rating based on federal pricing transparency mandates.
-                                  </p>
-                                  <a
-                                    href="/methodology"
-                                    className="text-blue-600 hover:text-blue-800 underline font-medium"
-                                  >
-                                    Learn more about HealthFees.org Ratings
-                                  </a>
-                                </div>
-                              </div>
+
+                              <Tabs value="embed" className="w-full">
+                                <TabsList className="grid w-full grid-cols-2">
+                                  <TabsTrigger value="embed">Embed Code</TabsTrigger>
+                                  <TabsTrigger value="about">About this Rating</TabsTrigger>
+                                </TabsList>
+
+                                <TabsContent value="embed" className="space-y-6 mt-4">
+                                  <div>
+                                    <h3 className="text-lg font-semibold mb-2">Add this badge to your site</h3>
+                                    <p className="text-sm text-gray-600 mb-4">
+                                      {provider.name} — ID: HFO-{provider.id.toString().padStart(5, '0')}
+                                    </p>
+                                  </div>
+
+                                  {/* Style Selector */}
+                                  <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-3">Badge Style</label>
+                                    <div className="flex gap-4">
+                                      <label className="flex items-center cursor-pointer">
+                                        <input
+                                          type="radio"
+                                          value="light"
+                                          checked={badgeStyle === 'light'}
+                                          onChange={(e) => setBadgeStyle(e.target.value as 'light' | 'dark')}
+                                          className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                                        />
+                                        <span className="ml-2 text-sm text-gray-700">Light</span>
+                                      </label>
+                                      <label className="flex items-center cursor-pointer">
+                                        <input
+                                          type="radio"
+                                          value="dark"
+                                          checked={badgeStyle === 'dark'}
+                                          onChange={(e) => setBadgeStyle(e.target.value as 'light' | 'dark')}
+                                          className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                                        />
+                                        <span className="ml-2 text-sm text-gray-700">Dark</span>
+                                      </label>
+                                    </div>
+                                  </div>
+
+                                  {/* Badge Preview */}
+                                  <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-3">Preview</label>
+                                    <div className={`inline-block p-4 rounded-lg border ${
+                                      badgeStyle === 'dark' ? 'bg-gray-900 border-gray-700' : 'bg-white border-gray-200'
+                                    }`}>
+                                      <div
+                                        className={`px-4 py-3 rounded-lg font-bold text-lg ${
+                                          provider.isCompliant
+                                            ? badgeStyle === 'dark'
+                                              ? "bg-gray-800 border-2 border-green-400 text-green-400"
+                                              : "bg-white border-2 border-green-200 text-green-600 shadow-sm"
+                                            : badgeStyle === 'dark'
+                                              ? "bg-gray-700 border-2 border-gray-500 text-gray-400"
+                                              : "bg-gray-100 border-2 border-gray-300 text-gray-600"
+                                        }`}
+                                        style={{
+                                          color: provider.isCompliant
+                                            ? badgeStyle === 'dark' ? '#4ADE80' : '#00A651'
+                                            : badgeStyle === 'dark' ? '#9CA3AF' : '#6B7280'
+                                        }}
+                                      >
+                                        {provider.isCompliant ? "A+" : "C"} – {provider.complianceScore}%
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  {/* Embed Code */}
+                                  <div>
+                                    <div className="flex items-center justify-between mb-3">
+                                      <label className="block text-sm font-medium text-gray-700">Embed Code</label>
+                                      <Button
+                                        onClick={() => handleCopyCode(generateEmbedCode(provider, badgeStyle).script)}
+                                        size="sm"
+                                        variant="outline"
+                                        className="h-8"
+                                      >
+                                        {copiedCode ? (
+                                          <><Check className="w-3 h-3 mr-1" /> Copied</>
+                                        ) : (
+                                          <><Copy className="w-3 h-3 mr-1" /> Copy</>
+                                        )}
+                                      </Button>
+                                    </div>
+                                    <textarea
+                                      readOnly
+                                      value={generateEmbedCode(provider, badgeStyle).script}
+                                      className="w-full h-32 p-3 text-xs font-mono border border-gray-300 rounded-md bg-gray-50 resize-none"
+                                    />
+                                  </div>
+
+                                  {/* Installation Steps */}
+                                  <div>
+                                    <h4 className="font-medium text-gray-900 mb-2">Installation Steps</h4>
+                                    <ol className="text-sm text-gray-600 space-y-1 list-decimal list-inside">
+                                      <li>Paste the code into your site where you want the badge to appear.</li>
+                                      <li>Do not modify the code. The badge updates automatically each month.</li>
+                                      <li>The badge links to your public rating page on HealthFees.org.</li>
+                                    </ol>
+                                  </div>
+
+                                  {/* Terms */}
+                                  <div className="text-xs text-gray-500 p-3 bg-gray-50 rounded-md">
+                                    By embedding, you agree not to alter the badge and to allow HealthFees.org to display updates to your rating.
+                                    <a href="/badge-terms" className="text-blue-600 hover:text-blue-800 underline ml-1">
+                                      Badge Terms
+                                    </a>
+                                  </div>
+                                </TabsContent>
+
+                                <TabsContent value="about" className="space-y-4 mt-4">
+                                  <div className="text-center space-y-4">
+                                    <div
+                                      className={`inline-block px-8 py-6 rounded-xl font-bold text-4xl ${
+                                        provider.isCompliant
+                                          ? "bg-white border-4 border-green-200 text-green-600 shadow-lg"
+                                          : "bg-gray-100 border-4 border-gray-300 text-gray-600"
+                                      }`}
+                                      style={{
+                                        color: provider.isCompliant ? "#00A651" : "#6B7280"
+                                      }}
+                                    >
+                                      {provider.isCompliant ? "A+" : "C"} – {provider.complianceScore}%
+                                    </div>
+
+                                    <div>
+                                      <h3 className="text-lg font-semibold mb-4">HealthFees.org Compliance Rating</h3>
+                                      <p className="text-gray-700 mb-4">
+                                        This rating reflects adherence to federal pricing transparency mandates.
+                                        Scores update monthly from public payer and provider files.
+                                      </p>
+                                      <a
+                                        href="/methodology"
+                                        className="text-blue-600 hover:text-blue-800 underline font-medium"
+                                      >
+                                        See how we measure compliance
+                                      </a>
+                                    </div>
+                                  </div>
+                                </TabsContent>
+                              </Tabs>
                             </DialogContent>
                           </Dialog>
                           <div
