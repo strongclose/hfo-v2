@@ -900,7 +900,7 @@ export function SearchByProcedurePage({
                       <p className="text-blue-800 mb-3">
                         3 of 5 hospitals in this area are compliant with federal pricing transparency rules.
                       </p>
-                      <a href="/methodology" className="text-blue-600 hover:text-blue-800 underline text-sm font-medium">
+                      <a href="/methodology" className="text-teal-600 hover:text-teal-800 underline text-sm font-medium">
                         See how we measure compliance
                       </a>
                     </CardContent>
@@ -921,32 +921,17 @@ export function SearchByProcedurePage({
                     </CardContent>
                   </Card>
 
-                  {/* 3. Consumer Tip */}
-                  <Card className="bg-gradient-to-br from-amber-50 to-orange-100 border-amber-200 rounded-2xl">
-                    <CardContent className="p-6">
-                      <div className="flex items-center mb-3">
-                        <Info className="w-6 h-6 text-amber-600 mr-2" />
-                        <h3 className="font-bold text-amber-900">
-                          Consumer Tip
-                        </h3>
-                      </div>
-                      <p className="text-amber-800">
-                        Confirm the price directly with the provider before your visit.
-                      </p>
-                    </CardContent>
-                  </Card>
-
-                  {/* 4. Glossary Section */}
+                  {/* 3. Glossary Section */}
                   <Card className="bg-white border border-gray-200 rounded-2xl">
                     <CardContent className="p-6">
                       <h3 className="font-bold text-gray-900 mb-4">Glossary</h3>
-                      <div className="space-y-4">
+                      <div className="space-y-3">
                         <Tooltip>
                           <TooltipTrigger asChild>
                             <div className="cursor-help">
-                              <h4 className="font-semibold text-gray-800 mb-1 underline decoration-dotted">
+                              <span className="font-semibold text-gray-800 underline decoration-dotted hover:text-blue-600">
                                 Negotiated Rate
-                              </h4>
+                              </span>
                             </div>
                           </TooltipTrigger>
                           <TooltipContent className="bg-gray-900 text-white max-w-xs">
@@ -957,9 +942,9 @@ export function SearchByProcedurePage({
                         <Tooltip>
                           <TooltipTrigger asChild>
                             <div className="cursor-help">
-                              <h4 className="font-semibold text-gray-800 mb-1 underline decoration-dotted">
+                              <span className="font-semibold text-gray-800 underline decoration-dotted hover:text-blue-600">
                                 Allowed Amount
-                              </h4>
+                              </span>
                             </div>
                           </TooltipTrigger>
                           <TooltipContent className="bg-gray-900 text-white max-w-xs">
@@ -970,9 +955,9 @@ export function SearchByProcedurePage({
                         <Tooltip>
                           <TooltipTrigger asChild>
                             <div className="cursor-help">
-                              <h4 className="font-semibold text-gray-800 mb-1 underline decoration-dotted">
+                              <span className="font-semibold text-gray-800 underline decoration-dotted hover:text-blue-600">
                                 Gross Charge
-                              </h4>
+                              </span>
                             </div>
                           </TooltipTrigger>
                           <TooltipContent className="bg-gray-900 text-white max-w-xs">
