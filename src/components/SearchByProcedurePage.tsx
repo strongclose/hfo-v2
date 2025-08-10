@@ -21,7 +21,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
-import { Combobox } from "./ui/combobox";
 import { Navigation } from "./Navigation";
 import { Footer } from "./Footer";
 import {
@@ -545,12 +544,36 @@ export function SearchByProcedurePage({
     { name: "Blood Test Complete Metabolic Panel", code: "80053" },
   ];
 
-  // Convert procedures to combobox options
-  const procedureOptions = predefinedProcedures.map(proc => ({
-    value: `${proc.name} (${proc.code})`,
-    label: proc.name,
-    secondary: `CPT: ${proc.code}`
-  }));
+  // State for procedure input suggestions
+  const [showMainProcedureSuggestions, setShowMainProcedureSuggestions] = useState(false);
+  const [showSidebarProcedureSuggestions, setShowSidebarProcedureSuggestions] = useState(false);
+  const [mainProcedureInput, setMainProcedureInput] = useState("");
+  const [sidebarProcedureInput, setSidebarProcedureInput] = useState("");
+
+  // Filter procedures based on input
+  const getFilteredProcedures = (input: string) => {
+    if (!input.trim()) return predefinedProcedures;
+    const searchTerm = input.toLowerCase();
+    return predefinedProcedures.filter(proc =>
+      proc.name.toLowerCase().includes(searchTerm) ||
+      proc.code.includes(searchTerm)
+    );
+  };
+
+  // Handle procedure selection
+  const handleMainProcedureSelect = (proc: { name: string; code: string }) => {
+    const formattedValue = `${proc.name} (${proc.code})`;
+    setMainProcedureInput(formattedValue);
+    setFilterProcedure(formattedValue);
+    setShowMainProcedureSuggestions(false);
+  };
+
+  const handleSidebarProcedureSelect = (proc: { name: string; code: string }) => {
+    const formattedValue = `${proc.name} (${proc.code})`;
+    setSidebarProcedureInput(formattedValue);
+    setFilterProcedure(formattedValue);
+    setShowSidebarProcedureSuggestions(false);
+  };
 
   // Filter procedures based on search input
   const filteredProcedures = predefinedProcedures.filter(
@@ -656,15 +679,46 @@ export function SearchByProcedurePage({
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                   {/* Search by Procedure */}
                   <div className="lg:col-span-1 relative">
-                    <Combobox
-                      options={procedureOptions}
-                      value={filterProcedure}
-                      onValueChange={setFilterProcedure}
-                      placeholder="Search procedure or CPT code"
-                      searchPlaceholder="Type to search procedures..."
-                      emptyMessage="No procedures found."
-                      className="h-14 text-lg rounded-xl border-2 border-gray-200 justify-start"
+                    <Input
+                      placeholder="Type procedure or CPT code"
+                      value={mainProcedureInput}
+                      onChange={(e) => {
+                        setMainProcedureInput(e.target.value);
+                        setShowMainProcedureSuggestions(e.target.value.length > 0);
+                      }}
+                      onFocus={() => setShowMainProcedureSuggestions(mainProcedureInput.length > 0)}
+                      onBlur={() => {
+                        // Delay hiding to allow click on suggestions
+                        setTimeout(() => setShowMainProcedureSuggestions(false), 200);
+                      }}
+                      className="h-14 text-lg rounded-xl border-2 border-gray-200 focus:border-blue-500 placeholder:text-gray-400"
                     />
+
+                    {/* Procedure Suggestions */}
+                    {showMainProcedureSuggestions && (
+                      <div className="absolute top-full left-0 right-0 z-50 mt-1 bg-white border border-gray-200 rounded-xl shadow-lg max-h-80 overflow-y-auto">
+                        {getFilteredProcedures(mainProcedureInput).map((proc) => (
+                          <button
+                            key={proc.code}
+                            type="button"
+                            onClick={() => handleMainProcedureSelect(proc)}
+                            className="w-full px-4 py-3 text-left hover:bg-gray-50 focus:bg-gray-50 focus:outline-none border-b border-gray-100 last:border-b-0"
+                          >
+                            <div className="font-medium text-gray-900">
+                              {proc.name}
+                            </div>
+                            <div className="text-sm text-gray-500 font-mono">
+                              CPT: {proc.code}
+                            </div>
+                          </button>
+                        ))}
+                        {getFilteredProcedures(mainProcedureInput).length === 0 && (
+                          <div className="px-4 py-3 text-gray-500 text-center">
+                            No procedures found
+                          </div>
+                        )}
+                      </div>
+                    )}
                   </div>
 
                   {/* ZIP Code */}
@@ -1075,16 +1129,47 @@ export function SearchByProcedurePage({
 
                     <div className="space-y-2">
                       {/* Procedure Search */}
-                      <div>
-                        <Combobox
-                          options={procedureOptions}
-                          value={filterProcedure}
-                          onValueChange={setFilterProcedure}
-                          placeholder="Search procedure"
-                          searchPlaceholder="Type to search..."
-                          emptyMessage="No procedures found."
-                          className="h-8 text-xs rounded-md border border-gray-300 justify-start"
+                      <div className="relative">
+                        <Input
+                          placeholder="Type procedure or CPT"
+                          value={sidebarProcedureInput}
+                          onChange={(e) => {
+                            setSidebarProcedureInput(e.target.value);
+                            setShowSidebarProcedureSuggestions(e.target.value.length > 0);
+                          }}
+                          onFocus={() => setShowSidebarProcedureSuggestions(sidebarProcedureInput.length > 0)}
+                          onBlur={() => {
+                            // Delay hiding to allow click on suggestions
+                            setTimeout(() => setShowSidebarProcedureSuggestions(false), 200);
+                          }}
+                          className="h-8 text-xs rounded-md border border-gray-300 focus:border-blue-500 placeholder:text-gray-400"
                         />
+
+                        {/* Sidebar Procedure Suggestions */}
+                        {showSidebarProcedureSuggestions && (
+                          <div className="absolute top-full left-0 right-0 z-50 mt-1 bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-y-auto">
+                            {getFilteredProcedures(sidebarProcedureInput).map((proc) => (
+                              <button
+                                key={proc.code}
+                                type="button"
+                                onClick={() => handleSidebarProcedureSelect(proc)}
+                                className="w-full px-3 py-2 text-left hover:bg-gray-50 focus:bg-gray-50 focus:outline-none border-b border-gray-100 last:border-b-0"
+                              >
+                                <div className="font-medium text-gray-900 text-xs">
+                                  {proc.name}
+                                </div>
+                                <div className="text-xs text-gray-500 font-mono">
+                                  CPT: {proc.code}
+                                </div>
+                              </button>
+                            ))}
+                            {getFilteredProcedures(sidebarProcedureInput).length === 0 && (
+                              <div className="px-3 py-2 text-gray-500 text-center text-xs">
+                                No procedures found
+                              </div>
+                            )}
+                          </div>
+                        )}
                       </div>
 
                       {/* ZIP Code & Radius in one row */}
