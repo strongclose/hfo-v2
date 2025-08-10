@@ -929,7 +929,7 @@ export function SearchByProcedurePage({
                 </h1>
               </div>
               <div className="space-y-6">
-                {sampleProviders.map((provider) => (
+                {searchResults.map((provider) => (
                   <Card
                     key={provider.id}
                     className="bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] rounded-2xl overflow-hidden"
