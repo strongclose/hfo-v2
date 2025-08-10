@@ -930,184 +930,136 @@ export function SearchByProcedurePage({
                         </div>
                       </div>
 
-                      {/* Price Comparison Section */}
-                      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 mb-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
-                          {/* Provider Cost (Static) */}
-                          <div className="text-center md:text-left">
-                            <div className="flex items-center justify-center md:justify-start mb-2">
-                              <Tag className="w-4 h-4 text-gray-500 mr-2" aria-hidden="true" />
-                              <p className="text-sm font-semibold text-gray-600">
+                      {/* Row B - Pricing Band */}
+                      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 px-4 py-3 mx-5">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {/* Column 1: Provider Cost */}
+                          <div>
+                            <div className="flex items-center mb-1">
+                              <Tag className="w-3 h-3 text-gray-500 mr-1" aria-hidden="true" />
+                              <p className="text-sm font-medium text-gray-700">
                                 Provider Cost
                               </p>
                             </div>
-                            <p className="text-3xl font-bold text-gray-900 mb-1">
+                            <p className="text-2xl font-bold text-gray-900 mb-1">
                               ${provider.avgPrice.toLocaleString()}
                             </p>
-                            <p className="text-sm text-gray-600">
-                              Range: {priceRange}
+                            <p className="text-xs text-gray-500">
+                              Range ${Math.floor(provider.avgPrice * 0.8).toLocaleString()} – ${Math.floor(provider.avgPrice * 1.2).toLocaleString()}
                             </p>
                           </div>
 
-                          {/* Coverage Amount */}
-                          <div className="text-center md:text-right">
-                            <p className="text-sm font-semibold text-gray-600 mb-2">
-                              {recentPriceProviders.has(provider.id)
-                                ? "Most Recent Coverage"
-                                : "6-Month Average Coverage"}{" "}
+                          {/* Column 2: Coverage */}
+                          <div>
+                            <p className="text-sm font-medium text-gray-700 mb-1">
+                              6‑Month Average Coverage{" "}
                               <button
                                 onClick={() => handlePayerFilter(provider.payer)}
-                                className="text-purple-600 hover:text-purple-800 underline font-medium transition-colors"
+                                className="text-purple-600 hover:text-purple-800 underline transition-colors"
                                 aria-label={`Filter by ${provider.payer}`}
                               >
                                 ({provider.payer})
                               </button>
                             </p>
-                            <p
-                              className={`font-bold mb-1 transition-all duration-500 ease-in-out ${
-                                recentPriceProviders.has(provider.id)
-                                  ? "text-4xl text-blue-600 transform scale-105"
-                                  : "text-3xl text-green-700 transform scale-100"
-                              }`}
-                            >
+                            <p className="text-2xl font-bold text-gray-900">
                               $
                               {(
                                 updatedPrices[provider.id]?.coverageAmount ||
                                 provider.coverageAmount
                               ).toLocaleString()}
                             </p>
-                            {recentPriceProviders.has(provider.id) && (
-                              <div className="flex items-center justify-center md:justify-end gap-1 text-xs text-green-600 mt-1">
-                                <CheckCircle2 className="w-3 h-3" />
-                                <span>
-                                  Most recent price as of{" "}
-                                  {new Date(
-                                    new Date().getFullYear(),
-                                    new Date().getMonth() - 1,
-                                  ).toLocaleDateString("en-US", {
-                                    month: "long",
-                                    year: "numeric",
-                                  })}
-                                </span>
-                              </div>
-                            )}
                           </div>
                         </div>
                       </div>
 
-                      {/* Compliance Ratings Section */}
-                      <div className="mb-6">
-                        <div className="flex items-center mb-3">
-                          <Shield className="w-4 h-4 text-gray-500 mr-2" aria-hidden="true" />
-                          <h4 className="text-sm font-bold text-gray-700">Compliance Ratings</h4>
-                        </div>
-                        <div className="bg-gray-50 rounded-xl p-4">
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                              <div className="flex items-center mb-1">
-                                <p className="text-sm font-semibold text-gray-600">
-                                  Provider Compliance Rating
-                                </p>
-                                <Tooltip>
-                                  <TooltipTrigger asChild>
-                                    <button className="ml-1 text-gray-400 hover:text-gray-600" aria-label="Provider Compliance Rating info">
-                                      <Info className="w-3 h-3" />
-                                    </button>
-                                  </TooltipTrigger>
-                                  <TooltipContent className="bg-gray-900 text-white max-w-xs">
-                                    <p>Based on this provider's compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available. <a href="/methodology" className="underline text-blue-300">See how we measure compliance</a>.</p>
-                                  </TooltipContent>
-                                </Tooltip>
-                              </div>
-                              <p className="text-lg font-bold text-gray-900">
-                                {provider.complianceScore}/100
-                              </p>
-                            </div>
-                            <div className="md:border-l md:border-gray-200 md:pl-4">
-                              <div className="flex items-center mb-1">
-                                <p className="text-sm font-semibold text-gray-600">
-                                  Payer Compliance Rating
-                                </p>
-                                <Tooltip>
-                                  <TooltipTrigger asChild>
-                                    <button className="ml-1 text-gray-400 hover:text-gray-600" aria-label="Payer Compliance Rating info">
-                                      <Info className="w-3 h-3" />
-                                    </button>
-                                  </TooltipTrigger>
-                                  <TooltipContent className="bg-gray-900 text-white max-w-xs">
-                                    <p>Based on this payer's compliance with federal pricing transparency mandates. Updated monthly when new payer TiC files are published. <a href="/methodology" className="underline text-blue-300">See how we measure compliance</a>.</p>
-                                  </TooltipContent>
-                                </Tooltip>
-                              </div>
-                              <p className="text-lg font-bold text-gray-900">
-                                {provider.payerComplianceScore}/100
-                              </p>
-                            </div>
+                      {/* Row C - Meta Row */}
+                      <div className="px-5 py-3 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
+                        {/* Left group - Compliance inline */}
+                        <div className="flex items-center gap-4 text-sm">
+                          <div className="flex items-center gap-1">
+                            <span className="text-gray-700">Provider:</span>
+                            <span className="font-semibold">{provider.complianceScore}/100</span>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <button className="text-gray-400 hover:text-gray-600" aria-label="Provider Compliance Rating info">
+                                  <Info className="w-3 h-3" />
+                                </button>
+                              </TooltipTrigger>
+                              <TooltipContent className="bg-gray-900 text-white max-w-xs">
+                                <p>Based on this provider's compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available. <a href="/methodology" className="underline text-blue-300">See how we measure compliance</a>.</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </div>
+                          <span className="text-gray-400">•</span>
+                          <div className="flex items-center gap-1">
+                            <span className="text-gray-700">Payer:</span>
+                            <span className="font-semibold">{provider.payerComplianceScore}/100</span>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <button className="text-gray-400 hover:text-gray-600" aria-label="Payer Compliance Rating info">
+                                  <Info className="w-3 h-3" />
+                                </button>
+                              </TooltipTrigger>
+                              <TooltipContent className="bg-gray-900 text-white max-w-xs">
+                                <p>Based on this payer's compliance with federal pricing transparency mandates. Updated monthly when new payer TiC files are published. <a href="/methodology" className="underline text-blue-300">See how we measure compliance</a>.</p>
+                              </TooltipContent>
+                            </Tooltip>
                           </div>
                         </div>
-                      </div>
 
-                      {/* Additional Details */}
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                        <div>
-                          <p className="text-sm font-semibold text-gray-600 mb-1">
-                            Coverage Type
-                          </p>
+                        {/* Right group - Coverage + state delta inline */}
+                        <div className="flex items-center gap-4 text-sm">
+                          <span className="text-gray-700">Coverage:</span>
                           <button
                             onClick={() => handleCoverageFilter(provider.coverageType)}
-                            className="inline-flex"
+                            className="text-blue-600 hover:text-blue-800 underline transition-colors"
                             aria-label={`Filter by ${provider.coverageType} coverage`}
                           >
-                            <Badge className="bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 transition-colors cursor-pointer">
-                              {provider.coverageType}
-                            </Badge>
+                            {provider.coverageType}
                           </button>
-                        </div>
-                        <div>
-                          <p className="text-sm font-semibold text-gray-600 mb-1">
-                            vs State Average
-                          </p>
-                          <Badge
-                            className={`flex items-center gap-1 ${
+                          <span className="text-gray-400">•</span>
+                          <div
+                            className={`flex items-center gap-1 px-2 py-1 rounded text-xs font-medium ${
                               provider.comparison.includes("below")
-                                ? "bg-green-50 text-green-700 border border-green-200"
-                                : "bg-red-50 text-red-700 border border-red-200"
+                                ? "bg-green-50 text-green-700"
+                                : "bg-red-50 text-red-700"
                             }`}
                           >
                             <span>
-                              {provider.comparison.includes("below")
-                                ? "↓"
-                                : "↑"}
+                              {provider.comparison.includes("below") ? "↓" : "↑"}
                             </span>
                             <span>
-                              {provider.comparison.match(/\d+/)?.[0]}%
+                              {provider.comparison.match(/\d+/)?.[0]}% vs state average
                             </span>
-                          </Badge>
+                          </div>
                         </div>
                       </div>
 
-                      <Button
-                        onClick={() => handleGetCurrentPrice(provider.id)}
-                        disabled={
-                          loadingProviders.has(provider.id) ||
-                          recentPriceProviders.has(provider.id)
-                        }
-                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
-                      >
-                        {loadingProviders.has(provider.id) ? (
-                          <div className="flex items-center gap-2">
-                            <Loader2 className="w-4 h-4 animate-spin" />
-                            <span>Fetching Latest Price...</span>
-                          </div>
-                        ) : recentPriceProviders.has(provider.id) ? (
-                          <div className="flex items-center gap-2">
-                            <CheckCircle2 className="w-4 h-4" />
-                            <span>Showing Latest Price</span>
-                          </div>
-                        ) : (
-                          "Get Current Price"
-                        )}
-                      </Button>
+                      {/* CTA Button */}
+                      <div className="px-5 pb-4">
+                        <Button
+                          onClick={() => handleGetCurrentPrice(provider.id)}
+                          disabled={
+                            loadingProviders.has(provider.id) ||
+                            recentPriceProviders.has(provider.id)
+                          }
+                          className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                          {loadingProviders.has(provider.id) ? (
+                            <div className="flex items-center gap-2">
+                              <Loader2 className="w-4 h-4 animate-spin" />
+                              <span>Fetching Latest Price...</span>
+                            </div>
+                          ) : recentPriceProviders.has(provider.id) ? (
+                            <div className="flex items-center gap-2">
+                              <CheckCircle2 className="w-4 h-4" />
+                              <span>Showing Latest Price</span>
+                            </div>
+                          ) : (
+                            "Get Current Price"
+                          )}
+                        </Button>
+                      </div>
                     </CardContent>
                   </Card>
                 ))}
