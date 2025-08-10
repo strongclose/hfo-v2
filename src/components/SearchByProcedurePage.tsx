@@ -581,14 +581,17 @@ export function SearchByProcedurePage({
                   {/* Provider */}
                   <div className="lg:col-span-1">
                     <label className="block text-sm font-bold text-gray-900 mb-3">
-                      Provider
+                      Payer
                     </label>
                     <Select
-                      value={filterProvider}
-                      onValueChange={setFilterProvider}
+                      value={filterPayer}
+                      onValueChange={handlePayerSelection}
+                      disabled={coverageType === 'cash'}
                     >
-                      <SelectTrigger className="h-14 text-lg rounded-xl border-2 border-gray-200">
-                        <SelectValue placeholder="Select provider" />
+                      <SelectTrigger className={`h-14 text-lg rounded-xl border-2 border-gray-200 ${
+                        coverageType === 'cash' ? 'opacity-50 cursor-not-allowed' : ''
+                      }`}>
+                        <SelectValue placeholder="Select payer" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="aetna">Aetna</SelectItem>
