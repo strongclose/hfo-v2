@@ -44,7 +44,7 @@ interface SelectTriggerProps {
   value?: string;
 }
 
-const SelectTrigger = ({ className, children, open, setOpen, disabled }: SelectTriggerProps) => {
+const SelectTrigger = ({ className, children, open, setOpen, disabled, value }: SelectTriggerProps) => {
   const handleClick = () => {
     console.log('SelectTrigger clicked, disabled:', disabled, 'open:', open);
     if (!disabled && setOpen) {
@@ -62,7 +62,12 @@ const SelectTrigger = ({ className, children, open, setOpen, disabled }: SelectT
       )}
       onClick={handleClick}
     >
-      {children}
+      {React.Children.map(children, (child) => {
+        if (React.isValidElement(child)) {
+          return React.cloneElement(child, { value } as any);
+        }
+        return child;
+      })}
       <ChevronDown className="h-4 w-4 opacity-50" />
     </button>
   );
