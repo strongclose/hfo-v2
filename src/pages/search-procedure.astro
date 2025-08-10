@@ -1,27 +1,8 @@
 ---
 import Layout from '../layouts/BaseLayout.astro';
+import { SearchByProcedurePage } from '../components/SearchByProcedurePage';
 ---
 
 <Layout title="Search Medical Procedures - Advanced Filter Tool | HealthFees.org">
-  <div id="search-procedure-root"></div>
-  
-  <script is:inline>
-    // Import and render the React component
-    import('/pages/search-procedure.tsx')
-      .then(module => {
-        // This will load the original React component with full functionality
-        window.location.href = '/search-procedure.tsx';
-      })
-      .catch(() => {
-        // Fallback to direct navigation
-        window.location.href = '/pages/search-procedure';
-      });
-  </script>
+  <SearchByProcedurePage client:load />
 </Layout>
-
-<style>
-  /* Ensure the component loads immediately */
-  #search-procedure-root {
-    min-height: 100vh;
-  }
-</style>
