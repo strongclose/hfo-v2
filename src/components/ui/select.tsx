@@ -127,16 +127,19 @@ interface SelectItemProps {
 }
 
 const SelectItem = ({ value, children, className, onValueChange, setOpen }: SelectItemProps) => {
+  const handleClick = () => {
+    console.log('SelectItem clicked:', value, 'onValueChange:', !!onValueChange, 'setOpen:', !!setOpen);
+    onValueChange?.(value);
+    setOpen?.(false);
+  };
+
   return (
     <div
       className={cn(
         "relative flex w-full cursor-pointer select-none items-center px-3 py-2 text-sm outline-none hover:bg-gray-100 focus:bg-gray-100",
         className
       )}
-      onClick={() => {
-        onValueChange?.(value);
-        setOpen?.(false);
-      }}
+      onClick={handleClick}
     >
       {children}
     </div>
