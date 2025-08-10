@@ -1,8 +1,32 @@
 ---
 import Layout from '../layouts/BaseLayout.astro';
-import InsightsPageWrapper from '../components/InsightsPageWrapper';
+import { InsightalyticsPage } from '../components/InsightalyticsPage';
 ---
 
-<Layout title="Healthcare Intelligence Center - Insights & Analytics | HealthFees.org">
-  <InsightsPageWrapper client:load />
+<Layout title="Insights - Advanced Healthcare Analytics | HealthFees.org">
+  <div id="insights-app"></div>
 </Layout>
+
+<script>
+  import { InsightalyticsPage } from '../components/InsightalyticsPage.tsx';
+  
+  // Create the InsightalyticsPage with all navigation handlers
+  const props = {
+    onNavigateToConditions: () => window.location.href = "/insights/conditions",
+    onNavigateToProcedures: () => window.location.href = "/insights/procedures", 
+    onNavigateToCostComparisons: () => window.location.href = "/insights/cost-comparisons",
+    onNavigateToAlternativeCare: () => window.location.href = "/insights/alternative-care",
+    onNavigateToLocationInsights: () => window.location.href = "/insights/location-insights",
+    onNavigateToDisclosures: () => window.location.href = "/disclosures"
+  };
+  
+  // Mount the component
+  if (typeof window !== 'undefined') {
+    import('react').then(React => {
+      import('react-dom/client').then(ReactDOM => {
+        const root = ReactDOM.createRoot(document.getElementById('insights-app'));
+        root.render(React.createElement(InsightalyticsPage, props));
+      });
+    });
+  }
+</script>
