@@ -229,10 +229,7 @@ export function SearchByProcedurePage({
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-700 max-w-5xl mx-auto leading-relaxed font-light mb-8">
-              Search billions of prices collected from federally mandated
-              hospital and insurer disclosures. Compare cash, in-network, and
-              out-of-network rates side by side and understand what providers
-              typically charge for care.
+              Search billions of prices collected from federally mandated hospital and insurer disclosures. Compare cash, in-network, and out-of-network rates side by side to see what providers typically charge for care.
             </p>
             <div className="inline-flex items-center px-6 py-3 rounded-full bg-green-50 border border-green-200">
               <CheckCircle2 className="w-5 h-5 text-green-600 mr-2" />
