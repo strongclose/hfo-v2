@@ -946,6 +946,31 @@ export function SearchByProcedurePage({
         </div>
       </section>
 
+      {/* Trust & Transparency Footer Strip */}
+      <section className="py-6 bg-gray-100 border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-2 md:space-y-0">
+            <p className="text-sm text-gray-600">
+              Data sources: CMS, hospital Transparency in Coverage files, insurer disclosures.
+            </p>
+            <div className="flex space-x-6">
+              <a href="/methodology" className="text-sm text-blue-600 hover:text-blue-800 underline font-medium">
+                See Methodology
+              </a>
+              <button
+                onClick={() => {
+                  // Open modal form for error reporting
+                  alert('Report Error form would open here');
+                }}
+                className="text-sm text-blue-600 hover:text-blue-800 underline font-medium"
+              >
+                Report an Error
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer onNavigateToDisclosures={onNavigateToDisclosures} />
     </div>
   );
