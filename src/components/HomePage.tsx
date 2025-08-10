@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Hero } from "./Hero";
 import { Navigation } from "./Navigation";
 import { ExploreCompareSection } from "./homepage/ExploreCompareSection";
