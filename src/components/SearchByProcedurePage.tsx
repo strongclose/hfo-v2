@@ -909,7 +909,7 @@ export function SearchByProcedurePage({
                             </DialogContent>
                           </Dialog>
                           <div
-                            className="px-4 py-2 rounded-full font-semibold text-sm inline-block"
+                            className="px-3 py-1.5 rounded-full font-semibold text-sm"
                             style={{
                               background:
                                 provider.contextTag === "Best Price"
@@ -921,7 +921,7 @@ export function SearchByProcedurePage({
                                   : "#7c3aed",
                               boxShadow:
                                 provider.contextTag === "Best Price"
-                                  ? "0 10px 15px -3px rgba(16, 185, 129, 0.25)"
+                                  ? "0 8px 12px -3px rgba(16, 185, 129, 0.2)"
                                   : "none",
                             }}
                           >
