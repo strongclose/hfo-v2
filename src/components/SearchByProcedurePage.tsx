@@ -1089,8 +1089,8 @@ export function SearchByProcedurePage({
               </div>
             </div>
 
-            {/* Right Column: Filter Panel */}
-            <div className="space-y-4">
+            {/* Right Column: Filter Panel (40% - 2 columns) */}
+            <div className="lg:col-span-2 space-y-4">
               <h3 className="text-lg font-semibold text-gray-900">Search Filters</h3>
 
               {/* Procedure Filter */}
