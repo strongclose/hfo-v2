@@ -39,6 +39,10 @@ import {
   Loader2,
   Shield,
   Tag,
+  Send,
+  Sparkles,
+  RotateCcw,
+  X,
 } from "lucide-react";
 
 interface SearchByProcedurePageProps {
@@ -73,7 +77,7 @@ export function SearchByProcedurePage({
   const [filterPayer, setFilterPayer] = useState("");
   const [filterPlan, setFilterPlan] = useState("");
   const [showPlanField, setShowPlanField] = useState(false);
-  const [coverageType, setCoverageType] = useState("in-network");
+  const [coverageType, setCoverageType] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
   const [loadingProviders, setLoadingProviders] = useState<Set<number>>(
     new Set(),
@@ -558,6 +562,22 @@ export function SearchByProcedurePage({
   const [showSidebarProcedureSuggestions, setShowSidebarProcedureSuggestions] = useState(false);
   const [mainProcedureInput, setMainProcedureInput] = useState("");
   const [sidebarProcedureInput, setSidebarProcedureInput] = useState("");
+
+  // AI Chat state
+  const [chatMessages, setChatMessages] = useState<Array<{id: string, type: 'user' | 'bot', content: string, timestamp: Date}>>([]);
+  const [chatInput, setChatInput] = useState("");
+  const [isAITyping, setIsAITyping] = useState(false);
+  const [userLockedFields, setUserLockedFields] = useState<Set<string>>(new Set());
+  const [aiSuggestions, setAiSuggestions] = useState<Record<string, {value: string, show: boolean}>>({});
+  const [pulseFields, setPulseFields] = useState<Set<string>>(new Set());
+  const [initialState, setInitialState] = useState<any>(null);
+
+  // Example prompts for the carousel
+  const examplePrompts = [
+    "Find knee replacement prices near me",
+    "Show providers for Aetna in Chicago",
+    "List cash prices for MRI in 90001"
+  ];
 
   // Filter procedures based on input
   const getFilteredProcedures = (input: string) => {
