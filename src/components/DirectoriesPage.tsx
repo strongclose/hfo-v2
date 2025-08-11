@@ -48,9 +48,33 @@ export function DirectoriesPage({
       title: "Providers",
       description: "Hospitals, clinics, and systems by NPI/CCN.",
       metrics: [
-        { label: "Providers indexed", value: "25,847" },
-        { label: "Average transparency score", value: "B+" },
-        { label: "Updated", value: "January 2025" }
+        {
+          label: "Providers",
+          value: "25,847",
+          icon: (
+            <svg className="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 2v10h8V6H6z" clipRule="evenodd" />
+            </svg>
+          )
+        },
+        {
+          label: "Average transparency score",
+          value: "B+",
+          icon: (
+            <svg className="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+          )
+        },
+        {
+          label: "Most common service",
+          value: "Laboratory tests",
+          icon: (
+            <svg className="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+          )
+        }
       ],
       action: "Browse Providers",
       onClick: onNavigateToProviders,
