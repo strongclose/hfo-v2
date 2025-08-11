@@ -600,8 +600,9 @@ export function ProvidersIndexPage({
                         <div>
                           <div className="text-sm text-gray-600">Data Status</div>
                           <div className="flex items-center gap-1">
-                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                            <span className="text-sm font-medium text-green-700">Current</span>
+                            <span className="inline-flex items-center px-2 py-1 rounded-full bg-gray-100 text-gray-700 text-xs font-medium">
+                              Current
+                            </span>
                           </div>
                         </div>
                       </div>
