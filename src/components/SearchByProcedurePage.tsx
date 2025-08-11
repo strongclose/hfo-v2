@@ -622,7 +622,12 @@ export function SearchByProcedurePage({
   const [sidebarProcedureInput, setSidebarProcedureInput] = useState("");
 
   // AI Chat state
-  const [chatMessages, setChatMessages] = useState<Array<{id: string, type: 'user' | 'bot', content: string, timestamp: Date}>>([]);
+  const [chatMessages, setChatMessages] = useState<Array<{id: string, type: 'user' | 'bot', content: string, timestamp: Date}>>([{
+    id: 'greeting',
+    type: 'bot',
+    content: 'Hi there 👋 — I can help you find the best prices for your care. You can ask me something like:\n\n• Find knee replacement prices near me\n• Show providers for Aetna in Chicago\n• List cash prices for MRI in 90001',
+    timestamp: new Date()
+  }]);
   const [chatInput, setChatInput] = useState("");
   const [isAITyping, setIsAITyping] = useState(false);
   const [userLockedFields, setUserLockedFields] = useState<Set<string>>(new Set());
@@ -987,21 +992,21 @@ export function SearchByProcedurePage({
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.1),transparent_50%)] pointer-events-none"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(124,58,237,0.05),transparent_50%)] pointer-events-none"></div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-32">
-          {/* Updated Hero Content */}
-          <div className="text-center mb-8">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 text-gray-900 tracking-tight">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20">
+          {/* Optimized Hero Content */}
+          <div className="text-center mb-6">
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 text-gray-900 tracking-tight">
               Find Real-World Healthcare Prices{" "}
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-teal-600 via-blue-600 to-indigo-700 bg-clip-text text-transparent">
                 Instantly
               </span>
             </h1>
-            <p className="text-base md:text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed font-light mb-3">
+            <p className="text-sm md:text-base text-gray-700 max-w-3xl mx-auto leading-relaxed font-light mb-2">
               Ask our AI to search billions of federally mandated hospital and insurer prices. Compare cash, in-network, and out-of-network rates side by side—updated monthly.
             </p>
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-50 border border-green-200 mt-3">
-              <CheckCircle2 className="w-4 h-4 text-green-600 mr-2" />
-              <span className="text-green-800 font-medium text-sm">
+            <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-green-50 border border-green-200 mt-2">
+              <CheckCircle2 className="w-3.5 h-3.5 text-green-600 mr-2" />
+              <span className="text-green-800 font-medium text-xs">
                 Powered by government-mandated data. Updated monthly.
               </span>
             </div>
@@ -1012,39 +1017,33 @@ export function SearchByProcedurePage({
             {/* Left Column: AI Chat Panel (60% - 3 columns) */}
             <div className="lg:col-span-3 space-y-4">
               {/* Chat Container - Enhanced for Primary Focus */}
-              <div className="bg-gradient-to-br from-teal-50 via-blue-50/50 to-indigo-50/30 backdrop-blur-xl border-2 border-teal-200/50 rounded-3xl shadow-2xl hover:shadow-teal-500/20 transition-all duration-500 p-4 h-[500px] flex flex-col relative overflow-hidden">
+              <div className="bg-gradient-to-br from-teal-50 via-blue-50/50 to-indigo-50/30 backdrop-blur-xl border-2 border-teal-200/50 rounded-3xl shadow-2xl hover:shadow-teal-500/20 transition-all duration-500 p-4 h-[580px] flex flex-col relative overflow-hidden">
                 {/* Subtle glow effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 via-transparent to-blue-500/5 rounded-3xl"></div>
-                {/* Enhanced Header */}
-                <div className="relative z-10 mb-2">
-                  <div className="flex items-center gap-3 mb-1">
+                {/* Enhanced Header with Divider */}
+                <div className="relative z-10 pb-3 border-b border-teal-100/50">
+                  <div className="flex items-center gap-3">
                     <div className="relative">
-                      <Activity className="w-5 h-5 text-teal-600" />
+                      <Activity className="w-6 h-6 text-teal-600" />
                       <div className="absolute inset-0 animate-pulse">
-                        <Activity className="w-5 h-5 text-teal-400 opacity-50" />
+                        <Activity className="w-6 h-6 text-teal-400 opacity-40" />
                       </div>
                     </div>
-                    <h2 className="text-lg font-bold text-gray-900">AI Price Assistant</h2>
+                    <h2 className="text-xl font-bold text-gray-900">AI Price Assistant</h2>
                   </div>
                 </div>
 
                 {/* Chat Messages */}
-                <div className="relative z-10 flex-1 overflow-y-auto mb-3 space-y-3">
-                  {chatMessages.length === 0 && (
-                    <div className="text-center text-gray-500 mt-16">
-                      <Activity className="w-6 h-6 mx-auto mb-2 text-teal-500 animate-pulse" />
-                      <p className="text-sm font-medium text-gray-600">Ready to search real-world prices…</p>
-                    </div>
-                  )}
+                <div className="relative z-10 flex-1 overflow-y-auto my-4 space-y-3">
 
                   {chatMessages.map((message) => (
                     <div key={message.id} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
-                      <div className={`max-w-sm px-4 py-3 rounded-2xl ${
+                      <div className={`max-w-md px-4 py-3 rounded-2xl ${
                         message.type === 'user'
                           ? 'bg-gradient-to-r from-teal-600 to-blue-600 text-white shadow-lg'
                           : 'bg-white/95 text-gray-900 border border-gray-200 shadow-md'
                       }`}>
-                        <p className="text-sm">{message.content}</p>
+                        <p className="text-sm whitespace-pre-line">{message.content}</p>
                       </div>
                     </div>
                   ))}
@@ -1065,39 +1064,37 @@ export function SearchByProcedurePage({
                   )}
                 </div>
 
-                {/* Enhanced Chat Input */}
-                <div className="relative z-10 flex items-center gap-3 mb-2">
+                {/* Enhanced Chat Input with Gradient Heartbeat Icon */}
+                <div className="relative z-10 flex items-center gap-0">
                   <Input
                     data-chat-input
                     value={chatInput}
                     onChange={(e) => setChatInput(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
                     placeholder="Type a question to find the best healthcare prices…"
-                    className="flex-1 h-11 bg-white/95 border-2 border-teal-200 rounded-xl focus:border-teal-500 placeholder:text-gray-500 text-base shadow-lg"
+                    className="flex-1 h-12 bg-white/95 border-2 border-teal-200 rounded-l-xl rounded-r-none focus:border-teal-500 placeholder:text-gray-500 text-base shadow-lg pr-0"
                   />
                   <Button
                     onClick={handleSendMessage}
                     disabled={!chatInput.trim() || isAITyping}
-                    className="h-11 bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700 text-white rounded-xl px-5 shadow-lg hover:shadow-xl transition-all duration-200"
+                    className="h-12 bg-gradient-to-r from-teal-500 via-teal-600 to-blue-600 hover:from-teal-600 hover:via-blue-600 hover:to-indigo-600 text-white rounded-r-xl px-4 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-l-0 border-teal-200 hover:border-teal-500 group relative overflow-hidden"
+                    style={{
+                      background: chatInput.trim() || isAITyping ?
+                        'linear-gradient(45deg, #14b8a6, #0891b2, #3b82f6)' :
+                        'linear-gradient(45deg, #5eead4, #22d3ee, #60a5fa)',
+                      backgroundSize: '200% 200%',
+                      animation: 'gradient-roll 2s ease-in-out infinite'
+                    }}
                   >
-                    <Activity className="w-4 h-4" />
+                    <Activity className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" />
+                    <style jsx>{`
+                      @keyframes gradient-roll {
+                        0% { background-position: 0% 50%; }
+                        50% { background-position: 100% 50%; }
+                        100% { background-position: 0% 50%; }
+                      }
+                    `}</style>
                   </Button>
-                </div>
-
-                {/* Example Prompts - Moved Below Input */}
-                <div className="relative z-10">
-                  <p className="text-xs text-gray-600 mb-2">Try asking:</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {examplePrompts.map((prompt, index) => (
-                      <button
-                        key={index}
-                        onClick={() => handleExamplePrompt(prompt)}
-                        className="inline-flex items-center px-2.5 py-1.5 text-xs bg-teal-50 text-teal-700 rounded-lg hover:bg-teal-100 hover:scale-105 transition-all duration-200 border border-teal-200/50 font-medium shadow-sm"
-                      >
-                        {prompt}
-                      </button>
-                    ))}
-                  </div>
                 </div>
               </div>
             </div>
