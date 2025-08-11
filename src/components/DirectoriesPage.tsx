@@ -183,8 +183,8 @@ export function DirectoriesPage({
                     </div>
 
                     {/* Content Section with blue-indigo gradient background */}
-                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 px-6 py-5 mx-0">
-                      <div className="mb-4">
+                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 px-6 py-5 mx-0 min-h-[120px] flex flex-col">
+                      <div className="mb-4 flex-1">
                         <h4 className="text-sm font-bold text-gray-900 mb-3">
                           Key Metrics
                         </h4>
