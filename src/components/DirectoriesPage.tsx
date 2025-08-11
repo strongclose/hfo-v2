@@ -93,9 +93,33 @@ export function DirectoriesPage({
       title: "Payers",
       description: "Insurers and health plans by NAIC.",
       metrics: [
-        { label: "Issuers count", value: "1,247" },
-        { label: "Plans count", value: "18,950" },
-        { label: "Updated", value: "January 2025" }
+        {
+          label: "Issuers",
+          value: "1,247",
+          icon: (
+            <svg className="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm2 6a2 2 0 114 0v2a2 2 0 11-4 0v-2zm6 0a2 2 0 114 0v2a2 2 0 11-4 0v-2z" clipRule="evenodd" />
+            </svg>
+          )
+        },
+        {
+          label: "Plans",
+          value: "18,950",
+          icon: (
+            <svg className="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" />
+            </svg>
+          )
+        },
+        {
+          label: "Average transparency score",
+          value: "C+",
+          icon: (
+            <svg className="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+          )
+        }
       ],
       action: "Browse Payers",
       onClick: onNavigateToPayers,
