@@ -1077,23 +1077,13 @@ export function SearchByProcedurePage({
                   <Button
                     onClick={handleSendMessage}
                     disabled={!chatInput.trim() || isAITyping}
-                    className="h-12 bg-gradient-to-r from-teal-500 via-teal-600 to-blue-600 hover:from-teal-600 hover:via-blue-600 hover:to-indigo-600 text-white rounded-r-xl px-4 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-l-0 border-teal-200 hover:border-teal-500 group relative overflow-hidden"
-                    style={{
-                      background: chatInput.trim() || isAITyping ?
-                        'linear-gradient(45deg, #14b8a6, #0891b2, #3b82f6)' :
-                        'linear-gradient(45deg, #5eead4, #22d3ee, #60a5fa)',
-                      backgroundSize: '200% 200%',
-                      animation: 'gradient-roll 2s ease-in-out infinite'
-                    }}
+                    className={`h-12 text-white rounded-r-xl px-4 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-l-0 border-teal-200 hover:border-teal-500 group relative overflow-hidden ${
+                      chatInput.trim() || isAITyping
+                        ? 'bg-gradient-to-r from-teal-600 via-blue-600 to-indigo-600 hover:from-teal-700 hover:via-blue-700 hover:to-indigo-700'
+                        : 'bg-gradient-to-r from-teal-400 via-teal-500 to-blue-500 hover:from-teal-500 hover:via-blue-500 hover:to-indigo-500 animate-pulse'
+                    }`}
                   >
                     <Activity className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" />
-                    <style jsx>{`
-                      @keyframes gradient-roll {
-                        0% { background-position: 0% 50%; }
-                        50% { background-position: 100% 50%; }
-                        100% { background-position: 0% 50%; }
-                      }
-                    `}</style>
                   </Button>
                 </div>
               </div>
