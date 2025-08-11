@@ -183,8 +183,8 @@ export function DirectoriesPage({
                     </div>
 
                     {/* Content Section with blue-indigo gradient background */}
-                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 px-6 py-5 mx-0 min-h-[120px] flex flex-col">
-                      <div className="mb-4 flex-1">
+                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 px-6 py-5 mx-0 flex-1 flex flex-col">
+                      <div className="mb-4">
                         <h4 className="text-sm font-bold text-gray-900 mb-3">
                           Key Metrics
                         </h4>
@@ -200,7 +200,7 @@ export function DirectoriesPage({
                     </div>
 
                     {/* CTA Button */}
-                    <div className="px-6 pb-4 mt-4">
+                    <div className="px-6 pb-4 mt-4 mt-auto">
                       <Button
                         onClick={directory.onClick}
                         className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 rounded-xl"
