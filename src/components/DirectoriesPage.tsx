@@ -302,7 +302,7 @@ export function DirectoriesPage({
                     </div>
 
                     {/* CTA Button */}
-                    <div className="px-6 pb-4 mt-4 mt-auto">
+                    <div className="px-6 pb-6 pt-6 mt-auto">
                       <Button
                         onClick={directory.onClick}
                         className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 rounded-xl"
