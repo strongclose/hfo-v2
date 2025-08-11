@@ -1040,7 +1040,7 @@ export function SearchByProcedurePage({
                     <div key={message.id} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
                       <div className={`max-w-md px-4 py-3 rounded-2xl ${
                         message.type === 'user'
-                          ? 'bg-gradient-to-r from-slate-800 to-slate-900 text-white shadow-lg'
+                          ? 'bg-white text-gray-900 border border-gray-300 shadow-lg'
                           : 'bg-white/95 text-gray-900 border border-gray-200 shadow-md'
                       }`}>
                         <p className={`text-sm whitespace-pre-line ${
