@@ -4,14 +4,5 @@ import { DirectoriesPage } from '../components/DirectoriesPage';
 ---
 
 <Layout title="Healthcare Directories - HealthFees.org">
-  <DirectoriesPage 
-    client:load
-    onNavigateToProviders={() => window.location.href = "/providers"}
-    onNavigateToPayers={() => window.location.href = "/payers"}
-    onNavigateToProcedures={() => window.location.href = "/procedures"}
-    onNavigateToCPT={() => window.location.href = "/cpt"}
-    onNavigateToStates={() => window.location.href = "/states"}
-    onNavigateToCities={() => window.location.href = "/cities"}
-    onNavigateToDisclosures={() => window.location.href = "/disclosures"}
-  />
+  <DirectoriesPage client:load />
 </Layout>
