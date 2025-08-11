@@ -118,6 +118,10 @@ export function Navigation(): JSX.Element {
             className: "block w-full text-left font-medium py-2 text-gray-900"
           }, "Compare Prices"),
           React.createElement('a', {
+            href: "/directories",
+            className: "block w-full text-left font-medium py-2 text-gray-900"
+          }, "Directories"),
+          React.createElement('a', {
             href: "/insights",
             className: "block w-full text-left font-medium py-2 text-gray-900"
           }, "Insights"),
