@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navigation } from "./Nav";
+import { Navigation } from "./Navigation";
 import { Footer } from "./Footer";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
@@ -476,7 +476,7 @@ export function ProcedureDetailPage({
                       Equipment & Technology
                     </h4>
                     <ul className="space-y-1 text-gray-600">
-                      <li>�� MRI field strength (1.5T vs 3T)</li>
+                      <li>• MRI field strength (1.5T vs 3T)</li>
                       <li>• Age and model of equipment</li>
                       <li>• Advanced imaging sequences available</li>
                       <li>• Equipment lease vs ownership costs</li>

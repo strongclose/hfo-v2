@@ -21,7 +21,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
-import { Navigation } from "./Nav";
+import { Navigation } from "./Navigation";
 import { Footer } from "./Footer";
 import {
   Search,

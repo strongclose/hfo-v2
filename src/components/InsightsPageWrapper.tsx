@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navigation } from "./Nav";
+import { Navigation } from "./Navigation";
 import { FooterExpanded } from "./homepage/FooterExpanded";
 import { StandardizedCTA } from "./StandardizedCTA";
 import { Button } from "./ui/button";
