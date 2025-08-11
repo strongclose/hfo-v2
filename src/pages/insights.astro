@@ -1,51 +1,8 @@
 ---
 import Layout from '../layouts/BaseLayout.astro';
 import { InsightalyticsPage } from '../components/InsightalyticsPage';
-
-// Create static props object
-const props = {
-  onNavigateToConditions: () => {},
-  onNavigateToProcedures: () => {},
-  onNavigateToCostComparisons: () => {},
-  onNavigateToAlternativeCare: () => {},
-  onNavigateToLocationInsights: () => {},
-  onNavigateToDisclosures: () => {}
-};
 ---
 
 <Layout title="Insights - Advanced Healthcare Analytics | HealthFees.org">
-  <InsightalyticsPage client:load {...props} />
+  <InsightalyticsPage client:load />
 </Layout>
-
-<script>
-  // Add client-side navigation after component loads
-  document.addEventListener('DOMContentLoaded', () => {
-    // Wait a bit for React to mount
-    setTimeout(() => {
-      // Find and override the buttons with proper navigation
-      const buttons = document.querySelectorAll('[data-tool]');
-      buttons.forEach(button => {
-        const tool = button.getAttribute('data-tool');
-        button.addEventListener('click', () => {
-          switch(tool) {
-            case 'conditions':
-              window.location.href = '/insights/conditions';
-              break;
-            case 'procedures':
-              window.location.href = '/insights/procedures';
-              break;
-            case 'cost-comparisons':
-              window.location.href = '/insights/cost-comparisons';
-              break;
-            case 'alternative-care':
-              window.location.href = '/insights/alternative-care';
-              break;
-            case 'location-insights':
-              window.location.href = '/insights/location-insights';
-              break;
-          }
-        });
-      });
-    }, 100);
-  });
-</script>
