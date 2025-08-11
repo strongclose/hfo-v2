@@ -67,10 +67,12 @@ export function ProvidersIndexPage({
       systemAffiliation: "Stanford Health Care",
       locationCount: 12,
       organizationType: "Teaching Hospital",
-      ownership: "Non-profit",
       state: "CA",
       city: "Palo Alto",
-      transparencyScore: "A-",
+      zipCode: "94305",
+      phone: "(650) 723-4000",
+      website: "https://stanfordhealthcare.org",
+      transparencyScore: 87,
       updated: "January 2025",
     },
     {
@@ -81,10 +83,12 @@ export function ProvidersIndexPage({
       systemAffiliation: "University of California San Francisco",
       locationCount: 8,
       organizationType: "Teaching Hospital",
-      ownership: "Non-profit",
       state: "CA",
       city: "San Francisco",
-      transparencyScore: "B+",
+      zipCode: "94143",
+      phone: "(415) 476-1000",
+      website: "https://ucsfhealth.org",
+      transparencyScore: 82,
       updated: "January 2025",
     },
     {
@@ -94,10 +98,12 @@ export function ProvidersIndexPage({
       systemAffiliation: "Kaiser Permanente",
       locationCount: 156,
       organizationType: "HMO",
-      ownership: "Non-profit",
       state: "CA",
       city: "Oakland",
-      transparencyScore: "B",
+      zipCode: "94612",
+      phone: "(510) 271-5910",
+      website: "https://kp.org",
+      transparencyScore: 76,
       updated: "January 2025",
     },
     {
@@ -108,10 +114,12 @@ export function ProvidersIndexPage({
       systemAffiliation: "Mayo Clinic Health System",
       locationCount: 45,
       organizationType: "Academic Medical Center",
-      ownership: "Non-profit",
       state: "MN",
       city: "Rochester",
-      transparencyScore: "A",
+      zipCode: "55905",
+      phone: "(507) 284-2511",
+      website: "https://mayoclinic.org",
+      transparencyScore: 94,
       updated: "January 2025",
     },
     {
@@ -122,10 +130,12 @@ export function ProvidersIndexPage({
       systemAffiliation: "Cleveland Clinic Health System",
       locationCount: 23,
       organizationType: "Academic Medical Center",
-      ownership: "Non-profit",
       state: "OH",
       city: "Cleveland",
-      transparencyScore: "A-",
+      zipCode: "44195",
+      phone: "(216) 444-2200",
+      website: "https://clevelandclinic.org",
+      transparencyScore: 89,
       updated: "January 2025",
     },
     {
@@ -136,10 +146,12 @@ export function ProvidersIndexPage({
       systemAffiliation: "Johns Hopkins Health System",
       locationCount: 17,
       organizationType: "Teaching Hospital",
-      ownership: "Non-profit",
       state: "MD",
       city: "Baltimore",
-      transparencyScore: "A+",
+      zipCode: "21287",
+      phone: "(410) 955-5000",
+      website: "https://hopkinsmedicine.org",
+      transparencyScore: 96,
       updated: "January 2025",
     },
     {
@@ -149,10 +161,12 @@ export function ProvidersIndexPage({
       systemAffiliation: "HCA Healthcare",
       locationCount: 185,
       organizationType: "General Hospital",
-      ownership: "For-profit",
       state: "TN",
       city: "Nashville",
-      transparencyScore: "B-",
+      zipCode: "37203",
+      phone: "(615) 344-9551",
+      website: "https://hcahealthcare.com",
+      transparencyScore: 68,
       updated: "January 2025",
     },
     {
@@ -163,10 +177,12 @@ export function ProvidersIndexPage({
       systemAffiliation: "Mount Sinai Health System",
       locationCount: 28,
       organizationType: "Academic Medical Center",
-      ownership: "Non-profit",
       state: "NY",
       city: "New York",
-      transparencyScore: "B+",
+      zipCode: "10029",
+      phone: "(212) 241-6500",
+      website: "https://mountsinai.org",
+      transparencyScore: 81,
       updated: "January 2025",
     },
   ];
@@ -343,7 +359,7 @@ export function ProvidersIndexPage({
                                 <span>CCN: {provider.ccn}</span>
                               </>
                             )}
-                            <span>���</span>
+                            <span>•</span>
                             <span className="flex items-center">
                               <MapPin className="w-3 h-3 mr-1" />
                               {provider.city}, {provider.state}
