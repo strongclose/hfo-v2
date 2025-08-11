@@ -589,6 +589,188 @@ export function SearchByProcedurePage({
     );
   };
 
+  // Save initial state on mount
+  React.useEffect(() => {
+    if (!initialState) {
+      setInitialState({
+        filterProcedure: "",
+        filterZipCode: "",
+        filterRadius: "",
+        filterPayer: "",
+        filterPlan: "",
+        coverageType: "",
+        showPlanField: false
+      });
+    }
+  }, []);
+
+  // Pulse effect for AI-updated fields
+  const triggerPulse = (fieldName: string) => {
+    setPulseFields(prev => new Set(prev).add(fieldName));
+    setTimeout(() => {
+      setPulseFields(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(fieldName);
+        return newSet;
+      });
+    }, 1200);
+  };
+
+  // AI Chat handlers
+  const handleSendMessage = async () => {
+    if (!chatInput.trim()) return;
+
+    const userMessage = {
+      id: Date.now().toString(),
+      type: 'user' as const,
+      content: chatInput.trim(),
+      timestamp: new Date()
+    };
+
+    setChatMessages(prev => [...prev, userMessage]);
+    setChatInput("");
+    setIsAITyping(true);
+
+    // Simulate AI processing and filter extraction
+    setTimeout(() => {
+      const aiResponse = processAIMessage(userMessage.content);
+      const botMessage = {
+        id: (Date.now() + 1).toString(),
+        type: 'bot' as const,
+        content: aiResponse.message,
+        timestamp: new Date()
+      };
+
+      setChatMessages(prev => [...prev, botMessage]);
+      setIsAITyping(false);
+
+      // Apply AI suggestions to filters
+      applyAISuggestions(aiResponse.filters);
+    }, 1500);
+  };
+
+  // Process AI message and extract filters (simplified simulation)
+  const processAIMessage = (message: string) => {
+    const lowerMessage = message.toLowerCase();
+    const filters: Record<string, string> = {};
+    let responseMessage = "I've updated your search criteria based on your request.";
+
+    // Extract ZIP code
+    const zipMatch = message.match(/\b\d{5}\b/);
+    if (zipMatch) {
+      filters.zipCode = zipMatch[0];
+      responseMessage += ` Set location to ZIP ${zipMatch[0]}.`;
+    }
+
+    // Extract procedure
+    predefinedProcedures.forEach(proc => {
+      if (lowerMessage.includes(proc.name.toLowerCase()) || lowerMessage.includes(proc.code)) {
+        filters.procedure = `${proc.name} (${proc.code})`;
+        responseMessage += ` Looking for ${proc.name}.`;
+      }
+    });
+
+    // Extract payer
+    predefinedPayers.forEach(payer => {
+      if (lowerMessage.includes(payer.name.toLowerCase())) {
+        filters.payer = payer.name;
+        responseMessage += ` Using ${payer.name} insurance.`;
+      }
+    });
+
+    // Extract coverage type
+    if (lowerMessage.includes('cash') || lowerMessage.includes('self pay')) {
+      filters.coverageType = 'cash';
+      responseMessage += " Looking at cash prices.";
+    } else if (lowerMessage.includes('out of network')) {
+      filters.coverageType = 'out-of-network';
+      responseMessage += " Searching out-of-network providers.";
+    } else if (lowerMessage.includes('in network') || lowerMessage.includes('insurance')) {
+      filters.coverageType = 'in-network';
+      responseMessage += " Searching in-network providers.";
+    }
+
+    return { message: responseMessage, filters };
+  };
+
+  // Apply AI suggestions to filters
+  const applyAISuggestions = (suggestions: Record<string, string>) => {
+    Object.entries(suggestions).forEach(([field, value]) => {
+      if (!userLockedFields.has(field)) {
+        switch (field) {
+          case 'zipCode':
+            setFilterZipCode(value);
+            triggerPulse('zipCode');
+            break;
+          case 'procedure':
+            setFilterProcedure(value);
+            setMainProcedureInput(value);
+            setSidebarProcedureInput(value);
+            triggerPulse('procedure');
+            break;
+          case 'payer':
+            setFilterPayer(value);
+            triggerPulse('payer');
+            break;
+          case 'coverageType':
+            setCoverageType(value);
+            if (value === 'cash') {
+              setFilterPayer("");
+              setFilterPlan("");
+              setShowPlanField(false);
+            }
+            triggerPulse('coverageType');
+            break;
+        }
+
+        // Announce change for accessibility
+        const announcement = `${field} set to ${value} by AI suggestion`;
+        // In a real implementation, you'd use a screen reader announcement library
+        console.log('Screen reader announcement:', announcement);
+      } else {
+        // Show suggestion chip for locked fields
+        setAiSuggestions(prev => ({
+          ...prev,
+          [field]: { value, show: true }
+        }));
+      }
+    });
+  };
+
+  // Handle example prompt click
+  const handleExamplePrompt = (prompt: string) => {
+    setChatInput(prompt);
+    // Focus the chat input
+    setTimeout(() => {
+      const chatInputEl = document.querySelector('[data-chat-input]') as HTMLInputElement;
+      if (chatInputEl) {
+        chatInputEl.focus();
+      }
+    }, 100);
+  };
+
+  // Lock field when user manually edits
+  const lockField = (fieldName: string) => {
+    setUserLockedFields(prev => new Set(prev).add(fieldName));
+  };
+
+  // Revert to initial state
+  const handleRevert = () => {
+    if (initialState) {
+      setFilterProcedure(initialState.filterProcedure);
+      setFilterZipCode(initialState.filterZipCode);
+      setFilterRadius(initialState.filterRadius);
+      setFilterPayer(initialState.filterPayer);
+      setFilterPlan(initialState.filterPlan);
+      setCoverageType(initialState.coverageType);
+      setShowPlanField(initialState.showPlanField);
+      setMainProcedureInput("");
+      setSidebarProcedureInput("");
+      setUserLockedFields(new Set());
+      setAiSuggestions({});
+    }
+  };
+
   // Handle procedure selection
   const handleMainProcedureSelect = (proc: { name: string; code: string }) => {
     const formattedValue = `${proc.name} (${proc.code})`;
