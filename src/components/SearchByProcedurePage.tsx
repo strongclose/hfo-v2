@@ -1260,6 +1260,22 @@ export function SearchByProcedurePage({
                   </div>
                 </div>
               </div>
+
+              {/* Submit Button */}
+              <div className="pt-6">
+                <Button
+                  onClick={handleMainSearch}
+                  disabled={isSearching || !filterProcedure}
+                  size="lg"
+                  className="w-full h-14 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 disabled:opacity-50"
+                >
+                  {isSearching ? (
+                    <><Loader2 className="w-6 h-6 mr-3 animate-spin" /> Searching...</>
+                  ) : (
+                    <><Search className="w-6 h-6 mr-3" /> Search Prices</>
+                  )}
+                </Button>
+              </div>
             </div>
           </div>
         </div>
