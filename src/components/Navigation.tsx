@@ -1,4 +1,3 @@
-/** @jsx React.createElement */
 import * as React from 'react';
 
 export function Navigation(): JSX.Element {
