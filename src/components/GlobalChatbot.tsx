@@ -203,10 +203,10 @@ export function GlobalChatbot({
           </div>
         </div>
         {/* Chat Messages Area */}
-        <div ref={chatContainerRef} className="p-6 flex-1 overflow-y-auto">
+        <div ref={chatContainerRef} className="relative z-10 p-4 flex-1 overflow-y-auto">
           {!isClient ? (
             <div className="p-6 flex items-center justify-center">
-              <div className="text-white/60 text-sm">Loading chat...</div>
+              <div className="text-gray-600 text-sm">Loading chat...</div>
             </div>
           ) : (
             <div className="space-y-4">
