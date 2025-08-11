@@ -323,35 +323,23 @@ export function GlobalChatbot({
               </div>
             </div>
           ) : (
-            <div className="flex gap-3">
-              <div className="flex-1 relative">
-                <Input
-                  value={chatInput}
-                  onChange={(e) => setChatInput(e.target.value)}
-                  onKeyPress={handleChatKeyPress}
-                  placeholder={placeholder}
-                  className="w-full bg-white/25 border-2 border-teal-400/60 text-white placeholder-white rounded-xl px-4 py-3 focus:border-teal-400 focus:ring-0 transition-all duration-300"
-                  style={{
-                    background: "rgba(255, 255, 255, 0.25)",
-                    backdropFilter: "blur(10px)",
-                  }}
-                  disabled={isTyping}
-                />
-              </div>
+            <div className="flex gap-0">
+              <Input
+                value={chatInput}
+                onChange={(e) => setChatInput(e.target.value)}
+                onKeyPress={handleChatKeyPress}
+                placeholder={placeholder}
+                className="flex-1 h-12 bg-white/95 border-2 border-teal-200 rounded-l-xl rounded-r-none focus:border-teal-500 placeholder:text-gray-500 text-base shadow-lg text-gray-900"
+                disabled={isTyping}
+              />
               <Button
-                variant="secondary"
                 onClick={handleSendMessage}
                 disabled={!chatInput.trim() || isTyping}
-                className="transition-all duration-300 hover:scale-105 px-6"
-                style={{
-                  height: '2.25rem', // Match input h-9 exactly
-                  border: '2px solid white',
-                  opacity: 1,
-                  filter:
-                    !chatInput.trim() || isTyping ? "grayscale(20%)" : "none",
-                }}
+                className="h-12 text-white rounded-r-xl px-4 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-l-0 border-teal-200 hover:border-teal-500 group relative overflow-hidden bg-gradient-to-r from-teal-600 via-blue-600 to-indigo-600 hover:from-teal-700 hover:via-blue-700 hover:to-indigo-700"
               >
-                Ask AI
+                <svg className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
               </Button>
             </div>
           )}
