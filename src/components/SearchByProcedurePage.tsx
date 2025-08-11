@@ -21,7 +21,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
-import { Navigation } from "./Navigation";
+import { Navigation } from "./Nav";
 import { Footer } from "./Footer";
 import {
   Search,
@@ -1289,7 +1289,7 @@ export function SearchByProcedurePage({
                     {aiSuggestions.payer?.show && (
                       <div className="absolute -top-8 left-0 flex items-center space-x-2 bg-yellow-100 border border-yellow-300 rounded-lg px-3 py-1 text-sm">
                         <span>AI suggested: {aiSuggestions.payer.value}</span>
-                        <button className="text-green-600 hover:text-green-800">��</button>
+                        <button className="text-green-600 hover:text-green-800">����</button>
                         <button
                           onClick={() => setAiSuggestions(prev => ({...prev, payer: {...prev.payer!, show: false}}))}
                           className="text-red-600 hover:text-red-800"
