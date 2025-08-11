@@ -560,7 +560,7 @@ export function ProvidersIndexPage({
         </div>
       </section>
 
-      <FooterExpanded onNavigateToDisclosures={onNavigateToDisclosures} />
+      <FooterExpanded />
     </div>
   );
 }
