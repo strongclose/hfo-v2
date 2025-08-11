@@ -40,7 +40,11 @@ export function DirectoriesPage({
   
   const directories = [
     {
-      icon: Hospital,
+      icon: () => (
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-4m-5 0H3m2 0v-3.87a3.87 3.87 0 01.94-2.61c.95-1.08 2.49-1.69 4.13-1.69s3.18.61 4.13 1.69A3.87 3.87 0 0115 17.13V21M9 7h1m-1 4h1m4-4h1m-1 4h1" />
+        </svg>
+      ),
       title: "Providers",
       description: "Hospitals, clinics, and systems by NPI/CCN.",
       metrics: [
@@ -55,7 +59,11 @@ export function DirectoriesPage({
       borderColor: "border-blue-200",
     },
     {
-      icon: CreditCard,
+      icon: () => (
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+        </svg>
+      ),
       title: "Payers",
       description: "Insurers and health plans by NAIC.",
       metrics: [
@@ -70,7 +78,11 @@ export function DirectoriesPage({
       borderColor: "border-green-200",
     },
     {
-      icon: Stethoscope,
+      icon: () => (
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </svg>
+      ),
       title: "Procedures",
       description: "Common shoppable services with real prices.",
       metrics: [
@@ -85,7 +97,11 @@ export function DirectoriesPage({
       borderColor: "border-purple-200",
     },
     {
-      icon: FileText,
+      icon: () => (
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+      ),
       title: "CPT Codes",
       description: "Standard billing codes mapped to procedures.",
       metrics: [
@@ -143,7 +159,7 @@ export function DirectoriesPage({
                         <div
                           className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg flex-shrink-0 bg-gradient-to-r ${directory.gradient}`}
                         >
-                          <IconComponent className="w-6 h-6 text-white" />
+                          <IconComponent />
                         </div>
                         <div>
                           <h3 className="text-xl font-bold text-gray-900 mb-1">
@@ -194,7 +210,7 @@ export function DirectoriesPage({
             <Card className="bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 shadow-lg rounded-2xl hover:shadow-xl transition-all duration-300">
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center">
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
@@ -216,7 +232,7 @@ export function DirectoriesPage({
             <Card className="bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 shadow-lg rounded-2xl hover:shadow-xl transition-all duration-300">
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center">
                     <Building2 className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
