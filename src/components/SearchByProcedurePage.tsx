@@ -1068,22 +1068,22 @@ export function SearchByProcedurePage({
                   )}
                 </div>
 
-                {/* Chat Input */}
-                <div className="flex items-center gap-2">
+                {/* Enhanced Chat Input */}
+                <div className="relative z-10 flex items-center gap-3">
                   <Input
                     data-chat-input
                     value={chatInput}
                     onChange={(e) => setChatInput(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
                     placeholder="Ask me to find the best prices for your care"
-                    className="flex-1 h-8 bg-white/80 border border-gray-200 rounded-lg focus:border-blue-500 placeholder:text-gray-500 text-sm"
+                    className="flex-1 h-12 bg-white/90 border-2 border-blue-200 rounded-xl focus:border-blue-500 placeholder:text-gray-500 text-base shadow-lg"
                   />
                   <Button
                     onClick={handleSendMessage}
                     disabled={!chatInput.trim() || isAITyping}
-                    className="h-8 bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-3"
+                    className="h-12 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl px-6 shadow-lg hover:shadow-xl transition-all duration-200"
                   >
-                    <Send className="w-3 h-3" />
+                    <Send className="w-4 h-4" />
                   </Button>
                 </div>
               </div>
