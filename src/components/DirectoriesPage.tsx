@@ -143,51 +143,54 @@ export function DirectoriesPage({
               return (
                 <Card
                   key={index}
-                  className="border-0 shadow-xl rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
-                  style={{
-                    background: `linear-gradient(to bottom right, ${directory.bgGradient.replace('from-', '').replace('-50 to-', ', ').replace('-100', '')})`,
-                  }}
+                  className="bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] rounded-2xl overflow-hidden"
                 >
-                  <CardContent className="p-8 h-full">
-                    <div className="flex items-start gap-6 h-full">
-                      <div
-                        className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0 bg-gradient-to-r ${directory.gradient}`}
-                      >
-                        <IconComponent className="w-8 h-8 text-white" />
-                      </div>
-
-                      <div className="flex-1 flex flex-col h-full">
-                        <div className="mb-4">
-                          <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  <CardContent className="p-0">
+                    {/* Header Section */}
+                    <div className="flex items-center justify-between px-6 py-4">
+                      <div className="flex items-center gap-4">
+                        <div
+                          className={`w-12 h-12 rounded-xl flex items-center justify-center shadow-lg flex-shrink-0 bg-gradient-to-r ${directory.gradient}`}
+                        >
+                          <IconComponent className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-bold text-gray-900 mb-1">
                             {directory.title}
                           </h3>
-                          <p className="text-gray-700 leading-relaxed mb-4">
+                          <p className="text-sm text-gray-600 leading-relaxed">
                             {directory.description}
                           </p>
                         </div>
-
-                        <div className="mb-6 flex-1">
-                          <h4 className="text-sm font-semibold text-gray-600 mb-3 uppercase tracking-wide">
-                            Key Metrics
-                          </h4>
-                          <div className="space-y-2">
-                            {directory.metrics.map((metric, i) => (
-                              <div key={i} className="flex justify-between items-center">
-                                <span className="text-sm text-gray-600">{metric.label}:</span>
-                                <span className="text-sm font-semibold text-gray-900">{metric.value}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        <Button
-                          onClick={directory.onClick}
-                          className={`font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full mt-auto text-white bg-gradient-to-r ${directory.gradient} hover:opacity-90`}
-                        >
-                          {directory.action}
-                          <ArrowRight className="w-4 h-4 ml-2" />
-                        </Button>
                       </div>
+                    </div>
+
+                    {/* Content Section with blue-indigo gradient background */}
+                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 px-6 py-5 mx-0">
+                      <div className="mb-4">
+                        <h4 className="text-sm font-bold text-gray-900 mb-3">
+                          Key Metrics
+                        </h4>
+                        <div className="space-y-2">
+                          {directory.metrics.map((metric, i) => (
+                            <div key={i} className="flex justify-between items-center">
+                              <span className="text-sm text-gray-700">{metric.label}:</span>
+                              <span className="text-sm font-bold text-gray-900">{metric.value}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* CTA Button */}
+                    <div className="px-6 pb-4 mt-4">
+                      <Button
+                        onClick={directory.onClick}
+                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 rounded-xl"
+                      >
+                        {directory.action}
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
                     </div>
                   </CardContent>
                 </Card>
