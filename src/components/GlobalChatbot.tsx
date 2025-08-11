@@ -245,11 +245,11 @@ export function GlobalChatbot({
                                 <div className="flex justify-between items-start">
                                   <div className="flex-1">
                                     <div className="flex items-center gap-2 mb-1">
-                                      <h4 className="font-semibold text-white text-sm">
+                                      <h4 className="font-semibold text-gray-900 text-sm">
                                         {card.hospitalName}
                                       </h4>
                                       {card.badge && (
-                                        <span className="bg-teal-400/30 text-teal-100 text-xs px-2 py-1 rounded-full font-medium">
+                                        <span className="bg-teal-100 text-teal-700 text-xs px-2 py-1 rounded-full font-medium">
                                           {card.badge}
                                         </span>
                                       )}
