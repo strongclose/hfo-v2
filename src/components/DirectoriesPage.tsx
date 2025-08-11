@@ -156,7 +156,7 @@ export function DirectoriesPage({
                   key={index}
                   className="bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] rounded-2xl overflow-hidden h-full flex flex-col"
                 >
-                  <CardContent className="p-0">
+                  <CardContent className="p-0 flex flex-col h-full">
                     {/* Header Section */}
                     <div className="flex items-center justify-between px-6 py-4">
                       <div className="flex items-center gap-4">
