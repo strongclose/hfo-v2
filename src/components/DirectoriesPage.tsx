@@ -19,24 +19,81 @@ import {
 } from "lucide-react";
 
 interface DirectoriesPageProps {
-  onNavigateToProviders: () => void;
-  onNavigateToPayers: () => void;
-  onNavigateToProcedures: () => void;
-  onNavigateToCPT: () => void;
-  onNavigateToStates: () => void;
-  onNavigateToCities: () => void;
-  onNavigateToDisclosures: () => void;
+  onNavigateToProviders?: () => void;
+  onNavigateToPayers?: () => void;
+  onNavigateToProcedures?: () => void;
+  onNavigateToCPT?: () => void;
+  onNavigateToStates?: () => void;
+  onNavigateToCities?: () => void;
+  onNavigateToDisclosures?: () => void;
 }
 
 export function DirectoriesPage({
   onNavigateToProviders,
-  onNavigateToPayers, 
+  onNavigateToPayers,
   onNavigateToProcedures,
   onNavigateToCPT,
   onNavigateToStates,
   onNavigateToCities,
   onNavigateToDisclosures,
-}: DirectoriesPageProps) {
+}: DirectoriesPageProps = {}) {
+
+  // Internal navigation handlers with fallbacks
+  const handleNavigateToProviders = () => {
+    if (onNavigateToProviders) {
+      onNavigateToProviders();
+    } else {
+      window.location.href = '/providers';
+    }
+  };
+
+  const handleNavigateToPayers = () => {
+    if (onNavigateToPayers) {
+      onNavigateToPayers();
+    } else {
+      window.location.href = '/payers';
+    }
+  };
+
+  const handleNavigateToProcedures = () => {
+    if (onNavigateToProcedures) {
+      onNavigateToProcedures();
+    } else {
+      window.location.href = '/procedures';
+    }
+  };
+
+  const handleNavigateToCPT = () => {
+    if (onNavigateToCPT) {
+      onNavigateToCPT();
+    } else {
+      window.location.href = '/cpt';
+    }
+  };
+
+  const handleNavigateToStates = () => {
+    if (onNavigateToStates) {
+      onNavigateToStates();
+    } else {
+      window.location.href = '/states';
+    }
+  };
+
+  const handleNavigateToCities = () => {
+    if (onNavigateToCities) {
+      onNavigateToCities();
+    } else {
+      window.location.href = '/cities';
+    }
+  };
+
+  const handleNavigateToDisclosures = () => {
+    if (onNavigateToDisclosures) {
+      onNavigateToDisclosures();
+    } else {
+      window.location.href = '/disclosures';
+    }
+  };
   
   const directories = [
     {
