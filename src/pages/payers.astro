@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/BaseLayout.astro';
+import { PayersIndexPage } from '../components/PayersIndexPage';
+---
+
+<Layout title="Healthcare Payers Directory - HealthFees.org">
+  <PayersIndexPage 
+    client:load
+    onNavigateToPayerDetails={(payerId) => window.location.href = `/payers/${payerId}`}
+    onNavigateToDisclosures={() => window.location.href = "/disclosures"}
+  />
+</Layout>
