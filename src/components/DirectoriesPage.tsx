@@ -150,7 +150,6 @@ export function DirectoriesPage({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
             {directories.map((directory, index) => {
-              const IconComponent = directory.icon;
               return (
                 <Card
                   key={index}
@@ -163,7 +162,7 @@ export function DirectoriesPage({
                         <div
                           className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg flex-shrink-0 ${directory.bgColor}`}
                         >
-                          {React.createElement(IconComponent, { className: "w-6 h-6 text-white" })}
+                          {directory.icon}
                         </div>
                         <div>
                           <h3 className="text-xl font-bold text-gray-900 mb-1">
