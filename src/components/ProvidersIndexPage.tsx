@@ -353,33 +353,11 @@ export function ProvidersIndexPage({
 
   const handleSearch = () => {
     setIsLoading(true);
+    setShowSuggestions(false);
     // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
     }, 500);
-  };
-
-  const handleLoadMore = () => {
-    setCurrentPage(prev => prev + 1);
-    // Simulate loading more results
-    setTimeout(() => {
-      if (currentPage >= 3) {
-        setHasMore(false);
-      }
-    }, 500);
-  };
-
-  const getScoreColor = (score: string) => {
-    if (score.startsWith('A')) return 'bg-green-100 text-green-800 border-green-200';
-    if (score.startsWith('B')) return 'bg-blue-100 text-blue-800 border-blue-200';
-    if (score.startsWith('C')) return 'bg-yellow-100 text-yellow-800 border-yellow-200';
-    return 'bg-red-100 text-red-800 border-red-200';
-  };
-
-  const getOwnershipColor = (ownership: string) => {
-    if (ownership === 'Non-profit') return 'bg-green-50 text-green-700 border-green-200';
-    if (ownership === 'For-profit') return 'bg-blue-50 text-blue-700 border-blue-200';
-    return 'bg-gray-50 text-gray-700 border-gray-200';
   };
 
   return (
