@@ -277,8 +277,8 @@ export function SearchByProcedurePage({
         }
       }
 
-      // Filter by payer if selected
-      if (filterPayer && provider.payer !== filterPayer) {
+      // Filter by payer if selected (skip if "All Payers" is selected)
+      if (filterPayer && filterPayer !== "All Payers" && provider.payer !== filterPayer) {
         return false;
       }
 
