@@ -571,18 +571,28 @@ export function ProvidersIndexPage({
                         <div>
                           <div className="text-sm text-gray-600">Transparency Score</div>
                           <div className="flex items-center gap-2">
-                            <GradeChip
-                              score={provider.transparencyScore}
-                              tooltip="Based on this provider's compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available."
-                            />
                             <Tooltip>
                               <TooltipTrigger asChild>
-                                <button className="text-gray-400 hover:text-gray-600" aria-label="Provider Transparency Rating info">
-                                  <Info className="w-3 h-3" />
-                                </button>
+                                <div>
+                                  <GradeChip
+                                    score={provider.transparencyScore}
+                                    tooltip="Based on this provider's compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available."
+                                  />
+                                </div>
                               </TooltipTrigger>
                               <TooltipContent className="bg-gray-900 text-white max-w-xs">
-                                <p>Based on this provider's compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available.</p>
+                                <div>
+                                  <p className="mb-2">Based on this provider's compliance with federal pricing transparency mandates.</p>
+                                  <a
+                                    href="/transparency-scorecard-methodology"
+                                    className="text-blue-300 hover:text-blue-200 underline text-xs flex items-center gap-1"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    Learn about our methodology
+                                    <ExternalLink className="w-3 h-3" />
+                                  </a>
+                                </div>
                               </TooltipContent>
                             </Tooltip>
                           </div>
