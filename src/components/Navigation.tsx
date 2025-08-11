@@ -1,21 +1,15 @@
-/** @jsx React.createElement */
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { Shield, Search, Menu, X } from "lucide-react";
 
 export function Navigation(): JSX.Element {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  // Detect if we're on homepage vs other pages
   const [isHomepage, setIsHomepage] = useState(false);
-  // Default to scrolled (dark text) for better initial visibility
   const [isScrolled, setIsScrolled] = useState(true);
-  // Modern scroll behavior state
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
-    // Check if we're on the homepage
     const checkHomepage = () => {
       setIsHomepage(window.location.pathname === "/");
     };
@@ -26,57 +20,44 @@ export function Navigation(): JSX.Element {
       const currentScrollY = window.scrollY;
 
       if (isHomepage) {
-        // Enhanced section detection for homepage
         const heroHeight = window.innerHeight;
         const whyMattersStart = heroHeight;
-        const whoUsesStart = whyMattersStart + 800; // Approximate section height
+        const whoUsesStart = whyMattersStart + 800;
         const dataShowsStart = whoUsesStart + 800;
 
-        // Determine if we're on a dark or light section
         if (currentScrollY < whyMattersStart) {
-          // Hero section - dark background, use light text
           setIsScrolled(false);
         } else if (
           currentScrollY >= whyMattersStart &&
           currentScrollY < whoUsesStart
         ) {
-          // Why This Matters - light background, use dark text
           setIsScrolled(true);
         } else if (
           currentScrollY >= whoUsesStart &&
           currentScrollY < dataShowsStart
         ) {
-          // Who Uses - dark background, use light text
           setIsScrolled(false);
         } else {
-          // What the Data Shows and remaining sections - light backgrounds, use dark text
           setIsScrolled(true);
         }
       } else {
-        // On other pages: always use scrolled (light background) styling
         setIsScrolled(true);
       }
 
-      // Modern navigation hide/show logic
       if (currentScrollY > 100) {
-        // Only hide after scrolling past initial area
         if (currentScrollY > lastScrollY && currentScrollY > 300) {
-          // Scrolling down & past threshold - hide navigation
           setIsVisible(false);
         } else if (currentScrollY < lastScrollY) {
-          // Scrolling up - show navigation
           setIsVisible(true);
         }
       } else {
-        // At the top - always show navigation
         setIsVisible(true);
       }
 
       setLastScrollY(currentScrollY);
     };
 
-    // Set initial state
-    setTimeout(() => handleScroll(), 0); // Ensure DOM is ready
+    setTimeout(() => handleScroll(), 0);
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("popstate", checkHomepage);
@@ -114,7 +95,6 @@ export function Navigation(): JSX.Element {
       }}
     >
       <div className="max-w-7xl mx-auto relative">
-        {/* Logo - Positioned absolutely on left */}
         <button
           onClick={() => (window.location.href = "/")}
           className="absolute left-0 top-0 flex items-center space-x-3 hover:opacity-80 transition-opacity"
@@ -158,7 +138,6 @@ export function Navigation(): JSX.Element {
           </span>
         </button>
 
-        {/* Navigation Menu - Centered on page */}
         <div className="hidden md:flex items-center justify-center space-x-2">
           {navigation.map((item) => (
             <a
@@ -175,7 +154,6 @@ export function Navigation(): JSX.Element {
           ))}
         </div>
 
-        {/* Mobile Menu Button - Positioned absolutely on right */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className={`absolute right-0 top-0 md:hidden transition-colors ${
@@ -191,7 +169,6 @@ export function Navigation(): JSX.Element {
           )}
         </button>
 
-        {/* Mobile Menu Dropdown */}
         {isMobileMenuOpen && (
           <div
             className={`md:hidden mt-16 border rounded-lg backdrop-blur-md ${
