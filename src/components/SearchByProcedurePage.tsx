@@ -986,20 +986,19 @@ export function SearchByProcedurePage({
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.1),transparent_50%)] pointer-events-none"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(124,58,237,0.05),transparent_50%)] pointer-events-none"></div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
-          {/* Condensed Hero Content */}
-          <div className="text-center mb-6">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-gray-900 tracking-tight">
-              Explore{" "}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-32">
+          {/* Updated Hero Content */}
+          <div className="text-center mb-8">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 text-gray-900 tracking-tight">
+              Find Real-World Healthcare Prices{" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
-                Real-World
+                Instantly
               </span>
-              {" "}Healthcare Prices
             </h1>
-            <p className="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-light mb-3">
-              Search billions of prices collected from federally mandated hospital and insurer disclosures. Compare cash, in-network, and out-of-network rates side by side.
+            <p className="text-base md:text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed font-light mb-3">
+              Ask our AI to search billions of federally mandated hospital and insurer prices. Compare cash, in-network, and out-of-network rates side by side—updated monthly.
             </p>
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-50 border border-green-200">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-50 border border-green-200 mt-3">
               <CheckCircle2 className="w-4 h-4 text-green-600 mr-2" />
               <span className="text-green-800 font-medium text-sm">
                 Powered by government-mandated data. Updated monthly.
