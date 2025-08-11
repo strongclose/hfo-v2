@@ -61,7 +61,10 @@ export function DirectoriesPage({
     },
     {
       icon: (
-        <div className="text-white text-xl font-bold">P</div>
+        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4z" />
+          <path fillRule="evenodd" d="M6 6a2 2 0 012-2h8a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V6zm4 2a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm-3 4a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+        </svg>
       ),
       title: "Payers",
       description: "Insurers and health plans by NAIC.",
@@ -79,7 +82,9 @@ export function DirectoriesPage({
     },
     {
       icon: (
-        <div className="text-white text-xl font-bold">M</div>
+        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clipRule="evenodd" />
+        </svg>
       ),
       title: "Procedures",
       description: "Common shoppable services with real prices.",
@@ -97,7 +102,9 @@ export function DirectoriesPage({
     },
     {
       icon: (
-        <div className="text-white text-xl font-bold">C</div>
+        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
+        </svg>
       ),
       title: "CPT Codes",
       description: "Standard billing codes mapped to procedures.",
