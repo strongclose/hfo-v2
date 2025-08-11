@@ -580,20 +580,6 @@ export function ProvidersIndexPage({
             ))}
           </div>
 
-          {/* Load More */}
-          {hasMore && (
-            <div className="text-center mt-12">
-              <Button 
-                onClick={handleLoadMore}
-                variant="outline"
-                size="lg"
-                className="bg-white hover:bg-gray-50"
-              >
-                Load More Providers
-              </Button>
-            </div>
-          )}
-
           {/* No Results */}
           {filteredProviders.length === 0 && (
             <div className="text-center py-12">
