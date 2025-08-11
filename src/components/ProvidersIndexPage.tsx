@@ -465,12 +465,12 @@ export function ProvidersIndexPage({
           <div className="grid grid-cols-1 gap-6">
             {filteredProviders.map((provider) => (
               <Card key={provider.id} className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
-                <CardContent className="p-6">
+                <CardContent className="p-4">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-                          <Hospital className="w-6 h-6 text-blue-600" />
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+                          <Hospital className="w-5 h-5 text-blue-600" />
                         </div>
                         <div>
                           <h3 className="text-lg font-semibold text-gray-900">{provider.name}</h3>
@@ -485,14 +485,14 @@ export function ProvidersIndexPage({
                             <span>•</span>
                             <span className="flex items-center">
                               <MapPin className="w-3 h-3 mr-1" />
-                              {provider.city}, {provider.state}
+                              {provider.city}, {provider.state} • {provider.phone}
                             </span>
                           </div>
                         </div>
                       </div>
 
                       {provider.systemAffiliation && (
-                        <div className="mb-3">
+                        <div className="mb-2">
                           <span className="inline-flex items-center px-2 py-1 rounded-md bg-purple-50 text-purple-700 border border-purple-200 text-xs">
                             <Building2 className="w-3 h-3 mr-1" />
                             {provider.systemAffiliation}
@@ -500,39 +500,10 @@ export function ProvidersIndexPage({
                         </div>
                       )}
 
-                      {/* Contact Information */}
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 p-3 bg-gray-50 rounded-lg">
-                        <div className="flex items-center gap-2">
-                          <Phone className="w-4 h-4 text-gray-500" />
-                          <span className="text-sm text-gray-900">{provider.phone}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <MapPin className="w-4 h-4 text-gray-500" />
-                          <span className="text-sm text-gray-900">{provider.city}, {provider.state} {provider.zipCode}</span>
-                        </div>
-                        {provider.website && (
-                          <div className="flex items-center gap-2">
-                            <Globe className="w-4 h-4 text-gray-500" />
-                            <a
-                              href={provider.website}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
-                            >
-                              Visit Website
-                            </a>
-                          </div>
-                        )}
-                      </div>
-
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                      <div className="grid grid-cols-3 gap-4 mb-3">
                         <div>
                           <div className="text-sm text-gray-600">Locations</div>
                           <div className="font-semibold text-gray-900">{provider.locationCount}</div>
-                        </div>
-                        <div>
-                          <div className="text-sm text-gray-600">Type</div>
-                          <div className="font-semibold text-gray-900">{provider.organizationType}</div>
                         </div>
                         <div>
                           <div className="text-sm text-gray-600">Transparency Score</div>
@@ -554,16 +525,14 @@ export function ProvidersIndexPage({
                           </div>
                         </div>
                         <div>
-                          <div className="text-sm text-gray-600">Updated</div>
-                          <div className="font-medium text-gray-900">{provider.updated}</div>
+                          <div className="text-sm text-gray-600">Data Status</div>
+                          <div className="flex items-center gap-1">
+                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <span className="text-sm font-medium text-green-700">Current</span>
+                          </div>
                         </div>
                       </div>
 
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        <Badge variant="outline" className="text-xs">
-                          {provider.organizationType}
-                        </Badge>
-                      </div>
                     </div>
 
                     <Button
