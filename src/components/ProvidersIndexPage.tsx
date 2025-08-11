@@ -395,15 +395,34 @@ export function ProvidersIndexPage({
           {/* Search Section */}
           <div className="max-w-4xl mx-auto">
             <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-                <div className="lg:col-span-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="lg:col-span-2 relative">
                   <Input
-                    placeholder="Search providers by name, NPI, or CCN..."
+                    placeholder="Search by name, NPI, CCN, city, or ZIP code..."
                     value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
+                    onChange={(e) => handleSearchChange(e.target.value)}
+                    onFocus={() => generateSuggestions(searchQuery)}
+                    onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
                     className="w-full"
                   />
+
+                  {/* Search Suggestions Dropdown */}
+                  {showSuggestions && suggestions.length > 0 && (
+                    <div className="absolute top-full left-0 right-0 z-50 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                      {suggestions.map((suggestion, index) => (
+                        <button
+                          key={index}
+                          type="button"
+                          onClick={() => handleSuggestionSelect(suggestion)}
+                          className="w-full px-4 py-2 text-left hover:bg-gray-50 focus:bg-gray-50 focus:outline-none border-b border-gray-100 last:border-b-0"
+                        >
+                          <div className="text-sm text-gray-900">{suggestion}</div>
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
+
                 <Select value={selectedState} onValueChange={setSelectedState}>
                   <SelectTrigger>
                     <SelectValue placeholder="State" />
@@ -420,17 +439,7 @@ export function ProvidersIndexPage({
                     <SelectItem value="TN">Tennessee</SelectItem>
                   </SelectContent>
                 </Select>
-                <Select value={selectedOwnership} onValueChange={setSelectedOwnership}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Ownership" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="">All Types</SelectItem>
-                    <SelectItem value="Non-profit">Non-profit</SelectItem>
-                    <SelectItem value="For-profit">For-profit</SelectItem>
-                    <SelectItem value="Government">Government</SelectItem>
-                  </SelectContent>
-                </Select>
+
                 <Button onClick={handleSearch} className="bg-blue-600 hover:bg-blue-700">
                   <Search className="w-4 h-4 mr-2" />
                   Search
