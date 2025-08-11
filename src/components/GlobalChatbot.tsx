@@ -240,7 +240,7 @@ export function GlobalChatbot({
                             {message.resultCards.map((card) => (
                               <div
                                 key={card.id}
-                                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-3"
+                                className="bg-white backdrop-blur-sm border border-gray-200 rounded-lg p-3 shadow-sm"
                               >
                                 <div className="flex justify-between items-start">
                                   <div className="flex-1">
