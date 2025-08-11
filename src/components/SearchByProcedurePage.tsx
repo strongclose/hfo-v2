@@ -1037,7 +1037,6 @@ export function SearchByProcedurePage({
 
               {/* Procedure Filter */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-700">Procedure</label>
                 <div className="relative">
                   <Input
                     placeholder="Search by procedure or code"
@@ -1093,127 +1092,128 @@ export function SearchByProcedurePage({
                 </div>
               </div>
 
-              {/* ZIP Code Filter */}
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-700">ZIP Code</label>
-                <Input
-                  placeholder="Enter ZIP"
-                  value={filterZipCode}
-                  onChange={(e) => {
-                    const value = e.target.value.replace(/\D/g, '').slice(0, 5);
-                    setFilterZipCode(value);
-                    lockField('zipCode');
-                  }}
-                  onBlur={() => validateZipCode(filterZipCode)}
-                  className={`h-12 rounded-xl border-2 transition-all duration-300 ${
-                    pulseFields.has('zipCode')
-                      ? 'border-blue-500 bg-blue-50 animate-pulse'
-                      : zipError ? 'border-red-500' : 'border-gray-200 focus:border-blue-500'
-                  } placeholder:text-gray-400`}
-                  maxLength={5}
-                />
-                {zipError && <p className="text-sm text-red-600">{zipError}</p>}
-              </div>
-
-              {/* Radius Filter */}
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-700">Search Radius</label>
-                <Select
-                  value={filterRadius}
-                  onValueChange={(value) => {
-                    setFilterRadius(value);
-                    lockField('radius');
-                  }}
-                >
-                  <SelectTrigger className="h-12 rounded-xl border-2 border-gray-200">
-                    <SelectValue placeholder="Select radius" className="placeholder:text-gray-400" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="10 miles">10 miles</SelectItem>
-                    <SelectItem value="25 miles">25 miles</SelectItem>
-                    <SelectItem value="50 miles">50 miles</SelectItem>
-                    <SelectItem value="100 miles">100 miles</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              {/* Payer Filter */}
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-700">Insurance Payer</label>
-                <div className="relative">
-                  <Select
-                    value={filterPayer}
-                    onValueChange={(value) => {
-                      handlePayerSelection(value);
-                      lockField('payer');
+              {/* ZIP Code and Radius Filter Row */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Input
+                    placeholder="Enter ZIP"
+                    value={filterZipCode}
+                    onChange={(e) => {
+                      const value = e.target.value.replace(/\D/g, '').slice(0, 5);
+                      setFilterZipCode(value);
+                      lockField('zipCode');
                     }}
-                    disabled={coverageType === 'cash'}
-                  >
-                    <SelectTrigger className={`h-12 rounded-xl border-2 transition-all duration-300 ${
-                      pulseFields.has('payer')
+                    onBlur={() => validateZipCode(filterZipCode)}
+                    className={`h-12 rounded-xl border-2 transition-all duration-300 ${
+                      pulseFields.has('zipCode')
                         ? 'border-blue-500 bg-blue-50 animate-pulse'
-                        : 'border-gray-200'
-                    } ${coverageType === 'cash' ? 'opacity-50 cursor-not-allowed' : ''}`}>
-                      <SelectValue
-                        placeholder={coverageType === 'cash' ? 'Not needed for cash pay' : 'Select insurance, Medicare, or Medicaid'}
-                        className="placeholder:text-gray-400"
-                      />
+                        : zipError ? 'border-red-500' : 'border-gray-200 focus:border-blue-500'
+                    } placeholder:text-gray-400`}
+                    maxLength={5}
+                  />
+                  {zipError && <p className="text-sm text-red-600">{zipError}</p>}
+                </div>
+
+                <div className="space-y-2">
+                  <Select
+                    value={filterRadius}
+                    onValueChange={(value) => {
+                      setFilterRadius(value);
+                      lockField('radius');
+                    }}
+                  >
+                    <SelectTrigger className="h-12 rounded-xl border-2 border-gray-200">
+                      <SelectValue placeholder="Select radius" className="placeholder:text-gray-400" />
                     </SelectTrigger>
                     <SelectContent>
-                      <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wide">Commercial</div>
-                      {predefinedPayers.filter(p => p.type === 'commercial').map(payer => (
-                        <SelectItem key={payer.name} value={payer.name}>{payer.name}</SelectItem>
-                      ))}
-                      <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wide">Public</div>
-                      {predefinedPayers.filter(p => p.type === 'public').map(payer => (
-                        <SelectItem key={payer.name} value={payer.name}>{payer.name}</SelectItem>
-                      ))}
-                      <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wide">Other</div>
-                      {predefinedPayers.filter(p => p.type === 'other').map(payer => (
-                        <SelectItem key={payer.name} value={payer.name}>{payer.name}</SelectItem>
-                      ))}
+                      <SelectItem value="10 miles">10 miles</SelectItem>
+                      <SelectItem value="25 miles">25 miles</SelectItem>
+                      <SelectItem value="50 miles">50 miles</SelectItem>
+                      <SelectItem value="100 miles">100 miles</SelectItem>
                     </SelectContent>
                   </Select>
+                </div>
+              </div>
 
-                  {/* AI Suggestion Chip */}
-                  {aiSuggestions.payer?.show && (
-                    <div className="absolute -top-8 left-0 flex items-center space-x-2 bg-yellow-100 border border-yellow-300 rounded-lg px-3 py-1 text-sm">
-                      <span>AI suggested: {aiSuggestions.payer.value}</span>
-                      <button className="text-green-600 hover:text-green-800">✓</button>
-                      <button
-                        onClick={() => setAiSuggestions(prev => ({...prev, payer: {...prev.payer!, show: false}}))}
-                        className="text-red-600 hover:text-red-800"
-                      >
-                        <X className="w-3 h-3" />
-                      </button>
+              {/* Payer and Plan Filter Row */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <div className="relative">
+                    <Select
+                      value={filterPayer}
+                      onValueChange={(value) => {
+                        handlePayerSelection(value);
+                        lockField('payer');
+                      }}
+                      disabled={coverageType === 'cash'}
+                    >
+                      <SelectTrigger className={`h-12 rounded-xl border-2 transition-all duration-300 ${
+                        pulseFields.has('payer')
+                          ? 'border-blue-500 bg-blue-50 animate-pulse'
+                          : 'border-gray-200'
+                      } ${coverageType === 'cash' ? 'opacity-50 cursor-not-allowed' : ''}`}>
+                        <SelectValue
+                          placeholder={coverageType === 'cash' ? 'Not needed for cash pay' : 'Select insurance, Medicare, or Medicaid'}
+                          className="placeholder:text-gray-400"
+                        />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wide">Commercial</div>
+                        {predefinedPayers.filter(p => p.type === 'commercial').map(payer => (
+                          <SelectItem key={payer.name} value={payer.name}>{payer.name}</SelectItem>
+                        ))}
+                        <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wide">Public</div>
+                        {predefinedPayers.filter(p => p.type === 'public').map(payer => (
+                          <SelectItem key={payer.name} value={payer.name}>{payer.name}</SelectItem>
+                        ))}
+                        <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wide">Other</div>
+                        {predefinedPayers.filter(p => p.type === 'other').map(payer => (
+                          <SelectItem key={payer.name} value={payer.name}>{payer.name}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+
+                    {/* AI Suggestion Chip */}
+                    {aiSuggestions.payer?.show && (
+                      <div className="absolute -top-8 left-0 flex items-center space-x-2 bg-yellow-100 border border-yellow-300 rounded-lg px-3 py-1 text-sm">
+                        <span>AI suggested: {aiSuggestions.payer.value}</span>
+                        <button className="text-green-600 hover:text-green-800">✓</button>
+                        <button
+                          onClick={() => setAiSuggestions(prev => ({...prev, payer: {...prev.payer!, show: false}}))}
+                          className="text-red-600 hover:text-red-800"
+                        >
+                          <X className="w-3 h-3" />
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  {showPlanField ? (
+                    <Select
+                      value={filterPlan}
+                      onValueChange={setFilterPlan}
+                    >
+                      <SelectTrigger className="h-12 rounded-xl border-2 border-gray-200">
+                        <SelectValue placeholder="Select plan" className="placeholder:text-gray-400" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {filterPayer && predefinedPlans[filterPayer as keyof typeof predefinedPlans]?.map(plan => (
+                          <SelectItem key={plan} value={plan}>{plan}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  ) : (
+                    <div className="h-12 rounded-xl border-2 border-gray-200 bg-gray-50 flex items-center px-3 text-gray-400">
+                      Plan not applicable
                     </div>
                   )}
                 </div>
               </div>
 
-              {/* Plan Filter */}
-              {showPlanField && (
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-700">Insurance Plan</label>
-                  <Select
-                    value={filterPlan}
-                    onValueChange={setFilterPlan}
-                  >
-                    <SelectTrigger className="h-12 rounded-xl border-2 border-gray-200">
-                      <SelectValue placeholder="Select plan" className="placeholder:text-gray-400" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {filterPayer && predefinedPlans[filterPayer as keyof typeof predefinedPlans]?.map(plan => (
-                        <SelectItem key={plan} value={plan}>{plan}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-              )}
-
               {/* Coverage Type Filter */}
               <div className="space-y-3">
-                <label className="text-sm font-medium text-gray-700">Coverage Type</label>
                 <div className={`transition-all duration-300 ${
                   pulseFields.has('coverageType') ? 'p-2 bg-blue-50 rounded-lg animate-pulse' : ''
                 }`}>
