@@ -67,13 +67,17 @@ export function HeroV2_AIChatbot({
         </h1>
 
         {/* Subheadline */}
-        <p className="text-lg md:text-xl text-white mb-8 max-w-4xl leading-normal">
-          Recent federal transparency laws require hospitals and insurers to publish their real prices. We've organized trillions of data points and added a layer of{" "}
-          <span className="intelligent-gradient-text">
-            intelligence
-          </span>{" "}
-          to make this information accessible, easy to use, and free for everyone.
+        <p className="text-lg md:text-xl text-gray-700 mb-4 max-w-4xl leading-relaxed font-light">
+          Ask our AI to search billions of federally mandated hospital and insurer prices. Compare cash, in-network, and out-of-network rates side by side—updated monthly.
         </p>
+
+        {/* Trust Badge */}
+        <div className="inline-flex items-center px-6 py-3 rounded-full bg-green-50 border border-green-200 mb-8">
+          <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
+          <span className="text-green-800 font-medium text-sm">
+            Powered by government-mandated data. Updated monthly.
+          </span>
+        </div>
 
         {/* Global Chatbot Component */}
         <NoSSR
