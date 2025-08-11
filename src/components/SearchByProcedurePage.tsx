@@ -77,7 +77,7 @@ export function SearchByProcedurePage({
   const [filterPayer, setFilterPayer] = useState("");
   const [filterPlan, setFilterPlan] = useState("");
   const [showPlanField, setShowPlanField] = useState(false);
-  const [coverageType, setCoverageType] = useState("");
+  const [coverageType, setCoverageType] = useState("in-network");
   const [isScrolled, setIsScrolled] = useState(false);
   const [loadingProviders, setLoadingProviders] = useState<Set<number>>(
     new Set(),
@@ -958,7 +958,7 @@ export function SearchByProcedurePage({
             {/* Left Column: AI Chat Panel */}
             <div className="space-y-6">
               {/* Chat Container - matching homepage design */}
-              <div className="bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl p-6 h-96">
+              <div className="bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl p-6 h-full flex flex-col">
                 {/* Example Prompts Carousel */}
                 <div className="mb-4">
                   <p className="text-sm text-gray-600 mb-3">Try asking:</p>
@@ -976,7 +976,7 @@ export function SearchByProcedurePage({
                 </div>
 
                 {/* Chat Messages */}
-                <div className="h-48 overflow-y-auto mb-4 space-y-3">
+                <div className="flex-1 overflow-y-auto mb-4 space-y-3">
                   {chatMessages.length === 0 && (
                     <div className="text-center text-gray-500 mt-12">
                       <Sparkles className="w-8 h-8 mx-auto mb-2 text-blue-500" />
@@ -1010,19 +1010,19 @@ export function SearchByProcedurePage({
                 </div>
 
                 {/* Chat Input */}
-                <div className="flex gap-2">
+                <div className="flex items-center gap-2">
                   <Input
                     data-chat-input
                     value={chatInput}
                     onChange={(e) => setChatInput(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
                     placeholder="Ask me to find the best prices for your care"
-                    className="flex-1 bg-white/80 border border-gray-200 rounded-xl focus:border-blue-500 placeholder:text-gray-500"
+                    className="flex-1 h-10 bg-white/80 border border-gray-200 rounded-xl focus:border-blue-500 placeholder:text-gray-500"
                   />
                   <Button
                     onClick={handleSendMessage}
                     disabled={!chatInput.trim() || isAITyping}
-                    className="bg-blue-600 hover:bg-blue-700 text-white rounded-xl px-4"
+                    className="h-10 bg-blue-600 hover:bg-blue-700 text-white rounded-xl px-4"
                   >
                     <Send className="w-4 h-4" />
                   </Button>
@@ -1214,51 +1214,50 @@ export function SearchByProcedurePage({
               {/* Coverage Type Filter */}
               <div className="space-y-3">
                 <label className="text-sm font-medium text-gray-700">Coverage Type</label>
-                <div className={`space-y-2 transition-all duration-300 ${
+                <div className={`transition-all duration-300 ${
                   pulseFields.has('coverageType') ? 'p-2 bg-blue-50 rounded-lg animate-pulse' : ''
                 }`}>
-                  <label className="flex items-center cursor-pointer">
-                    <input
-                      type="radio"
-                      value="in-network"
-                      checked={coverageType === "in-network"}
-                      onChange={(e) => {
-                        setCoverageType(e.target.value);
-                        lockField('coverageType');
-                      }}
-                      className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 focus:ring-2"
-                    />
-                    <span className="ml-2 text-gray-700 font-medium">In-Network</span>
-                  </label>
-                  <label className="flex items-center cursor-pointer">
-                    <input
-                      type="radio"
-                      value="out-of-network"
-                      checked={coverageType === "out-of-network"}
-                      onChange={(e) => {
-                        setCoverageType(e.target.value);
-                        lockField('coverageType');
-                      }}
-                      className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 focus:ring-2"
-                    />
-                    <span className="ml-2 text-gray-700 font-medium">Out-of-Network</span>
-                  </label>
-                  <label className="flex items-center cursor-pointer">
-                    <input
-                      type="radio"
-                      value="cash"
-                      checked={coverageType === "cash"}
-                      onChange={(e) => {
-                        setCoverageType(e.target.value);
-                        lockField('coverageType');
-                      }}
-                      className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 focus:ring-2"
-                    />
-                    <span className="ml-2 text-gray-700 font-medium">Cash Price</span>
-                  </label>
-                  {!coverageType && (
-                    <p className="text-sm text-gray-500 italic">Please select coverage type</p>
-                  )}
+                  <div className="flex flex-wrap gap-6">
+                    <label className="flex items-center cursor-pointer">
+                      <input
+                        type="radio"
+                        value="in-network"
+                        checked={coverageType === "in-network"}
+                        onChange={(e) => {
+                          setCoverageType(e.target.value);
+                          lockField('coverageType');
+                        }}
+                        className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 focus:ring-2"
+                      />
+                      <span className="ml-2 text-gray-700 font-medium">In-Network</span>
+                    </label>
+                    <label className="flex items-center cursor-pointer">
+                      <input
+                        type="radio"
+                        value="out-of-network"
+                        checked={coverageType === "out-of-network"}
+                        onChange={(e) => {
+                          setCoverageType(e.target.value);
+                          lockField('coverageType');
+                        }}
+                        className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 focus:ring-2"
+                      />
+                      <span className="ml-2 text-gray-700 font-medium">Out-of-Network</span>
+                    </label>
+                    <label className="flex items-center cursor-pointer">
+                      <input
+                        type="radio"
+                        value="cash"
+                        checked={coverageType === "cash"}
+                        onChange={(e) => {
+                          setCoverageType(e.target.value);
+                          lockField('coverageType');
+                        }}
+                        className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 focus:ring-2"
+                      />
+                      <span className="ml-2 text-gray-700 font-medium">Cash Price</span>
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
