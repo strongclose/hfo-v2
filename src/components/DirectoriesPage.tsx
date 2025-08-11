@@ -290,7 +290,10 @@ export function DirectoriesPage({
                         <div className="space-y-2">
                           {directory.metrics.map((metric, i) => (
                             <div key={i} className="flex justify-between items-center">
-                              <span className="text-sm text-gray-700">{metric.label}:</span>
+                              <div className="flex items-center gap-2">
+                                {metric.icon}
+                                <span className="text-sm text-gray-700">{metric.label}:</span>
+                              </div>
                               <span className="text-sm font-bold text-gray-900">{metric.value}</span>
                             </div>
                           ))}
