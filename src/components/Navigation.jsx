@@ -1,26 +1,36 @@
-import { useState, useEffect } from "react";
-import { Shield, Search, Menu, X } from "lucide-react";
-
+// Static HTML Navigation - no React hooks or state
 export function Navigation() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(true);
+  const handleLogoClick = () => {
+    window.location.href = '/';
+  };
+
+  const toggleMobileMenu = () => {
+    const menu = document.getElementById('mobile-menu');
+    const button = document.getElementById('mobile-button');
+    const isOpen = menu.style.display === 'block';
+    
+    menu.style.display = isOpen ? 'none' : 'block';
+    button.innerHTML = isOpen 
+      ? `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>`
+      : `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>`;
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-8 py-3 backdrop-blur-md transition-all duration-500 border-b border-gray-200/20 bg-white/80">
       <div className="max-w-7xl mx-auto relative">
         <button
-          onClick={() => (window.location.href = "/")}
+          onClick={handleLogoClick}
           className="absolute left-0 top-0 flex items-center space-x-3 hover:opacity-80 transition-opacity"
         >
           <div className="relative">
-            <Shield
-              className="w-10 h-10 transition-all"
-              fill="#1E40AF"
-              stroke="white"
-              strokeWidth={1}
-            />
+            <svg className="w-10 h-10 transition-all" fill="#1E40AF" stroke="white" strokeWidth="1" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
             <div className="absolute inset-0 flex items-center justify-center">
-              <Search className="w-5 h-5 text-white" strokeWidth={2.5} />
+              <svg className="w-5 h-5 text-white" stroke="currentColor" strokeWidth="2.5" fill="none" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
             </div>
           </div>
           <span className="text-xl font-bold transition-colors text-gray-900">
@@ -52,43 +62,37 @@ export function Navigation() {
         </div>
 
         <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          id="mobile-button"
+          onClick={toggleMobileMenu}
           className="absolute right-0 top-0 md:hidden transition-colors text-gray-900 hover:text-teal-600"
         >
-          {isMobileMenuOpen ? (
-            <X className="w-6 h-6" />
-          ) : (
-            <Menu className="w-6 h-6" />
-          )}
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
         </button>
 
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-16 border rounded-lg backdrop-blur-md border-gray-200/20 bg-white/90">
-            <div className="px-6 py-4 space-y-3">
-              <a
-                href="/compare-prices"
-                className="block w-full text-left font-medium py-2 text-gray-900"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Compare Prices
-              </a>
-              <a
-                href="/insights"
-                className="block w-full text-left font-medium py-2 text-gray-900"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Insights
-              </a>
-              <a
-                href="/who-we-help"
-                className="block w-full text-left font-medium py-2 text-gray-900"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Who We Help
-              </a>
-            </div>
+        <div id="mobile-menu" className="md:hidden mt-16 border rounded-lg backdrop-blur-md border-gray-200/20 bg-white/90" style={{display: 'none'}}>
+          <div className="px-6 py-4 space-y-3">
+            <a
+              href="/compare-prices"
+              className="block w-full text-left font-medium py-2 text-gray-900"
+            >
+              Compare Prices
+            </a>
+            <a
+              href="/insights"
+              className="block w-full text-left font-medium py-2 text-gray-900"
+            >
+              Insights
+            </a>
+            <a
+              href="/who-we-help"
+              className="block w-full text-left font-medium py-2 text-gray-900"
+            >
+              Who We Help
+            </a>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );
