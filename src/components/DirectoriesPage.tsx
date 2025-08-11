@@ -41,9 +41,7 @@ export function DirectoriesPage({
   const directories = [
     {
       icon: (
-        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-        </svg>
+        <div className="text-white text-xl font-bold">H</div>
       ),
       title: "Providers",
       description: "Hospitals, clinics, and systems by NPI/CCN.",
