@@ -40,9 +40,7 @@ export function DirectoriesPage({
   
   const directories = [
     {
-      icon: () => (
-        <span className="text-white text-xl font-bold">🏥</span>
-      ),
+      icon: Hospital,
       title: "Providers",
       description: "Hospitals, clinics, and systems by NPI/CCN.",
       metrics: [
@@ -57,9 +55,7 @@ export function DirectoriesPage({
       borderColor: "border-blue-200",
     },
     {
-      icon: () => (
-        <span className="text-white text-xl font-bold">💳</span>
-      ),
+      icon: CreditCard,
       title: "Payers",
       description: "Insurers and health plans by NAIC.",
       metrics: [
@@ -74,9 +70,7 @@ export function DirectoriesPage({
       borderColor: "border-green-200",
     },
     {
-      icon: () => (
-        <span className="text-white text-xl font-bold">⚕️</span>
-      ),
+      icon: Stethoscope,
       title: "Procedures",
       description: "Common shoppable services with real prices.",
       metrics: [
@@ -91,9 +85,7 @@ export function DirectoriesPage({
       borderColor: "border-purple-200",
     },
     {
-      icon: () => (
-        <span className="text-white text-xl font-bold">📋</span>
-      ),
+      icon: FileText,
       title: "CPT Codes",
       description: "Standard billing codes mapped to procedures.",
       metrics: [
