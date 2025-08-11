@@ -5,7 +5,7 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   integrations: [
     react({
-      include: ['**/*.tsx', '**/*.ts'],
+      include: ['**/*.tsx', '**/*.ts', '**/*.jsx', '**/*.js'],
       experimentalReactChildren: true,
     }),
     tailwind({
