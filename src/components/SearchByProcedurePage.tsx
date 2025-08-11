@@ -960,39 +960,6 @@ export function SearchByProcedurePage({
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Button
-                  onClick={handleMainSearch}
-                  disabled={isSearching || !filterProcedure}
-                  size="lg"
-                  className="flex-1 h-12 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 disabled:opacity-50"
-                >
-                  {isSearching ? (
-                    <><Loader2 className="w-5 h-5 mr-2 animate-spin" /> Searching...</>
-                  ) : (
-                    <><Search className="w-5 h-5 mr-2" /> Apply & Search</>
-                  )}
-                </Button>
-                <Button
-                  variant="outline"
-                  onClick={handleSidebarFilter}
-                  disabled={!filterProcedure}
-                  size="lg"
-                  className="h-12 border-2 border-gray-300 hover:border-gray-400 text-gray-700 font-semibold rounded-xl"
-                >
-                  Apply to Filters
-                </Button>
-                <Button
-                  variant="ghost"
-                  onClick={handleRevert}
-                  size="lg"
-                  className="h-12 text-gray-600 hover:text-gray-900 rounded-xl"
-                >
-                  <RotateCcw className="w-4 h-4 mr-2" />
-                  Revert
-                </Button>
-              </div>
             </div>
 
             {/* Right Column: Filter Panel */}
