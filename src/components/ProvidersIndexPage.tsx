@@ -24,6 +24,9 @@ import {
   Phone,
   Globe,
   Info,
+  CreditCard,
+  FileText,
+  ExternalLink,
 } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
@@ -41,6 +44,7 @@ interface Provider {
   locationCount: number;
   organizationType: string;
   state: string;
+  states?: string[]; // For multi-state providers
   city: string;
   zipCode: string;
   phone: string;
@@ -103,6 +107,7 @@ export function ProvidersIndexPage({
       locationCount: 156,
       organizationType: "HMO",
       state: "CA",
+      states: ["CA", "CO", "GA", "HI", "MD", "OR", "VA", "WA"],
       city: "Oakland",
       zipCode: "94612",
       phone: "(510) 271-5910",
@@ -166,6 +171,7 @@ export function ProvidersIndexPage({
       locationCount: 185,
       organizationType: "General Hospital",
       state: "TN",
+      states: ["TN", "TX", "FL", "SC", "NC", "VA", "KY", "IN", "UT", "NV", "CO", "KS", "MO", "LA", "AK", "CA", "ID", "MT", "NH", "WY"],
       city: "Nashville",
       zipCode: "37203",
       phone: "(615) 344-9551",
@@ -381,17 +387,11 @@ export function ProvidersIndexPage({
             <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed font-light mb-6">
               Browse hospitals, clinics, and health systems by NPI, CCN, and transparency scores.
             </p>
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-50 border border-green-200">
-              <CheckCircle2 className="w-4 h-4 text-green-600 mr-2" />
-              <span className="text-green-800 font-medium text-sm">
-                {filteredProviders.length} providers found • Updated January 2025
-              </span>
-            </div>
           </div>
 
           {/* Search Section */}
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
+            <div className="bg-white rounded-2xl shadow-lg p-6 mb-8 sticky top-4 z-40">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div className="lg:col-span-2 relative">
                   <Input
@@ -442,6 +442,23 @@ export function ProvidersIndexPage({
                   Search
                 </Button>
               </div>
+
+              {/* Result count moved closer to search controls */}
+              <div className="mt-4 pt-4 border-t border-gray-100">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg font-semibold text-gray-900">
+                      {filteredProviders.length} providers found
+                    </span>
+                    <div className="inline-flex items-center px-2 py-1 rounded-full bg-green-50 border border-green-200">
+                      <CheckCircle2 className="w-3 h-3 text-green-600 mr-1" />
+                      <span className="text-green-800 font-medium text-xs">
+                        Updated January 2025
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -452,14 +469,14 @@ export function ProvidersIndexPage({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-2">
-              Provider Results ({filteredProviders.length})
+              Provider Results
             </h2>
             <p className="text-gray-600">
               Healthcare providers with transparency ratings and system affiliations
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {filteredProviders.map((provider) => (
               <Card key={provider.id} className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
                 <CardContent className="p-4">
