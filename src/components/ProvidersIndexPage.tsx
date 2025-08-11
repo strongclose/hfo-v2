@@ -36,10 +36,12 @@ interface Provider {
   systemAffiliation?: string;
   locationCount: number;
   organizationType: string;
-  ownership: string;
   state: string;
   city: string;
-  transparencyScore: string;
+  zipCode: string;
+  phone: string;
+  website?: string;
+  transparencyScore: number;
   updated: string;
 }
 
@@ -49,13 +51,11 @@ export function ProvidersIndexPage({
 }: ProvidersIndexPageProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedState, setSelectedState] = useState("");
-  const [selectedOwnership, setSelectedOwnership] = useState("");
-  const [selectedSystem, setSelectedSystem] = useState("");
   const [selectedOrgType, setSelectedOrgType] = useState("");
   const [filteredProviders, setFilteredProviders] = useState<Provider[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [suggestions, setSuggestions] = useState<string[]>([]);
 
   // Sample provider data
   const sampleProviders: Provider[] = [
@@ -343,7 +343,7 @@ export function ProvidersIndexPage({
                                 <span>CCN: {provider.ccn}</span>
                               </>
                             )}
-                            <span>•</span>
+                            <span>���</span>
                             <span className="flex items-center">
                               <MapPin className="w-3 h-3 mr-1" />
                               {provider.city}, {provider.state}
