@@ -1524,7 +1524,7 @@ export function SearchByProcedurePage({
 
             {/* Insights Sidebar */}
             <div className="lg:col-span-1">
-              <div className="sticky top-0 z-30 bg-white pt-4 space-y-6 max-h-screen overflow-y-auto">
+              <div className="sticky top-0 z-30 bg-white py-4 -mx-4 px-4 space-y-6 max-h-screen overflow-y-auto">
                 {/* Compact Filter Tool */}
                 <Card className="bg-white border border-gray-200 rounded-xl">
                   <CardContent className="p-3">
