@@ -21,7 +21,11 @@ import {
   ChevronRight,
   CheckCircle2,
   Stethoscope,
+  Phone,
+  Globe,
+  Info,
 } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 interface ProvidersIndexPageProps {
   onNavigateToProviderDetails: (providerId: string) => void;
