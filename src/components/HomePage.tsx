@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Hero } from "./Hero";
-import { Navigation } from "./Navigation";
+import { Navigation } from "./Nav";
 import { ExploreCompareSection } from "./homepage/ExploreCompareSection";
 import { FooterExpanded } from "./homepage/FooterExpanded";
 import { Card, CardContent } from "./ui/card";

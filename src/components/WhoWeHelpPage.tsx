@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigation } from "./Navigation";
+import { Navigation } from "./Nav";
 import { Footer } from "./Footer";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
@@ -172,7 +172,7 @@ export function WhoWeHelpPage({
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-gray-900 tracking-tight">
-              Who We Help —{" "}
+              Who We Help ��{" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
                 and How
               </span>
