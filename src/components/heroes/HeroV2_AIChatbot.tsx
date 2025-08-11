@@ -62,7 +62,7 @@ export function HeroV2_AIChatbot({
       {/* Main Content - Centered */}
       <div className="relative z-30 flex flex-col items-center justify-center min-h-[calc(100vh-96px)] text-center px-6 max-w-7xl mx-auto">
         {/* Headline */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight max-w-6xl">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 leading-tight max-w-6xl tracking-tight">
           Healthcare Pricing Finally Transparent
         </h1>
 
