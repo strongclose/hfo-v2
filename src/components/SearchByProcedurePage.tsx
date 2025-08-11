@@ -1014,15 +1014,19 @@ export function SearchByProcedurePage({
               <div className="bg-gradient-to-br from-blue-50 via-indigo-50/50 to-purple-50/30 backdrop-blur-xl border-2 border-blue-200/50 rounded-3xl shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 p-6 h-96 flex flex-col relative overflow-hidden">
                 {/* Subtle glow effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 rounded-3xl"></div>
-                {/* Example Prompts Carousel */}
-                <div className="mb-3">
-                  <p className="text-sm text-gray-600 mb-2">Try asking:</p>
-                  <div className="flex flex-wrap gap-1">
+                {/* Enhanced Header */}
+                <div className="relative z-10 mb-4">
+                  <h2 className="text-xl font-bold text-gray-900 mb-2">🤖 AI Price Assistant</h2>
+                  <p className="text-lg font-semibold text-blue-700 mb-3">Ask me to find the best prices for your care</p>
+
+                  {/* Enhanced Example Prompts */}
+                  <p className="text-sm text-gray-600 mb-3">Try asking:</p>
+                  <div className="flex flex-wrap gap-2">
                     {examplePrompts.map((prompt, index) => (
                       <button
                         key={index}
                         onClick={() => handleExamplePrompt(prompt)}
-                        className="inline-flex items-center px-2 py-1 text-xs bg-blue-100/80 text-blue-700 rounded-lg hover:bg-blue-200/80 transition-colors border border-blue-200/50"
+                        className="inline-flex items-center px-3 py-2 text-sm bg-blue-600/10 text-blue-700 rounded-xl hover:bg-blue-600/20 hover:scale-105 transition-all duration-200 border border-blue-200/50 font-medium shadow-sm"
                       >
                         {prompt}
                       </button>
