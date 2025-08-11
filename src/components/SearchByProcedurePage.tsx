@@ -729,22 +729,20 @@ export function SearchByProcedurePage({
       });
     }, 100);
 
-    // Simulate AI processing and filter extraction
-    setTimeout(() => {
-      const aiResponse = processAIMessage(userMessage.content);
-      const botMessage = {
-        id: (Date.now() + 1).toString(),
-        type: 'bot' as const,
-        content: aiResponse.message,
-        timestamp: new Date()
-      };
+    // Process AI message immediately without delay
+    const aiResponse = processAIMessage(userMessage.content);
+    const botMessage = {
+      id: (Date.now() + 1).toString(),
+      type: 'bot' as const,
+      content: aiResponse.message,
+      timestamp: new Date()
+    };
 
-      setChatMessages(prev => [...prev, botMessage]);
-      setIsAITyping(false);
+    setChatMessages(prev => [...prev, botMessage]);
+    setIsAITyping(false);
 
-      // Apply AI suggestions to filters
-      applyAISuggestions(aiResponse.filters);
-    }, 1500);
+    // Apply AI suggestions to filters immediately
+    applyAISuggestions(aiResponse.filters);
   };
 
   // Process AI message and extract filters (enhanced recognition)
@@ -854,19 +852,16 @@ export function SearchByProcedurePage({
         switch (field) {
           case 'zipCode':
             setFilterZipCode(value);
-            triggerPulse('zipCode');
             updatedFilters = true;
             break;
           case 'procedure':
             setFilterProcedure(value);
             setMainProcedureInput(value);
             setSidebarProcedureInput(value);
-            triggerPulse('procedure');
             updatedFilters = true;
             break;
           case 'payer':
             setFilterPayer(value);
-            triggerPulse('payer');
             updatedFilters = true;
             break;
           case 'coverageType':
@@ -876,7 +871,6 @@ export function SearchByProcedurePage({
               setFilterPlan("");
               setShowPlanField(false);
             }
-            triggerPulse('coverageType');
             updatedFilters = true;
             break;
         }
@@ -893,15 +887,31 @@ export function SearchByProcedurePage({
       }
     });
 
-    // Auto-trigger search if we have procedure and either location or coverage type
-    setTimeout(() => {
-      const hasMinimumCriteria = suggestions.procedure &&
-        (suggestions.zipCode || suggestions.coverageType || filterZipCode || coverageType);
+    // Auto-trigger search immediately if we have minimum criteria
+    const hasMinimumCriteria = suggestions.procedure &&
+      (suggestions.zipCode || suggestions.coverageType || filterZipCode || coverageType);
 
-      if (hasMinimumCriteria && updatedFilters) {
-        handleMainSearch();
-      }
-    }, 1500); // Wait for pulse animation to complete
+    if (hasMinimumCriteria && updatedFilters) {
+      // Trigger search immediately
+      setIsSearching(true);
+
+      // Simulate API call delay
+      setTimeout(() => {
+        const results = filterResults(allSampleProviders);
+        setSearchResults(results);
+        setHasSearched(true);
+        setIsSearching(false);
+
+        // Scroll directly to price summary section (same as Search Prices button)
+        setTimeout(() => {
+          priceSummaryRef.current?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+            inline: 'nearest'
+          });
+        }, 200);
+      }, 1000);
+    }
   };
 
   // Handle example prompt click
