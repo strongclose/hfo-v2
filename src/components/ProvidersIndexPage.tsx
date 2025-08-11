@@ -191,16 +191,140 @@ export function ProvidersIndexPage({
     },
   ];
 
+  // Grade calculation function
+  const getGradeFromScore = (score: number): string => {
+    if (score >= 90) return 'A+';
+    if (score >= 85) return 'A';
+    if (score >= 75) return 'B';
+    if (score >= 65) return 'C';
+    return 'D';
+  };
+
+  // Grade chip component with conditional colors
+  const GradeChip = ({ score, tooltip }: {
+    score: number;
+    tooltip: string;
+  }) => {
+    const grade = getGradeFromScore(score);
+
+    const getChipColor = (grade: string) => {
+      switch (grade) {
+        case 'A':
+        case 'A+':
+          return '#00A651'; // Green
+        case 'B':
+        case 'B+':
+          return '#F59E0B'; // Yellow/Amber
+        case 'C':
+        case 'C+':
+          return '#F97316'; // Orange
+        case 'D':
+        case 'F':
+        default:
+          return '#EF4444'; // Red
+      }
+    };
+
+    const getComplianceLevel = (grade: string) => {
+      switch (grade) {
+        case 'A':
+        case 'A+':
+          return 'high compliance';
+        case 'B':
+        case 'B+':
+          return 'good compliance';
+        case 'C':
+        case 'C+':
+          return 'fair compliance';
+        case 'D':
+        case 'F':
+        default:
+          return 'low compliance';
+      }
+    };
+
+    return (
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <span
+            className="inline-flex items-center px-2 py-1 rounded text-xs font-medium text-white cursor-pointer"
+            style={{
+              backgroundColor: getChipColor(grade),
+              height: '20px'
+            }}
+            aria-label={`${grade} rating, ${getComplianceLevel(grade)}`}
+          >
+            {grade}
+            <span className="sr-only">{getComplianceLevel(grade)}</span>
+          </span>
+        </TooltipTrigger>
+        <TooltipContent className="bg-gray-900 text-white max-w-xs">
+          <p>{tooltip}</p>
+        </TooltipContent>
+      </Tooltip>
+    );
+  };
+
+  // Generate search suggestions
+  const generateSuggestions = (query: string) => {
+    if (!query || query.length < 2) {
+      setSuggestions([]);
+      setShowSuggestions(false);
+      return;
+    }
+
+    const lowerQuery = query.toLowerCase();
+    const suggestions: string[] = [];
+
+    // Check if it's a ZIP code pattern
+    if (/^\d+$/.test(query) && query.length <= 5) {
+      const matchingZips = sampleProviders
+        .filter(p => p.zipCode.startsWith(query))
+        .map(p => `${p.zipCode} (${p.city}, ${p.state})`)
+        .slice(0, 3);
+      suggestions.push(...matchingZips);
+    }
+
+    // Provider names
+    const nameMatches = sampleProviders
+      .filter(p => p.name.toLowerCase().includes(lowerQuery))
+      .map(p => p.name)
+      .slice(0, 5);
+    suggestions.push(...nameMatches);
+
+    // Cities
+    const cityMatches = sampleProviders
+      .filter(p => p.city.toLowerCase().includes(lowerQuery))
+      .map(p => `${p.city}, ${p.state}`)
+      .slice(0, 3);
+    suggestions.push(...cityMatches);
+
+    // System affiliations
+    const systemMatches = sampleProviders
+      .filter(p => p.systemAffiliation && p.systemAffiliation.toLowerCase().includes(lowerQuery))
+      .map(p => p.systemAffiliation!)
+      .slice(0, 3);
+    suggestions.push(...systemMatches);
+
+    // Remove duplicates and limit
+    const uniqueSuggestions = [...new Set(suggestions)].slice(0, 8);
+    setSuggestions(uniqueSuggestions);
+    setShowSuggestions(uniqueSuggestions.length > 0);
+  };
+
   // Filter providers based on search and filters
   useEffect(() => {
     let filtered = sampleProviders;
 
     if (searchQuery) {
+      const query = searchQuery.toLowerCase();
       filtered = filtered.filter(provider =>
-        provider.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        provider.name.toLowerCase().includes(query) ||
         provider.npi.includes(searchQuery) ||
         (provider.ccn && provider.ccn.includes(searchQuery)) ||
-        (provider.systemAffiliation && provider.systemAffiliation.toLowerCase().includes(searchQuery.toLowerCase()))
+        provider.city.toLowerCase().includes(query) ||
+        provider.zipCode.includes(searchQuery) ||
+        (provider.systemAffiliation && provider.systemAffiliation.toLowerCase().includes(query))
       );
     }
 
@@ -208,16 +332,24 @@ export function ProvidersIndexPage({
       filtered = filtered.filter(provider => provider.state === selectedState);
     }
 
-    if (selectedOwnership) {
-      filtered = filtered.filter(provider => provider.ownership === selectedOwnership);
-    }
-
     if (selectedOrgType) {
       filtered = filtered.filter(provider => provider.organizationType === selectedOrgType);
     }
 
     setFilteredProviders(filtered);
-  }, [searchQuery, selectedState, selectedOwnership, selectedOrgType, selectedSystem]);
+  }, [searchQuery, selectedState, selectedOrgType]);
+
+  // Handle search input changes
+  const handleSearchChange = (value: string) => {
+    setSearchQuery(value);
+    generateSuggestions(value);
+  };
+
+  // Handle suggestion selection
+  const handleSuggestionSelect = (suggestion: string) => {
+    setSearchQuery(suggestion);
+    setShowSuggestions(false);
+  };
 
   const handleSearch = () => {
     setIsLoading(true);
