@@ -161,7 +161,7 @@ export function DirectoriesPage({
                         <div
                           className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg flex-shrink-0 bg-gradient-to-r ${directory.gradient}`}
                         >
-                          <IconComponent className="w-6 h-6 text-white stroke-2 fill-none" strokeWidth={2} />
+                          <IconComponent />
                         </div>
                         <div>
                           <h3 className="text-xl font-bold text-gray-900 mb-1">
