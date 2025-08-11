@@ -500,6 +500,31 @@ export function ProvidersIndexPage({
                         </div>
                       )}
 
+                      {/* Contact Information */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 p-3 bg-gray-50 rounded-lg">
+                        <div className="flex items-center gap-2">
+                          <Phone className="w-4 h-4 text-gray-500" />
+                          <span className="text-sm text-gray-900">{provider.phone}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <MapPin className="w-4 h-4 text-gray-500" />
+                          <span className="text-sm text-gray-900">{provider.city}, {provider.state} {provider.zipCode}</span>
+                        </div>
+                        {provider.website && (
+                          <div className="flex items-center gap-2">
+                            <Globe className="w-4 h-4 text-gray-500" />
+                            <a
+                              href={provider.website}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
+                            >
+                              Visit Website
+                            </a>
+                          </div>
+                        )}
+                      </div>
+
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
                         <div>
                           <div className="text-sm text-gray-600">Locations</div>
@@ -510,10 +535,23 @@ export function ProvidersIndexPage({
                           <div className="font-semibold text-gray-900">{provider.organizationType}</div>
                         </div>
                         <div>
-                          <div className="text-sm text-gray-600">Transparency</div>
-                          <Badge className={`${getScoreColor(provider.transparencyScore)} border`}>
-                            {provider.transparencyScore}
-                          </Badge>
+                          <div className="text-sm text-gray-600">Transparency Score</div>
+                          <div className="flex items-center gap-2">
+                            <GradeChip
+                              score={provider.transparencyScore}
+                              tooltip="Based on this provider's compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available."
+                            />
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <button className="text-gray-400 hover:text-gray-600" aria-label="Provider Transparency Rating info">
+                                  <Info className="w-3 h-3" />
+                                </button>
+                              </TooltipTrigger>
+                              <TooltipContent className="bg-gray-900 text-white max-w-xs">
+                                <p>Based on this provider's compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available.</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </div>
                         </div>
                         <div>
                           <div className="text-sm text-gray-600">Updated</div>
@@ -522,9 +560,6 @@ export function ProvidersIndexPage({
                       </div>
 
                       <div className="flex flex-wrap gap-2 mb-4">
-                        <Badge className={`${getOwnershipColor(provider.ownership)} border text-xs`}>
-                          {provider.ownership}
-                        </Badge>
                         <Badge variant="outline" className="text-xs">
                           {provider.organizationType}
                         </Badge>
