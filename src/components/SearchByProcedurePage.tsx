@@ -1012,35 +1012,28 @@ export function SearchByProcedurePage({
             {/* Left Column: AI Chat Panel (60% - 3 columns) */}
             <div className="lg:col-span-3 space-y-4">
               {/* Chat Container - Enhanced for Primary Focus */}
-              <div className="bg-gradient-to-br from-blue-50 via-indigo-50/50 to-purple-50/30 backdrop-blur-xl border-2 border-blue-200/50 rounded-3xl shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 p-6 h-96 flex flex-col relative overflow-hidden">
+              <div className="bg-gradient-to-br from-teal-50 via-blue-50/50 to-indigo-50/30 backdrop-blur-xl border-2 border-teal-200/50 rounded-3xl shadow-2xl hover:shadow-teal-500/20 transition-all duration-500 p-4 h-[500px] flex flex-col relative overflow-hidden">
                 {/* Subtle glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 rounded-3xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 via-transparent to-blue-500/5 rounded-3xl"></div>
                 {/* Enhanced Header */}
-                <div className="relative z-10 mb-4">
-                  <h2 className="text-xl font-bold text-gray-900 mb-2">🤖 AI Price Assistant</h2>
-                  <p className="text-lg font-semibold text-blue-700 mb-3">Ask me to find the best prices for your care</p>
-
-                  {/* Enhanced Example Prompts */}
-                  <p className="text-sm text-gray-600 mb-3">Try asking:</p>
-                  <div className="flex flex-wrap gap-2">
-                    {examplePrompts.map((prompt, index) => (
-                      <button
-                        key={index}
-                        onClick={() => handleExamplePrompt(prompt)}
-                        className="inline-flex items-center px-3 py-2 text-sm bg-blue-600/10 text-blue-700 rounded-xl hover:bg-blue-600/20 hover:scale-105 transition-all duration-200 border border-blue-200/50 font-medium shadow-sm"
-                      >
-                        {prompt}
-                      </button>
-                    ))}
+                <div className="relative z-10 mb-2">
+                  <div className="flex items-center gap-3 mb-1">
+                    <div className="relative">
+                      <Activity className="w-5 h-5 text-teal-600" />
+                      <div className="absolute inset-0 animate-pulse">
+                        <Activity className="w-5 h-5 text-teal-400 opacity-50" />
+                      </div>
+                    </div>
+                    <h2 className="text-lg font-bold text-gray-900">AI Price Assistant</h2>
                   </div>
                 </div>
 
                 {/* Chat Messages */}
-                <div className="relative z-10 flex-1 overflow-y-auto mb-4 space-y-3">
+                <div className="relative z-10 flex-1 overflow-y-auto mb-3 space-y-3">
                   {chatMessages.length === 0 && (
-                    <div className="text-center text-gray-500 mt-12">
-                      <Sparkles className="w-8 h-8 mx-auto mb-3 text-blue-500" />
-                      <p className="text-base font-medium">Ready to help you find the best healthcare prices!</p>
+                    <div className="text-center text-gray-500 mt-16">
+                      <Activity className="w-6 h-6 mx-auto mb-2 text-teal-500 animate-pulse" />
+                      <p className="text-sm font-medium text-gray-600">Ready to search real-world prices…</p>
                     </div>
                   )}
 
@@ -1048,8 +1041,8 @@ export function SearchByProcedurePage({
                     <div key={message.id} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
                       <div className={`max-w-sm px-4 py-3 rounded-2xl ${
                         message.type === 'user'
-                          ? 'bg-blue-600 text-white shadow-lg'
-                          : 'bg-white/90 text-gray-900 border border-gray-200 shadow-md'
+                          ? 'bg-gradient-to-r from-teal-600 to-blue-600 text-white shadow-lg'
+                          : 'bg-white/95 text-gray-900 border border-gray-200 shadow-md'
                       }`}>
                         <p className="text-sm">{message.content}</p>
                       </div>
@@ -1058,11 +1051,14 @@ export function SearchByProcedurePage({
 
                   {isAITyping && (
                     <div className="flex justify-start">
-                      <div className="bg-white/90 text-gray-900 border border-gray-200 px-4 py-3 rounded-2xl shadow-md">
-                        <div className="flex space-x-1">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce"></div>
-                          <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                          <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                      <div className="bg-white/95 text-gray-900 border border-gray-200 px-4 py-3 rounded-2xl shadow-md">
+                        <div className="flex items-center space-x-2">
+                          <Activity className="w-3 h-3 text-teal-500 animate-pulse" />
+                          <div className="flex space-x-1">
+                            <div className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-bounce"></div>
+                            <div className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                            <div className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1070,22 +1066,38 @@ export function SearchByProcedurePage({
                 </div>
 
                 {/* Enhanced Chat Input */}
-                <div className="relative z-10 flex items-center gap-3">
+                <div className="relative z-10 flex items-center gap-3 mb-2">
                   <Input
                     data-chat-input
                     value={chatInput}
                     onChange={(e) => setChatInput(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
-                    placeholder="Ask me to find the best prices for your care"
-                    className="flex-1 h-12 bg-white/90 border-2 border-blue-200 rounded-xl focus:border-blue-500 placeholder:text-gray-500 text-base shadow-lg"
+                    placeholder="Type a question to find the best healthcare prices…"
+                    className="flex-1 h-11 bg-white/95 border-2 border-teal-200 rounded-xl focus:border-teal-500 placeholder:text-gray-500 text-base shadow-lg"
                   />
                   <Button
                     onClick={handleSendMessage}
                     disabled={!chatInput.trim() || isAITyping}
-                    className="h-12 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl px-6 shadow-lg hover:shadow-xl transition-all duration-200"
+                    className="h-11 bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700 text-white rounded-xl px-5 shadow-lg hover:shadow-xl transition-all duration-200"
                   >
-                    <Send className="w-4 h-4" />
+                    <Activity className="w-4 h-4" />
                   </Button>
+                </div>
+
+                {/* Example Prompts - Moved Below Input */}
+                <div className="relative z-10">
+                  <p className="text-xs text-gray-600 mb-2">Try asking:</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {examplePrompts.map((prompt, index) => (
+                      <button
+                        key={index}
+                        onClick={() => handleExamplePrompt(prompt)}
+                        className="inline-flex items-center px-2.5 py-1.5 text-xs bg-teal-50 text-teal-700 rounded-lg hover:bg-teal-100 hover:scale-105 transition-all duration-200 border border-teal-200/50 font-medium shadow-sm"
+                      >
+                        {prompt}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
