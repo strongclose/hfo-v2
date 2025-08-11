@@ -457,7 +457,7 @@ export function DirectoriesPage({
         </div>
       </section>
 
-      <FooterExpanded onNavigateToDisclosures={onNavigateToDisclosures} />
+      <FooterExpanded onNavigateToDisclosures={handleNavigateToDisclosures} />
     </div>
   );
 }
