@@ -4,10 +4,7 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   integrations: [
-    react({
-      include: ['**/*.tsx', '**/*.ts', '**/*.jsx', '**/*.js'],
-      experimentalReactChildren: true,
-    }),
+    react(),
     tailwind({
       applyBaseStyles: false,
     })
@@ -26,6 +23,9 @@ export default defineConfig({
     },
     esbuild: {
       logOverride: { 'this-is-undefined-in-esm': 'silent' }
+    },
+    optimizeDeps: {
+      include: ['react', 'react-dom']
     }
   }
 });
