@@ -1035,33 +1035,33 @@ export function SearchByProcedurePage({
                 </div>
 
                 {/* Chat Messages */}
-                <div className="flex-1 overflow-y-auto mb-3 space-y-2">
+                <div className="relative z-10 flex-1 overflow-y-auto mb-4 space-y-3">
                   {chatMessages.length === 0 && (
-                    <div className="text-center text-gray-500 mt-8">
-                      <Sparkles className="w-6 h-6 mx-auto mb-2 text-blue-500" />
-                      <p className="text-sm">Ask me to find the best prices for your care</p>
+                    <div className="text-center text-gray-500 mt-12">
+                      <Sparkles className="w-8 h-8 mx-auto mb-3 text-blue-500" />
+                      <p className="text-base font-medium">Ready to help you find the best healthcare prices!</p>
                     </div>
                   )}
 
                   {chatMessages.map((message) => (
                     <div key={message.id} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
-                      <div className={`max-w-xs px-3 py-2 rounded-2xl ${
+                      <div className={`max-w-sm px-4 py-3 rounded-2xl ${
                         message.type === 'user'
-                          ? 'bg-blue-600 text-white'
-                          : 'bg-white/90 text-gray-900 border border-gray-200'
+                          ? 'bg-blue-600 text-white shadow-lg'
+                          : 'bg-white/90 text-gray-900 border border-gray-200 shadow-md'
                       }`}>
-                        <p className="text-xs">{message.content}</p>
+                        <p className="text-sm">{message.content}</p>
                       </div>
                     </div>
                   ))}
 
                   {isAITyping && (
                     <div className="flex justify-start">
-                      <div className="bg-white/90 text-gray-900 border border-gray-200 px-3 py-2 rounded-2xl">
+                      <div className="bg-white/90 text-gray-900 border border-gray-200 px-4 py-3 rounded-2xl shadow-md">
                         <div className="flex space-x-1">
-                          <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce"></div>
-                          <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                          <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                          <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce"></div>
+                          <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                          <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
                         </div>
                       </div>
                     </div>
