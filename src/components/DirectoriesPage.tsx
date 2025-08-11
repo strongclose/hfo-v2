@@ -145,7 +145,7 @@ export function DirectoriesPage({
                     <div className="flex items-center justify-between px-6 py-4">
                       <div className="flex items-center gap-4">
                         <div
-                          className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg flex-shrink-0 bg-gradient-to-r ${directory.gradient}`}
+                          className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg flex-shrink-0 ${directory.bgColor}`}
                         >
                           {React.createElement(IconComponent, { className: "w-6 h-6 text-white" })}
                         </div>
