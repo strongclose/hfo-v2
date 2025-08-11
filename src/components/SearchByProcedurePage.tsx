@@ -1010,8 +1010,10 @@ export function SearchByProcedurePage({
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
             {/* Left Column: AI Chat Panel (60% - 3 columns) */}
             <div className="lg:col-span-3 space-y-4">
-              {/* Chat Container - matching homepage design */}
-              <div className="bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl p-4 h-80 flex flex-col">
+              {/* Chat Container - Enhanced for Primary Focus */}
+              <div className="bg-gradient-to-br from-blue-50 via-indigo-50/50 to-purple-50/30 backdrop-blur-xl border-2 border-blue-200/50 rounded-3xl shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 p-6 h-96 flex flex-col relative overflow-hidden">
+                {/* Subtle glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 rounded-3xl"></div>
                 {/* Example Prompts Carousel */}
                 <div className="mb-3">
                   <p className="text-sm text-gray-600 mb-2">Try asking:</p>
