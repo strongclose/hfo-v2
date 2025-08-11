@@ -1264,11 +1264,12 @@ export function SearchByProcedurePage({
                           : 'border-gray-200'
                       } ${coverageType === 'cash' ? 'opacity-50 cursor-not-allowed' : ''}`}>
                         <SelectValue
-                          placeholder={coverageType === 'cash' ? 'Not needed for cash pay' : 'Select insurance, Medicare, or Medicaid'}
+                          placeholder={coverageType === 'cash' ? 'Not needed for cash pay' : 'All Payers'}
                           className="placeholder:text-gray-400"
                         />
                       </SelectTrigger>
                       <SelectContent>
+                        <SelectItem value="All Payers">All Payers</SelectItem>
                         <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wide">Commercial</div>
                         {predefinedPayers.filter(p => p.type === 'commercial').map(payer => (
                           <SelectItem key={payer.name} value={payer.name}>{payer.name}</SelectItem>
