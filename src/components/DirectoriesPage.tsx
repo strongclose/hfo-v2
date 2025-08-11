@@ -386,8 +386,8 @@ export function DirectoriesPage({
                     <h3 className="text-lg font-bold text-gray-900 mb-1">Browse by State</h3>
                     <p className="text-gray-600 text-sm">State-level provider and pricing insights</p>
                   </div>
-                  <Button 
-                    onClick={onNavigateToStates}
+                  <Button
+                    onClick={handleNavigateToStates}
                     variant="outline"
                     size="sm"
                     className="bg-white hover:bg-gray-50"
@@ -408,8 +408,8 @@ export function DirectoriesPage({
                     <h3 className="text-lg font-bold text-gray-900 mb-1">Browse by City</h3>
                     <p className="text-gray-600 text-sm">Local market analysis and provider networks</p>
                   </div>
-                  <Button 
-                    onClick={onNavigateToCities}
+                  <Button
+                    onClick={handleNavigateToCities}
                     variant="outline"
                     size="sm"
                     className="bg-white hover:bg-gray-50"
