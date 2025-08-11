@@ -1380,7 +1380,7 @@ export function SearchByProcedurePage({
         </section>
       )}
 
-      {/* 4. Provider Results and 5. Insights Sidebar */}
+      {/* 3. Provider Results and 4. Insights Sidebar */}
       {filterProcedure && (
         <section className="bg-white">
         <div className="pt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
