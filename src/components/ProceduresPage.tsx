@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navigation } from "./Navigation";
+import { Navigation } from "./Nav";
 import { Footer } from "./Footer";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
