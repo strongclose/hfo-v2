@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import * as React from "react";
 import { createPortal } from "react-dom";
 import { Shield, Search, Menu, X } from "lucide-react";
 
