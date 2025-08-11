@@ -181,12 +181,27 @@ export function GlobalChatbot({
   return (
     <div className={`max-w-2xl w-full ${className}`} style={style}>
       <div
-        className={`backdrop-blur-xl rounded-2xl border border-white/20 overflow-hidden shadow-2xl ${heightClasses[height]} flex flex-col`}
-        style={{
-          background: "rgba(255, 255, 255, 0.15)",
-          backdropFilter: "blur(20px)",
-        }}
+        className={`bg-gradient-to-br from-teal-50 via-blue-50/50 to-indigo-50/30 backdrop-blur-xl border-2 border-teal-200/50 rounded-3xl shadow-2xl hover:shadow-teal-500/20 transition-all duration-500 ${heightClasses[height]} flex flex-col relative overflow-hidden`}
       >
+        {/* Subtle glow effect */}
+        <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 via-transparent to-blue-500/5 rounded-3xl"></div>
+
+        {/* Header */}
+        <div className="relative z-10 pb-3 border-b border-teal-100/50 p-4">
+          <div className="flex items-center gap-3">
+            <div className="relative">
+              <svg className="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              <div className="absolute inset-0 animate-pulse">
+                <svg className="w-6 h-6 text-teal-400 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+            </div>
+            <h2 className="text-xl font-bold text-gray-900">AI Price Assistant</h2>
+          </div>
+        </div>
         {/* Chat Messages Area */}
         <div ref={chatContainerRef} className="p-6 flex-1 overflow-y-auto">
           {!isClient ? (
