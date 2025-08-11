@@ -219,8 +219,8 @@ export function GlobalChatbot({
                     </div>
                     <div className="flex-1">
 
-                      <div className="bg-white/20 backdrop-blur-sm rounded-2xl rounded-tl-md py-4 px-3 border border-white/10">
-                        <div className="text-sm leading-relaxed text-white">
+                      <div className="bg-white/95 backdrop-blur-sm rounded-2xl rounded-tl-md py-4 px-3 border border-gray-200 shadow-md">
+                        <div className="text-sm leading-relaxed text-gray-900">
                           <p
                             className="text-justify break-words whitespace-normal hyphens-auto"
                             style={{
