@@ -40,7 +40,11 @@ export function DirectoriesPage({
   
   const directories = [
     {
-      icon: Hospital,
+      icon: (
+        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+      ),
       title: "Providers",
       description: "Hospitals, clinics, and systems by NPI/CCN.",
       metrics: [
@@ -56,7 +60,11 @@ export function DirectoriesPage({
       borderColor: "border-blue-200",
     },
     {
-      icon: CreditCard,
+      icon: (
+        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8h16v10zm-6-8h4v2h-4v-2zm0 4h4v2h-4v-2z"/>
+        </svg>
+      ),
       title: "Payers",
       description: "Insurers and health plans by NAIC.",
       metrics: [
@@ -72,7 +80,11 @@ export function DirectoriesPage({
       borderColor: "border-green-200",
     },
     {
-      icon: Stethoscope,
+      icon: (
+        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm-7 13v-2c0-2.33 4.67-3.5 7-3.5s7 1.17 7 3.5v2H5z"/>
+        </svg>
+      ),
       title: "Procedures",
       description: "Common shoppable services with real prices.",
       metrics: [
@@ -88,7 +100,11 @@ export function DirectoriesPage({
       borderColor: "border-purple-200",
     },
     {
-      icon: FileText,
+      icon: (
+        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h8c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+        </svg>
+      ),
       title: "CPT Codes",
       description: "Standard billing codes mapped to procedures.",
       metrics: [
