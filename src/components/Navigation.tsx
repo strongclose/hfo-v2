@@ -6,14 +6,14 @@ export function Navigation(): JSX.Element {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Detect if we're on homepage vs other pages
-  const [isHomepage, setIsHomepage] = React.useState(false);
+  const [isHomepage, setIsHomepage] = useState(false);
   // Default to scrolled (dark text) for better initial visibility
-  const [isScrolled, setIsScrolled] = React.useState(true);
+  const [isScrolled, setIsScrolled] = useState(true);
   // Modern scroll behavior state
-  const [isVisible, setIsVisible] = React.useState(true);
-  const [lastScrollY, setLastScrollY] = React.useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // Check if we're on the homepage
     const checkHomepage = () => {
       setIsHomepage(window.location.pathname === "/");
