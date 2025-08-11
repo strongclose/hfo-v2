@@ -134,7 +134,7 @@ export function DirectoriesPage({
         }
       ],
       action: "Browse Providers",
-      onClick: onNavigateToProviders,
+      onClick: handleNavigateToProviders,
       gradient: "from-blue-600 to-blue-700",
       bgColor: "bg-blue-600",
       bgGradient: "from-blue-50 to-blue-100",
