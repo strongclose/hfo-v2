@@ -1,3 +1,5 @@
+import React from 'react';
+
 export function Navigation() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-8 py-3 backdrop-blur-md transition-all duration-500 border-b border-gray-200/20 bg-white/80">
