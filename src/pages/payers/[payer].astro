@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/BaseLayout.astro';
+import { PayerDetailsPage } from '../../components/PayerDetailsPage';
+
+export function getStaticPaths() {
+  return [
+    {params: {payer: 'aetna'}},
+    {params: {payer: 'anthem'}},
+    {params: {payer: 'bcbs-ca'}},
+    {params: {payer: 'cigna'}},
+    {params: {payer: 'united'}},
+    {params: {payer: 'humana'}},
+    {params: {payer: 'kaiser-ca'}},
+    {params: {payer: 'molina'}},
+  ];
+}
+
+const { payer } = Astro.params;
+---
+
+<Layout title={`${payer} Details - Healthcare Payer - HealthFees.org`}>
+  <PayerDetailsPage 
+    client:load
+    payerId={payer}
+    onNavigateToPlans={(payerId) => window.location.href = `/payers/${payerId}/plans`}
+    onNavigateToDisclosures={() => window.location.href = "/disclosures"}
+  />
+</Layout>
