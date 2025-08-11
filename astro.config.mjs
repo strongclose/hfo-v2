@@ -6,6 +6,7 @@ export default defineConfig({
   integrations: [
     react({
       include: ['**/*.tsx', '**/*.ts'],
+      experimentalReactChildren: true,
     }),
     tailwind({
       applyBaseStyles: false,
