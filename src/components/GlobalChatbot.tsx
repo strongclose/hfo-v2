@@ -298,11 +298,11 @@ export function GlobalChatbot({
                   <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-sm font-bold">✨</span>
                   </div>
-                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl rounded-tl-md py-4 px-3 border border-white/5">
+                  <div className="bg-white/95 backdrop-blur-sm rounded-2xl rounded-tl-md py-4 px-3 border border-gray-200 shadow-md">
                     <div className="flex items-center gap-1">
-                      <div className="w-1.5 h-1.5 bg-white rounded-full animate-bounce"></div>
-                      <div className="w-1.5 h-1.5 bg-white rounded-full animate-bounce [animation-delay:0.1s]"></div>
-                      <div className="w-1.5 h-1.5 bg-white rounded-full animate-bounce [animation-delay:0.2s]"></div>
+                      <div className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-bounce"></div>
+                      <div className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-bounce [animation-delay:0.1s]"></div>
+                      <div className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-bounce [animation-delay:0.2s]"></div>
                     </div>
                   </div>
                 </div>
