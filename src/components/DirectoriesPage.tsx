@@ -225,7 +225,7 @@ export function DirectoriesPage({
         }
       ],
       action: "Browse Procedures",
-      onClick: onNavigateToProcedures,
+      onClick: handleNavigateToProcedures,
       gradient: "from-purple-600 to-purple-700",
       bgColor: "bg-purple-600",
       bgGradient: "from-purple-50 to-purple-100",
