@@ -281,8 +281,8 @@ export function GlobalChatbot({
                 )}
                 {message.type === "user" && (
                   <div className="flex gap-3 justify-end">
-                    <div className="bg-teal-400/30 backdrop-blur-sm rounded-2xl rounded-tr-md py-3 px-4 border border-teal-300/30 max-w-xs">
-                      <p className="text-sm text-white">{message.content}</p>
+                    <div className="bg-white backdrop-blur-sm rounded-2xl rounded-tr-md py-3 px-4 border border-gray-300 shadow-lg max-w-xs">
+                      <p className="text-sm text-gray-900 font-medium">{message.content}</p>
                     </div>
                     <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-white text-sm font-bold">You</span>
