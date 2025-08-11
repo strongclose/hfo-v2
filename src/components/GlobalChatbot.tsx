@@ -255,15 +255,15 @@ export function GlobalChatbot({
                                       )}
                                     </div>
                                     <div className="flex items-center gap-2">
-                                      <span className="text-2xl font-bold text-teal-400">
+                                      <span className="text-2xl font-bold text-teal-600">
                                         {card.price}
                                       </span>
                                       {card.originalPrice && (
                                         <>
-                                          <span className="text-sm text-gray-400 line-through">
+                                          <span className="text-sm text-gray-500 line-through">
                                             {card.originalPrice}
                                           </span>
-                                          <span className="text-sm text-green-400 font-medium">
+                                          <span className="text-sm text-green-600 font-medium">
                                             Save {card.savings}
                                           </span>
                                         </>
