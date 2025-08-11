@@ -488,18 +488,39 @@ export function ProvidersIndexPage({
                         </div>
                         <div>
                           <h3 className="text-lg font-semibold text-gray-900">{provider.name}</h3>
-                          <div className="flex items-center gap-2 text-sm text-gray-600">
-                            <span>NPI: {provider.npi}</span>
-                            {provider.ccn && (
-                              <>
-                                <span>•</span>
-                                <span>CCN: {provider.ccn}</span>
-                              </>
-                            )}
-                            <span>•</span>
+                          <div className="flex items-center gap-3 text-sm text-gray-600">
+                            <div className="flex items-center gap-1">
+                              <span className="font-medium">Identifiers:</span>
+                              <div className="flex items-center gap-2">
+                                <Tooltip>
+                                  <TooltipTrigger asChild>
+                                    <span className="flex items-center gap-1 px-2 py-1 bg-blue-50 rounded text-xs">
+                                      <CreditCard className="w-3 h-3" />
+                                      {provider.npi}
+                                    </span>
+                                  </TooltipTrigger>
+                                  <TooltipContent>
+                                    <p>National Provider Identifier (NPI)</p>
+                                  </TooltipContent>
+                                </Tooltip>
+                                {provider.ccn && (
+                                  <Tooltip>
+                                    <TooltipTrigger asChild>
+                                      <span className="flex items-center gap-1 px-2 py-1 bg-purple-50 rounded text-xs">
+                                        <FileText className="w-3 h-3" />
+                                        {provider.ccn}
+                                      </span>
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                      <p>CMS Certification Number (CCN)</p>
+                                    </TooltipContent>
+                                  </Tooltip>
+                                )}
+                              </div>
+                            </div>
                             <span className="flex items-center">
                               <MapPin className="w-3 h-3 mr-1" />
-                              {provider.city}, {provider.state} �� {provider.phone}
+                              {provider.city}, {provider.state} • {provider.phone}
                             </span>
                           </div>
                         </div>
