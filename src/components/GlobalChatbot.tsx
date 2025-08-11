@@ -312,14 +312,14 @@ export function GlobalChatbot({
         </div>
 
         {/* Input Area */}
-        <div className="pt-4 px-4 pb-2 border-t border-white/20">
+        <div className="relative z-10 pt-4 px-4 pb-2 border-t border-teal-100/50">
           {!isClient ? (
-            <div className="flex gap-3 opacity-50">
-              <div className="flex-1 bg-white/25 rounded-xl px-4 py-3">
-                <div className="text-white/60 text-sm">{placeholder}</div>
+            <div className="flex gap-0">
+              <div className="flex-1 h-12 bg-white/95 border-2 border-teal-200 rounded-l-xl flex items-center px-4">
+                <div className="text-gray-500 text-base">{placeholder}</div>
               </div>
-              <div className="px-6 py-3 bg-white/25 rounded-xl text-white/60 text-sm">
-                Ask AI
+              <div className="h-12 bg-gradient-to-r from-teal-600 via-blue-600 to-indigo-600 rounded-r-xl px-4 flex items-center border-2 border-l-0 border-teal-200">
+                <span className="text-white text-sm font-medium">Ask AI</span>
               </div>
             </div>
           ) : (
