@@ -1,9 +1,9 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { Shield, Search, Menu, X } from "lucide-react";
 
 export function Navigation(): JSX.Element {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Detect if we're on homepage vs other pages
   const [isHomepage, setIsHomepage] = React.useState(false);
