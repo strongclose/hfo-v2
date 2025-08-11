@@ -1040,11 +1040,11 @@ export function SearchByProcedurePage({
                     <div key={message.id} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
                       <div className={`max-w-md px-4 py-3 rounded-2xl ${
                         message.type === 'user'
-                          ? 'bg-gradient-to-r from-teal-700 to-blue-700 text-white shadow-lg'
+                          ? 'bg-gradient-to-r from-slate-800 to-slate-900 text-white shadow-lg'
                           : 'bg-white/95 text-gray-900 border border-gray-200 shadow-md'
                       }`}>
                         <p className={`text-sm whitespace-pre-line ${
-                          message.type === 'user' ? 'font-medium drop-shadow-sm' : ''
+                          message.type === 'user' ? 'font-medium' : ''
                         }`}>{message.content}</p>
                       </div>
                     </div>
