@@ -301,6 +301,15 @@ export function SearchByProcedurePage({
       setSearchResults(results);
       setHasSearched(true);
       setIsSearching(false);
+
+      // Scroll to price summary section after search completes
+      setTimeout(() => {
+        priceSummaryRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest'
+        });
+      }, 200);
     }, 1000);
   };
 
@@ -635,6 +644,10 @@ export function SearchByProcedurePage({
   const [pulseFields, setPulseFields] = useState<Set<string>>(new Set());
   const [initialState, setInitialState] = useState<any>(null);
 
+  // Refs for scrolling
+  const chatbotRef = React.useRef<HTMLDivElement>(null);
+  const priceSummaryRef = React.useRef<HTMLElement>(null);
+
   // Example prompts for the carousel
   const examplePrompts = [
     "Find knee replacement prices near me",
@@ -693,6 +706,15 @@ export function SearchByProcedurePage({
     setChatMessages(prev => [...prev, userMessage]);
     setChatInput("");
     setIsAITyping(true);
+
+    // Scroll to chatbot after user submits query
+    setTimeout(() => {
+      chatbotRef.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      });
+    }, 100);
 
     // Simulate AI processing and filter extraction
     setTimeout(() => {
@@ -1017,7 +1039,10 @@ export function SearchByProcedurePage({
             {/* Left Column: AI Chat Panel (60% - 3 columns) */}
             <div className="lg:col-span-3 space-y-4">
               {/* Chat Container - Enhanced for Primary Focus */}
-              <div className="bg-gradient-to-br from-teal-50 via-blue-50/50 to-indigo-50/30 backdrop-blur-xl border-2 border-teal-200/50 rounded-3xl shadow-2xl hover:shadow-teal-500/20 transition-all duration-500 p-4 h-[580px] flex flex-col relative overflow-hidden">
+              <div
+                ref={chatbotRef}
+                className="bg-gradient-to-br from-teal-50 via-blue-50/50 to-indigo-50/30 backdrop-blur-xl border-2 border-teal-200/50 rounded-3xl shadow-2xl hover:shadow-teal-500/20 transition-all duration-500 p-4 h-[580px] flex flex-col relative overflow-hidden"
+              >
                 {/* Subtle glow effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 via-transparent to-blue-500/5 rounded-3xl"></div>
                 {/* Enhanced Header with Divider */}
@@ -1343,7 +1368,10 @@ export function SearchByProcedurePage({
 
       {/* 2. Price Summary Section */}
       {hasSearched && searchResults.length > 0 && (
-        <section className="py-16 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20">
+        <section
+          ref={priceSummaryRef}
+          className="py-16 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20"
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
               <Card className="bg-white/80 backdrop-blur-xl border border-white/20 shadow-2xl rounded-3xl p-8">
