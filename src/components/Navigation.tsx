@@ -1,3 +1,4 @@
+/** @jsxImportSource react */
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { Shield, Search, Menu, X } from "lucide-react";
