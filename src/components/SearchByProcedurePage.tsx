@@ -749,22 +749,27 @@ export function SearchByProcedurePage({
 
   // Apply AI suggestions to filters
   const applyAISuggestions = (suggestions: Record<string, string>) => {
+    let updatedFilters = false;
+
     Object.entries(suggestions).forEach(([field, value]) => {
       if (!userLockedFields.has(field)) {
         switch (field) {
           case 'zipCode':
             setFilterZipCode(value);
             triggerPulse('zipCode');
+            updatedFilters = true;
             break;
           case 'procedure':
             setFilterProcedure(value);
             setMainProcedureInput(value);
             setSidebarProcedureInput(value);
             triggerPulse('procedure');
+            updatedFilters = true;
             break;
           case 'payer':
             setFilterPayer(value);
             triggerPulse('payer');
+            updatedFilters = true;
             break;
           case 'coverageType':
             setCoverageType(value);
@@ -774,12 +779,12 @@ export function SearchByProcedurePage({
               setShowPlanField(false);
             }
             triggerPulse('coverageType');
+            updatedFilters = true;
             break;
         }
 
         // Announce change for accessibility
         const announcement = `${field} set to ${value} by AI suggestion`;
-        // In a real implementation, you'd use a screen reader announcement library
         console.log('Screen reader announcement:', announcement);
       } else {
         // Show suggestion chip for locked fields
@@ -789,6 +794,16 @@ export function SearchByProcedurePage({
         }));
       }
     });
+
+    // Auto-trigger search if we have procedure and either location or coverage type
+    setTimeout(() => {
+      const hasMinimumCriteria = suggestions.procedure &&
+        (suggestions.zipCode || suggestions.coverageType || filterZipCode || coverageType);
+
+      if (hasMinimumCriteria && updatedFilters) {
+        handleMainSearch();
+      }
+    }, 1500); // Wait for pulse animation to complete
   };
 
   // Handle example prompt click
