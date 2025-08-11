@@ -647,6 +647,7 @@ export function SearchByProcedurePage({
   // Refs for scrolling
   const chatbotRef = React.useRef<HTMLDivElement>(null);
   const priceSummaryRef = React.useRef<HTMLElement>(null);
+  const chatMessagesRef = React.useRef<HTMLDivElement>(null);
 
   // Example prompts for the carousel
   const examplePrompts = [
@@ -679,6 +680,18 @@ export function SearchByProcedurePage({
       });
     }
   }, []);
+
+  // Auto-scroll chat to bottom when new messages arrive
+  const scrollToBottom = () => {
+    if (chatMessagesRef.current) {
+      chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight;
+    }
+  };
+
+  // Scroll to bottom when messages change or AI is typing
+  React.useEffect(() => {
+    scrollToBottom();
+  }, [chatMessages, isAITyping]);
 
   // Pulse effect for AI-updated fields
   const triggerPulse = (fieldName: string) => {
@@ -1059,7 +1072,10 @@ export function SearchByProcedurePage({
                 </div>
 
                 {/* Chat Messages */}
-                <div className="relative z-10 flex-1 overflow-y-auto my-4 space-y-3">
+                <div
+                  ref={chatMessagesRef}
+                  className="relative z-10 flex-1 overflow-y-auto my-4 space-y-3"
+                >
 
                   {chatMessages.map((message) => (
                     <div key={message.id} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
