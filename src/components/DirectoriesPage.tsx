@@ -179,7 +179,7 @@ export function DirectoriesPage({
         }
       ],
       action: "Browse Payers",
-      onClick: onNavigateToPayers,
+      onClick: handleNavigateToPayers,
       gradient: "from-green-600 to-green-700",
       bgColor: "bg-green-600",
       bgGradient: "from-green-50 to-green-100",
