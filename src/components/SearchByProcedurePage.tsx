@@ -1386,41 +1386,41 @@ export function SearchByProcedurePage({
       {hasSearched && searchResults.length > 0 && (
         <section
           ref={priceSummaryRef}
-          className="py-16 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20"
+          className="py-8 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
-              <Card className="bg-white/80 backdrop-blur-xl border border-white/20 shadow-2xl rounded-3xl p-8">
+              <Card className="bg-white/80 backdrop-blur-xl border border-white/20 shadow-2xl rounded-3xl p-6">
                 <CardHeader>
-                  <CardTitle className="text-2xl md:text-3xl font-bold text-gray-900 text-center">
+                  <CardTitle className="text-xl md:text-2xl font-bold text-gray-900 text-center mb-1">
                     Price Range for {filterProcedure || 'Selected Procedure'} in {filterZipCode ? `ZIP ${filterZipCode}` : 'Your Area'}
                   </CardTitle>
-                  <p className="text-gray-600 text-center mt-2">
+                  <p className="text-sm text-gray-600 text-center">
                     Based on {searchResults.length} provider{searchResults.length !== 1 ? 's' : ''} in your search results
                   </p>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                     <div className="text-center">
-                      <p className="text-sm font-semibold text-gray-600 mb-2">
+                      <p className="text-xs font-semibold text-gray-600 mb-1">
                         Lowest Price
                       </p>
-                      <p className="text-3xl font-bold text-green-600">${minPrice.toLocaleString()}</p>
+                      <p className="text-2xl font-bold text-green-600">${minPrice.toLocaleString()}</p>
                     </div>
                     <div className="text-center">
-                      <p className="text-sm font-semibold text-gray-600 mb-2">
+                      <p className="text-xs font-semibold text-gray-600 mb-1">
                         Average Price
                       </p>
-                      <p className="text-3xl font-bold text-blue-600">${Math.round((minPrice + maxPrice) / 2).toLocaleString()}</p>
+                      <p className="text-2xl font-bold text-blue-600">${Math.round((minPrice + maxPrice) / 2).toLocaleString()}</p>
                     </div>
                     <div className="text-center">
-                      <p className="text-sm font-semibold text-gray-600 mb-2">
+                      <p className="text-xs font-semibold text-gray-600 mb-1">
                         Highest Price
                       </p>
-                      <p className="text-3xl font-bold text-red-600">${maxPrice.toLocaleString()}</p>
+                      <p className="text-2xl font-bold text-red-600">${maxPrice.toLocaleString()}</p>
                     </div>
                   </div>
-                  <div className="w-full h-4 bg-gradient-to-r from-green-400 via-blue-400 to-red-400 rounded-full mb-4"></div>
+                  <div className="w-full h-3 bg-gradient-to-r from-green-400 via-blue-400 to-red-400 rounded-full mb-3"></div>
                   <p className="text-xs text-gray-500 text-center">
                     Price range is calculated from your search results. Actual prices may vary based on specific procedure details and payer agreements.
                   </p>
@@ -1434,7 +1434,7 @@ export function SearchByProcedurePage({
       {/* 3. Provider Results and 4. Insights Sidebar */}
       {filterProcedure && (
         <section className="bg-white">
-        <div className="pt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="pt-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Provider Results */}
             <div className="lg:col-span-2">
