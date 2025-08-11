@@ -153,6 +153,12 @@ export function DirectoriesPage({
                       <div className="flex items-center gap-4">
                         <div
                           className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg flex-shrink-0 ${directory.bgColor}`}
+                          style={{
+                            backgroundColor: directory.bgColor === 'bg-blue-600' ? '#2563eb' :
+                                           directory.bgColor === 'bg-green-600' ? '#16a34a' :
+                                           directory.bgColor === 'bg-purple-600' ? '#9333ea' :
+                                           directory.bgColor === 'bg-teal-600' ? '#0d9488' : undefined
+                          }}
                         >
                           {directory.icon}
                         </div>
