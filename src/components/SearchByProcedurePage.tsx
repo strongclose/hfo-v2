@@ -1006,10 +1006,10 @@ export function SearchByProcedurePage({
             </div>
           </div>
 
-          {/* AI Chat + Filter Controls Above the Fold */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Left Column: AI Chat Panel */}
-            <div className="space-y-4">
+          {/* AI Chat (Primary) + Filter Controls (Secondary) */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+            {/* Left Column: AI Chat Panel (60% - 3 columns) */}
+            <div className="lg:col-span-3 space-y-4">
               {/* Chat Container - matching homepage design */}
               <div className="bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl p-4 h-80 flex flex-col">
                 {/* Example Prompts Carousel */}
