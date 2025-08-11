@@ -1289,7 +1289,7 @@ export function SearchByProcedurePage({
                     {aiSuggestions.payer?.show && (
                       <div className="absolute -top-8 left-0 flex items-center space-x-2 bg-yellow-100 border border-yellow-300 rounded-lg px-3 py-1 text-sm">
                         <span>AI suggested: {aiSuggestions.payer.value}</span>
-                        <button className="text-green-600 hover:text-green-800">✓</button>
+                        <button className="text-green-600 hover:text-green-800">��</button>
                         <button
                           onClick={() => setAiSuggestions(prev => ({...prev, payer: {...prev.payer!, show: false}}))}
                           className="text-red-600 hover:text-red-800"
@@ -1725,9 +1725,10 @@ export function SearchByProcedurePage({
                         onValueChange={handlePayerSelection}
                       >
                         <SelectTrigger className="h-8 text-xs rounded-md border border-gray-300">
-                          <SelectValue placeholder="Select payer" className="placeholder:text-gray-400" />
+                          <SelectValue placeholder="All Payers" className="placeholder:text-gray-400" />
                         </SelectTrigger>
                         <SelectContent>
+                          <SelectItem value="All Payers">All Payers</SelectItem>
                           <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wide">Commercial</div>
                           {predefinedPayers.filter(p => p.type === 'commercial').map(payer => (
                             <SelectItem key={payer.name} value={payer.name}>{payer.name}</SelectItem>
