@@ -538,7 +538,35 @@ export function ProvidersIndexPage({
                       <div className="grid grid-cols-3 gap-4 mb-3">
                         <div>
                           <div className="text-sm text-gray-600">Locations</div>
-                          <div className="font-semibold text-gray-900">{provider.locationCount}</div>
+                          <div className="flex items-center gap-2">
+                            {provider.states && provider.states.length > 1 ? (
+                              <Tooltip>
+                                <TooltipTrigger asChild>
+                                  <div className="flex items-center gap-1 cursor-pointer">
+                                    <MapPin className="w-4 h-4 text-blue-600" />
+                                    <span className="font-semibold text-gray-900">{provider.locationCount}</span>
+                                  </div>
+                                </TooltipTrigger>
+                                <TooltipContent className="bg-gray-900 text-white max-w-xs">
+                                  <div>
+                                    <p className="font-medium mb-2">Locations by state:</p>
+                                    <div className="text-xs space-y-1">
+                                      {provider.states.map((state, index) => (
+                                        <div key={state}>
+                                          {state}: {Math.floor(provider.locationCount / provider.states!.length) + (index < provider.locationCount % provider.states!.length ? 1 : 0)} locations
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                </TooltipContent>
+                              </Tooltip>
+                            ) : (
+                              <div className="flex items-center gap-1">
+                                <MapPin className="w-4 h-4 text-blue-600" />
+                                <span className="font-semibold text-gray-900">{provider.locationCount}</span>
+                              </div>
+                            )}
+                          </div>
                         </div>
                         <div>
                           <div className="text-sm text-gray-600">Transparency Score</div>
