@@ -154,7 +154,7 @@ export function DirectoriesPage({
               return (
                 <Card
                   key={index}
-                  className="bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] rounded-2xl overflow-hidden"
+                  className="bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] rounded-2xl overflow-hidden h-full flex flex-col"
                 >
                   <CardContent className="p-0">
                     {/* Header Section */}
