@@ -981,12 +981,12 @@ export function SearchByProcedurePage({
     <div className="min-h-screen bg-gray-50">
       <Navigation />
       {/* 1. Hero with AI Chat + Filter Controls Above the Fold */}
-      <section className="relative pt-20 pb-6 overflow-hidden bg-white">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.1),transparent_50%)] pointer-events-none"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(124,58,237,0.05),transparent_50%)] pointer-events-none"></div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
           {/* Condensed Hero Content */}
           <div className="text-center mb-6">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-gray-900 tracking-tight">
