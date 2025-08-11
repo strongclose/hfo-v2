@@ -649,45 +649,99 @@ export function SearchByProcedurePage({
     }, 1500);
   };
 
-  // Process AI message and extract filters (simplified simulation)
+  // Process AI message and extract filters (enhanced recognition)
   const processAIMessage = (message: string) => {
     const lowerMessage = message.toLowerCase();
     const filters: Record<string, string> = {};
-    let responseMessage = "I've updated your search criteria based on your request.";
+    let responseMessage = "I found some search criteria in your message.";
+    const updates: string[] = [];
 
-    // Extract ZIP code
+    // Extract ZIP code (5 digits)
     const zipMatch = message.match(/\b\d{5}\b/);
     if (zipMatch) {
       filters.zipCode = zipMatch[0];
-      responseMessage += ` Set location to ZIP ${zipMatch[0]}.`;
+      updates.push(`Set location to ZIP ${zipMatch[0]}`);
     }
 
-    // Extract procedure
+    // Extract city/state patterns
+    const cityStatePatterns = [
+      /in\s+([a-z\s]+),?\s*([a-z]{2})/i,
+      /near\s+([a-z\s]+)/i,
+      /(chicago|los angeles|new york|boston|miami|seattle|denver|atlanta)/i
+    ];
+
+    cityStatePatterns.forEach(pattern => {
+      const match = message.match(pattern);
+      if (match && !filters.zipCode) {
+        updates.push(`Looking for providers near ${match[1] || match[0]}`);
+      }
+    });
+
+    // Extract procedures with better matching
     predefinedProcedures.forEach(proc => {
-      if (lowerMessage.includes(proc.name.toLowerCase()) || lowerMessage.includes(proc.code)) {
+      const procNameWords = proc.name.toLowerCase().split(' ');
+      const hasAllWords = procNameWords.every(word =>
+        lowerMessage.includes(word) && word.length > 2
+      );
+
+      if (hasAllWords ||
+          lowerMessage.includes(proc.name.toLowerCase()) ||
+          lowerMessage.includes(proc.code) ||
+          message.includes(proc.code)) {
         filters.procedure = `${proc.name} (${proc.code})`;
-        responseMessage += ` Looking for ${proc.name}.`;
+        updates.push(`Looking for ${proc.name}`);
       }
     });
 
-    // Extract payer
+    // Extract common procedure keywords
+    const procedureKeywords = {
+      'knee replacement': 'Hip Replacement Total (27130)',
+      'mri': 'MRI Brain without Contrast (70553)',
+      'ct scan': 'CT Chest without Contrast (71250)',
+      'colonoscopy': 'Colonoscopy Screening (45378)',
+      'mammogram': 'Mammography Screening (77057)',
+      'x-ray': 'X-ray Chest Single View (71045)',
+      'ultrasound': 'Ultrasound Abdomen Complete (76700)',
+      'cataract': 'Cataract Surgery (66984)',
+      'appendectomy': 'Appendectomy Laparoscopic (44970)',
+      'gallbladder': 'Gallbladder Removal Laparoscopic (47562)'
+    };
+
+    Object.entries(procedureKeywords).forEach(([keyword, procedureValue]) => {
+      if (lowerMessage.includes(keyword) && !filters.procedure) {
+        filters.procedure = procedureValue;
+        updates.push(`Looking for ${procedureValue.split(' (')[0]}`);
+      }
+    });
+
+    // Extract payers with better matching
     predefinedPayers.forEach(payer => {
-      if (lowerMessage.includes(payer.name.toLowerCase())) {
+      const payerWords = payer.name.toLowerCase().split(' ');
+      if (payerWords.some(word => lowerMessage.includes(word) && word.length > 3) ||
+          lowerMessage.includes(payer.name.toLowerCase())) {
         filters.payer = payer.name;
-        responseMessage += ` Using ${payer.name} insurance.`;
+        updates.push(`Using ${payer.name} insurance`);
       }
     });
 
-    // Extract coverage type
-    if (lowerMessage.includes('cash') || lowerMessage.includes('self pay')) {
+    // Extract coverage type with better patterns
+    if (lowerMessage.includes('cash') || lowerMessage.includes('self pay') || lowerMessage.includes('no insurance')) {
       filters.coverageType = 'cash';
-      responseMessage += " Looking at cash prices.";
-    } else if (lowerMessage.includes('out of network')) {
+      updates.push("Looking at cash prices");
+    } else if (lowerMessage.includes('out of network') || lowerMessage.includes('out-of-network')) {
       filters.coverageType = 'out-of-network';
-      responseMessage += " Searching out-of-network providers.";
-    } else if (lowerMessage.includes('in network') || lowerMessage.includes('insurance')) {
+      updates.push("Searching out-of-network providers");
+    } else if (lowerMessage.includes('in network') || lowerMessage.includes('in-network') ||
+               (lowerMessage.includes('insurance') && !lowerMessage.includes('no insurance'))) {
       filters.coverageType = 'in-network';
-      responseMessage += " Searching in-network providers.";
+      updates.push("Searching in-network providers");
+    }
+
+    // Build response message
+    if (updates.length > 0) {
+      responseMessage = updates.join('. ') + '.';
+    } else {
+      responseMessage = "I understand you're looking for healthcare pricing information. Try being more specific about the procedure, location, or insurance details you'd like to search for.";
     }
 
     return { message: responseMessage, filters };
