@@ -269,7 +269,7 @@ export function DirectoriesPage({
         }
       ],
       action: "Browse CPT Codes",
-      onClick: onNavigateToCPT,
+      onClick: handleNavigateToCPT,
       gradient: "from-teal-600 to-teal-700",
       bgColor: "bg-teal-600",
       bgGradient: "from-teal-50 to-teal-100",
