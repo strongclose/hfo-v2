@@ -74,8 +74,8 @@ export function SearchByProcedurePage({
   const [selectedProcedure, setSelectedProcedure] = useState<{code: string, description: string} | null>(null);
   const [filterZipCode, setFilterZipCode] = useState("");
   const [zipError, setZipError] = useState("");
-  const [filterRadius, setFilterRadius] = useState("");
-  const [filterPayer, setFilterPayer] = useState("");
+  const [filterRadius, setFilterRadius] = useState("50 miles");
+  const [filterPayer, setFilterPayer] = useState("All Payers");
   const [filterPlan, setFilterPlan] = useState("");
   const [showPlanField, setShowPlanField] = useState(false);
   const [coverageType, setCoverageType] = useState("in-network");
