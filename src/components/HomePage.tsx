@@ -992,7 +992,7 @@ export default function HomePage() {
                       <div className="flex flex-col h-full">
                         {/* Header */}
                         <div className="flex items-center gap-6 mb-8">
-                          <div className="w-20 h-20 rounded-full flex items-center justify-center shadow-xl flex-shrink-0" style={{ background: `linear-gradient(to bottom right, ${persona.bgColor === 'from-blue-500 to-cyan-500' ? '#3b82f6, #06b6d4' : persona.bgColor === 'from-blue-400 to-indigo-500' ? '#60a5fa, #6366f1' : persona.bgColor === 'from-emerald-400 to-teal-500' ? '#34d399, #14b8a6' : persona.bgColor === 'from-purple-400 to-violet-500' ? '#a78bfa, #8b5cf6' : '#22d3ee, #3b82f6'})` }}>
+                          <div className="w-24 h-24 rounded-full flex items-center justify-center shadow-xl flex-shrink-0" style={{ background: 'var(--ds-gradient-blue)' }}>
                             <persona.icon className="text-white" />
                           </div>
                           <h3 className="hf-heading-h3 hf-text-primary">{persona.title}</h3>
