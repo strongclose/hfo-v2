@@ -99,13 +99,13 @@ const exploreToolsByUserType = {
       icon: Building2,
       title: "Provider Directory",
       desc: "Browse providers and healthcare facilities.",
-      link: "/provider-directory"
+      link: "/providers"
     },
     {
       icon: Shield,
       title: "Payer Directory",
       desc: "View insurance companies and plan data.",
-      link: "/payer-directory"
+      link: "/payers"
     }
   ],
   analysts: [
@@ -125,7 +125,7 @@ const exploreToolsByUserType = {
       icon: Activity,
       title: "Data Methodology",
       desc: "See how we collect, process, and verify data.",
-      link: "/data-methodology"
+      link: "/methodology"
     }
   ],
   providers: [
