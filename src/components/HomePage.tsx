@@ -1026,29 +1026,27 @@ export default function HomePage() {
 
                         {/* CTAs */}
                         <div className="flex flex-col gap-3">
-                          <Button
+                          <button
+                            className="ds-btn-primary"
                             onClick={() => {
                               if (typeof window !== 'undefined') {
                                 window.location.href = persona.primaryCTALink;
                               }
                             }}
-                            variant="secondary"
-                            size="lg"
                           >
                             {persona.primaryCTA}
                             <ArrowRight className="w-4 h-4" />
-                          </Button>
-                          <Button
+                          </button>
+                          <button
+                            className="ds-btn-secondary"
                             onClick={() => {
                               if (typeof window !== 'undefined') {
                                 window.location.href = persona.secondaryCTALink;
                               }
                             }}
-                            variant="glass"
-                            size="lg"
                           >
                             {persona.secondaryCTA}
-                          </Button>
+                          </button>
                         </div>
                       </div>
 
