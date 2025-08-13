@@ -615,7 +615,7 @@ export function ProvidersIndexPage({
                   {/* Action Button */}
                   <div className="flex justify-end">
                     <Button
-                      onClick={() => onNavigateToProviderDetails(provider.id)}
+                      onClick={() => handleNavigateToProviderDetails(provider.id)}
                       className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6"
                     >
                       View Details
