@@ -947,10 +947,6 @@ export default function HomePage() {
           minHeight="700px"
         >
         <section>
-          {/* Standardized subtle background */}
-          <div className="absolute inset-0 hf-gradient-subtle"></div>
-          <div className="absolute inset-0 hf-overlay-secondary"></div>
-
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <div className="ds-icon mx-auto mb-8">
