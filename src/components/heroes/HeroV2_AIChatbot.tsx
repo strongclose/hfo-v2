@@ -39,29 +39,10 @@ export function HeroV2_AIChatbot({
           'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       }}
     >
-      {/* Elegant Background Design */}
+      {/* Clean Background Design */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Base gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20"></div>
-
-        {/* Floating blue accent circles */}
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-500/10 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute top-3/4 left-1/6 w-24 h-24 bg-indigo-500/15 rounded-full blur-lg animate-pulse" style={{ animationDelay: '1s' }}></div>
-
-        {/* Geometric shapes on the right */}
-        <div className="absolute top-1/3 right-1/4 w-20 h-20 bg-blue-600/20 rotate-45 animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-1/3 right-1/6 w-16 h-16 bg-indigo-600/25 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="h-full w-full" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(37,99,235,0.3) 1px, transparent 0)`,
-            backgroundSize: '50px 50px'
-          }}></div>
-        </div>
-
-        {/* Blue accent line behind chatbot */}
-        <div className="absolute top-1/2 right-0 transform -translate-y-1/2 w-1 h-96 bg-gradient-to-b from-transparent via-blue-500/30 to-transparent"></div>
       </div>
 
       {/* Main Content - Two Column Layout */}
