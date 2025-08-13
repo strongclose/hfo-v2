@@ -573,12 +573,12 @@ export default function HomePage() {
                           {/* Stats Box */}
                           <div className="inline-flex items-center gap-6 p-4 bg-blue-50 rounded-2xl border border-blue-200">
                             <div className="text-center">
-                              <p className="ds-stat-number" style="color: var(--ds-primary-blue)">6,000+</p>
+                              <p className="ds-stat-number" style={{ color: 'var(--ds-primary-blue)' }}>6,000+</p>
                               <p className="ds-stat-label text-blue-700">Providers</p>
                             </div>
                             <div className="w-px h-12 bg-blue-300"></div>
                             <div className="text-center">
-                              <p className="ds-stat-number" style="color: var(--ds-primary-blue)">400+</p>
+                              <p className="ds-stat-number" style={{ color: 'var(--ds-primary-blue)' }}>400+</p>
                               <p className="ds-stat-label text-blue-700">Payers</p>
                             </div>
                             <div className="w-px h-12 bg-blue-300"></div>
