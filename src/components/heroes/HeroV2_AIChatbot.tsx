@@ -14,7 +14,7 @@ interface HeroV2Props {
  * HeroV2_AIChatbot - Advanced Hero with AI Chatbot Integration
  *
  * Features:
- * - Dark gradient background (135deg, #0A0F1C ��� #2563EB)
+ * - Dark gradient background (135deg, #0A0F1C → #2563EB)
  * - GlobalChatbot component for AI-powered healthcare cost queries
  * - Decorative shield + magnifying glass background elements
  * - Stats row with savings/procedures/cost data
@@ -53,12 +53,12 @@ export function HeroV2_AIChatbot({
           <div className="space-y-6">
             {/* Headline */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight">
-              Healthcare Pricing Finally Transparent
+              Hospitals and insurers must now publish prices. We make them easy to search and free to use.
             </h1>
 
             {/* Subheadline */}
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
-              Ask our AI to search billions of federally mandated hospital and insurer prices. Compare cash, in-network, and out-of-network rates side by side—updated monthly.
+              We organize complex pricing data from thousands of hospitals and insurance plans into a simple tool you can use to find cash, in-network, and out-of-network prices — without logging in or paying anything.
             </p>
 
             {/* Trust Badge */}
@@ -71,10 +71,10 @@ export function HeroV2_AIChatbot({
           </div>
 
           {/* Right Column - AI Chatbot */}
-          <div className="flex justify-center lg:justify-end">
+          <div className="flex justify-center lg:justify-end w-full">
             <NoSSR
               fallback={
-                <div className="w-full max-w-md backdrop-blur-xl rounded-2xl border border-gray-300 overflow-hidden shadow-2xl h-96 flex flex-col bg-white/90">
+                <div className="w-full backdrop-blur-xl rounded-2xl border border-gray-300 overflow-hidden shadow-2xl h-[600px] flex flex-col bg-white/90">
                   <div className="p-6 flex-1 flex items-center justify-center">
                     <div className="text-gray-600 text-sm">Loading AI Assistant...</div>
                   </div>
@@ -92,11 +92,11 @@ export function HeroV2_AIChatbot({
               }
             >
               <GlobalChatbot
-                height="lg"
+                height="xl"
                 context="healthcare"
                 placeholder="Type a question to find the best healthcare prices…"
                 initialMessage="Hi there 👋 — I can help you find the best prices for your care. You can ask me something like:\n\n• Find knee replacement prices near me\n• Show providers for Aetna in Chicago\n• List cash prices for MRI in 90001"
-                className="w-full max-w-md"
+                className="w-full"
               />
             </NoSSR>
           </div>
