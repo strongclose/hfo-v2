@@ -133,7 +133,7 @@ const exploreToolsByUserType = {
       icon: CheckCircle,
       title: "Transparency Compliance",
       desc: "Check transparency compliance and explore scores.",
-      link: "/transparency/explore"
+      link: "/transparency"
     },
     {
       icon: Globe,
