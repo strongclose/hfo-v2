@@ -191,9 +191,9 @@ export function GlobalChatbot({
         <div className="relative z-10 pb-3 border-b border-teal-100/50 p-4">
           <div className="flex items-center gap-3">
             <div className="relative">
-              <Activity className="w-6 h-6 text-teal-600" strokeWidth={2} />
+              <Activity className="w-4 h-4 text-teal-600" strokeWidth={2} />
               <div className="absolute inset-0 animate-pulse">
-                <Activity className="w-6 h-6 text-teal-400 opacity-40" strokeWidth={2} />
+                <Activity className="w-4 h-4 text-teal-400 opacity-40" strokeWidth={2} />
               </div>
             </div>
             <h2 className="text-xl font-bold text-gray-900">Jake's Baby</h2>
