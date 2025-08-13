@@ -631,6 +631,12 @@
     height: 14px !important;
   }
 
+  /* Persona Card Icons - Medium size for card context */
+  .rounded-full.flex.items-center.justify-center svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
   /* Override any manual w-4 h-4 classes on persona pills */
   .flex.flex-wrap.justify-center button svg.w-4.h-4 {
     width: 14px !important;
