@@ -545,8 +545,8 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-end mb-8">
                           <div className="relative">
-                            <div className="ds-timeline-icon">
-                              <Database />
+                            <div className="ds-timeline-icon" style={{ background: 'linear-gradient(to bottom right, #ef4444, #ec4899)' }}>
+                              <Database className="text-white" />
                             </div>
                           </div>
                         </div>
@@ -722,8 +722,8 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-start mb-8">
                           <div className="relative">
-                            <div className="ds-timeline-icon">
-                              <Sparkles />
+                            <div className="ds-timeline-icon" style={{ background: 'linear-gradient(to bottom right, #f59e0b, #ea580c)' }}>
+                              <Sparkles className="text-white" />
                             </div>
                           </div>
                         </div>
@@ -794,8 +794,8 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-end mb-8">
                           <div className="relative">
-                            <div className="ds-timeline-icon">
-                              <Search />
+                            <div className="ds-timeline-icon" style={{ background: 'linear-gradient(to bottom right, #1571f6, #031d44)' }}>
+                              <Search className="text-white" />
                             </div>
                           </div>
                         </div>
