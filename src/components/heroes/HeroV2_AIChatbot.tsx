@@ -53,7 +53,8 @@ export function HeroV2_AIChatbot({
           <div className="space-y-6">
             {/* Headline */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight tracking-tight">
-              Hospitals and insurers must now publish prices. We make them easy to search and free to use.
+              Hospitals and insurers must now publish prices. We make them easy to search and{" "}
+              <span className="hf-text-gradient-primary">free to use</span>.
             </h1>
 
             {/* Subheadline */}
