@@ -188,12 +188,12 @@ export function GlobalChatbot({
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-indigo-50/30 rounded-3xl"></div>
 
         {/* Header */}
-        <div className="relative z-10 pb-3 border-b border-teal-100/50 p-4">
+        <div className="relative z-10 pb-3 border-b border-blue-100/50 p-4">
           <div className="flex items-center gap-3">
             <div className="relative">
-              <Activity className="w-4 h-4 text-teal-600" strokeWidth={2} />
+              <Activity className="w-4 h-4 text-blue-600" strokeWidth={2} />
               <div className="absolute inset-0 animate-pulse">
-                <Activity className="w-4 h-4 text-teal-400 opacity-40" strokeWidth={2} />
+                <Activity className="w-4 h-4 text-blue-400 opacity-40" strokeWidth={2} />
               </div>
             </div>
             <h2 className="text-xl font-bold text-gray-900">Jake's Baby</h2>
@@ -211,7 +211,7 @@ export function GlobalChatbot({
               <div key={message.id}>
                 {message.type === "bot" && (
                   <div className="flex gap-3">
-                    <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-white text-sm font-bold">✨</span>
                     </div>
                     <div className="flex-1">
@@ -249,13 +249,13 @@ export function GlobalChatbot({
                                         {card.hospitalName}
                                       </h4>
                                       {card.badge && (
-                                        <span className="bg-teal-100 text-teal-700 text-xs px-2 py-1 rounded-full font-medium">
+                                        <span className="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded-full font-medium">
                                           {card.badge}
                                         </span>
                                       )}
                                     </div>
                                     <div className="flex items-center gap-2">
-                                      <span className="text-2xl font-bold text-teal-600">
+                                      <span className="text-2xl font-bold text-blue-600">
                                         {card.price}
                                       </span>
                                       {card.originalPrice && (
@@ -284,7 +284,7 @@ export function GlobalChatbot({
                     <div className="bg-white backdrop-blur-sm rounded-2xl rounded-tr-md py-3 px-4 border border-gray-300 shadow-lg max-w-xs">
                       <p className="text-sm text-gray-900 font-medium">{message.content}</p>
                     </div>
-                    <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-white text-sm font-bold">You</span>
                     </div>
                   </div>
@@ -300,9 +300,9 @@ export function GlobalChatbot({
                   </div>
                   <div className="bg-white/95 backdrop-blur-sm rounded-2xl rounded-tl-md py-4 px-3 border border-gray-200 shadow-md">
                     <div className="flex items-center gap-1">
-                      <div className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-bounce"></div>
-                      <div className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-bounce [animation-delay:0.1s]"></div>
-                      <div className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-bounce [animation-delay:0.2s]"></div>
+                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce"></div>
+                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce [animation-delay:0.1s]"></div>
+                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce [animation-delay:0.2s]"></div>
                     </div>
                   </div>
                 </div>
@@ -312,13 +312,13 @@ export function GlobalChatbot({
         </div>
 
         {/* Input Area */}
-        <div className="relative z-10 pt-4 px-4 pb-2 border-t border-teal-100/50">
+        <div className="relative z-10 pt-4 px-4 pb-2 border-t border-blue-100/50">
           {!isClient ? (
             <div className="flex gap-0">
-              <div className="flex-1 h-12 bg-white/95 border-2 border-teal-200 rounded-l-xl flex items-center px-4">
+              <div className="flex-1 h-12 bg-white/95 border-2 border-blue-200 rounded-l-xl flex items-center px-4">
                 <div className="text-gray-500 text-base">{placeholder}</div>
               </div>
-              <div className="h-12 bg-gradient-to-r from-teal-600 via-blue-600 to-indigo-600 rounded-r-xl px-4 flex items-center border-2 border-l-0 border-teal-200">
+              <div className="h-12 rounded-r-xl px-4 flex items-center border-2 border-l-0 border-blue-200" style={{background: 'var(--ds-gradient-blue)'}}>
                 <span className="text-white text-sm font-medium">Ask AI</span>
               </div>
             </div>
