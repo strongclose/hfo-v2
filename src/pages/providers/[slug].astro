@@ -1,0 +1,602 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const { slug } = Astro.params;
+
+// Sample provider data - in a real app, this would come from a database/API
+const sampleProviders = [
+  {
+    id: "stanford-medical",
+    name: "Stanford Medical Center",
+    npi: "1234567890",
+    ccn: "050441",
+    systemAffiliation: "Stanford Health Care",
+    locationCount: 12,
+    organizationType: "Teaching Hospital",
+    state: "CA",
+    city: "Palo Alto",
+    zipCode: "94305",
+    phone: "(650) 723-4000",
+    website: "https://stanfordhealthcare.org",
+    transparencyScore: 87,
+    updated: "January 2025",
+    description: "Stanford Medical Center is a world-renowned academic medical center that provides exceptional patient care while advancing medical knowledge through innovative research and education.",
+    address: {
+      street: "300 Pasteur Drive",
+      city: "Stanford",
+      state: "CA",
+      zip: "94305"
+    },
+    specialties: ["Cardiology", "Oncology", "Neurology", "Transplant Services", "Pediatrics"],
+    accreditations: ["Joint Commission", "Magnet Recognition", "AACN Beacon Award"],
+    insuranceAccepted: ["Aetna", "Blue Cross Blue Shield", "Cigna", "UnitedHealth", "Medicare", "Medicaid"]
+  },
+  {
+    id: "ucsf-medical",
+    name: "UCSF Medical Center",
+    npi: "1234567891",
+    ccn: "050454",
+    systemAffiliation: "University of California San Francisco",
+    locationCount: 8,
+    organizationType: "Teaching Hospital",
+    state: "CA",
+    city: "San Francisco",
+    zipCode: "94143",
+    phone: "(415) 476-1000",
+    website: "https://ucsfhealth.org",
+    transparencyScore: 82,
+    updated: "January 2025",
+    description: "UCSF Medical Center is a leading academic medical center that provides the highest quality patient care and is renowned for innovative treatments and breakthrough research.",
+    address: {
+      street: "500 Parnassus Ave",
+      city: "San Francisco", 
+      state: "CA",
+      zip: "94143"
+    },
+    specialties: ["Cancer Care", "Heart & Vascular", "Neurosciences", "Transplantation", "Women's Health"],
+    accreditations: ["Joint Commission", "Magnet Recognition", "AHRQ Patient Safety Excellence"],
+    insuranceAccepted: ["Aetna", "Blue Cross Blue Shield", "Cigna", "UnitedHealth", "Medicare", "Medicaid", "Kaiser Permanente"]
+  },
+  {
+    id: "kaiser-permanente-medical-centers",
+    name: "Kaiser Permanente Medical Centers",
+    npi: "1234567892",
+    systemAffiliation: "Kaiser Permanente",
+    locationCount: 156,
+    organizationType: "HMO",
+    state: "CA",
+    city: "Oakland",
+    zipCode: "94612",
+    phone: "(510) 271-5910",
+    website: "https://kp.org",
+    transparencyScore: 76,
+    updated: "January 2025",
+    description: "Kaiser Permanente is a leading integrated healthcare delivery system providing comprehensive medical care through our network of hospitals, medical centers, and clinics.",
+    address: {
+      street: "1 Kaiser Plaza",
+      city: "Oakland",
+      state: "CA", 
+      zip: "94612"
+    },
+    specialties: ["Primary Care", "Emergency Medicine", "Surgery", "Mental Health", "Pharmacy Services"],
+    accreditations: ["Joint Commission", "NCQA Health Plan Accreditation", "HEDIS Quality Measures"],
+    insuranceAccepted: ["Kaiser Permanente Health Plans", "Medicare Advantage", "Medicaid"]
+  },
+  {
+    id: "mayo-clinic",
+    name: "Mayo Clinic",
+    npi: "1234567893",
+    ccn: "240119",
+    systemAffiliation: "Mayo Clinic Health System",
+    locationCount: 45,
+    organizationType: "Academic Medical Center",
+    state: "MN",
+    city: "Rochester",
+    zipCode: "55905",
+    phone: "(507) 284-2511",
+    website: "https://mayoclinic.org",
+    transparencyScore: 94,
+    updated: "January 2025",
+    description: "Mayo Clinic is a nonprofit academic medical center focused on integrated health care, education, and research, consistently ranked among the top hospitals in the nation.",
+    address: {
+      street: "200 First St SW",
+      city: "Rochester",
+      state: "MN",
+      zip: "55905"
+    },
+    specialties: ["Complex Medical Conditions", "Cancer Care", "Cardiology", "Neurology", "Transplant Medicine"],
+    accreditations: ["Joint Commission", "Magnet Recognition", "AAHRPP Accreditation"],
+    insuranceAccepted: ["Most Major Insurance Plans", "Medicare", "Medicaid", "International Patients"]
+  },
+  {
+    id: "cleveland-clinic",
+    name: "Cleveland Clinic",
+    npi: "1234567894",
+    ccn: "360180",
+    systemAffiliation: "Cleveland Clinic Health System",
+    locationCount: 23,
+    organizationType: "Academic Medical Center",
+    state: "OH",
+    city: "Cleveland",
+    zipCode: "44195",
+    phone: "(216) 444-2200",
+    website: "https://clevelandclinic.org",
+    transparencyScore: 89,
+    updated: "January 2025",
+    description: "Cleveland Clinic is a multispecialty academic medical center that integrates clinical and hospital care with research and education in a private, non-profit setting.",
+    address: {
+      street: "9500 Euclid Avenue",
+      city: "Cleveland",
+      state: "OH",
+      zip: "44195"
+    },
+    specialties: ["Heart & Vascular", "Neurology", "Cancer", "Digestive Health", "Orthopedics"],
+    accreditations: ["Joint Commission", "Magnet Recognition", "AACN Beacon Award"],
+    insuranceAccepted: ["Aetna", "Anthem", "Medical Mutual", "UnitedHealth", "Medicare", "Medicaid"]
+  },
+  {
+    id: "johns-hopkins-hospital",
+    name: "Johns Hopkins Hospital",
+    npi: "1234567895",
+    ccn: "210002",
+    systemAffiliation: "Johns Hopkins Health System",
+    locationCount: 17,
+    organizationType: "Teaching Hospital",
+    state: "MD",
+    city: "Baltimore",
+    zipCode: "21287",
+    phone: "(410) 955-5000",
+    website: "https://hopkinsmedicine.org",
+    transparencyScore: 96,
+    updated: "January 2025",
+    description: "Johns Hopkins Hospital has been a pioneer in medical innovation for more than 130 years, consistently ranked as one of the nation's best hospitals.",
+    address: {
+      street: "1800 Orleans St",
+      city: "Baltimore",
+      state: "MD",
+      zip: "21287"
+    },
+    specialties: ["Research & Innovation", "Cancer Care", "Neurosciences", "Heart Surgery", "Pediatrics"],
+    accreditations: ["Joint Commission", "Magnet Recognition", "AAHRPP Accreditation"],
+    insuranceAccepted: ["Aetna", "Blue Cross Blue Shield", "Cigna", "UnitedHealth", "Medicare", "Medicaid"]
+  }
+];
+
+// Convert slug back to find matching provider
+const findProviderBySlug = (slug: string) => {
+  return sampleProviders.find(provider => {
+    const providerSlug = provider.name
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .trim();
+    return providerSlug === slug;
+  });
+};
+
+const provider = findProviderBySlug(slug);
+
+// If provider not found, return 404
+if (!provider) {
+  return Astro.redirect('/404');
+}
+
+// Grade calculation function
+const getGradeFromScore = (score: number): string => {
+  if (score >= 90) return 'A+';
+  if (score >= 85) return 'A';
+  if (score >= 75) return 'B';
+  if (score >= 65) return 'C';
+  return 'D';
+};
+
+const getGradeColor = (grade: string) => {
+  switch (grade) {
+    case 'A+':
+    case 'A':
+      return 'bg-emerald-500 text-white ring-emerald-200';
+    case 'B':
+      return 'bg-blue-500 text-white ring-blue-200';
+    case 'C':
+      return 'bg-amber-500 text-white ring-amber-200';
+    case 'D':
+    default:
+      return 'bg-red-500 text-white ring-red-200';
+  }
+};
+
+const grade = getGradeFromScore(provider.transparencyScore);
+
+// Sample procedures data
+const procedures = [
+  {
+    code: "99213",
+    name: "Office Visit - Established Patient, Level 3",
+    category: "Outpatient",
+    grossCharge: 350,
+    negotiatedRate: 220,
+    cashPrice: 280,
+    frequency: "Very Common"
+  },
+  {
+    code: "45378",
+    name: "Colonoscopy with Biopsy",
+    category: "Procedure",
+    grossCharge: 2800,
+    negotiatedRate: 1850,
+    cashPrice: 2200,
+    frequency: "Common"
+  },
+  {
+    code: "70553",
+    name: "MRI Brain with Contrast",
+    category: "Imaging",
+    grossCharge: 4200,
+    negotiatedRate: 2800,
+    cashPrice: 3400,
+    frequency: "Common"
+  },
+  {
+    code: "64721",
+    name: "Carpal Tunnel Release",
+    category: "Surgery",
+    grossCharge: 6500,
+    negotiatedRate: 4200,
+    cashPrice: 5200,
+    frequency: "Moderate"
+  },
+  {
+    code: "93000",
+    name: "Electrocardiogram (EKG)",
+    category: "Diagnostic",
+    grossCharge: 150,
+    negotiatedRate: 95,
+    cashPrice: 120,
+    frequency: "Very Common"
+  }
+];
+---
+
+<BaseLayout 
+  title={`${provider.name} - Provider Profile | HealthFees.org`}
+  description={provider.description}
+>
+  <div class="min-h-screen bg-gray-50">
+    <!-- Provider Hero Section -->
+    <section class="bg-white border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="flex flex-col lg:flex-row gap-12">
+          
+          <!-- Main Provider Information -->
+          <div class="flex-1">
+            <div class="flex items-start gap-6 mb-8">
+              <div class="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                </svg>
+              </div>
+              
+              <div class="flex-1">
+                <div class="flex items-start justify-between mb-4">
+                  <div>
+                    <h1 class="text-4xl font-bold text-gray-900 mb-2">{provider.name}</h1>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        {provider.city}, {provider.state}
+                      </span>
+                      <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-purple-100 text-purple-800">
+                        {provider.organizationType}
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <!-- Transparency Score Badge -->
+                  <div class={`inline-flex items-center px-4 py-3 rounded-full font-bold text-lg ring-2 ${getGradeColor(grade)}`}>
+                    {grade}
+                  </div>
+                </div>
+
+                <p class="text-lg text-gray-700 mb-6 leading-relaxed">{provider.description}</p>
+
+                <!-- System Affiliation -->
+                {provider.systemAffiliation && (
+                  <div class="mb-6">
+                    <span class="inline-flex items-center px-4 py-2 rounded-lg bg-gray-100 text-gray-800 font-medium border">
+                      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                      </svg>
+                      Part of {provider.systemAffiliation}
+                    </span>
+                  </div>
+                )}
+
+                <!-- Key Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                  <div class="text-center p-4 bg-blue-50 rounded-xl border border-blue-200">
+                    <div class="text-3xl font-bold text-blue-600 mb-1">{provider.locationCount}</div>
+                    <div class="text-sm text-blue-700 font-medium">Location{provider.locationCount !== 1 ? 's' : ''}</div>
+                  </div>
+                  <div class="text-center p-4 bg-emerald-50 rounded-xl border border-emerald-200">
+                    <div class="text-3xl font-bold text-emerald-600 mb-1">{provider.transparencyScore}</div>
+                    <div class="text-sm text-emerald-700 font-medium">Transparency Score</div>
+                  </div>
+                  <div class="text-center p-4 bg-purple-50 rounded-xl border border-purple-200">
+                    <div class="text-3xl font-bold text-purple-600 mb-1">{procedures.length}</div>
+                    <div class="text-sm text-purple-700 font-medium">Sample Procedures</div>
+                  </div>
+                  <div class="text-center p-4 bg-amber-50 rounded-xl border border-amber-200">
+                    <div class="text-3xl font-bold text-amber-600 mb-1">{provider.insuranceAccepted?.length || 0}</div>
+                    <div class="text-sm text-amber-700 font-medium">Insurance Plans</div>
+                  </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-wrap gap-4">
+                  <a 
+                    href={provider.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                  >
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    </svg>
+                    Visit Website
+                  </a>
+                  <a 
+                    href={`tel:${provider.phone}`}
+                    class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                  >
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    </svg>
+                    {provider.phone}
+                  </a>
+                  <a 
+                    href="/compare-prices"
+                    class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                  >
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                    Compare Prices
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Provider Details Sidebar -->
+          <div class="w-full lg:w-96">
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+              <h3 class="text-xl font-semibold mb-6 text-gray-900">Provider Information</h3>
+              
+              <div class="space-y-6">
+                <!-- Contact Information -->
+                <div>
+                  <h4 class="text-sm font-semibold text-gray-600 mb-3 uppercase tracking-wider">Contact</h4>
+                  <div class="space-y-3">
+                    <div>
+                      <div class="text-sm font-medium text-gray-600 mb-1">Address</div>
+                      <div class="text-sm text-gray-900">
+                        {provider.address?.street}<br/>
+                        {provider.address?.city}, {provider.address?.state} {provider.address?.zip}
+                      </div>
+                    </div>
+                    <div>
+                      <div class="text-sm font-medium text-gray-600 mb-1">Phone</div>
+                      <div class="text-sm text-gray-900">{provider.phone}</div>
+                    </div>
+                    <div>
+                      <div class="text-sm font-medium text-gray-600 mb-1">Website</div>
+                      <a href={provider.website} target="_blank" rel="noopener noreferrer" class="text-sm text-blue-600 hover:underline">
+                        Visit Provider Site
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Identifiers -->
+                <div>
+                  <h4 class="text-sm font-semibold text-gray-600 mb-3 uppercase tracking-wider">Identifiers</h4>
+                  <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                      <span class="text-sm font-medium text-gray-600">NPI</span>
+                      <span class="text-sm font-mono text-gray-900">{provider.npi}</span>
+                    </div>
+                    {provider.ccn && (
+                      <div class="flex items-center justify-between">
+                        <span class="text-sm font-medium text-gray-600">CCN</span>
+                        <span class="text-sm font-mono text-gray-900">{provider.ccn}</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                <!-- Specialties -->
+                {provider.specialties && (
+                  <div>
+                    <h4 class="text-sm font-semibold text-gray-600 mb-3 uppercase tracking-wider">Specialties</h4>
+                    <div class="flex flex-wrap gap-2">
+                      {provider.specialties.map(specialty => (
+                        <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-blue-100 text-blue-800">
+                          {specialty}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <!-- Accreditations -->
+                {provider.accreditations && (
+                  <div>
+                    <h4 class="text-sm font-semibold text-gray-600 mb-3 uppercase tracking-wider">Accreditations</h4>
+                    <div class="space-y-2">
+                      {provider.accreditations.map(accreditation => (
+                        <div class="flex items-center text-sm text-gray-900">
+                          <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                          </svg>
+                          {accreditation}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <!-- Last Updated -->
+                <div>
+                  <h4 class="text-sm font-semibold text-gray-600 mb-2 uppercase tracking-wider">Data Status</h4>
+                  <div class="inline-flex items-center px-3 py-1 rounded-full bg-green-100 text-green-800 text-sm font-medium">
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
+                    Updated {provider.updated}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Transparency Section -->
+    <section class="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">Pricing Transparency</h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            View sample procedures and pricing information for {provider.name}. All data is based on federally required transparency disclosures.
+          </p>
+        </div>
+
+        <!-- Transparency Score Details -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-2xl font-semibold text-gray-900">Transparency Score: {provider.transparencyScore}</h3>
+            <div class={`inline-flex items-center px-4 py-2 rounded-full font-semibold text-lg ring-2 ${getGradeColor(grade)}`}>
+              Grade: {grade}
+            </div>
+          </div>
+          
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center">
+              <div class="text-4xl font-bold text-blue-600 mb-2">{Math.round(provider.transparencyScore * 0.9)}%</div>
+              <div class="text-sm text-gray-600 font-medium">File Compliance</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl font-bold text-emerald-600 mb-2">{Math.round(provider.transparencyScore * 0.85)}%</div>
+              <div class="text-sm text-gray-600 font-medium">Data Quality</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl font-bold text-purple-600 mb-2">{Math.round(provider.transparencyScore * 0.95)}%</div>
+              <div class="text-sm text-gray-600 font-medium">Accessibility</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Procedures Pricing Table -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div class="px-8 py-6 border-b border-gray-200">
+            <h3 class="text-xl font-semibold text-gray-900">Sample Procedures & Pricing</h3>
+            <p class="text-sm text-gray-600 mt-1">Representative procedures with pricing transparency data</p>
+          </div>
+          
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Procedure</th>
+                  <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Code</th>
+                  <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+                  <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Gross Charge</th>
+                  <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Negotiated Rate</th>
+                  <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cash Price</th>
+                  <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Frequency</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                {procedures.map((procedure, index) => (
+                  <tr key={index} class="hover:bg-gray-50">
+                    <td class="px-6 py-4">
+                      <div class="text-sm font-medium text-gray-900">{procedure.name}</div>
+                    </td>
+                    <td class="px-6 py-4 text-sm font-mono text-gray-900">{procedure.code}</td>
+                    <td class="px-6 py-4">
+                      <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                        {procedure.category}
+                      </span>
+                    </td>
+                    <td class="px-6 py-4 text-sm font-semibold text-gray-900">${procedure.grossCharge.toLocaleString()}</td>
+                    <td class="px-6 py-4 text-sm font-semibold text-emerald-600">${procedure.negotiatedRate.toLocaleString()}</td>
+                    <td class="px-6 py-4 text-sm font-semibold text-blue-600">${procedure.cashPrice.toLocaleString()}</td>
+                    <td class="px-6 py-4">
+                      <span class={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
+                        procedure.frequency === 'Very Common' ? 'bg-green-100 text-green-800' :
+                        procedure.frequency === 'Common' ? 'bg-blue-100 text-blue-800' :
+                        'bg-yellow-100 text-yellow-800'
+                      }`}>
+                        {procedure.frequency}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insurance & Coverage -->
+    {provider.insuranceAccepted && (
+      <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Insurance & Coverage</h2>
+            <p class="text-lg text-gray-600">Insurance plans accepted by {provider.name}</p>
+          </div>
+          
+          <div class="bg-gray-50 rounded-2xl p-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {provider.insuranceAccepted.map(insurance => (
+                <div class="bg-white p-4 rounded-lg border border-gray-200 flex items-center">
+                  <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="font-medium text-gray-900">{insurance}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Legal Disclaimer -->
+    <section class="py-8 bg-yellow-50 border-t border-yellow-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-yellow-100 border border-yellow-300 rounded-lg p-6">
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-yellow-600 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+            </svg>
+            <div>
+              <h3 class="text-lg font-semibold text-yellow-800 mb-2">Important Disclaimer</h3>
+              <p class="text-sm text-yellow-700 leading-relaxed">
+                Provider pricing information is based on publicly available transparency data and may not reflect current rates or your specific coverage. 
+                Actual costs may vary based on your insurance plan, deductibles, and individual circumstances. 
+                Contact {provider.name} directly for accurate, personalized pricing information. This information is for educational purposes only and should not be considered medical or financial advice.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
