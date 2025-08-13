@@ -1375,6 +1375,27 @@ const procedures = [
       </section>
     )}
 
+    <!-- Persistent CTA Block -->
+    <section class="py-16 bg-gradient-to-br from-blue-50 to-teal-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-3xl p-10 shadow-xl border border-blue-200 text-center">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">Ready to Search Procedure Prices?</h2>
+          <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            Get specific pricing information for procedures at {provider.name} and compare with other providers in your area.
+          </p>
+          <a
+            href="/search-procedure"
+            class="inline-flex items-center px-10 py-5 border border-transparent text-xl font-semibold rounded-2xl text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 shadow-lg hover:shadow-xl"
+          >
+            <svg class="w-7 h-7 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            Search Procedure Prices at This Hospital
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Legal Disclaimer -->
     <section class="py-8 bg-yellow-50 border-t border-yellow-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1385,11 +1406,16 @@ const procedures = [
             </svg>
             <div>
               <h3 class="text-lg font-semibold text-yellow-800 mb-2">Important Disclaimer</h3>
-              <p class="text-sm text-yellow-700 leading-relaxed">
-                Provider pricing information is based on publicly available transparency data and may not reflect current rates or your specific coverage. 
-                Actual costs may vary based on your insurance plan, deductibles, and individual circumstances. 
+              <p class="text-sm text-yellow-700 leading-relaxed mb-4">
+                Provider pricing information is based on publicly available transparency data and may not reflect current rates or your specific coverage.
+                Actual costs may vary based on your insurance plan, deductibles, and individual circumstances.
                 Contact {provider.name} directly for accurate, personalized pricing information. This information is for educational purposes only and should not be considered medical or financial advice.
               </p>
+              <div class="flex flex-wrap gap-4 text-sm">
+                <a href="/terms-of-use" class="text-yellow-800 hover:text-yellow-900 underline font-medium">Terms of Use</a>
+                <a href="/transparency-methodology" class="text-yellow-800 hover:text-yellow-900 underline font-medium">Transparency Methodology</a>
+                <a href="/privacy-policy" class="text-yellow-800 hover:text-yellow-900 underline font-medium">Privacy Policy</a>
+              </div>
             </div>
           </div>
         </div>
