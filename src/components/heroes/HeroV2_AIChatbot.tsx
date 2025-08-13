@@ -58,7 +58,7 @@ export function HeroV2_AIChatbot({
 
             {/* Subheadline */}
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
-              We ingest
+              We ingest complex pricing data from thousands of hospitals and insurance plans, making it searchable and accessible — without logging in or paying anything.
             </p>
 
           </div>
