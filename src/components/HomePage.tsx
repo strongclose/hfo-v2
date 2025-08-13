@@ -1337,13 +1337,20 @@ export default function HomePage() {
                     {tools.map((tool, index) => (
                       <div
                         key={index}
-                        className="ds-tool-card cursor-pointer"
+                        className={`ds-tool-card cursor-pointer relative ${tool.comingSoon ? 'opacity-75' : ''}`}
                         onClick={() => {
-                          if (typeof window !== 'undefined') {
+                          if (typeof window !== 'undefined' && !tool.comingSoon) {
                             window.location.href = tool.link;
                           }
                         }}
                       >
+                        {/* Coming Soon Badge */}
+                        {tool.comingSoon && (
+                          <div className="absolute top-4 right-4 bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full">
+                            Coming Soon
+                          </div>
+                        )}
+
                         {/* Icon */}
                         <div className="ds-icon mx-auto">
                           <tool.icon />
