@@ -81,12 +81,12 @@
   --hf-gray-800: #1f2937;
   --hf-gray-900: #111827;
 
-  /* Brand Gradients */
-  --hf-gradient-primary: linear-gradient(to right, var(--hf-blue-primary), var(--hf-indigo-primary));
-  --hf-gradient-accent: linear-gradient(to right, var(--hf-teal-primary), var(--hf-cyan-primary));
-  --hf-gradient-success: linear-gradient(to right, var(--hf-emerald-primary), var(--hf-teal-secondary));
-  --hf-gradient-purple: linear-gradient(to right, var(--hf-purple-primary), var(--hf-purple-secondary));
-  --hf-gradient-warm: linear-gradient(to right, var(--hf-amber-primary), var(--hf-orange-primary));
+  /* Brand Gradients - All using consistent blue system */
+  --hf-gradient-primary: var(--ds-gradient-blue);
+  --hf-gradient-accent: var(--ds-gradient-blue);
+  --hf-gradient-success: linear-gradient(135deg, #1571f6 0%, #1571f6 75%, #031d44 100%);
+  --hf-gradient-purple: var(--ds-gradient-blue);
+  --hf-gradient-warm: var(--ds-gradient-blue);
 
   /* Glass Effect Colors */
   --hf-glass-bg: rgba(255, 255, 255, 0.2);
