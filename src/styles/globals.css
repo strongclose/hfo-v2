@@ -526,10 +526,7 @@
     color: white;
   }
 
-  .ds-timeline-icon svg {
-    width: 24px;
-    height: 24px;
-  }
+  /* Timeline icons inherit from hierarchical system above */
 
   .ds-timeline-line {
     background: linear-gradient(to bottom, var(--ds-secondary-blue), var(--ds-primary-blue));
