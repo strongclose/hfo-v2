@@ -556,35 +556,65 @@
     margin: 12px 0 8px 0;
   }
 
-  /* Contextual Icon Overrides for Specific Layouts */
+  /* Specific Layout Pattern Overrides */
 
-  /* Persona Pills - Small icons for compact display */
-  .persona-pill svg,
-  .filter-pill svg,
-  .tag svg {
+  /* Section Headers - Always prominent */
+  .text-center.mb-16 .ds-icon svg,
+  .section-intro .ds-icon svg,
+  .page-section > .text-center .ds-icon svg {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  /* Persona/Tab Pills - Always small for compact layout */
+  .flex.flex-wrap button svg,
+  .persona-tabs button svg,
+  .tab-navigation button svg,
+  .pill-navigation svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  /* Hero Section Check Circle - Medium for visibility */
+  .hero .inline-flex.items-center svg,
+  .hero-badge svg {
     width: 16px !important;
     height: 16px !important;
   }
 
-  /* Hero Section - Medium icons for prominence without overwhelming */
-  .hero svg:not(button svg) {
+  /* Card Headers vs Card Content */
+  .card-header svg {
     width: 20px !important;
     height: 20px !important;
   }
 
-  /* Card Content - Small icons for supportive role */
-  .card-content svg:not(.card-header svg),
-  .content-area svg:not(h1 svg):not(h2 svg):not(h3 svg):not(h4 svg) {
+  .card-content svg:not(.card-header svg) {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  /* Avatar/Profile areas */
+  .avatar svg,
+  .profile-icon svg,
+  .user-avatar svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  /* Statistics and Metrics */
+  .stat-container svg,
+  .metric-icon svg,
+  .data-point svg {
     width: 16px !important;
     height: 16px !important;
   }
 
-  /* Statistics/Metrics - Slightly larger for emphasis */
-  .stat svg,
-  .metric svg,
-  .stat-icon svg {
-    width: 20px !important;
-    height: 20px !important;
+  /* Progress and Status indicators */
+  .progress-icon svg,
+  .status-icon svg,
+  .completion-icon svg {
+    width: 12px !important;
+    height: 12px !important;
   }
 
   /* Legacy Button Classes (keeping for backward compatibility) */
