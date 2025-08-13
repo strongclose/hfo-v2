@@ -58,7 +58,12 @@ export function HeroV2_AIChatbot({
 
             {/* Subheadline */}
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
-              We ingest and organize federally required pricing data from thousands of hospitals and insurance plans. Our friendly and intelligent tool helps you navigate trillions of rows of data to access and compare cash, in network, and out of network prices. Pricing is updated every month to keep the information current and reliable.
+              We ingest and organize federally required pricing data from thousands of hospitals and insurance plans. Our friendly and intelligent tool helps you navigate trillions of rows of data to access and compare cash, in network, and out of network prices.
+            </p>
+
+            {/* Micro-copy for data freshness */}
+            <p className="text-sm text-gray-500 font-normal">
+              Pricing is updated every month to keep the information current and reliable.
             </p>
 
           </div>
