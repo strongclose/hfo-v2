@@ -182,7 +182,7 @@ export function GlobalChatbot({
   return (
     <div className={`max-w-2xl w-full ${className}`} style={style}>
       <div
-        className={`bg-gradient-to-br from-white via-gray-50 to-blue-50 border-2 border-gray-200 rounded-3xl shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 ${heightClasses[height]} flex flex-col relative overflow-hidden`}
+        className={`bg-gradient-to-br from-white via-gray-50 to-blue-50 border-2 border-gray-200 rounded-3xl shadow-2xl shadow-blue-600/30 hover:shadow-blue-600/40 transition-all duration-500 ${heightClasses[height]} flex flex-col relative overflow-hidden`}
       >
         {/* Subtle internal highlight */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-indigo-50/30 rounded-3xl"></div>
