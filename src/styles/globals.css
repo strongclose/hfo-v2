@@ -278,7 +278,7 @@
     --ds-primary-blue: #1571f6;
     --ds-secondary-blue: #031d44;
     --ds-light-gray: #f4f6f8;
-    --ds-gradient-blue: linear-gradient(135deg, #1571f6 0%, #031d44 100%);
+    --ds-gradient-blue: linear-gradient(135deg, #1571f6 0%, #1571f6 75%, #031d44 100%);
     --ds-shadow-soft: rgba(0, 0, 0, 0.05);
     --ds-shadow-hover: rgba(0, 0, 0, 0.1);
   }
