@@ -60,6 +60,29 @@ export function ProvidersIndexPage({
   onNavigateToProviderDetails,
   onNavigateToDisclosures,
 }: ProvidersIndexPageProps) {
+
+  // Default navigation handlers for when props are not provided (Astro hydration issue)
+  const handleNavigateToProviderDetails = (providerId: string) => {
+    if (onNavigateToProviderDetails && typeof onNavigateToProviderDetails === 'function') {
+      onNavigateToProviderDetails(providerId);
+    } else {
+      // Fallback navigation
+      if (typeof window !== 'undefined') {
+        window.location.href = `/providers/${providerId}`;
+      }
+    }
+  };
+
+  const handleNavigateToDisclosures = () => {
+    if (onNavigateToDisclosures && typeof onNavigateToDisclosures === 'function') {
+      onNavigateToDisclosures();
+    } else {
+      // Fallback navigation
+      if (typeof window !== 'undefined') {
+        window.location.href = "/disclosures";
+      }
+    }
+  };
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedState, setSelectedState] = useState("");
   const [selectedOrgType, setSelectedOrgType] = useState("");
