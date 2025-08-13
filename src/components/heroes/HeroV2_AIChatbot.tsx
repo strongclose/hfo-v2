@@ -14,7 +14,7 @@ interface HeroV2Props {
  * HeroV2_AIChatbot - Advanced Hero with AI Chatbot Integration
  *
  * Features:
- * - Dark gradient background (135deg, #0A0F1C → #2563EB)
+ * - Dark gradient background (135deg, #0A0F1C ��� #2563EB)
  * - GlobalChatbot component for AI-powered healthcare cost queries
  * - Decorative shield + magnifying glass background elements
  * - Stats row with savings/procedures/cost data
@@ -46,69 +46,60 @@ export function HeroV2_AIChatbot({
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(124,58,237,0.05),transparent_50%)]"></div>
       </div>
 
-      {/* Main Content - Centered */}
-      <div className="relative z-30 flex flex-col items-center justify-center min-h-[calc(100vh-96px)] text-center px-6 max-w-7xl mx-auto">
-        {/* Headline */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 leading-tight max-w-6xl tracking-tight">
-          Healthcare Pricing Finally Transparent
-        </h1>
+      {/* Main Content - Two Column Layout */}
+      <div className="relative z-30 flex items-center min-h-[calc(100vh-96px)] px-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full items-center">
+          {/* Left Column - Text Content */}
+          <div className="space-y-6">
+            {/* Headline */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight">
+              Healthcare Pricing Finally Transparent
+            </h1>
 
-        {/* Subheadline */}
-        <p className="text-lg md:text-xl text-gray-700 mb-4 max-w-4xl leading-relaxed font-light">
-          Ask our AI to search billions of federally mandated hospital and insurer prices. Compare cash, in-network, and out-of-network rates side by side—updated monthly.
-        </p>
+            {/* Subheadline */}
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
+              Ask our AI to search billions of federally mandated hospital and insurer prices. Compare cash, in-network, and out-of-network rates side by side—updated monthly.
+            </p>
 
-        {/* Trust Badge */}
-        <div className="inline-flex items-center px-6 py-3 rounded-full bg-green-50 border border-green-200 mb-8">
-          <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
-          <span className="text-green-800 font-medium text-sm">
-            Powered by government-mandated data. Updated monthly.
-          </span>
-        </div>
+            {/* Trust Badge */}
+            <div className="inline-flex items-center px-6 py-3 rounded-full bg-green-50 border border-green-200">
+              <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
+              <span className="text-green-800 font-medium text-sm">
+                Powered by government-mandated data. Updated monthly.
+              </span>
+            </div>
+          </div>
 
-        {/* Global Chatbot Component */}
-        <NoSSR
-          fallback={
-            <div className="max-w-4xl backdrop-blur-xl rounded-2xl border border-gray-300 overflow-hidden shadow-2xl h-64 flex flex-col bg-white/90">
-              <div className="p-6 flex-1 flex items-center justify-center">
-                <div className="text-gray-600 text-sm">Loading AI Assistant...</div>
-              </div>
-              <div className="pt-4 px-4 pb-2 border-t border-gray-200">
-                <div className="flex gap-3">
-                  <div className="flex-1 bg-gray-100 rounded-xl px-4 py-3">
-                    <div className="text-gray-500 text-sm">Type a question to find the best healthcare prices…</div>
+          {/* Right Column - AI Chatbot */}
+          <div className="flex justify-center lg:justify-end">
+            <NoSSR
+              fallback={
+                <div className="w-full max-w-md backdrop-blur-xl rounded-2xl border border-gray-300 overflow-hidden shadow-2xl h-96 flex flex-col bg-white/90">
+                  <div className="p-6 flex-1 flex items-center justify-center">
+                    <div className="text-gray-600 text-sm">Loading AI Assistant...</div>
                   </div>
-                  <div className="px-6 py-3 bg-blue-600 rounded-xl text-white text-sm">
-                    Ask AI
+                  <div className="pt-4 px-4 pb-2 border-t border-gray-200">
+                    <div className="flex gap-3">
+                      <div className="flex-1 bg-gray-100 rounded-xl px-4 py-3">
+                        <div className="text-gray-500 text-sm">Type a question to find the best healthcare prices…</div>
+                      </div>
+                      <div className="px-6 py-3 bg-blue-600 rounded-xl text-white text-sm">
+                        Ask AI
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          }
-        >
-          <GlobalChatbot
-            height="sm"
-            context="healthcare"
-            placeholder="Type a question to find the best healthcare prices…"
-            initialMessage="Hi there 👋 — I can help you find the best prices for your care. You can ask me something like:\n\n• Find knee replacement prices near me\n• Show providers for Aetna in Chicago\n• List cash prices for MRI in 90001"
-            className="max-w-4xl"
-          />
-        </NoSSR>
-
-        {/* Primary CTA */}
-        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button
-            onClick={() => {
-              if (typeof window !== 'undefined') {
-                window.location.href = '/search-procedure';
               }
-            }}
-            className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl shadow-lg hover:from-blue-700 hover:to-indigo-700 hover:scale-105 transition-all duration-300 flex items-center gap-2"
-          >
-            Start Comparing Prices
-            <ArrowRight className="w-5 h-5" />
-          </button>
-          <p className="text-gray-600 text-sm">Or ask our AI above for instant answers</p>
+            >
+              <GlobalChatbot
+                height="lg"
+                context="healthcare"
+                placeholder="Type a question to find the best healthcare prices…"
+                initialMessage="Hi there 👋 — I can help you find the best prices for your care. You can ask me something like:\n\n• Find knee replacement prices near me\n• Show providers for Aetna in Chicago\n• List cash prices for MRI in 90001"
+                className="w-full max-w-md"
+              />
+            </NoSSR>
+          </div>
         </div>
       </div>
     </div>
