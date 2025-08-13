@@ -872,7 +872,7 @@ export default function HomePage() {
                 </p>
                 <div className="flex justify-center gap-4">
                   <button
-                    className="btn-primary"
+                    className="ds-btn-primary"
                     onClick={() => {
                       if (typeof window !== 'undefined') {
                         window.location.href = "/search-procedure";
@@ -882,7 +882,7 @@ export default function HomePage() {
                     Start Comparing Prices
                   </button>
                   <button
-                    className="btn-secondary"
+                    className="ds-btn-secondary"
                     onClick={() => {
                       if (typeof window !== 'undefined') {
                         window.location.href = "/how-it-works";
