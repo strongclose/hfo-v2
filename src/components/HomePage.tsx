@@ -514,14 +514,10 @@ export default function HomePage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-blue-500/25 hf-gradient-accent">
                 <Workflow className="w-8 h-8 text-white" />
               </div>
-              <h2 className="hf-heading-h2 mb-6 hf-text-primary tracking-tight">
-                How It
-                <span className="hf-text-gradient-primary">
-                  {" "}
-                  Works
-                </span>
+              <h2 className="ds-h2 mb-6 text-gray-900">
+                How It Works
               </h2>
-              <p className="hf-body-large hf-text-secondary max-w-3xl mx-auto">
+              <p className="ds-body text-gray-600 max-w-3xl mx-auto">
                 From scattered government files to instant price comparisons — here's how we make healthcare pricing transparent.
               </p>
             </div>
@@ -549,21 +545,21 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-end mb-8">
                           <div className="relative">
-                            <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300 hf-gradient-primary">
-                              <Database className="w-6 h-6 text-white" fill="none" stroke="currentColor" />
+                            <div className="ds-timeline-icon">
+                              <Database />
                             </div>
                           </div>
                         </div>
 
                         <div className="text-center lg:text-right">
                           <div className="flex items-center justify-center lg:justify-end gap-2 mb-4">
-                            <h3 className="hf-heading-h3 hf-text-primary">We Collect</h3>
+                            <h3 className="ds-h3 text-gray-900">We Collect</h3>
                             <Tooltip content="Federal law requires providers and payers to publish machine-readable files with their negotiated rates under transparency regulations.">
                               <Info className="w-5 h-5 text-blue-500 cursor-help" />
                             </Tooltip>
                           </div>
                           
-                          <div className="hf-body-medium hf-text-secondary mb-6">
+                          <div className="ds-body text-gray-600 mb-6">
                             <Tooltip content="The Hospital Price Transparency Final Rule (45 CFR ����180) requires providers to publish machine-readable files with all their negotiated rates.">
                               <span className="underline decoration-blue-300 decoration-2 cursor-help">Federal law</span>
                             </Tooltip>
@@ -577,13 +573,13 @@ export default function HomePage() {
                           {/* Stats Box */}
                           <div className="inline-flex items-center gap-6 p-4 bg-blue-50 rounded-2xl border border-blue-200">
                             <div className="text-center">
-                              <p className="text-2xl font-bold text-blue-600">6,000+</p>
-                              <p className="text-sm text-blue-700 font-medium">Providers</p>
+                              <p className="ds-stat-number" style="color: var(--ds-primary-blue)">6,000+</p>
+                              <p className="ds-stat-label text-blue-700">Providers</p>
                             </div>
                             <div className="w-px h-12 bg-blue-300"></div>
                             <div className="text-center">
-                              <p className="text-2xl font-bold text-blue-600">400+</p>
-                              <p className="text-sm text-blue-700 font-medium">Payers</p>
+                              <p className="ds-stat-number" style="color: var(--ds-primary-blue)">400+</p>
+                              <p className="ds-stat-label text-blue-700">Payers</p>
                             </div>
                             <div className="w-px h-12 bg-blue-300"></div>
                             <div className="text-center flex items-center gap-1">
