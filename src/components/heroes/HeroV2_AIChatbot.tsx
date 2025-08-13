@@ -61,10 +61,13 @@ export function HeroV2_AIChatbot({
               We ingest and organize federally required pricing data from thousands of hospitals and insurance plans. Our friendly and intelligent tool helps you navigate trillions of rows of data to access and compare cash, in network, and out of network prices.
             </p>
 
-            {/* Micro-copy for data freshness */}
-            <p className="text-sm text-gray-500 font-normal">
-              Pricing is updated every month to keep the information current and reliable.
-            </p>
+            {/* Data freshness pill */}
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-50 border border-green-200">
+              <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
+              <span className="text-green-800 font-medium text-sm">
+                Pricing is updated every month to keep the information current and reliable.
+              </span>
+            </div>
 
           </div>
 
