@@ -524,9 +524,9 @@ export default function HomePage() {
 
             {/* Enhanced Timeline with Rich Content */}
             <div className="relative">
-              {/* Animated Connection Line - Desktop */}
-              <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 transform -translate-x-1/2">
-                <div className="h-full bg-gradient-to-b from-blue-700 via-purple-700 to-emerald-700 rounded-full shadow-lg">
+              {/* Connection Line - Desktop */}
+              <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 transform -translate-x-1/2">
+                <div className="h-full ds-timeline-line">
                 </div>
               </div>
 
