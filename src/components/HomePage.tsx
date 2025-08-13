@@ -933,7 +933,7 @@ export default function HomePage() {
                   value: "$3,200",
                   label: "Average savings when patients compare prices before care",
                   icon: DollarSign,
-                  color: "linear-gradient(to bottom right, #10b981, #0d9488)"
+                  color: "linear-gradient(to bottom right, #1571f6, #031d44)"
                 }
               ]}
             />
