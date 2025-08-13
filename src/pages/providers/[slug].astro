@@ -1,5 +1,29 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  // Sample provider data for static path generation
+  const providers = [
+    "Stanford Medical Center",
+    "UCSF Medical Center",
+    "Kaiser Permanente Medical Centers",
+    "Mayo Clinic",
+    "Cleveland Clinic",
+    "Johns Hopkins Hospital"
+  ];
+
+  return providers.map(name => ({
+    params: {
+      slug: name
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .trim()
+    }
+  }));
+}
+
 const { slug } = Astro.params;
 
 // Sample provider data - in a real app, this would come from a database/API
