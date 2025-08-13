@@ -1,0 +1,442 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Navigation } from '../../components/Navigation';
+import { FooterExpanded } from '../../components/homepage/FooterExpanded';
+---
+
+<BaseLayout 
+  title="Compare Prices Across Providers and Plans | HealthFees.org"
+  description="Search by name, NPI, or payer ID to see prices, transparency scores, and updates. Compare providers and payers with detailed transparency profiles."
+>
+  <div class="min-h-screen bg-gray-50">
+    <!-- Global Navigation -->
+    <Navigation client:load />
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-blue-50 via-white to-indigo-50 pt-24 pb-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+            Compare Prices Across Providers and Plans
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed">
+            Search by name, NPI, or payer ID to see prices, transparency scores, and updates.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search Interface -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Search Bar -->
+        <div class="max-w-4xl mx-auto mb-12">
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
+              <svg class="h-6 w-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+            </div>
+            <input 
+              type="text" 
+              class="block w-full pl-16 pr-6 py-6 text-xl border border-gray-300 rounded-2xl bg-white shadow-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+              placeholder="Search any provider or payer..."
+              id="transparency-search"
+            >
+          </div>
+        </div>
+
+        <!-- Filters Section -->
+        <div class="bg-gray-50 rounded-2xl p-8 mb-12">
+          <h3 class="text-2xl font-bold text-gray-900 mb-8">Filters</h3>
+          
+          <div class="grid lg:grid-cols-5 gap-6">
+            <!-- Entity Type -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-3">Entity Type</label>
+              <select class="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                <option value="">All Types</option>
+                <option value="provider">Provider</option>
+                <option value="payer">Payer</option>
+              </select>
+            </div>
+
+            <!-- State -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-3">State</label>
+              <select class="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                <option value="">All States</option>
+                <option value="CA">California</option>
+                <option value="NY">New York</option>
+                <option value="TX">Texas</option>
+                <option value="FL">Florida</option>
+                <option value="OH">Ohio</option>
+                <option value="PA">Pennsylvania</option>
+              </select>
+            </div>
+
+            <!-- Transparency Score -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-3">Transparency Score</label>
+              <select class="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                <option value="">All Scores</option>
+                <option value="90-100">90-100 (A+)</option>
+                <option value="85-89">85-89 (A)</option>
+                <option value="75-84">75-84 (B)</option>
+                <option value="65-74">65-74 (C)</option>
+                <option value="0-64">0-64 (D)</option>
+              </select>
+            </div>
+
+            <!-- Network Type -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-3">Network Type</label>
+              <select class="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                <option value="">All Networks</option>
+                <option value="HMO">HMO</option>
+                <option value="PPO">PPO</option>
+                <option value="EPO">EPO</option>
+                <option value="POS">POS</option>
+              </select>
+            </div>
+
+            <!-- Plan or Group Name -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-3">Plan/Group Name</label>
+              <input 
+                type="text" 
+                class="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="Plan name..."
+              >
+            </div>
+          </div>
+
+          <!-- Sort Options -->
+          <div class="mt-8 pt-8 border-t border-gray-200">
+            <label class="block text-sm font-semibold text-gray-700 mb-3">Sort Options</label>
+            <div class="flex flex-wrap gap-3">
+              <button class="px-4 py-2 text-sm font-medium rounded-lg bg-blue-100 text-blue-700 border border-blue-200 hover:bg-blue-200 transition-colors">
+                Transparency Score
+              </button>
+              <button class="px-4 py-2 text-sm font-medium rounded-lg bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-200 transition-colors">
+                Last Updated
+              </button>
+              <button class="px-4 py-2 text-sm font-medium rounded-lg bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-200 transition-colors">
+                Median Price
+              </button>
+              <button class="px-4 py-2 text-sm font-medium rounded-lg bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-200 transition-colors">
+                Alphabetical (A to Z)
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="mb-8">
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-2xl font-bold text-gray-900">Search Results</h3>
+            <span class="text-gray-600">Showing 1,247 results</span>
+          </div>
+
+          <!-- Sample Results Cards -->
+          <div class="grid lg:grid-cols-2 gap-6">
+            
+            <!-- Provider Card 1 -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
+              <div class="flex justify-between items-start mb-6">
+                <div>
+                  <h4 class="text-xl font-bold text-gray-900 mb-2">Johns Hopkins Hospital</h4>
+                  <div class="flex items-center space-x-3">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                      Provider
+                    </span>
+                    <span class="text-gray-600">Baltimore, MD</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="inline-flex items-center px-4 py-2 rounded-full font-bold text-lg bg-emerald-500 text-white ring-4 ring-emerald-200 shadow-lg mb-2">
+                    A+
+                  </div>
+                  <div class="text-sm text-emerald-700 font-semibold">Transparency Score</div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-6 mb-6">
+                <div>
+                  <div class="text-sm text-gray-600 mb-1">Last File Update</div>
+                  <div class="text-lg font-semibold text-gray-900">January 2025</div>
+                </div>
+                <div>
+                  <div class="text-sm text-gray-600 mb-1">Most Common Procedure</div>
+                  <div class="text-lg font-semibold text-gray-900">Office Visit</div>
+                </div>
+              </div>
+
+              <div class="mb-6">
+                <div class="text-sm text-gray-600 mb-2">Median Price Range</div>
+                <div class="bg-gray-50 rounded-lg p-4">
+                  <div class="flex justify-between items-center">
+                    <span class="text-sm text-gray-600">Cash Price</span>
+                    <span class="text-lg font-bold text-green-600">$280</span>
+                  </div>
+                  <div class="flex justify-between items-center mt-2">
+                    <span class="text-sm text-gray-600">Insurance Rate</span>
+                    <span class="text-lg font-bold text-blue-600">$220</span>
+                  </div>
+                </div>
+              </div>
+
+              <a 
+                href="/providers/johns-hopkins-hospital"
+                class="inline-flex items-center px-6 py-3 border border-transparent text-base font-semibold rounded-xl text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 w-full justify-center"
+              >
+                View Transparency Profile
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+
+            <!-- Payer Card 1 -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
+              <div class="flex justify-between items-start mb-6">
+                <div>
+                  <h4 class="text-xl font-bold text-gray-900 mb-2">Kaiser Permanente</h4>
+                  <div class="flex items-center space-x-3">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-emerald-100 text-emerald-800">
+                      Payer
+                    </span>
+                    <span class="text-gray-600">Oakland, CA</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="inline-flex items-center px-4 py-2 rounded-full font-bold text-lg bg-emerald-500 text-white ring-4 ring-emerald-200 shadow-lg mb-2">
+                    A+
+                  </div>
+                  <div class="text-sm text-emerald-700 font-semibold">Transparency Score</div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-6 mb-6">
+                <div>
+                  <div class="text-sm text-gray-600 mb-1">Last File Update</div>
+                  <div class="text-lg font-semibold text-gray-900">January 2025</div>
+                </div>
+                <div>
+                  <div class="text-sm text-gray-600 mb-1">Members</div>
+                  <div class="text-lg font-semibold text-gray-900">12.4M</div>
+                </div>
+              </div>
+
+              <div class="mb-6">
+                <div class="text-sm text-gray-600 mb-2">Plan Premium Range</div>
+                <div class="bg-gray-50 rounded-lg p-4">
+                  <div class="flex justify-between items-center">
+                    <span class="text-sm text-gray-600">Individual Plans</span>
+                    <span class="text-lg font-bold text-blue-600">$325-485/mo</span>
+                  </div>
+                  <div class="flex justify-between items-center mt-2">
+                    <span class="text-sm text-gray-600">Medicare Advantage</span>
+                    <span class="text-lg font-bold text-purple-600">$89/mo</span>
+                  </div>
+                </div>
+              </div>
+
+              <a 
+                href="/payers/kaiser-permanente"
+                class="inline-flex items-center px-6 py-3 border border-transparent text-base font-semibold rounded-xl text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 w-full justify-center"
+              >
+                View Transparency Profile
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+
+            <!-- Provider Card 2 -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
+              <div class="flex justify-between items-start mb-6">
+                <div>
+                  <h4 class="text-xl font-bold text-gray-900 mb-2">Mayo Clinic</h4>
+                  <div class="flex items-center space-x-3">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                      Provider
+                    </span>
+                    <span class="text-gray-600">Rochester, MN</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="inline-flex items-center px-4 py-2 rounded-full font-bold text-lg bg-emerald-500 text-white ring-4 ring-emerald-200 shadow-lg mb-2">
+                    A+
+                  </div>
+                  <div class="text-sm text-emerald-700 font-semibold">Transparency Score</div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-6 mb-6">
+                <div>
+                  <div class="text-sm text-gray-600 mb-1">Last File Update</div>
+                  <div class="text-lg font-semibold text-gray-900">December 2024</div>
+                </div>
+                <div>
+                  <div class="text-sm text-gray-600 mb-1">Most Common Procedure</div>
+                  <div class="text-lg font-semibold text-gray-900">Colonoscopy</div>
+                </div>
+              </div>
+
+              <div class="mb-6">
+                <div class="text-sm text-gray-600 mb-2">Median Price Range</div>
+                <div class="bg-gray-50 rounded-lg p-4">
+                  <div class="flex justify-between items-center">
+                    <span class="text-sm text-gray-600">Cash Price</span>
+                    <span class="text-lg font-bold text-green-600">$3,200</span>
+                  </div>
+                  <div class="flex justify-between items-center mt-2">
+                    <span class="text-sm text-gray-600">Insurance Rate</span>
+                    <span class="text-lg font-bold text-blue-600">$2,100</span>
+                  </div>
+                </div>
+              </div>
+
+              <a 
+                href="/providers/mayo-clinic"
+                class="inline-flex items-center px-6 py-3 border border-transparent text-base font-semibold rounded-xl text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 w-full justify-center"
+              >
+                View Transparency Profile
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+
+            <!-- Payer Card 2 -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
+              <div class="flex justify-between items-start mb-6">
+                <div>
+                  <h4 class="text-xl font-bold text-gray-900 mb-2">UnitedHealthcare</h4>
+                  <div class="flex items-center space-x-3">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-emerald-100 text-emerald-800">
+                      Payer
+                    </span>
+                    <span class="text-gray-600">Minnetonka, MN</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="inline-flex items-center px-4 py-2 rounded-full font-bold text-lg bg-amber-500 text-white ring-4 ring-amber-200 shadow-lg mb-2">
+                    B
+                  </div>
+                  <div class="text-sm text-amber-700 font-semibold">Transparency Score</div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-6 mb-6">
+                <div>
+                  <div class="text-sm text-gray-600 mb-1">Last File Update</div>
+                  <div class="text-lg font-semibold text-gray-900">November 2024</div>
+                </div>
+                <div>
+                  <div class="text-sm text-gray-600 mb-1">Members</div>
+                  <div class="text-lg font-semibold text-gray-900">56.0M</div>
+                </div>
+              </div>
+
+              <div class="mb-6">
+                <div class="text-sm text-gray-600 mb-2">Plan Premium Range</div>
+                <div class="bg-gray-50 rounded-lg p-4">
+                  <div class="flex justify-between items-center">
+                    <span class="text-sm text-gray-600">Individual Plans</span>
+                    <span class="text-lg font-bold text-blue-600">$465-590/mo</span>
+                  </div>
+                  <div class="flex justify-between items-center mt-2">
+                    <span class="text-sm text-gray-600">Medicare Advantage</span>
+                    <span class="text-lg font-bold text-purple-600">$125/mo</span>
+                  </div>
+                </div>
+              </div>
+
+              <a 
+                href="/payers/unitedhealth-group"
+                class="inline-flex items-center px-6 py-3 border border-transparent text-base font-semibold rounded-xl text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 w-full justify-center"
+              >
+                View Transparency Profile
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Load More Button -->
+          <div class="text-center mt-12">
+            <button class="inline-flex items-center px-8 py-4 border border-gray-300 text-lg font-semibold rounded-xl text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 shadow-lg hover:shadow-xl">
+              Load More Results
+              <svg class="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-gradient-to-br from-blue-50 to-teal-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-3xl p-10 shadow-xl border border-blue-200 text-center">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">Don't See Your Provider or Payer?</h2>
+          <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            Help us improve transparency by submitting updated files or requesting an audit for better compliance.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a 
+              href="/transparency/upload"
+              class="inline-flex items-center px-8 py-4 border border-transparent text-lg font-semibold rounded-xl text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 transition-all duration-200 shadow-lg hover:shadow-xl"
+            >
+              <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+              </svg>
+              Submit Updated Files
+            </a>
+            <a 
+              href="/transparency/audit"
+              class="inline-flex items-center px-8 py-4 border border-blue-300 text-lg font-semibold rounded-xl text-blue-700 bg-blue-50 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 shadow-lg hover:shadow-xl"
+            >
+              <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Request Audit Services
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Global Footer -->
+    <FooterExpanded client:load />
+  </div>
+
+  <script>
+    // Basic search functionality
+    document.getElementById('transparency-search')?.addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+      // In a real implementation, this would trigger API calls to filter results
+      console.log('Searching for:', searchTerm);
+    });
+
+    // Sort button functionality
+    document.querySelectorAll('button[class*="px-4 py-2"]').forEach(button => {
+      button.addEventListener('click', function() {
+        // Remove active state from all buttons
+        document.querySelectorAll('button[class*="px-4 py-2"]').forEach(btn => {
+          btn.className = btn.className.replace('bg-blue-100 text-blue-700 border-blue-200', 'bg-gray-100 text-gray-700 border-gray-200');
+        });
+        
+        // Add active state to clicked button
+        this.className = this.className.replace('bg-gray-100 text-gray-700 border-gray-200', 'bg-blue-100 text-blue-700 border-blue-200');
+      });
+    });
+  </script>
+</BaseLayout>
