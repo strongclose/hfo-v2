@@ -690,7 +690,7 @@ export default function HomePage() {
                                   className={`h-full rounded-full transition-all duration-1000 ease-out ${
                                     stage.isSearchIndexing
                                       ? 'bg-gradient-to-r from-orange-500 to-orange-600'
-                                      : 'bg-gradient-to-r from-teal-500 to-blue-600'
+                                      : 'bg-gradient-to-r from-blue-500 to-blue-600'
                                   }`}
                                   style={{
                                     width: `${stage.progress}%`,
@@ -1081,12 +1081,12 @@ export default function HomePage() {
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div className="text-center mb-16">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-teal-500/25 hf-gradient-accent">
+              <div className="ds-icon mx-auto mb-8">
                 <Shield className="w-8 h-8 text-white" />
               </div>
               <h2 className="hf-heading-h2 mb-6 hf-text-primary tracking-tight">
                 Transparency Scoring
-                <span className="text-teal-700">
+                <span className="text-blue-700">
                   {" "}
                   & Compliance Support
                 </span>
@@ -1102,7 +1102,7 @@ export default function HomePage() {
               {/* Left Column - Leaderboard Snapshot */}
               <div>
                 <h3 className="hf-heading-h3 hf-text-primary mb-8 flex items-center gap-3">
-                  <TrendingUp className="w-4 h-4 text-teal-600" />
+                  <TrendingUp className="w-4 h-4 text-blue-600" />
                   Top Transparency Leaders
                 </h3>
 
@@ -1247,9 +1247,9 @@ export default function HomePage() {
                 </div>
 
                 {/* Support Box */}
-                <div className="hf-card p-6 mb-6 border-teal-300">
+                <div className="hf-card p-6 mb-6 border-blue-300">
                   <h4 className="hf-heading-h4 hf-text-primary mb-3 flex items-center gap-2">
-                    <Lightbulb className="w-4 h-4 text-teal-600" />
+                    <Lightbulb className="w-4 h-4 text-blue-600" />
                     Our Support
                   </h4>
                   <p className="hf-text-primary mb-4 font-medium">
