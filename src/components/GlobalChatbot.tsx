@@ -33,14 +33,14 @@ const heightClasses = {
   sm: "h-64",
   md: "h-80",
   lg: "h-96",
-  xl: "h-[32rem]",
+  xl: "h-[600px]",
 };
 
 const chatHeightClasses = {
   sm: "h-32",
   md: "h-48",
   lg: "h-64",
-  xl: "h-80",
+  xl: "h-[480px]",
 };
 
 export function GlobalChatbot({
