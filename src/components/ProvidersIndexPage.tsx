@@ -27,6 +27,9 @@ import {
   CreditCard,
   FileText,
   ExternalLink,
+  Filter,
+  SortAsc,
+  X,
 } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
@@ -60,6 +63,9 @@ export function ProvidersIndexPage({
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedState, setSelectedState] = useState("");
   const [selectedOrgType, setSelectedOrgType] = useState("");
+  const [selectedScores, setSelectedScores] = useState<string[]>([]);
+  const [selectedSystems, setSelectedSystems] = useState<string[]>([]);
+  const [sortBy, setSortBy] = useState("score");
   const [filteredProviders, setFilteredProviders] = useState<Provider[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -206,122 +212,60 @@ export function ProvidersIndexPage({
     return 'D';
   };
 
-  // Grade chip component with conditional colors
-  const GradeChip = ({ score, tooltip }: {
-    score: number;
-    tooltip: string;
-  }) => {
+  // Enhanced Grade Badge component
+  const GradeBadge = ({ score }: { score: number }) => {
     const grade = getGradeFromScore(score);
 
-    const getChipColor = (grade: string) => {
+    const getBadgeStyles = (grade: string) => {
       switch (grade) {
-        case 'A':
         case 'A+':
-          return '#00A651'; // Green
+        case 'A':
+          return {
+            bg: 'bg-emerald-500',
+            text: 'text-white',
+            ring: 'ring-emerald-200'
+          };
         case 'B':
-        case 'B+':
-          return '#F59E0B'; // Yellow/Amber
+          return {
+            bg: 'bg-blue-500',
+            text: 'text-white',
+            ring: 'ring-blue-200'
+          };
         case 'C':
-        case 'C+':
-          return '#F97316'; // Orange
+          return {
+            bg: 'bg-amber-500',
+            text: 'text-white',
+            ring: 'ring-amber-200'
+          };
         case 'D':
-        case 'F':
         default:
-          return '#EF4444'; // Red
+          return {
+            bg: 'bg-red-500',
+            text: 'text-white',
+            ring: 'ring-red-200'
+          };
       }
     };
 
-    const getComplianceLevel = (grade: string) => {
-      switch (grade) {
-        case 'A':
-        case 'A+':
-          return 'high compliance';
-        case 'B':
-        case 'B+':
-          return 'good compliance';
-        case 'C':
-        case 'C+':
-          return 'fair compliance';
-        case 'D':
-        case 'F':
-        default:
-          return 'low compliance';
-      }
-    };
+    const styles = getBadgeStyles(grade);
 
     return (
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <span
-            className="inline-flex items-center px-2 py-1 rounded text-xs font-medium text-white cursor-pointer"
-            style={{
-              backgroundColor: getChipColor(grade),
-              height: '20px'
-            }}
-            aria-label={`${grade} rating, ${getComplianceLevel(grade)}`}
-          >
-            {grade}
-            <span className="sr-only">{getComplianceLevel(grade)}</span>
-          </span>
-        </TooltipTrigger>
-        <TooltipContent className="bg-gray-900 text-white max-w-xs">
-          <p>{tooltip}</p>
-        </TooltipContent>
-      </Tooltip>
+      <div className={`inline-flex items-center px-3 py-2 rounded-full font-semibold text-sm ring-2 ${styles.bg} ${styles.text} ${styles.ring}`}>
+        {grade}
+      </div>
     );
   };
 
-  // Generate search suggestions
-  const generateSuggestions = (query: string) => {
-    if (!query || query.length < 2) {
-      setSuggestions([]);
-      setShowSuggestions(false);
-      return;
-    }
+  // Get unique values for filters
+  const uniqueStates = [...new Set(sampleProviders.map(p => p.state))].sort();
+  const uniqueSystems = [...new Set(sampleProviders.map(p => p.systemAffiliation).filter(Boolean))].sort();
+  const scoreGrades = ['A+', 'A', 'B', 'C', 'D'];
 
-    const lowerQuery = query.toLowerCase();
-    const suggestions: string[] = [];
-
-    // Check if it's a ZIP code pattern
-    if (/^\d+$/.test(query) && query.length <= 5) {
-      const matchingZips = sampleProviders
-        .filter(p => p.zipCode.startsWith(query))
-        .map(p => `${p.zipCode} (${p.city}, ${p.state})`)
-        .slice(0, 3);
-      suggestions.push(...matchingZips);
-    }
-
-    // Provider names
-    const nameMatches = sampleProviders
-      .filter(p => p.name.toLowerCase().includes(lowerQuery))
-      .map(p => p.name)
-      .slice(0, 5);
-    suggestions.push(...nameMatches);
-
-    // Cities
-    const cityMatches = sampleProviders
-      .filter(p => p.city.toLowerCase().includes(lowerQuery))
-      .map(p => `${p.city}, ${p.state}`)
-      .slice(0, 3);
-    suggestions.push(...cityMatches);
-
-    // System affiliations
-    const systemMatches = sampleProviders
-      .filter(p => p.systemAffiliation && p.systemAffiliation.toLowerCase().includes(lowerQuery))
-      .map(p => p.systemAffiliation!)
-      .slice(0, 3);
-    suggestions.push(...systemMatches);
-
-    // Remove duplicates and limit
-    const uniqueSuggestions = [...new Set(suggestions)].slice(0, 8);
-    setSuggestions(uniqueSuggestions);
-    setShowSuggestions(uniqueSuggestions.length > 0);
-  };
-
-  // Filter providers based on search and filters
+  // Enhanced filtering and sorting
   useEffect(() => {
-    let filtered = sampleProviders;
+    let filtered = [...sampleProviders];
 
+    // Search filter
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter(provider =>
@@ -334,33 +278,82 @@ export function ProvidersIndexPage({
       );
     }
 
+    // State filter
     if (selectedState) {
       filtered = filtered.filter(provider => provider.state === selectedState);
     }
 
+    // Score filter
+    if (selectedScores.length > 0) {
+      filtered = filtered.filter(provider => 
+        selectedScores.includes(getGradeFromScore(provider.transparencyScore))
+      );
+    }
+
+    // System filter
+    if (selectedSystems.length > 0) {
+      filtered = filtered.filter(provider => 
+        provider.systemAffiliation && selectedSystems.includes(provider.systemAffiliation)
+      );
+    }
+
+    // Organization type filter
     if (selectedOrgType) {
       filtered = filtered.filter(provider => provider.organizationType === selectedOrgType);
     }
 
-    setFilteredProviders(filtered);
-  }, [searchQuery, selectedState, selectedOrgType]);
+    // Sorting
+    filtered.sort((a, b) => {
+      switch (sortBy) {
+        case 'score':
+          return b.transparencyScore - a.transparencyScore;
+        case 'locations':
+          return b.locationCount - a.locationCount;
+        case 'name':
+          return a.name.localeCompare(b.name);
+        case 'state':
+          return a.state.localeCompare(b.state);
+        default:
+          return 0;
+      }
+    });
 
-  // Handle search input changes
-  const handleSearchChange = (value: string) => {
-    setSearchQuery(value);
-    generateSuggestions(value);
+    setFilteredProviders(filtered);
+  }, [searchQuery, selectedState, selectedOrgType, selectedScores, selectedSystems, sortBy]);
+
+  // Filter chip management
+  const addScoreFilter = (score: string) => {
+    if (!selectedScores.includes(score)) {
+      setSelectedScores([...selectedScores, score]);
+    }
   };
 
-  // Handle suggestion selection
-  const handleSuggestionSelect = (suggestion: string) => {
-    setSearchQuery(suggestion);
-    setShowSuggestions(false);
+  const removeScoreFilter = (score: string) => {
+    setSelectedScores(selectedScores.filter(s => s !== score));
+  };
+
+  const addSystemFilter = (system: string) => {
+    if (!selectedSystems.includes(system)) {
+      setSelectedSystems([...selectedSystems, system]);
+    }
+  };
+
+  const removeSystemFilter = (system: string) => {
+    setSelectedSystems(selectedSystems.filter(s => s !== system));
+  };
+
+  const clearAllFilters = () => {
+    setSearchQuery("");
+    setSelectedState("");
+    setSelectedOrgType("");
+    setSelectedScores([]);
+    setSelectedSystems([]);
+    setSortBy("score");
   };
 
   const handleSearch = () => {
     setIsLoading(true);
     setShowSuggestions(false);
-    // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
     }, 500);
@@ -371,7 +364,7 @@ export function ProvidersIndexPage({
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-12 overflow-hidden">
+      <section className="relative pt-32 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.1),transparent_50%)] pointer-events-none"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(124,58,237,0.05),transparent_50%)] pointer-events-none"></div>
@@ -385,80 +378,131 @@ export function ProvidersIndexPage({
               </span>
             </h1>
             <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed font-light mb-6">
-              Browse hospitals, clinics, and health systems by NPI, CCN, and transparency scores.
+              Browse hospitals, clinics, and health systems by transparency scores and compliance ratings.
             </p>
           </div>
+        </div>
+      </section>
 
-          {/* Search Section */}
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-2xl shadow-lg p-6 mb-8 sticky top-4 z-40">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="lg:col-span-2 relative">
-                  <Input
-                    placeholder="Search by name, NPI, CCN, city, or ZIP code..."
-                    value={searchQuery}
-                    onChange={(e) => handleSearchChange(e.target.value)}
-                    onFocus={() => generateSuggestions(searchQuery)}
-                    onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
-                    className="w-full"
-                  />
+      {/* Enhanced Filtering Section */}
+      <section className="relative -mt-8 pb-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-8 sticky top-4 z-40">
+            
+            {/* Search and Primary Filters */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
+              <div className="lg:col-span-2">
+                <Input
+                  placeholder="Search by name, NPI, CCN, city, or ZIP..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full"
+                />
+              </div>
 
-                  {/* Search Suggestions Dropdown */}
-                  {showSuggestions && suggestions.length > 0 && (
-                    <div className="absolute top-full left-0 right-0 z-50 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-y-auto">
-                      {suggestions.map((suggestion, index) => (
-                        <button
-                          key={index}
-                          type="button"
-                          onClick={() => handleSuggestionSelect(suggestion)}
-                          className="w-full px-4 py-2 text-left hover:bg-gray-50 focus:bg-gray-50 focus:outline-none border-b border-gray-100 last:border-b-0"
-                        >
-                          <div className="text-sm text-gray-900">{suggestion}</div>
-                        </button>
-                      ))}
-                    </div>
-                  )}
+              <Select value={selectedState} onValueChange={setSelectedState}>
+                <SelectTrigger>
+                  <SelectValue placeholder="All States" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="">All States</SelectItem>
+                  {uniqueStates.map(state => (
+                    <SelectItem key={state} value={state}>{state}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+
+              <Select value={sortBy} onValueChange={setSortBy}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Sort By" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="score">Best Transparency Score</SelectItem>
+                  <SelectItem value="locations">Most Locations</SelectItem>
+                  <SelectItem value="name">Alphabetical (A-Z)</SelectItem>
+                  <SelectItem value="state">By State</SelectItem>
+                </SelectContent>
+              </Select>
+
+              <Button onClick={handleSearch} className="bg-blue-600 hover:bg-blue-700">
+                <Search className="w-4 h-4 mr-2" />
+                Search
+              </Button>
+            </div>
+
+            {/* Score Filter Chips */}
+            <div className="mb-4">
+              <label className="text-sm font-medium text-gray-700 mb-2 block">
+                Transparency Score:
+              </label>
+              <div className="flex flex-wrap gap-2">
+                {scoreGrades.map(grade => (
+                  <button
+                    key={grade}
+                    onClick={() => selectedScores.includes(grade) ? removeScoreFilter(grade) : addScoreFilter(grade)}
+                    className={`px-3 py-2 rounded-full text-sm font-medium transition-all ${
+                      selectedScores.includes(grade)
+                        ? 'bg-blue-100 text-blue-800 ring-2 ring-blue-300'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    {grade}
+                    {selectedScores.includes(grade) && (
+                      <X className="w-3 h-3 ml-1 inline" />
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* System Affiliation Filter */}
+            <div className="mb-6">
+              <label className="text-sm font-medium text-gray-700 mb-2 block">
+                Health System:
+              </label>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                {uniqueSystems.slice(0, 8).map(system => (
+                  <button
+                    key={system}
+                    onClick={() => selectedSystems.includes(system) ? removeSystemFilter(system) : addSystemFilter(system)}
+                    className={`px-3 py-2 rounded-lg text-sm font-medium transition-all text-left truncate ${
+                      selectedSystems.includes(system)
+                        ? 'bg-purple-100 text-purple-800 ring-2 ring-purple-300'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                    title={system}
+                  >
+                    {system}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Results Summary */}
+            <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+              <div className="flex items-center gap-4">
+                <span className="text-lg font-semibold text-gray-900">
+                  {filteredProviders.length} providers found
+                </span>
+                <div className="inline-flex items-center px-3 py-1 rounded-full bg-green-50 border border-green-200">
+                  <CheckCircle2 className="w-4 h-4 text-green-600 mr-2" />
+                  <span className="text-green-800 font-medium text-sm">
+                    Updated January 2025
+                  </span>
                 </div>
-
-                <Select value={selectedState} onValueChange={setSelectedState}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="State" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="">All States</SelectItem>
-                    <SelectItem value="CA">California</SelectItem>
-                    <SelectItem value="NY">New York</SelectItem>
-                    <SelectItem value="TX">Texas</SelectItem>
-                    <SelectItem value="FL">Florida</SelectItem>
-                    <SelectItem value="MN">Minnesota</SelectItem>
-                    <SelectItem value="OH">Ohio</SelectItem>
-                    <SelectItem value="MD">Maryland</SelectItem>
-                    <SelectItem value="TN">Tennessee</SelectItem>
-                  </SelectContent>
-                </Select>
-
-                <Button onClick={handleSearch} className="bg-blue-600 hover:bg-blue-700">
-                  <Search className="w-4 h-4 mr-2" />
-                  Search
+              </div>
+              
+              {(searchQuery || selectedState || selectedScores.length > 0 || selectedSystems.length > 0) && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={clearAllFilters}
+                  className="text-gray-600 hover:text-gray-800"
+                >
+                  <X className="w-4 h-4 mr-1" />
+                  Clear Filters
                 </Button>
-              </div>
-
-              {/* Result count moved closer to search controls */}
-              <div className="mt-4 pt-4 border-t border-gray-100">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg font-semibold text-gray-900">
-                      {filteredProviders.length} providers found
-                    </span>
-                    <div className="inline-flex items-center px-2 py-1 rounded-full bg-green-50 border border-green-200">
-                      <CheckCircle2 className="w-3 h-3 text-green-600 mr-1" />
-                      <span className="text-green-800 font-medium text-xs">
-                        Updated January 2025
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
@@ -467,156 +511,93 @@ export function ProvidersIndexPage({
       {/* Results Section */}
       <section className="pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">
-              Provider Results
-            </h2>
-            <p className="text-gray-600">
-              Healthcare providers with transparency ratings and system affiliations
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProviders.map((provider) => (
-              <Card key={provider.id} className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
-                <CardContent className="p-4">
-                  <div className="space-y-3">
-                    {/* Header Row */}
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex items-start gap-3 flex-1 min-w-0">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center flex-shrink-0">
-                          <Hospital className="w-5 h-5 text-blue-600" />
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <h3 className="text-lg font-semibold text-gray-900 mb-1">{provider.name}</h3>
-                          <div className="text-sm text-gray-600">
-                            <span className="flex items-center">
-                              <MapPin className="w-3 h-3 mr-1 flex-shrink-0" />
-                              {provider.city}, {provider.state} • {provider.phone}
-                            </span>
-                          </div>
-                        </div>
+              <Card key={provider.id} className="bg-white border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <CardContent className="p-6">
+                  
+                  {/* Top Row: Name + City/State | Transparency Score */}
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-xl font-bold text-gray-900 mb-1 leading-tight">
+                        {provider.name}
+                      </h3>
+                      <div className="flex items-center text-gray-600 text-sm">
+                        <MapPin className="w-4 h-4 mr-1 flex-shrink-0" />
+                        <span>{provider.city}, {provider.state}</span>
                       </div>
-                      <Button
-                        onClick={() => onNavigateToProviderDetails(provider.id)}
-                        variant="default"
-                        className="bg-blue-600 hover:bg-blue-700 text-white flex-shrink-0"
-                      >
-                        View Details
-                        <ChevronRight className="w-4 h-4 ml-1" />
-                      </Button>
                     </div>
-
-                    {/* Identifiers Row */}
-                    <div className="flex items-center gap-2 pl-13">
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <span className="flex items-center gap-1 px-2 py-1 bg-blue-50 rounded text-xs">
-                            <CreditCard className="w-3 h-3" />
-                            {provider.npi}
-                          </span>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                          <p>National Provider Identifier (NPI)</p>
-                        </TooltipContent>
-                      </Tooltip>
-                      {provider.ccn && (
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <span className="flex items-center gap-1 px-2 py-1 bg-purple-50 rounded text-xs">
-                              <FileText className="w-3 h-3" />
-                              {provider.ccn}
-                            </span>
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>CMS Certification Number (CCN)</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      )}
+                    <div className="ml-4 flex-shrink-0">
+                      <GradeBadge score={provider.transparencyScore} />
                     </div>
+                  </div>
 
-                    {/* System Affiliation */}
-                    {provider.systemAffiliation && (
-                      <div className="pl-13">
-                        <span className="inline-flex items-center px-2 py-1 rounded-md bg-purple-50 text-purple-700 border border-purple-200 text-xs">
-                          <Building2 className="w-3 h-3 mr-1" />
-                          {provider.systemAffiliation}
+                  {/* System Affiliation */}
+                  {provider.systemAffiliation && (
+                    <div className="mb-4">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 text-gray-700 text-sm font-medium border">
+                        <Building2 className="w-3 h-3 mr-1" />
+                        {provider.systemAffiliation}
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Middle Section: Location Count + Data Status */}
+                  <div className="grid grid-cols-2 gap-4 mb-6 py-4 bg-gray-50 rounded-lg px-4">
+                    <div className="text-center">
+                      <div className="flex items-center justify-center mb-1">
+                        <MapPin className="w-4 h-4 text-blue-600 mr-1" />
+                        <span className="font-semibold text-gray-900 text-lg">
+                          {provider.locationCount}
                         </span>
                       </div>
-                    )}
-
-                    {/* Stats Grid */}
-                    <div className="grid grid-cols-3 gap-4 pl-13">
-                      <div>
-                        <div className="text-sm text-gray-600">Locations</div>
-                        <div className="flex items-center gap-2">
-                          {provider.states && provider.states.length > 1 ? (
-                            <Tooltip>
-                              <TooltipTrigger asChild>
-                                <div className="flex items-center gap-1 cursor-pointer">
-                                  <MapPin className="w-4 h-4 text-blue-600" />
-                                  <span className="font-semibold text-gray-900">{provider.locationCount}</span>
-                                </div>
-                              </TooltipTrigger>
-                              <TooltipContent className="bg-gray-900 text-white max-w-xs">
-                                <div>
-                                  <p className="font-medium mb-2">Locations by state:</p>
-                                  <div className="text-xs space-y-1">
-                                    {provider.states.map((state, index) => (
-                                      <div key={state}>
-                                        {state}: {Math.floor(provider.locationCount / provider.states!.length) + (index < provider.locationCount % provider.states!.length ? 1 : 0)} locations
-                                      </div>
-                                    ))}
-                                  </div>
-                                </div>
-                              </TooltipContent>
-                            </Tooltip>
-                          ) : (
-                            <div className="flex items-center gap-1">
-                              <MapPin className="w-4 h-4 text-blue-600" />
-                              <span className="font-semibold text-gray-900">{provider.locationCount}</span>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                      <div>
-                        <div className="text-sm text-gray-600">Transparency Score</div>
-                        <div className="flex items-center gap-2">
-                          <Tooltip>
-                            <TooltipTrigger asChild>
-                              <div>
-                                <GradeChip
-                                  score={provider.transparencyScore}
-                                  tooltip="Based on this provider's compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available."
-                                />
-                              </div>
-                            </TooltipTrigger>
-                            <TooltipContent className="bg-gray-900 text-white max-w-xs">
-                              <div>
-                                <p className="mb-2">Based on this provider's compliance with federal pricing transparency mandates.</p>
-                                <a
-                                  href="/transparency-scorecard-methodology"
-                                  className="text-blue-300 hover:text-blue-200 underline text-xs flex items-center gap-1"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                >
-                                  Learn about our methodology
-                                  <ExternalLink className="w-3 h-3" />
-                                </a>
-                              </div>
-                            </TooltipContent>
-                          </Tooltip>
-                        </div>
-                      </div>
-                      <div>
-                        <div className="text-sm text-gray-600">Data Status</div>
-                        <div className="flex items-center gap-1">
-                          <span className="inline-flex items-center px-2 py-1 rounded-full bg-gray-100 text-gray-700 text-xs font-medium">
-                            Current
-                          </span>
-                        </div>
+                      <div className="text-xs text-gray-600 font-medium">
+                        Location{provider.locationCount !== 1 ? 's' : ''}
                       </div>
                     </div>
+                    <div className="text-center">
+                      <div className="flex items-center justify-center mb-1">
+                        <CheckCircle2 className="w-4 h-4 text-green-600 mr-1" />
+                        <span className="font-semibold text-gray-900 text-sm">
+                          Current
+                        </span>
+                      </div>
+                      <div className="text-xs text-gray-600 font-medium">
+                        Data Status
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Lower Section: NPI, CCN, Phone */}
+                  <div className="space-y-2 mb-6 text-sm text-gray-600">
+                    <div className="flex items-center">
+                      <CreditCard className="w-4 h-4 mr-2 text-gray-400" />
+                      <span className="font-medium mr-2">NPI:</span>
+                      <span className="font-mono">{provider.npi}</span>
+                    </div>
+                    {provider.ccn && (
+                      <div className="flex items-center">
+                        <FileText className="w-4 h-4 mr-2 text-gray-400" />
+                        <span className="font-medium mr-2">CCN:</span>
+                        <span className="font-mono">{provider.ccn}</span>
+                      </div>
+                    )}
+                    <div className="flex items-center">
+                      <Phone className="w-4 h-4 mr-2 text-gray-400" />
+                      <span className="font-medium mr-2">Phone:</span>
+                      <span>{provider.phone}</span>
+                    </div>
+                  </div>
+
+                  {/* Action Button */}
+                  <div className="flex justify-end">
+                    <Button
+                      onClick={() => onNavigateToProviderDetails(provider.id)}
+                      className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6"
+                    >
+                      View Details
+                      <ChevronRight className="w-4 h-4 ml-2" />
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
@@ -625,10 +606,19 @@ export function ProvidersIndexPage({
 
           {/* No Results */}
           {filteredProviders.length === 0 && (
-            <div className="text-center py-12">
-              <Stethoscope className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-              <h3 className="text-lg font-medium text-gray-900 mb-2">No providers found</h3>
-              <p className="text-gray-600">Try adjusting your search criteria or filters.</p>
+            <div className="text-center py-16">
+              <Stethoscope className="w-16 h-16 text-gray-300 mx-auto mb-6" />
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">No providers found</h3>
+              <p className="text-gray-600 mb-6">
+                Try adjusting your search criteria or filters to find providers.
+              </p>
+              <Button
+                variant="outline"
+                onClick={clearAllFilters}
+                className="mx-auto"
+              >
+                Clear All Filters
+              </Button>
             </div>
           )}
         </div>
