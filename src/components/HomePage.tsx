@@ -1333,60 +1333,60 @@ export default function HomePage() {
         </section>
         </LazySection>
 
-        {/* 6. Explore HealthFees.org - 8-Card Action Grid */}
+        {/* 6. Explore HealthFees.org - Grouped Tools by User Type */}
         <LazySection
-          className="relative py-24 overflow-hidden bg-gradient-to-b from-white to-blue-50"
+          className="relative py-24 overflow-hidden bg-white"
           minHeight="600px"
         >
         <section>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Header */}
             <div className="text-center mb-16">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-blue-500/25 hf-gradient-primary">
-                <Target className="w-8 h-8 text-white" />
+              <div className="ds-icon mx-auto mb-8">
+                <Target />
               </div>
-              <h2 className="hf-heading-h2 mb-6 hf-text-primary tracking-tight">
-                Explore
-                <span className="hf-text-gradient-primary">
-                  {" "}
-                  HealthFees.org
-                </span>
+              <h2 className="ds-h2 mb-6 text-gray-900">
+                Explore HealthFees.org
               </h2>
-              <p className="hf-body-large hf-text-primary max-w-4xl mx-auto mb-8">
+              <p className="ds-body text-gray-600 max-w-4xl mx-auto">
                 From quick price comparisons to in-depth market analysis, we have tools for every healthcare stakeholder.
               </p>
             </div>
 
-            {/* 8-Card Action Grid */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-              {exploreActionCards.map((card, index) => (
-                <div
-                  key={index}
-                  className="hf-card group relative cursor-pointer p-6"
-                  onClick={() => {
-                    if (typeof window !== 'undefined') {
-                      window.location.href = card.link;
-                    }
-                  }}
-                >
-                  {/* Icon */}
-                  <div className="mb-4">
-                    <card.icon className={`w-8 h-8 ${card.color}`} />
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="hf-heading-h4 hf-text-primary mb-2">
-                    {card.title}
+            {/* Grouped Tools */}
+            <div className="space-y-12">
+              {Object.entries(exploreToolsByUserType).map(([userType, tools]) => (
+                <div key={userType}>
+                  <h3 className="ds-h3 text-gray-900 mb-6 capitalize text-center">
+                    {userType === 'patients' ? 'For Patients' : userType === 'analysts' ? 'For Analysts' : 'For Providers'}
                   </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {tools.map((tool, index) => (
+                      <div
+                        key={index}
+                        className="ds-tool-card cursor-pointer"
+                        onClick={() => {
+                          if (typeof window !== 'undefined') {
+                            window.location.href = tool.link;
+                          }
+                        }}
+                      >
+                        {/* Icon */}
+                        <div className="ds-icon mx-auto">
+                          <tool.icon />
+                        </div>
 
-                  {/* Description */}
-                  <p className="text-sm hf-text-secondary mb-4">
-                    {card.desc}
-                  </p>
+                        {/* Title */}
+                        <h4 className="ds-tool-name">
+                          {tool.title}
+                        </h4>
 
-                  {/* Action Arrow */}
-                  <div className="flex justify-end">
-                    <ArrowRight className={`w-5 h-5 ${card.color} group-hover:translate-x-1 transition-transform duration-300`} />
+                        {/* Description */}
+                        <p className="ds-body text-gray-600">
+                          {tool.desc}
+                        </p>
+                      </div>
+                    ))}
                   </div>
                 </div>
               ))}
