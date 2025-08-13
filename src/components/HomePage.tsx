@@ -728,8 +728,8 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-start mb-8">
                           <div className="relative">
-                            <div className="w-24 h-24 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300 hf-gradient-accent">
-                              <Sparkles className="w-12 h-12 text-white fill-current" />
+                            <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300 hf-gradient-accent">
+                              <Sparkles className="w-6 h-6 text-white" fill="none" stroke="currentColor" />
                             </div>
                           </div>
                         </div>
@@ -800,8 +800,8 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-end mb-8">
                           <div className="relative">
-                            <div className="w-24 h-24 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300 hf-gradient-primary">
-                              <Search className="w-12 h-12 text-white fill-current" />
+                            <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300 hf-gradient-primary">
+                              <Search className="w-6 h-6 text-white" fill="none" stroke="currentColor" />
                             </div>
                           </div>
                         </div>
