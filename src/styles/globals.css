@@ -275,8 +275,8 @@
 
   /* Design System Colors */
   :root {
-    --ds-primary-blue: #031d44;
-    --ds-secondary-blue: #1571f6;
+    --ds-primary-blue: #1571f6;
+    --ds-secondary-blue: #031d44;
     --ds-light-gray: #f4f6f8;
     --ds-gradient-blue: linear-gradient(135deg, #1571f6 0%, #031d44 100%);
     --ds-shadow-soft: rgba(0, 0, 0, 0.05);
