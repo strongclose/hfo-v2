@@ -788,24 +788,73 @@ import { FooterExpanded } from '../../components/homepage/FooterExpanded';
   </div>
 
   <script>
-    // Basic search functionality
+    // Main search functionality
     document.getElementById('transparency-search')?.addEventListener('input', function(e) {
       const searchTerm = e.target.value.toLowerCase();
-      // In a real implementation, this would trigger API calls to filter results
       console.log('Searching for:', searchTerm);
     });
 
-    // Sort button functionality
-    document.querySelectorAll('button[class*="px-4 py-2"]').forEach(button => {
-      button.addEventListener('click', function() {
-        // Remove active state from all buttons
-        document.querySelectorAll('button[class*="px-4 py-2"]').forEach(btn => {
-          btn.className = btn.className.replace('bg-blue-100 text-blue-700 border-blue-200', 'bg-gray-100 text-gray-700 border-gray-200');
-        });
-        
-        // Add active state to clicked button
-        this.className = this.className.replace('bg-gray-100 text-gray-700 border-gray-200', 'bg-blue-100 text-blue-700 border-blue-200');
-      });
+    // Zip code search functionality
+    document.getElementById('zip-search')?.addEventListener('input', function(e) {
+      const zipCode = e.target.value;
+      if (zipCode.length === 5) {
+        console.log('Zip search:', zipCode, 'Radius:', document.getElementById('radius-select').value);
+      }
     });
+
+    // Search button functionality
+    document.getElementById('search-btn')?.addEventListener('click', function() {
+      const mainSearch = document.getElementById('transparency-search').value;
+      const zipSearch = document.getElementById('zip-search').value;
+      const radius = document.getElementById('radius-select').value;
+
+      console.log('Search executed:', { mainSearch, zipSearch, radius });
+      // In real implementation, trigger search API call
+    });
+
+    // Advanced filters toggle
+    function toggleAdvancedFilters() {
+      const filters = document.getElementById('advanced-filters');
+      const icon = document.getElementById('advanced-icon');
+
+      if (filters.classList.contains('hidden')) {
+        filters.classList.remove('hidden');
+        icon.style.transform = 'rotate(180deg)';
+      } else {
+        filters.classList.add('hidden');
+        icon.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    // Clear all filters
+    function clearAllFilters() {
+      document.querySelectorAll('select, input[type="text"]').forEach(element => {
+        if (element.tagName === 'SELECT') {
+          element.selectedIndex = 0;
+        } else if (element.type === 'text' && element.id !== 'transparency-search' && element.id !== 'zip-search') {
+          element.value = '';
+        }
+      });
+    }
+
+    // Apply filters
+    function applyFilters() {
+      const filters = {};
+
+      // Collect all filter values
+      document.querySelectorAll('select, input[type="text"]').forEach(element => {
+        if (element.value && element.id !== 'transparency-search' && element.id !== 'zip-search') {
+          filters[element.name || element.id] = element.value;
+        }
+      });
+
+      console.log('Filters applied:', filters);
+      // In real implementation, trigger filtered search
+    }
+
+    // Make functions globally available
+    window.toggleAdvancedFilters = toggleAdvancedFilters;
+    window.clearAllFilters = clearAllFilters;
+    window.applyFilters = applyFilters;
   </script>
 </BaseLayout>
