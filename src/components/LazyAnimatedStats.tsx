@@ -25,28 +25,20 @@ function AnimatedStat({ value, label, icon: Icon, color, delay = 0 }: AnimatedSt
       <div className={`hf-card relative p-10 bg-white/90 backdrop-blur-xl border-white/20 transform transition-all duration-1000 h-full flex flex-col ${
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
       }`}>
-        <div className={`hf-icon-bg-primary w-16 h-16 flex items-center justify-center mx-auto mb-6`} style={{ background: color }}>
-          <Icon className="w-8 h-8 text-white" />
+        <div className={`hf-icon-bg-primary w-12 h-12 flex items-center justify-center mx-auto mb-6`} style={{ background: color }}>
+          <Icon className="w-6 h-6 text-white" />
         </div>
         <div className="text-center flex-1 flex flex-col justify-between">
           <div>
-            <div className={`text-4xl font-bold mb-2 transition-all duration-1000 delay-300 ${
+            <h3 className={`text-4xl font-bold mb-4 transition-all duration-1000 delay-300 ${
               isVisible ? 'scale-100 opacity-100' : 'scale-75 opacity-0'
             }`} style={{ color: color.split(',')[0].replace('linear-gradient(to bottom right, ', '') }}>
               {value}
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
-              <div
-                className={`h-2 rounded-full transition-all duration-1500 delay-500 ${
-                  isVisible ? 'w-4/5' : 'w-0'
-                }`}
-                style={{ backgroundColor: color.split(',')[0].replace('linear-gradient(to bottom right, ', '') }}
-              ></div>
-            </div>
+            </h3>
           </div>
-          <p className={`text-lg text-gray-800 font-semibold leading-relaxed transition-all duration-1000 delay-700 ${
+          <p className={`text-lg text-gray-800 font-light leading-relaxed transition-all duration-1000 delay-700 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-          }`}>
+          }`} style={{ fontWeight: 300 }}>
             {label}
           </p>
         </div>
