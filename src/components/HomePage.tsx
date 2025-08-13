@@ -87,64 +87,62 @@ const priceComparison = [
   { provider: "Provider C", price: "$6,100", type: "Insurance", best: false }
 ];
 
-const exploreActionCards = [
-  {
-    icon: Search,
-    title: "Price Comparison Tool",
-    desc: "Compare provider, payer, and cash prices instantly.",
-    link: "/price-comparison",
-    color: "text-blue-600"
-  },
-  {
-    icon: Database,
-    title: "Data Explorer",
-    desc: "Search, filter, and analyze raw pricing data.",
-    link: "/data-explorer",
-    color: "text-teal-600"
-  },
-  {
-    icon: BookOpen,
-    title: "Insights Blog",
-    desc: "Read analysis, trends, and data-driven reports.",
-    link: "/insights",
-    color: "text-purple-600"
-  },
-  {
-    icon: Building2,
-    title: "Provider Directory",
-    desc: "Browse providers and healthcare facilities.",
-    link: "/provider-directory",
-    color: "text-emerald-600"
-  },
-  {
-    icon: Shield,
-    title: "Payer Directory",
-    desc: "View insurance companies and plan data.",
-    link: "/payer-directory",
-    color: "text-indigo-600"
-  },
-  {
-    icon: CheckCircle,
-    title: "Compliance Tool",
-    desc: "Check TiC and ADA transparency compliance.",
-    link: "/compliance-tool",
-    color: "text-orange-600"
-  },
-  {
-    icon: Activity,
-    title: "Data Methodology",
-    desc: "See how we collect, process, and verify data.",
-    link: "/data-methodology",
-    color: "text-cyan-600"
-  },
-  {
-    icon: Globe,
-    title: "Enterprise Data Hosting",
-    desc: "Partner with HFO to host and manage your data.",
-    link: "/enterprise-data-hosting",
-    color: "text-rose-600"
-  }
-];
+const exploreToolsByUserType = {
+  patients: [
+    {
+      icon: Search,
+      title: "Price Comparison Tool",
+      desc: "Compare provider, payer, and cash prices instantly.",
+      link: "/price-comparison"
+    },
+    {
+      icon: Building2,
+      title: "Provider Directory",
+      desc: "Browse providers and healthcare facilities.",
+      link: "/provider-directory"
+    },
+    {
+      icon: Shield,
+      title: "Payer Directory",
+      desc: "View insurance companies and plan data.",
+      link: "/payer-directory"
+    }
+  ],
+  analysts: [
+    {
+      icon: Database,
+      title: "Data Explorer",
+      desc: "Search, filter, and analyze raw pricing data.",
+      link: "/data-explorer"
+    },
+    {
+      icon: BookOpen,
+      title: "Insights Blog",
+      desc: "Read analysis, trends, and data-driven reports.",
+      link: "/insights"
+    },
+    {
+      icon: Activity,
+      title: "Data Methodology",
+      desc: "See how we collect, process, and verify data.",
+      link: "/data-methodology"
+    }
+  ],
+  providers: [
+    {
+      icon: CheckCircle,
+      title: "Compliance Tool",
+      desc: "Check TiC and ADA transparency compliance.",
+      link: "/compliance-tool"
+    },
+    {
+      icon: Globe,
+      title: "Enterprise Data Hosting",
+      desc: "Partner with HFO to host and manage your data.",
+      link: "/enterprise-data-hosting"
+    }
+  ]
+};
 
 const personas = {
   patients: {
