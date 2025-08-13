@@ -44,6 +44,21 @@ export function HeroV2_AIChatbot({
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.1),transparent_50%)]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(124,58,237,0.05),transparent_50%)]"></div>
+
+        {/* Blue Burst Behind Chatbot */}
+        <div className="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/4 w-[800px] h-[800px] opacity-60">
+          <div className="w-full h-full bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.3)_0%,rgba(59,130,246,0.2)_25%,rgba(147,197,253,0.1)_50%,transparent_70%)] animate-pulse"></div>
+        </div>
+
+        {/* Additional Burst Layers for Depth */}
+        <div className="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/3 w-[600px] h-[600px] opacity-40">
+          <div className="w-full h-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.4)_0%,rgba(147,197,253,0.2)_30%,transparent_60%)] animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+        </div>
+
+        {/* Inner Bright Burst */}
+        <div className="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/2 w-[400px] h-[400px] opacity-30">
+          <div className="w-full h-full bg-[radial-gradient(circle_at_center,rgba(29,78,216,0.5)_0%,rgba(37,99,235,0.3)_25%,transparent_50%)] animate-pulse" style={{ animationDelay: '1s' }}></div>
+        </div>
       </div>
 
       {/* Main Content - Two Column Layout */}
