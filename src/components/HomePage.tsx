@@ -974,6 +974,7 @@ export default function HomePage() {
                       ? 'text-white shadow-lg'
                       : 'bg-gray-100 text-gray-700 border border-gray-300 hover:bg-gray-200'
                   }`}
+                  style={activePersona === key ? { background: 'var(--ds-gradient-blue)' } : {}}
                 >
                   <persona.icon className="w-5 h-5" />
                   {persona.title}
