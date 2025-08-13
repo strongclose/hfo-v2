@@ -182,7 +182,7 @@ export function GlobalChatbot({
   return (
     <div className={`max-w-2xl w-full ${className}`} style={style}>
       <div
-        className={`bg-gradient-to-br from-teal-50 via-blue-50/50 to-indigo-50/30 backdrop-blur-xl border-2 border-teal-200/50 rounded-3xl shadow-2xl hover:shadow-teal-500/20 transition-all duration-500 ${heightClasses[height]} flex flex-col relative overflow-hidden`}
+        className={`bg-gradient-to-br from-white via-gray-50 to-blue-50 border-2 border-gray-200 rounded-3xl shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 ${heightClasses[height]} flex flex-col relative overflow-hidden`}
       >
         {/* Subtle glow effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 via-transparent to-blue-500/5 rounded-3xl"></div>
