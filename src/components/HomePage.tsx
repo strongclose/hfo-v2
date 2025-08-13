@@ -722,8 +722,8 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-start mb-8">
                           <div className="relative">
-                            <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300 hf-gradient-accent">
-                              <Sparkles className="w-6 h-6 text-white" fill="none" stroke="currentColor" />
+                            <div className="ds-timeline-icon">
+                              <Sparkles />
                             </div>
                           </div>
                         </div>
@@ -794,8 +794,8 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-end mb-8">
                           <div className="relative">
-                            <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300 hf-gradient-primary">
-                              <Search className="w-6 h-6 text-white" fill="none" stroke="currentColor" />
+                            <div className="ds-timeline-icon">
+                              <Search />
                             </div>
                           </div>
                         </div>
