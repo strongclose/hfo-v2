@@ -227,9 +227,12 @@ export function GlobalChatbot({
                           >
                             {message.content
                               .split("\n")
-                              .filter((line) => line.trim() !== "")
-                              .join(" ")
-                              .replace(/\*\*(.*?)\*\*/g, "$1")}
+                              .map((line, index) => (
+                                <span key={index}>
+                                  {line.replace(/\*\*(.*?)\*\*/g, "$1")}
+                                  {index < message.content.split("\n").length - 1 && <br />}
+                                </span>
+                              ))}
                           </p>
                         </div>
                         {message.resultCards && (
