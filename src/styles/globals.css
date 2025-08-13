@@ -375,46 +375,35 @@
     line-height: 1.4;
   }
 
-  /* Hierarchical Icon System */
+  /* Hierarchical Icon System - Proper Cascade Order (Most Specific First) */
 
-  /* Level 1: Main Section Headers (Largest - 48px) */
-  .ds-h1 svg,
-  h1 svg,
-  .section-header > .ds-icon svg,
-  .page-header svg {
-    width: 48px !important;
-    height: 48px !important;
-  }
-
-  /* Level 2: Section Headers (Large - 32px) */
-  .ds-h2 svg,
-  h2 svg,
-  .ds-icon svg,
-  .section-title svg,
-  .timeline-icon svg {
+  /* Level 1: Main Section Headers (Largest - 32px) */
+  .text-center .ds-icon svg,
+  .section-header .ds-icon svg,
+  .text-center > .ds-icon svg,
+  .page-header .ds-icon svg {
     width: 32px !important;
     height: 32px !important;
   }
 
-  /* Level 3: Subsection Headers (Medium - 24px) */
-  .ds-h3 svg,
-  h3 svg,
-  .subsection-header svg,
-  .card-header svg {
+  /* Level 2: Timeline Icons (Large - 24px) */
+  .ds-timeline-icon svg,
+  .timeline-step svg,
+  .process-icon svg {
     width: 24px !important;
     height: 24px !important;
   }
 
-  /* Level 4: Content Headers (Small-Medium - 20px) */
-  .ds-h4 svg,
-  h4 svg,
-  .content-header svg,
-  .feature-title svg {
+  /* Level 3: Tool Cards and Feature Icons (Medium - 20px) */
+  .ds-tool-card .ds-icon svg,
+  .feature-card .ds-icon svg,
+  .tool-icon svg,
+  .stat-icon svg {
     width: 20px !important;
     height: 20px !important;
   }
 
-  /* Level 5: Interactive Elements (Small - 16px) */
+  /* Level 4: Interactive Elements (Small - 16px) */
   button svg,
   .btn svg,
   .ds-btn-primary svg,
@@ -422,12 +411,14 @@
   .ds-btn-tertiary svg,
   .interactive svg,
   .cta svg,
+  .persona-pill svg,
+  .filter-pill svg,
   .navigation svg {
     width: 16px !important;
     height: 16px !important;
   }
 
-  /* Level 6: Auxiliary Elements (Smallest - 14px) */
+  /* Level 5: Content and Auxiliary Elements (Smallest - 14px) */
   .tooltip svg,
   .info svg,
   .help svg,
@@ -435,9 +426,18 @@
   .auxiliary svg,
   .ds-body svg,
   p svg,
-  span svg {
+  span svg,
+  .text-sm svg {
     width: 14px !important;
     height: 14px !important;
+  }
+
+  /* Level 6: Micro Elements (Tiny - 12px) */
+  .status-dot svg,
+  .indicator svg,
+  .micro svg {
+    width: 12px !important;
+    height: 12px !important;
   }
 
   /* Special Cases */
