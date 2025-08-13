@@ -13,13 +13,13 @@ import { FooterExpanded } from '../../components/homepage/FooterExpanded';
     <Navigation client:load />
 
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-blue-50 via-white to-indigo-50 pt-24 pb-16">
+    <section class="bg-gradient-to-br from-blue-50 via-white to-indigo-50 pt-24 pb-8">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
-          <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+          <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3 tracking-tight">
             Compare Prices Across Providers and Plans
           </h1>
-          <p class="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed">
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
             Search by name, NPI, or payer ID to see prices, transparency scores, and updates.
           </p>
         </div>
@@ -27,20 +27,20 @@ import { FooterExpanded } from '../../components/homepage/FooterExpanded';
     </section>
 
     <!-- Search Interface -->
-    <section class="py-16 bg-white">
+    <section class="py-6 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <!-- Search Bar -->
-        <div class="max-w-4xl mx-auto mb-12">
+        <div class="max-w-4xl mx-auto mb-6">
           <div class="relative">
-            <div class="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
-              <svg class="h-6 w-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+              <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
               </svg>
             </div>
-            <input 
-              type="text" 
-              class="block w-full pl-16 pr-6 py-6 text-xl border border-gray-300 rounded-2xl bg-white shadow-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+            <input
+              type="text"
+              class="block w-full pl-12 pr-4 py-3 text-base border border-gray-300 rounded-xl bg-white shadow focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
               placeholder="Search any provider or payer..."
               id="transparency-search"
             >
@@ -48,87 +48,59 @@ import { FooterExpanded } from '../../components/homepage/FooterExpanded';
         </div>
 
         <!-- Filters Section -->
-        <div class="bg-gray-50 rounded-2xl p-8 mb-12">
-          <h3 class="text-2xl font-bold text-gray-900 mb-8">Filters</h3>
-          
-          <div class="grid lg:grid-cols-5 gap-6">
+        <div class="bg-gray-50 rounded-xl p-4 mb-6">
+          <div class="grid lg:grid-cols-6 gap-3">
             <!-- Entity Type -->
-            <div>
-              <label class="block text-sm font-semibold text-gray-700 mb-3">Entity Type</label>
-              <select class="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                <option value="">All Types</option>
-                <option value="provider">Provider</option>
-                <option value="payer">Payer</option>
-              </select>
-            </div>
+            <select class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+              <option value="">All Types</option>
+              <option value="provider">Provider</option>
+              <option value="payer">Payer</option>
+            </select>
 
             <!-- State -->
-            <div>
-              <label class="block text-sm font-semibold text-gray-700 mb-3">State</label>
-              <select class="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                <option value="">All States</option>
-                <option value="CA">California</option>
-                <option value="NY">New York</option>
-                <option value="TX">Texas</option>
-                <option value="FL">Florida</option>
-                <option value="OH">Ohio</option>
-                <option value="PA">Pennsylvania</option>
-              </select>
-            </div>
+            <select class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+              <option value="">All States</option>
+              <option value="CA">California</option>
+              <option value="NY">New York</option>
+              <option value="TX">Texas</option>
+              <option value="FL">Florida</option>
+              <option value="OH">Ohio</option>
+              <option value="PA">Pennsylvania</option>
+            </select>
 
             <!-- Transparency Score -->
-            <div>
-              <label class="block text-sm font-semibold text-gray-700 mb-3">Transparency Score</label>
-              <select class="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                <option value="">All Scores</option>
-                <option value="90-100">90-100 (A+)</option>
-                <option value="85-89">85-89 (A)</option>
-                <option value="75-84">75-84 (B)</option>
-                <option value="65-74">65-74 (C)</option>
-                <option value="0-64">0-64 (D)</option>
-              </select>
-            </div>
+            <select class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+              <option value="">All Scores</option>
+              <option value="90-100">90-100 (A+)</option>
+              <option value="85-89">85-89 (A)</option>
+              <option value="75-84">75-84 (B)</option>
+              <option value="65-74">65-74 (C)</option>
+              <option value="0-64">0-64 (D)</option>
+            </select>
 
             <!-- Network Type -->
-            <div>
-              <label class="block text-sm font-semibold text-gray-700 mb-3">Network Type</label>
-              <select class="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                <option value="">All Networks</option>
-                <option value="HMO">HMO</option>
-                <option value="PPO">PPO</option>
-                <option value="EPO">EPO</option>
-                <option value="POS">POS</option>
-              </select>
-            </div>
+            <select class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+              <option value="">All Networks</option>
+              <option value="HMO">HMO</option>
+              <option value="PPO">PPO</option>
+              <option value="EPO">EPO</option>
+              <option value="POS">POS</option>
+            </select>
 
             <!-- Plan or Group Name -->
-            <div>
-              <label class="block text-sm font-semibold text-gray-700 mb-3">Plan/Group Name</label>
-              <input 
-                type="text" 
-                class="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Plan name..."
-              >
-            </div>
-          </div>
+            <input
+              type="text"
+              class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Plan name..."
+            >
 
-          <!-- Sort Options -->
-          <div class="mt-8 pt-8 border-t border-gray-200">
-            <label class="block text-sm font-semibold text-gray-700 mb-3">Sort Options</label>
-            <div class="flex flex-wrap gap-3">
-              <button class="px-4 py-2 text-sm font-medium rounded-lg bg-blue-100 text-blue-700 border border-blue-200 hover:bg-blue-200 transition-colors">
-                Transparency Score
-              </button>
-              <button class="px-4 py-2 text-sm font-medium rounded-lg bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-200 transition-colors">
-                Last Updated
-              </button>
-              <button class="px-4 py-2 text-sm font-medium rounded-lg bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-200 transition-colors">
-                Median Price
-              </button>
-              <button class="px-4 py-2 text-sm font-medium rounded-lg bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-200 transition-colors">
-                Alphabetical (A to Z)
-              </button>
-            </div>
+            <!-- Sort Options -->
+            <select class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+              <option value="score">Sort by Score</option>
+              <option value="updated">Last Updated</option>
+              <option value="price">Median Price</option>
+              <option value="name">Alphabetical</option>
+            </select>
           </div>
         </div>
 
