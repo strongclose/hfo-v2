@@ -970,7 +970,7 @@ export default function HomePage() {
                   }`}
                   style={activePersona === key ? { background: 'var(--ds-gradient-blue)' } : {}}
                 >
-                  <persona.icon className="w-4 h-4" />
+                  <persona.icon />
                   {persona.title}
                 </button>
               ))}
