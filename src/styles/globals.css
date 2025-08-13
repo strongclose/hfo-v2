@@ -556,6 +556,37 @@
     margin: 12px 0 8px 0;
   }
 
+  /* Contextual Icon Overrides for Specific Layouts */
+
+  /* Persona Pills - Small icons for compact display */
+  .persona-pill svg,
+  .filter-pill svg,
+  .tag svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  /* Hero Section - Medium icons for prominence without overwhelming */
+  .hero svg:not(button svg) {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  /* Card Content - Small icons for supportive role */
+  .card-content svg:not(.card-header svg),
+  .content-area svg:not(h1 svg):not(h2 svg):not(h3 svg):not(h4 svg) {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  /* Statistics/Metrics - Slightly larger for emphasis */
+  .stat svg,
+  .metric svg,
+  .stat-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
   /* Legacy Button Classes (keeping for backward compatibility) */
   .btn-primary {
     background: var(--ds-primary-blue);
