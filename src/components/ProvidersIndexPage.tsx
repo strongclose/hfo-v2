@@ -34,8 +34,8 @@ import {
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 interface ProvidersIndexPageProps {
-  onNavigateToProviderDetails: (providerId: string) => void;
-  onNavigateToDisclosures: () => void;
+  onNavigateToProviderDetails?: (providerId: string) => void;
+  onNavigateToDisclosures?: () => void;
 }
 
 interface Provider {
