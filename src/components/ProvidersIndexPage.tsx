@@ -480,140 +480,143 @@ export function ProvidersIndexPage({
             {filteredProviders.map((provider) => (
               <Card key={provider.id} className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
                 <CardContent className="p-4">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-start gap-3 mb-3">
+                  <div className="space-y-3">
+                    {/* Header Row */}
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex items-start gap-3 flex-1 min-w-0">
                         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center flex-shrink-0">
                           <Hospital className="w-5 h-5 text-blue-600" />
                         </div>
                         <div className="min-w-0 flex-1">
                           <h3 className="text-lg font-semibold text-gray-900 mb-1">{provider.name}</h3>
-                          <div className="text-sm text-gray-600 mb-2">
+                          <div className="text-sm text-gray-600">
                             <span className="flex items-center">
                               <MapPin className="w-3 h-3 mr-1 flex-shrink-0" />
                               {provider.city}, {provider.state} • {provider.phone}
                             </span>
                           </div>
-                          <div className="flex items-center gap-2">
-                            <Tooltip>
-                              <TooltipTrigger asChild>
-                                <span className="flex items-center gap-1 px-2 py-1 bg-blue-50 rounded text-xs">
-                                  <CreditCard className="w-3 h-3" />
-                                  {provider.npi}
-                                </span>
-                              </TooltipTrigger>
-                              <TooltipContent>
-                                <p>National Provider Identifier (NPI)</p>
-                              </TooltipContent>
-                            </Tooltip>
-                            {provider.ccn && (
-                              <Tooltip>
-                                <TooltipTrigger asChild>
-                                  <span className="flex items-center gap-1 px-2 py-1 bg-purple-50 rounded text-xs">
-                                    <FileText className="w-3 h-3" />
-                                    {provider.ccn}
-                                  </span>
-                                </TooltipTrigger>
-                                <TooltipContent>
-                                  <p>CMS Certification Number (CCN)</p>
-                                </TooltipContent>
-                              </Tooltip>
-                            )}
-                          </div>
                         </div>
                       </div>
+                      <Button
+                        onClick={() => onNavigateToProviderDetails(provider.id)}
+                        variant="default"
+                        className="bg-blue-600 hover:bg-blue-700 text-white flex-shrink-0"
+                      >
+                        View Details
+                        <ChevronRight className="w-4 h-4 ml-1" />
+                      </Button>
+                    </div>
 
-                      {provider.systemAffiliation && (
-                        <div className="mb-2">
-                          <span className="inline-flex items-center px-2 py-1 rounded-md bg-purple-50 text-purple-700 border border-purple-200 text-xs">
-                            <Building2 className="w-3 h-3 mr-1" />
-                            {provider.systemAffiliation}
+                    {/* Identifiers Row */}
+                    <div className="flex items-center gap-2 pl-13">
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <span className="flex items-center gap-1 px-2 py-1 bg-blue-50 rounded text-xs">
+                            <CreditCard className="w-3 h-3" />
+                            {provider.npi}
                           </span>
-                        </div>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>National Provider Identifier (NPI)</p>
+                        </TooltipContent>
+                      </Tooltip>
+                      {provider.ccn && (
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <span className="flex items-center gap-1 px-2 py-1 bg-purple-50 rounded text-xs">
+                              <FileText className="w-3 h-3" />
+                              {provider.ccn}
+                            </span>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>CMS Certification Number (CCN)</p>
+                          </TooltipContent>
+                        </Tooltip>
                       )}
+                    </div>
 
-                      <div className="grid grid-cols-3 gap-4 mb-4">
-                        <div>
-                          <div className="text-sm text-gray-600">Locations</div>
-                          <div className="flex items-center gap-2">
-                            {provider.states && provider.states.length > 1 ? (
-                              <Tooltip>
-                                <TooltipTrigger asChild>
-                                  <div className="flex items-center gap-1 cursor-pointer">
-                                    <MapPin className="w-4 h-4 text-blue-600" />
-                                    <span className="font-semibold text-gray-900">{provider.locationCount}</span>
-                                  </div>
-                                </TooltipTrigger>
-                                <TooltipContent className="bg-gray-900 text-white max-w-xs">
-                                  <div>
-                                    <p className="font-medium mb-2">Locations by state:</p>
-                                    <div className="text-xs space-y-1">
-                                      {provider.states.map((state, index) => (
-                                        <div key={state}>
-                                          {state}: {Math.floor(provider.locationCount / provider.states!.length) + (index < provider.locationCount % provider.states!.length ? 1 : 0)} locations
-                                        </div>
-                                      ))}
-                                    </div>
-                                  </div>
-                                </TooltipContent>
-                              </Tooltip>
-                            ) : (
-                              <div className="flex items-center gap-1">
-                                <MapPin className="w-4 h-4 text-blue-600" />
-                                <span className="font-semibold text-gray-900">{provider.locationCount}</span>
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                        <div>
-                          <div className="text-sm text-gray-600">Transparency Score</div>
-                          <div className="flex items-center gap-2">
+                    {/* System Affiliation */}
+                    {provider.systemAffiliation && (
+                      <div className="pl-13">
+                        <span className="inline-flex items-center px-2 py-1 rounded-md bg-purple-50 text-purple-700 border border-purple-200 text-xs">
+                          <Building2 className="w-3 h-3 mr-1" />
+                          {provider.systemAffiliation}
+                        </span>
+                      </div>
+                    )}
+
+                    {/* Stats Grid */}
+                    <div className="grid grid-cols-3 gap-4 pl-13">
+                      <div>
+                        <div className="text-sm text-gray-600">Locations</div>
+                        <div className="flex items-center gap-2">
+                          {provider.states && provider.states.length > 1 ? (
                             <Tooltip>
                               <TooltipTrigger asChild>
-                                <div>
-                                  <GradeChip
-                                    score={provider.transparencyScore}
-                                    tooltip="Based on this provider's compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available."
-                                  />
+                                <div className="flex items-center gap-1 cursor-pointer">
+                                  <MapPin className="w-4 h-4 text-blue-600" />
+                                  <span className="font-semibold text-gray-900">{provider.locationCount}</span>
                                 </div>
                               </TooltipTrigger>
                               <TooltipContent className="bg-gray-900 text-white max-w-xs">
                                 <div>
-                                  <p className="mb-2">Based on this provider's compliance with federal pricing transparency mandates.</p>
-                                  <a
-                                    href="/transparency-scorecard-methodology"
-                                    className="text-blue-300 hover:text-blue-200 underline text-xs flex items-center gap-1"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                  >
-                                    Learn about our methodology
-                                    <ExternalLink className="w-3 h-3" />
-                                  </a>
+                                  <p className="font-medium mb-2">Locations by state:</p>
+                                  <div className="text-xs space-y-1">
+                                    {provider.states.map((state, index) => (
+                                      <div key={state}>
+                                        {state}: {Math.floor(provider.locationCount / provider.states!.length) + (index < provider.locationCount % provider.states!.length ? 1 : 0)} locations
+                                      </div>
+                                    ))}
+                                  </div>
                                 </div>
                               </TooltipContent>
                             </Tooltip>
-                          </div>
-                        </div>
-                        <div>
-                          <div className="text-sm text-gray-600">Data Status</div>
-                          <div className="flex items-center gap-1">
-                            <span className="inline-flex items-center px-2 py-1 rounded-full bg-gray-100 text-gray-700 text-xs font-medium">
-                              Current
-                            </span>
-                          </div>
+                          ) : (
+                            <div className="flex items-center gap-1">
+                              <MapPin className="w-4 h-4 text-blue-600" />
+                              <span className="font-semibold text-gray-900">{provider.locationCount}</span>
+                            </div>
+                          )}
                         </div>
                       </div>
-
+                      <div>
+                        <div className="text-sm text-gray-600">Transparency Score</div>
+                        <div className="flex items-center gap-2">
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <div>
+                                <GradeChip
+                                  score={provider.transparencyScore}
+                                  tooltip="Based on this provider's compliance with federal pricing transparency mandates. Updated periodically when new provider TiC data is available."
+                                />
+                              </div>
+                            </TooltipTrigger>
+                            <TooltipContent className="bg-gray-900 text-white max-w-xs">
+                              <div>
+                                <p className="mb-2">Based on this provider's compliance with federal pricing transparency mandates.</p>
+                                <a
+                                  href="/transparency-scorecard-methodology"
+                                  className="text-blue-300 hover:text-blue-200 underline text-xs flex items-center gap-1"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  Learn about our methodology
+                                  <ExternalLink className="w-3 h-3" />
+                                </a>
+                              </div>
+                            </TooltipContent>
+                          </Tooltip>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="text-sm text-gray-600">Data Status</div>
+                        <div className="flex items-center gap-1">
+                          <span className="inline-flex items-center px-2 py-1 rounded-full bg-gray-100 text-gray-700 text-xs font-medium">
+                            Current
+                          </span>
+                        </div>
+                      </div>
                     </div>
-
-                    <Button
-                      onClick={() => onNavigateToProviderDetails(provider.id)}
-                      variant="default"
-                      className="bg-blue-600 hover:bg-blue-700 text-white flex-shrink-0"
-                    >
-                      View Details
-                      <ChevronRight className="w-4 h-4 ml-1" />
-                    </Button>
                   </div>
                 </CardContent>
               </Card>
