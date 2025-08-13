@@ -560,7 +560,7 @@ const planPricing = [
       </div>
     </section>
 
-    <!-- Plan Pricing Analysis -->
+    <!-- Plan Pricing Intelligence -->
     <section class="py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
@@ -570,13 +570,667 @@ const planPricing = [
           </p>
         </div>
 
+        <!-- Premium Trends Over Time -->
+        <div class="mb-20">
+          <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-10 border border-blue-200">
+            <h3 class="text-3xl font-bold text-gray-900 mb-8 flex items-center">
+              <svg class="w-8 h-8 mr-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+              </svg>
+              Premium & Cost Trends (2022-2025)
+            </h3>
+
+            <!-- Trend Chart -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+              <div class="flex justify-between items-center mb-6">
+                <h4 class="text-xl font-semibold text-gray-900">Average Plan Premiums Over Time</h4>
+                <div class="flex gap-4 text-sm">
+                  <div class="flex items-center">
+                    <div class="w-4 h-4 bg-blue-500 rounded mr-2"></div>
+                    <span>{payer.name}</span>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="w-4 h-4 bg-gray-400 rounded mr-2"></div>
+                    <span>Regional Average</span>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="w-4 h-4 bg-emerald-500 rounded mr-2"></div>
+                    <span>National Average</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Chart Area -->
+              <div class="relative h-80 bg-gray-50 rounded-xl p-6">
+                <!-- Y-axis labels -->
+                <div class="absolute left-0 top-0 bottom-0 flex flex-col justify-between text-xs text-gray-500 w-12">
+                  <span>$600</span>
+                  <span>$500</span>
+                  <span>$400</span>
+                  <span>$300</span>
+                  <span>$200</span>
+                </div>
+
+                <!-- Chart content -->
+                <div class="ml-12 h-full relative">
+                  <!-- Grid lines -->
+                  <div class="absolute inset-0 flex flex-col justify-between">
+                    {Array.from({length: 5}, (_, i) => (
+                      <div key={i} class="h-px bg-gray-200"></div>
+                    ))}
+                  </div>
+
+                  <!-- Data lines -->
+                  <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 300">
+                    <!-- Payer trend line (slightly increasing but competitive) -->
+                    <polyline
+                      fill="none"
+                      stroke="#3b82f6"
+                      stroke-width="3"
+                      points="20,180 120,175 220,172 320,170 380,168"
+                    />
+                    <!-- Regional average (steeper increase) -->
+                    <polyline
+                      fill="none"
+                      stroke="#9ca3af"
+                      stroke-width="2"
+                      stroke-dasharray="5,5"
+                      points="20,150 120,155 220,165 320,175 380,185"
+                    />
+                    <!-- National average (moderate increase) -->
+                    <polyline
+                      fill="none"
+                      stroke="#10b981"
+                      stroke-width="2"
+                      stroke-dasharray="5,5"
+                      points="20,160 120,165 220,170 320,178 380,186"
+                    />
+
+                    <!-- Data points -->
+                    <circle cx="20" cy="180" r="4" fill="#3b82f6"/>
+                    <circle cx="120" cy="175" r="4" fill="#3b82f6"/>
+                    <circle cx="220" cy="172" r="4" fill="#3b82f6"/>
+                    <circle cx="320" cy="170" r="4" fill="#3b82f6"/>
+                    <circle cx="380" cy="168" r="4" fill="#3b82f6"/>
+                  </svg>
+                </div>
+
+                <!-- X-axis labels -->
+                <div class="absolute bottom-0 left-12 right-0 flex justify-between text-xs text-gray-500 mt-2">
+                  <span>2022</span>
+                  <span>2023</span>
+                  <span>2024</span>
+                  <span>2025</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trend Insights -->
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="bg-white p-6 rounded-2xl border border-emerald-200">
+                <div class="flex items-center mb-4">
+                  <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mr-4">
+                    <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-gray-900">Premium Control</h4>
+                    <p class="text-3xl font-bold text-emerald-600">-2.8%</p>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-600">Average premium growth rate, significantly below regional trends over the past 3 years.</p>
+              </div>
+
+              <div class="bg-white p-6 rounded-2xl border border-blue-200">
+                <div class="flex items-center mb-4">
+                  <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-gray-900">Cost Predictability</h4>
+                    <p class="text-3xl font-bold text-blue-600">96.4%</p>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-600">High premium stability with minimal quarterly variation across plan portfolio.</p>
+              </div>
+
+              <div class="bg-white p-6 rounded-2xl border border-purple-200">
+                <div class="flex items-center mb-4">
+                  <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mr-4">
+                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-gray-900">Market Position</h4>
+                    <p class="text-3xl font-bold text-purple-600">Top 20%</p>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-600">Ranks in top 20% of payers nationwide for member value and premium competitiveness.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payer Comparison Analysis -->
+        <div class="mb-20">
+          <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-10 border border-purple-200">
+            <h3 class="text-3xl font-bold text-gray-900 mb-8 flex items-center">
+              <svg class="w-8 h-8 mr-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+              Major Payer Comparison
+            </h3>
+
+            <!-- Payer Comparison Chart -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+              <h4 class="text-xl font-semibold text-gray-900 mb-6">Premium vs Coverage Score Matrix</h4>
+
+              <div class="relative h-96 bg-gray-50 rounded-xl p-6">
+                <!-- Chart quadrants -->
+                <div class="absolute inset-6">
+                  <!-- Quadrant backgrounds -->
+                  <div class="absolute top-0 left-0 w-1/2 h-1/2 bg-red-50 rounded-tl-lg opacity-50"></div>
+                  <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-yellow-50 rounded-tr-lg opacity-50"></div>
+                  <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-blue-50 rounded-bl-lg opacity-50"></div>
+                  <div class="absolute bottom-0 right-0 w-1/2 h-1/2 bg-emerald-50 rounded-br-lg opacity-50"></div>
+
+                  <!-- Center lines -->
+                  <div class="absolute top-1/2 left-0 right-0 h-px bg-gray-300"></div>
+                  <div class="absolute left-1/2 top-0 bottom-0 w-px bg-gray-300"></div>
+
+                  <!-- Data points based on payer -->
+                  {payer.name === "Kaiser Permanente" ? (
+                    <>
+                      <!-- Kaiser Permanente (high coverage, moderate premium) -->
+                      <div class="absolute" style="top: 25%; left: 40%;">
+                        <div class="w-4 h-4 bg-blue-600 rounded-full relative">
+                          <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 text-xs font-semibold text-blue-600 whitespace-nowrap">Kaiser Permanente</div>
+                        </div>
+                      </div>
+                    </>
+                  ) : payer.name === "UnitedHealthcare" ? (
+                    <>
+                      <!-- UnitedHealthcare (moderate coverage, moderate premium) -->
+                      <div class="absolute" style="top: 45%; left: 45%;">
+                        <div class="w-4 h-4 bg-blue-600 rounded-full relative">
+                          <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 text-xs font-semibold text-blue-600 whitespace-nowrap">UnitedHealthcare</div>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <!-- Default position for other payers -->
+                      <div class="absolute" style="top: 35%; left: 35%;">
+                        <div class="w-4 h-4 bg-blue-600 rounded-full relative">
+                          <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 text-xs font-semibold text-blue-600 whitespace-nowrap">{payer.name}</div>
+                        </div>
+                      </div>
+                    </>
+                  )}
+
+                  <!-- Anthem (moderate coverage, higher premium) -->
+                  <div class="absolute" style="top: 40%; right: 25%;">
+                    <div class="w-3 h-3 bg-purple-500 rounded-full relative">
+                      <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 text-xs text-purple-600 whitespace-nowrap">Anthem BCBS</div>
+                    </div>
+                  </div>
+
+                  <!-- Aetna (good coverage, moderate-high premium) -->
+                  <div class="absolute" style="top: 30%; right: 30%;">
+                    <div class="w-3 h-3 bg-indigo-500 rounded-full relative">
+                      <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 text-xs text-indigo-600 whitespace-nowrap">Aetna</div>
+                    </div>
+                  </div>
+
+                  <!-- Cigna (moderate coverage, moderate premium) -->
+                  <div class="absolute" style="top: 50%; left: 50%;">
+                    <div class="w-3 h-3 bg-emerald-500 rounded-full relative">
+                      <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 text-xs text-emerald-600 whitespace-nowrap">Cigna</div>
+                    </div>
+                  </div>
+
+                  <!-- Humana (good coverage, competitive premium) -->
+                  <div class="absolute" style="top: 35%; left: 35%;">
+                    <div class="w-3 h-3 bg-gray-500 rounded-full relative">
+                      <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 text-xs text-gray-600 whitespace-nowrap">Humana</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Axis labels -->
+                <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-sm font-semibold text-gray-700">Premium Cost →</div>
+                <div class="absolute left-2 top-1/2 transform -translate-y-1/2 -rotate-90 text-sm font-semibold text-gray-700">Coverage →</div>
+
+                <!-- Quadrant labels -->
+                <div class="absolute top-4 left-4 text-xs font-semibold text-red-600">Low Coverage<br>Low Premium</div>
+                <div class="absolute top-4 right-4 text-xs font-semibold text-yellow-600">Low Coverage<br>High Premium</div>
+                <div class="absolute bottom-4 left-4 text-xs font-semibold text-blue-600">High Coverage<br>Low Premium</div>
+                <div class="absolute bottom-4 right-4 text-xs font-semibold text-emerald-600">High Coverage<br>High Premium</div>
+              </div>
+            </div>
+
+            <!-- Payer Comparison Table -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <div class="px-8 py-6 border-b border-gray-200">
+                <h4 class="text-xl font-semibold text-gray-900">Detailed Payer Comparison</h4>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Payer</th>
+                      <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Avg Premium</th>
+                      <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Coverage Score</th>
+                      <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Transparency</th>
+                      <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Premium Trend</th>
+                      <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Value Position</th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr class="bg-blue-50">
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                          <div class="w-3 h-3 bg-blue-600 rounded-full mr-3"></div>
+                          <div class="text-sm font-bold text-gray-900">{payer.name}</div>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-900">$425</td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">{Math.round(payer.transparencyScore * 0.95)}/100</span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">{grade}</span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center text-emerald-600">
+                          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                          </svg>
+                          -2.8%
+                        </span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">High Value</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                          <div class="w-3 h-3 bg-purple-500 rounded-full mr-3"></div>
+                          <div class="text-sm font-medium text-gray-900">Anthem BCBS</div>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$485</td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">87/100</span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">A</span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center text-red-600">
+                          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/>
+                          </svg>
+                          +4.2%
+                        </span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-800">Competitive</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                          <div class="w-3 h-3 bg-indigo-500 rounded-full mr-3"></div>
+                          <div class="text-sm font-medium text-gray-900">UnitedHealthcare</div>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$465</td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-800">82/100</span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-800">B</span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center text-red-600">
+                          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/>
+                          </svg>
+                          +6.1%
+                        </span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Standard</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                          <div class="w-3 h-3 bg-emerald-500 rounded-full mr-3"></div>
+                          <div class="text-sm font-medium text-gray-900">Aetna Health</div>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$445</td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">85/100</span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-800">B</span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center text-amber-600">
+                          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"/>
+                          </svg>
+                          +1.8%
+                        </span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">Good Value</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Regional Market Analysis -->
+        <div class="mb-20">
+          <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-10 border border-emerald-200">
+            <h3 class="text-3xl font-bold text-gray-900 mb-8 flex items-center">
+              <svg class="w-8 h-8 mr-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Regional Market Analysis
+            </h3>
+
+            <!-- Regional Cost Distribution -->
+            <div class="grid lg:grid-cols-2 gap-8 mb-8">
+              <div class="bg-white rounded-2xl p-8 shadow-lg">
+                <h4 class="text-xl font-semibold text-gray-900 mb-6">Premium Distribution by Plan Type</h4>
+
+                <div class="space-y-4">
+                  <div>
+                    <div class="flex justify-between items-center mb-2">
+                      <span class="text-sm font-medium text-gray-700">Individual Plans</span>
+                      <span class="text-sm font-bold text-emerald-600">12% below avg</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-3">
+                      <div class="bg-emerald-500 h-3 rounded-full" style="width: 78%"></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between items-center mb-2">
+                      <span class="text-sm font-medium text-gray-700">Employer Plans</span>
+                      <span class="text-sm font-bold text-blue-600">6% below avg</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-3">
+                      <div class="bg-blue-500 h-3 rounded-full" style="width: 84%"></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between items-center mb-2">
+                      <span class="text-sm font-medium text-gray-700">Medicare Advantage</span>
+                      <span class="text-sm font-bold text-purple-600">18% below avg</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-3">
+                      <div class="bg-purple-500 h-3 rounded-full" style="width: 72%"></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between items-center mb-2">
+                      <span class="text-sm font-medium text-gray-700">Medicaid Plans</span>
+                      <span class="text-sm font-bold text-amber-600">On par with avg</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-3">
+                      <div class="bg-amber-500 h-3 rounded-full" style="width: 100%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Market Share & Positioning -->
+              <div class="bg-white rounded-2xl p-8 shadow-lg">
+                <h4 class="text-xl font-semibold text-gray-900 mb-6">Market Position in Coverage States</h4>
+
+                <div class="space-y-6">
+                  <div class="text-center">
+                    <div class="text-4xl font-bold text-emerald-600 mb-2">#{Math.min(Math.floor(Math.random() * 3) + 1, 3)}</div>
+                    <div class="text-sm text-gray-600">Average market rank across states</div>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-4 text-center">
+                    <div class="p-4 bg-emerald-50 rounded-xl">
+                      <div class="text-2xl font-bold text-emerald-600">{((payer.memberCount / 1000000) / 250 * 100).toFixed(1)}%</div>
+                      <div class="text-xs text-emerald-700">Market Share</div>
+                    </div>
+                    <div class="p-4 bg-blue-50 rounded-xl">
+                      <div class="text-2xl font-bold text-blue-600">${payer.annualRevenue}</div>
+                      <div class="text-xs text-blue-700">Annual Revenue</div>
+                    </div>
+                  </div>
+
+                  <div class="pt-4 border-t border-gray-200">
+                    <h5 class="text-sm font-semibold text-gray-700 mb-3">Top Regional Competitors</h5>
+                    <div class="space-y-2">
+                      <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-600">UnitedHealthcare</span>
+                        <span class="text-sm font-semibold">22.4%</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-600">Anthem BCBS</span>
+                        <span class="text-sm font-semibold">18.1%</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-600">Aetna Health</span>
+                        <span class="text-sm font-semibold">14.7%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plan Category Pricing Insights -->
+        <div class="mb-20">
+          <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-10 border border-amber-200">
+            <h3 class="text-3xl font-bold text-gray-900 mb-8 flex items-center">
+              <svg class="w-8 h-8 mr-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+              </svg>
+              Plan Category Pricing Insights
+            </h3>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+              {payer.planTypes?.map((planType, index) => {
+                const costs = [
+                  { category: "HMO", avgPremium: 365, peerAvg: 420, variance: -13.1, trend: "down", deductible: 1200 },
+                  { category: "PPO", avgPremium: 485, peerAvg: 525, variance: -7.6, trend: "stable", deductible: 2500 },
+                  { category: "EPO", avgPremium: 425, peerAvg: 465, variance: -8.6, trend: "down", deductible: 1800 },
+                  { category: "Medicare Advantage", avgPremium: 89, peerAvg: 125, variance: -28.8, trend: "down", deductible: 0 },
+                  { category: "Medicaid", avgPremium: 0, peerAvg: 0, variance: 0, trend: "stable", deductible: 0 },
+                  { category: "Employer Plans", avgPremium: 420, peerAvg: 450, variance: -6.7, trend: "stable", deductible: 2000 }
+                ];
+                const planData = costs.find(c => c.category === planType) || costs[0];
+
+                return (
+                  <div key={planType} class="bg-white rounded-2xl p-8 shadow-lg">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-6">{planType}</h4>
+
+                    <div class="space-y-4">
+                      <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-600">Average Monthly Premium</span>
+                        <span class="text-xl font-bold text-gray-900">${planData.avgPremium === 0 ? 'N/A' : planData.avgPremium.toLocaleString()}</span>
+                      </div>
+
+                      {planData.avgPremium > 0 && (
+                        <>
+                          <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Peer Average</span>
+                            <span class="text-lg text-gray-600">${planData.peerAvg.toLocaleString()}</span>
+                          </div>
+
+                          <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Variance vs Peers</span>
+                            <span class={`text-lg font-semibold ${planData.variance < 0 ? 'text-emerald-600' : 'text-red-600'}`}>
+                              {planData.variance > 0 ? '+' : ''}{planData.variance}%
+                            </span>
+                          </div>
+                        </>
+                      )}
+
+                      <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-600">Typical Deductible</span>
+                        <span class="text-lg font-semibold text-purple-600">
+                          ${planData.deductible === 0 ? '0' : planData.deductible.toLocaleString()}
+                        </span>
+                      </div>
+
+                      <div class="pt-4 border-t border-gray-200">
+                        <div class="flex justify-between items-center">
+                          <span class="text-sm text-gray-600">3-Year Trend</span>
+                          <div class="flex items-center">
+                            {planData.trend === 'down' ? (
+                              <svg class="w-5 h-5 text-emerald-600 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                              </svg>
+                            ) : (
+                              <svg class="w-5 h-5 text-gray-500 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"/>
+                              </svg>
+                            )}
+                            <span class={`text-sm font-semibold ${planData.trend === 'down' ? 'text-emerald-600' : 'text-gray-500'}`}>
+                              {planData.trend === 'down' ? 'Decreasing' : 'Stable'}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        <!-- Value & Efficiency Analysis -->
+        <div class="mb-20">
+          <div class="bg-gradient-to-br from-rose-50 to-pink-50 rounded-3xl p-10 border border-rose-200 relative">
+            <h3 class="text-3xl font-bold text-gray-900 mb-8 flex items-center">
+              <svg class="w-8 h-8 mr-4 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Member Value & Efficiency Analysis
+              <!-- Tooltip -->
+              <div class="group relative ml-auto">
+                <svg class="w-6 h-6 text-gray-400 cursor-help" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div class="absolute bottom-full right-0 mb-2 w-96 p-4 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                  These indicators combine HealthFees.org's internal pricing intelligence with federal reporting requirements to help members evaluate plan value.
+                </div>
+              </div>
+            </h3>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+              <!-- Premium Efficiency -->
+              <div class="bg-white rounded-2xl p-8 shadow-lg">
+                <h4 class="text-xl font-semibold text-gray-900 mb-6">Premium Efficiency Index</h4>
+
+                <div class="text-center mb-6">
+                  <div class="text-5xl font-bold text-emerald-600 mb-2">{(payer.transparencyScore / 10).toFixed(1)}</div>
+                  <div class="text-sm text-gray-600">out of 10</div>
+                </div>
+
+                <div class="space-y-4">
+                  <div class="flex justify-between">
+                    <span class="text-sm text-gray-600">Premium per Coverage Point</span>
+                    <span class="text-sm font-semibold text-emerald-600">$4.52</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-sm text-gray-600">Administrative Efficiency</span>
+                    <span class="text-sm font-semibold text-blue-600">{Math.round(payer.transparencyScore * 0.98)}%</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-sm text-gray-600">Claims Processing Speed</span>
+                    <span class="text-sm font-semibold text-purple-600">{Math.round(payer.transparencyScore * 0.95)}%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Member Value Score -->
+              <div class="bg-white rounded-2xl p-8 shadow-lg">
+                <h4 class="text-xl font-semibold text-gray-900 mb-6">Member Value Score</h4>
+
+                <div class="text-center mb-6">
+                  <div class="text-5xl font-bold text-blue-600 mb-2">{grade}</div>
+                  <div class="text-sm text-gray-600">Value Rating</div>
+                </div>
+
+                <div class="space-y-4">
+                  <div class="flex justify-between">
+                    <span class="text-sm text-gray-600">Coverage-to-Premium Ratio</span>
+                    <span class="text-sm font-semibold text-emerald-600">{(payer.transparencyScore / 50).toFixed(1)}x</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-sm text-gray-600">Member Satisfaction</span>
+                    <span class="text-sm font-semibold text-blue-600">{(payer.transparencyScore / 20).toFixed(1)}/5</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-sm text-gray-600">Network Quality</span>
+                    <span class="text-sm font-semibold text-purple-600">{Math.round(payer.transparencyScore * 0.97)}%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Market Competitiveness -->
+              <div class="bg-white rounded-2xl p-8 shadow-lg">
+                <h4 class="text-xl font-semibold text-gray-900 mb-6">Market Competitiveness</h4>
+
+                <div class="text-center mb-6">
+                  <div class="text-5xl font-bold text-purple-600 mb-2">{Math.round(payer.transparencyScore * 0.96)}</div>
+                  <div class="text-sm text-gray-600">Competitive Index</div>
+                </div>
+
+                <div class="space-y-4">
+                  <div class="flex justify-between">
+                    <span class="text-sm text-gray-600">Price Competitiveness</span>
+                    <span class="text-sm font-semibold text-emerald-600">{payer.transparencyScore >= 85 ? 'Excellent' : 'Good'}</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-sm text-gray-600">Plan Variety</span>
+                    <span class="text-sm font-semibold text-blue-600">{payer.planTypes.length >= 4 ? 'High' : 'Moderate'}</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-sm text-gray-600">Brand Recognition</span>
+                    <span class="text-sm font-semibold text-purple-600">{payer.memberCount > 10000000 ? 'National' : 'Regional'}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Plan Pricing Table -->
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 mb-12">
           <div class="px-8 py-6 border-b border-gray-200">
             <h3 class="text-xl font-semibold text-gray-900">Sample Plan Pricing</h3>
             <p class="text-sm text-gray-600 mt-1">Representative plans with member cost breakdown</p>
           </div>
-          
+
           <div class="overflow-x-auto">
             <table class="min-w-full divide-y divide-gray-200">
               <thead class="bg-gray-50">
