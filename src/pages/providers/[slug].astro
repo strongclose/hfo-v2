@@ -320,8 +320,13 @@ const procedures = [
               {provider.organizationType}
             </span>
             <!-- Transparency Score Badge -->
-            <div class={`inline-flex items-center px-6 py-3 rounded-full font-bold text-xl ring-4 ${getGradeColor(grade)} shadow-lg`}>
-              Grade: {grade}
+            <div class="group relative">
+              <div class={`inline-flex items-center px-6 py-3 rounded-full font-bold text-xl ring-4 ${getGradeColor(grade)} shadow-lg cursor-help`}>
+                Grade: {grade}
+              </div>
+              <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 p-4 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                This is HealthFees.org's transparency score based on how well this provider meets federal price transparency requirements.
+              </div>
             </div>
           </div>
 
