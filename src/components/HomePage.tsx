@@ -533,9 +533,6 @@ export default function HomePage() {
               <div className="space-y-20">
                 {/* Step 1: We Collect */}
                 <div className="relative">
-                  {/* Timeline Node */}
-                  <div className="hidden lg:block absolute left-1/2 top-20 w-8 h-8 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10 hf-gradient-primary">
-                  </div>
 
                   {/* Content Grid */}
                   <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
@@ -645,9 +642,6 @@ export default function HomePage() {
 
                 {/* Step 2: We Organize */}
                 <div className="relative">
-                  {/* Timeline Node */}
-                  <div className="hidden lg:block absolute left-1/2 top-24 w-8 h-8 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10 hf-gradient-accent">
-                  </div>
 
                   {/* Content Grid - Reversed */}
                   <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
@@ -782,9 +776,6 @@ export default function HomePage() {
 
                 {/* Step 3: You Compare */}
                 <div className="relative">
-                  {/* Timeline Node */}
-                  <div className="hidden lg:block absolute left-1/2 top-24 w-8 h-8 rounded-full border-4 border-white shadow-xl transform -translate-x-1/2 z-10 hf-gradient-primary">
-                  </div>
 
                   {/* Content Grid */}
                   <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
@@ -1291,7 +1282,7 @@ export default function HomePage() {
                         window.location.href = "/compliance-tool";
                       }
                     }}
-                    variant="secondary"
+                    variant="primary"
                     size="lg"
                   >
                     Check Your Score
