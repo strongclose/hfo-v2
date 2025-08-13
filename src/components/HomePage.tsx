@@ -911,12 +911,8 @@ export default function HomePage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 hf-gradient-accent">
                 <BarChart3 className="w-8 h-8 text-white" />
               </div>
-              <h2 className="hf-heading-h2 mb-6 hf-text-primary tracking-tight">
-                What the Data
-                <span className="hf-text-gradient-accent">
-                  {" "}
-                  Reveals
-                </span>
+              <h2 className="ds-h2 mb-6 text-gray-900">
+                What the Data Reveals
               </h2>
             </div>
 
