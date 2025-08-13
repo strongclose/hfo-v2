@@ -631,10 +631,15 @@
     height: 14px !important;
   }
 
-  /* Persona Card Icons - Medium size for card context */
+  /* Persona Card Icons and Circles */
   .rounded-full.flex.items-center.justify-center svg {
     width: 20px !important;
     height: 20px !important;
+  }
+
+  /* Persona Card Circles - Larger for prominence */
+  .flex.items-center.gap-6 .w-24.h-24.rounded-full {
+    /* Circle is now 24x24 (96px) which is appropriately larger */
   }
 
   /* Override any manual w-4 h-4 classes on persona pills */
