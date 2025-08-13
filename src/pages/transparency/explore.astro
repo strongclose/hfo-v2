@@ -31,19 +31,62 @@ import { FooterExpanded } from '../../components/homepage/FooterExpanded';
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <!-- Search Bar -->
-        <div class="max-w-4xl mx-auto mb-6">
-          <div class="relative">
-            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-              <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-              </svg>
+        <div class="max-w-5xl mx-auto mb-6">
+          <div class="grid lg:grid-cols-12 gap-3">
+            <!-- Main Search -->
+            <div class="lg:col-span-6 relative">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+              </div>
+              <input
+                type="text"
+                class="block w-full pl-12 pr-4 py-3 text-base border border-gray-300 rounded-xl bg-white shadow focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+                placeholder="Search by name, NPI, or organization..."
+                id="transparency-search"
+              >
             </div>
-            <input
-              type="text"
-              class="block w-full pl-12 pr-4 py-3 text-base border border-gray-300 rounded-xl bg-white shadow focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
-              placeholder="Search any provider or payer..."
-              id="transparency-search"
-            >
+
+            <!-- Zip Code Search -->
+            <div class="lg:col-span-3 relative">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <input
+                type="text"
+                class="block w-full pl-12 pr-4 py-3 text-base border border-gray-300 rounded-xl bg-white shadow focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+                placeholder="Zip code..."
+                id="zip-search"
+                maxlength="5"
+                pattern="[0-9]{5}"
+              >
+            </div>
+
+            <!-- Radius -->
+            <div class="lg:col-span-2">
+              <select class="w-full px-4 py-3 text-base border border-gray-300 rounded-xl bg-white shadow focus:ring-2 focus:ring-blue-500 focus:border-blue-500" id="radius-select">
+                <option value="10">10 miles</option>
+                <option value="25" selected>25 miles</option>
+                <option value="50">50 miles</option>
+                <option value="100">100 miles</option>
+                <option value="250">250 miles</option>
+              </select>
+            </div>
+
+            <!-- Search Button -->
+            <div class="lg:col-span-1">
+              <button
+                type="button"
+                class="w-full px-4 py-3 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow focus:ring-2 focus:ring-blue-500 transition-colors"
+                id="search-btn"
+              >
+                Search
+              </button>
+            </div>
           </div>
         </div>
 
