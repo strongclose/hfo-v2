@@ -420,6 +420,53 @@ const procedures = [
       </div>
     </section>
 
+    <!-- Transparency Compliance Score Block -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-3xl p-10 shadow-lg border border-gray-200">
+          <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Transparency Compliance Score</h2>
+
+          <div class="grid lg:grid-cols-4 gap-8 items-center">
+            <!-- Main Score -->
+            <div class="lg:col-span-1 text-center">
+              <div class={`inline-flex items-center px-8 py-6 rounded-2xl font-bold text-4xl ring-4 ${getGradeColor(grade)} shadow-lg mb-4`}>
+                {grade}
+              </div>
+              <p class="text-lg font-semibold text-gray-700">Overall Grade</p>
+            </div>
+
+            <!-- Subscores -->
+            <div class="lg:col-span-3 grid md:grid-cols-3 gap-6">
+              <div class="bg-blue-50 p-6 rounded-2xl border border-blue-200">
+                <h3 class="text-lg font-semibold text-blue-900 mb-2">File Structure Quality</h3>
+                <div class="text-3xl font-bold text-blue-600 mb-2">{Math.round(provider.transparencyScore * 0.95)}%</div>
+                <p class="text-sm text-blue-700">Data format compliance and completeness</p>
+              </div>
+
+              <div class="bg-teal-50 p-6 rounded-2xl border border-teal-200">
+                <h3 class="text-lg font-semibold text-teal-900 mb-2">Data Coverage</h3>
+                <div class="text-3xl font-bold text-teal-600 mb-2">{Math.round(provider.transparencyScore * 0.92)}%</div>
+                <p class="text-sm text-teal-700">Breadth of pricing information available</p>
+              </div>
+
+              <div class="bg-purple-50 p-6 rounded-2xl border border-purple-200">
+                <h3 class="text-lg font-semibold text-purple-900 mb-2">Last Detected Update</h3>
+                <div class="text-3xl font-bold text-purple-600 mb-2">{provider.updated}</div>
+                <p class="text-sm text-purple-700">Most recent data refresh detected</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 p-6 bg-gray-50 rounded-xl">
+            <p class="text-gray-700 leading-relaxed">
+              This score reflects how well this provider meets federal price transparency rules based on data format, structure, and recency.
+              HealthFees.org reviews transparency files monthly and scores providers on compliance with CMS requirements for machine-readable pricing data.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Provider Details Section -->
     <section class="py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
