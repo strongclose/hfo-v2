@@ -139,240 +139,458 @@ import { FooterExpanded } from '../../components/homepage/FooterExpanded';
             <span class="text-gray-600">Showing 1,247 results</span>
           </div>
 
-          <!-- Sample Results Cards -->
-          <div class="grid lg:grid-cols-2 gap-6">
-            
-            <!-- Provider Card 1 -->
-            <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
-              <div class="flex justify-between items-start mb-6">
-                <div>
-                  <h4 class="text-xl font-bold text-gray-900 mb-2">Johns Hopkins Hospital</h4>
-                  <div class="flex items-center space-x-3">
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                      Provider
-                    </span>
-                    <span class="text-gray-600">Baltimore, MD</span>
-                  </div>
-                </div>
-                <div class="text-right">
-                  <div class="inline-flex items-center px-4 py-2 rounded-full font-bold text-lg bg-emerald-500 text-white ring-4 ring-emerald-200 shadow-lg mb-2">
-                    A+
-                  </div>
-                  <div class="text-sm text-emerald-700 font-semibold">Transparency Score</div>
-                </div>
-              </div>
+          <!-- Compact Results Table -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
+            <div class="overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Organization</th>
+                    <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
+                    <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Location</th>
+                    <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Score</th>
+                    <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Updated</th>
+                    <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Key Info</th>
+                    <th class="px-6 py-4 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
 
-              <div class="grid grid-cols-2 gap-6 mb-6">
-                <div>
-                  <div class="text-sm text-gray-600 mb-1">Last File Update</div>
-                  <div class="text-lg font-semibold text-gray-900">January 2025</div>
-                </div>
-                <div>
-                  <div class="text-sm text-gray-600 mb-1">Most Common Procedure</div>
-                  <div class="text-lg font-semibold text-gray-900">Office Visit</div>
-                </div>
-              </div>
+                  <!-- Provider Row 1 -->
+                  <tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="flex-shrink-0 h-10 w-10">
+                          <div class="h-10 w-10 rounded-lg bg-blue-100 flex items-center justify-center">
+                            <svg class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="ml-4">
+                          <div class="text-sm font-medium text-gray-900">Johns Hopkins Hospital</div>
+                          <div class="text-sm text-gray-500">Academic Medical Center</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                        Provider
+                      </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Baltimore, MD
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                          A+
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Jan 2025
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      Office Visits: $220-280
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                      <a href="/providers/johns-hopkins-hospital" class="text-blue-600 hover:text-blue-900">View Details</a>
+                    </td>
+                  </tr>
 
-              <div class="mb-6">
-                <div class="text-sm text-gray-600 mb-2">Median Price Range</div>
-                <div class="bg-gray-50 rounded-lg p-4">
-                  <div class="flex justify-between items-center">
-                    <span class="text-sm text-gray-600">Cash Price</span>
-                    <span class="text-lg font-bold text-green-600">$280</span>
-                  </div>
-                  <div class="flex justify-between items-center mt-2">
-                    <span class="text-sm text-gray-600">Insurance Rate</span>
-                    <span class="text-lg font-bold text-blue-600">$220</span>
-                  </div>
-                </div>
-              </div>
+                  <!-- Payer Row 1 -->
+                  <tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="flex-shrink-0 h-10 w-10">
+                          <div class="h-10 w-10 rounded-lg bg-emerald-100 flex items-center justify-center">
+                            <svg class="h-6 w-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="ml-4">
+                          <div class="text-sm font-medium text-gray-900">Kaiser Permanente</div>
+                          <div class="text-sm text-gray-500">12.4M Members</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                        Payer
+                      </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Oakland, CA
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                          A+
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Jan 2025
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      Plans: $89-485/mo
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                      <a href="/payers/kaiser-permanente" class="text-blue-600 hover:text-blue-900">View Details</a>
+                    </td>
+                  </tr>
 
-              <a 
-                href="/providers/johns-hopkins-hospital"
-                class="inline-flex items-center px-6 py-3 border border-transparent text-base font-semibold rounded-xl text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 w-full justify-center"
-              >
-                View Transparency Profile
-                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-              </a>
+                  <!-- Provider Row 2 -->
+                  <tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="flex-shrink-0 h-10 w-10">
+                          <div class="h-10 w-10 rounded-lg bg-blue-100 flex items-center justify-center">
+                            <svg class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="ml-4">
+                          <div class="text-sm font-medium text-gray-900">Mayo Clinic</div>
+                          <div class="text-sm text-gray-500">Academic Medical Center</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                        Provider
+                      </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Rochester, MN
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                          A+
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Dec 2024
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      Colonoscopy: $2,100-3,200
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                      <a href="/providers/mayo-clinic" class="text-blue-600 hover:text-blue-900">View Details</a>
+                    </td>
+                  </tr>
+
+                  <!-- Payer Row 2 -->
+                  <tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="flex-shrink-0 h-10 w-10">
+                          <div class="h-10 w-10 rounded-lg bg-emerald-100 flex items-center justify-center">
+                            <svg class="h-6 w-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="ml-4">
+                          <div class="text-sm font-medium text-gray-900">UnitedHealthcare</div>
+                          <div class="text-sm text-gray-500">56.0M Members</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                        Payer
+                      </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Minnetonka, MN
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">
+                          B
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Nov 2024
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      Plans: $125-590/mo
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                      <a href="/payers/unitedhealth-group" class="text-blue-600 hover:text-blue-900">View Details</a>
+                    </td>
+                  </tr>
+
+                  <!-- Additional Sample Rows for Demonstration -->
+                  <tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="flex-shrink-0 h-10 w-10">
+                          <div class="h-10 w-10 rounded-lg bg-blue-100 flex items-center justify-center">
+                            <svg class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="ml-4">
+                          <div class="text-sm font-medium text-gray-900">Cleveland Clinic</div>
+                          <div class="text-sm text-gray-500">Health System</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                        Provider
+                      </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Cleveland, OH
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                          A
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Jan 2025
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      Heart Surgery: $45,000-52,000
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                      <a href="/providers/cleveland-clinic" class="text-blue-600 hover:text-blue-900">View Details</a>
+                    </td>
+                  </tr>
+
+                  <tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="flex-shrink-0 h-10 w-10">
+                          <div class="h-10 w-10 rounded-lg bg-emerald-100 flex items-center justify-center">
+                            <svg class="h-6 w-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="ml-4">
+                          <div class="text-sm font-medium text-gray-900">Anthem Blue Cross</div>
+                          <div class="text-sm text-gray-500">4.2M Members</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                        Payer
+                      </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Indianapolis, IN
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                          A
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Jan 2025
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      Plans: $350-650/mo
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                      <a href="/payers/anthem-blue-cross-blue-shield" class="text-blue-600 hover:text-blue-900">View Details</a>
+                    </td>
+                  </tr>
+
+                  <tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="flex-shrink-0 h-10 w-10">
+                          <div class="h-10 w-10 rounded-lg bg-blue-100 flex items-center justify-center">
+                            <svg class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="ml-4">
+                          <div class="text-sm font-medium text-gray-900">UCSF Medical Center</div>
+                          <div class="text-sm text-gray-500">Teaching Hospital</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                        Provider
+                      </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      San Francisco, CA
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                          A
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Dec 2024
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      MRI: $2,800-4,200
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                      <a href="/providers/ucsf-medical" class="text-blue-600 hover:text-blue-900">View Details</a>
+                    </td>
+                  </tr>
+
+                  <tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="flex-shrink-0 h-10 w-10">
+                          <div class="h-10 w-10 rounded-lg bg-emerald-100 flex items-center justify-center">
+                            <svg class="h-6 w-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="ml-4">
+                          <div class="text-sm font-medium text-gray-900">Humana Health</div>
+                          <div class="text-sm text-gray-500">18.0M Members</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                        Payer
+                      </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Louisville, KY
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                          A
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Jan 2025
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      Medicare: $0-275/mo
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                      <a href="/payers/humana-health-plans" class="text-blue-600 hover:text-blue-900">View Details</a>
+                    </td>
+                  </tr>
+
+                  <tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="flex-shrink-0 h-10 w-10">
+                          <div class="h-10 w-10 rounded-lg bg-blue-100 flex items-center justify-center">
+                            <svg class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="ml-4">
+                          <div class="text-sm font-medium text-gray-900">Stanford Medical</div>
+                          <div class="text-sm text-gray-500">Teaching Hospital</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                        Provider
+                      </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Palo Alto, CA
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                          A
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Jan 2025
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      Emergency: $1,500-3,200
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                      <a href="/providers/stanford-medical" class="text-blue-600 hover:text-blue-900">View Details</a>
+                    </td>
+                  </tr>
+
+                  <tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="flex-shrink-0 h-10 w-10">
+                          <div class="h-10 w-10 rounded-lg bg-emerald-100 flex items-center justify-center">
+                            <svg class="h-6 w-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="ml-4">
+                          <div class="text-sm font-medium text-gray-900">Cigna Healthcare</div>
+                          <div class="text-sm text-gray-500">19.5M Members</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                        Payer
+                      </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Bloomfield, CT
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">
+                          B
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Dec 2024
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      Plans: $445-575/mo
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                      <a href="/payers/cigna-healthcare" class="text-blue-600 hover:text-blue-900">View Details</a>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
             </div>
-
-            <!-- Payer Card 1 -->
-            <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
-              <div class="flex justify-between items-start mb-6">
-                <div>
-                  <h4 class="text-xl font-bold text-gray-900 mb-2">Kaiser Permanente</h4>
-                  <div class="flex items-center space-x-3">
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-emerald-100 text-emerald-800">
-                      Payer
-                    </span>
-                    <span class="text-gray-600">Oakland, CA</span>
-                  </div>
-                </div>
-                <div class="text-right">
-                  <div class="inline-flex items-center px-4 py-2 rounded-full font-bold text-lg bg-emerald-500 text-white ring-4 ring-emerald-200 shadow-lg mb-2">
-                    A+
-                  </div>
-                  <div class="text-sm text-emerald-700 font-semibold">Transparency Score</div>
-                </div>
-              </div>
-
-              <div class="grid grid-cols-2 gap-6 mb-6">
-                <div>
-                  <div class="text-sm text-gray-600 mb-1">Last File Update</div>
-                  <div class="text-lg font-semibold text-gray-900">January 2025</div>
-                </div>
-                <div>
-                  <div class="text-sm text-gray-600 mb-1">Members</div>
-                  <div class="text-lg font-semibold text-gray-900">12.4M</div>
-                </div>
-              </div>
-
-              <div class="mb-6">
-                <div class="text-sm text-gray-600 mb-2">Plan Premium Range</div>
-                <div class="bg-gray-50 rounded-lg p-4">
-                  <div class="flex justify-between items-center">
-                    <span class="text-sm text-gray-600">Individual Plans</span>
-                    <span class="text-lg font-bold text-blue-600">$325-485/mo</span>
-                  </div>
-                  <div class="flex justify-between items-center mt-2">
-                    <span class="text-sm text-gray-600">Medicare Advantage</span>
-                    <span class="text-lg font-bold text-purple-600">$89/mo</span>
-                  </div>
-                </div>
-              </div>
-
-              <a 
-                href="/payers/kaiser-permanente"
-                class="inline-flex items-center px-6 py-3 border border-transparent text-base font-semibold rounded-xl text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 w-full justify-center"
-              >
-                View Transparency Profile
-                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-
-            <!-- Provider Card 2 -->
-            <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
-              <div class="flex justify-between items-start mb-6">
-                <div>
-                  <h4 class="text-xl font-bold text-gray-900 mb-2">Mayo Clinic</h4>
-                  <div class="flex items-center space-x-3">
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                      Provider
-                    </span>
-                    <span class="text-gray-600">Rochester, MN</span>
-                  </div>
-                </div>
-                <div class="text-right">
-                  <div class="inline-flex items-center px-4 py-2 rounded-full font-bold text-lg bg-emerald-500 text-white ring-4 ring-emerald-200 shadow-lg mb-2">
-                    A+
-                  </div>
-                  <div class="text-sm text-emerald-700 font-semibold">Transparency Score</div>
-                </div>
-              </div>
-
-              <div class="grid grid-cols-2 gap-6 mb-6">
-                <div>
-                  <div class="text-sm text-gray-600 mb-1">Last File Update</div>
-                  <div class="text-lg font-semibold text-gray-900">December 2024</div>
-                </div>
-                <div>
-                  <div class="text-sm text-gray-600 mb-1">Most Common Procedure</div>
-                  <div class="text-lg font-semibold text-gray-900">Colonoscopy</div>
-                </div>
-              </div>
-
-              <div class="mb-6">
-                <div class="text-sm text-gray-600 mb-2">Median Price Range</div>
-                <div class="bg-gray-50 rounded-lg p-4">
-                  <div class="flex justify-between items-center">
-                    <span class="text-sm text-gray-600">Cash Price</span>
-                    <span class="text-lg font-bold text-green-600">$3,200</span>
-                  </div>
-                  <div class="flex justify-between items-center mt-2">
-                    <span class="text-sm text-gray-600">Insurance Rate</span>
-                    <span class="text-lg font-bold text-blue-600">$2,100</span>
-                  </div>
-                </div>
-              </div>
-
-              <a 
-                href="/providers/mayo-clinic"
-                class="inline-flex items-center px-6 py-3 border border-transparent text-base font-semibold rounded-xl text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 w-full justify-center"
-              >
-                View Transparency Profile
-                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-
-            <!-- Payer Card 2 -->
-            <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
-              <div class="flex justify-between items-start mb-6">
-                <div>
-                  <h4 class="text-xl font-bold text-gray-900 mb-2">UnitedHealthcare</h4>
-                  <div class="flex items-center space-x-3">
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-emerald-100 text-emerald-800">
-                      Payer
-                    </span>
-                    <span class="text-gray-600">Minnetonka, MN</span>
-                  </div>
-                </div>
-                <div class="text-right">
-                  <div class="inline-flex items-center px-4 py-2 rounded-full font-bold text-lg bg-amber-500 text-white ring-4 ring-amber-200 shadow-lg mb-2">
-                    B
-                  </div>
-                  <div class="text-sm text-amber-700 font-semibold">Transparency Score</div>
-                </div>
-              </div>
-
-              <div class="grid grid-cols-2 gap-6 mb-6">
-                <div>
-                  <div class="text-sm text-gray-600 mb-1">Last File Update</div>
-                  <div class="text-lg font-semibold text-gray-900">November 2024</div>
-                </div>
-                <div>
-                  <div class="text-sm text-gray-600 mb-1">Members</div>
-                  <div class="text-lg font-semibold text-gray-900">56.0M</div>
-                </div>
-              </div>
-
-              <div class="mb-6">
-                <div class="text-sm text-gray-600 mb-2">Plan Premium Range</div>
-                <div class="bg-gray-50 rounded-lg p-4">
-                  <div class="flex justify-between items-center">
-                    <span class="text-sm text-gray-600">Individual Plans</span>
-                    <span class="text-lg font-bold text-blue-600">$465-590/mo</span>
-                  </div>
-                  <div class="flex justify-between items-center mt-2">
-                    <span class="text-sm text-gray-600">Medicare Advantage</span>
-                    <span class="text-lg font-bold text-purple-600">$125/mo</span>
-                  </div>
-                </div>
-              </div>
-
-              <a 
-                href="/payers/unitedhealth-group"
-                class="inline-flex items-center px-6 py-3 border border-transparent text-base font-semibold rounded-xl text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 w-full justify-center"
-              >
-                View Transparency Profile
-                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-
           </div>
 
           <!-- Load More Button -->
-          <div class="text-center mt-12">
-            <button class="inline-flex items-center px-8 py-4 border border-gray-300 text-lg font-semibold rounded-xl text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 shadow-lg hover:shadow-xl">
+          <div class="text-center mt-8">
+            <button class="inline-flex items-center px-8 py-3 border border-gray-300 text-base font-semibold rounded-xl text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 shadow-lg hover:shadow-xl">
               Load More Results
-              <svg class="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
               </svg>
             </button>
