@@ -58,7 +58,7 @@ export function HeroV2_AIChatbot({
 
             {/* Subheadline */}
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
-              We organize complex pricing data from thousands of hospitals and insurance plans into a simple tool you can use to find cash, in-network, and out-of-network prices — without logging in or paying anything.
+              We ingest
             </p>
 
           </div>
