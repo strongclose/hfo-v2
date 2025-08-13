@@ -68,11 +68,10 @@ export function LazyAnimatedStats({ stats }: LazyAnimatedStatsProps) {
     <div className="grid md:grid-cols-3 gap-8 mb-12 animate-pulse">
       {Array.from({ length: 3 }, (_, idx) => (
         <div key={idx} className="hf-card relative p-10 bg-white/90 h-80 flex flex-col">
-          <div className="w-16 h-16 bg-gray-200 rounded-full mx-auto mb-6"></div>
+          <div className="w-12 h-12 bg-gray-200 rounded-full mx-auto mb-6"></div>
           <div className="text-center flex-1 flex flex-col justify-between">
             <div>
-              <div className="h-8 bg-gray-200 rounded w-20 mx-auto mb-2"></div>
-              <div className="w-full bg-gray-200 rounded-full h-2 mb-4"></div>
+              <div className="h-8 bg-gray-200 rounded w-20 mx-auto mb-4"></div>
             </div>
             <div className="h-4 bg-gray-200 rounded w-3/4 mx-auto"></div>
           </div>
