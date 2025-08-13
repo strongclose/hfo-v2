@@ -555,7 +555,7 @@ export default function HomePage() {
                           <div className="flex items-center justify-center lg:justify-end gap-2 mb-4">
                             <h3 className="ds-h3 text-gray-900">We Collect</h3>
                             <Tooltip content="Federal law requires providers and payers to publish machine-readable files with their negotiated rates under transparency regulations.">
-                              <Info className="w-5 h-5 text-blue-500 cursor-help" />
+                              <Info className="w-4 h-4 text-blue-500 cursor-help" />
                             </Tooltip>
                           </div>
                           
@@ -612,7 +612,7 @@ export default function HomePage() {
                     <div className="order-first lg:order-last lg:pl-16 mb-12 lg:mb-0">
                       <div className="hf-card p-8 border-blue-200" style={{ background: 'rgba(59, 130, 246, 0.05)' }}>
                         <h4 className="hf-heading-h4 hf-text-primary mb-4 flex items-center gap-2">
-                          <FileText className="w-5 h-5 text-blue-600" />
+                          <FileText className="w-4 h-4 text-blue-600" />
                           Live Data Sources
                         </h4>
                         <div className="space-y-3">
@@ -655,7 +655,7 @@ export default function HomePage() {
                     <div className="lg:pr-16 mb-12 lg:mb-0">
                       <div className="hf-card p-8 border-blue-200" style={{ background: 'rgba(59, 130, 246, 0.05)' }}>
                         <h4 className="hf-heading-h4 hf-text-primary mb-2 flex items-center gap-2">
-                          <Brain className="w-5 h-5 text-purple-600" />
+                          <Brain className="w-4 h-4 text-purple-600" />
                           Current Monthly Data Processing Status
                         </h4>
 
@@ -667,7 +667,7 @@ export default function HomePage() {
                                 <div className="flex items-center gap-2">
                                   <span className="text-sm font-medium text-gray-800">{stage.stage}</span>
                                   <Tooltip content={stage.tooltip}>
-                                    <Info className="w-3 h-3 text-gray-500 cursor-help" />
+                                    <Info className="w-4 h-4 text-gray-500 cursor-help" />
                                   </Tooltip>
                                 </div>
                                 <span className="text-sm font-semibold text-gray-700">{stage.progress}%</span>
@@ -732,7 +732,7 @@ export default function HomePage() {
                           <div className="flex items-center justify-center lg:justify-start gap-2 mb-4">
                             <h3 className="hf-heading-h3 hf-text-primary">We Organize</h3>
                             <Tooltip content="We use advanced algorithms to clean, validate, and structure raw pricing data into searchable formats.">
-                              <Info className="w-5 h-5 text-purple-500 cursor-help" />
+                              <Info className="w-4 h-4 text-purple-500 cursor-help" />
                             </Tooltip>
                           </div>
                           
@@ -804,7 +804,7 @@ export default function HomePage() {
                           <div className="flex items-center justify-center lg:justify-end gap-2 mb-4">
                             <h3 className="hf-heading-h3 hf-text-primary">You Compare</h3>
                             <Tooltip content="Compare prices across providers, payers, and cash payment options to find the best value for your healthcare needs.">
-                              <Info className="w-5 h-5 text-emerald-500 cursor-help" />
+                              <Info className="w-4 h-4 text-emerald-500 cursor-help" />
                             </Tooltip>
                           </div>
                           
@@ -815,7 +815,7 @@ export default function HomePage() {
                           {/* Highlighted Benefit */}
                           <div className="p-6 rounded-2xl border border-emerald-200 mb-6" style={{ background: 'rgba(16, 185, 129, 0.1)' }}>
                             <div className="flex items-center justify-center lg:justify-end gap-2 mb-3">
-                              <TrendingDown className="w-6 h-6 text-emerald-600" />
+                              <TrendingDown className="w-4 h-4 text-emerald-600" />
                               <span className="text-2xl font-bold text-emerald-700">$3,200</span>
                             </div>
                             <p className="text-emerald-800 font-semibold">Average savings per procedure</p>
@@ -830,7 +830,7 @@ export default function HomePage() {
                     <div className="order-first lg:order-last lg:pl-16 mb-12 lg:mb-0">
                       <div className="hf-card p-8 border-emerald-200" style={{ background: 'rgba(16, 185, 129, 0.05)' }}>
                         <h4 className="hf-heading-h4 hf-text-primary mb-4 flex items-center gap-2">
-                          <BarChart3 className="w-5 h-5 text-emerald-600" />
+                          <BarChart3 className="w-4 h-4 text-emerald-600" />
                           Price Comparison Example
                         </h4>
                         <div className="space-y-4">
