@@ -39,23 +39,29 @@ export function HeroV2_AIChatbot({
           'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       }}
     >
-      {/* Subtle Background Elements */}
+      {/* Elegant Background Design */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Base gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.1),transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(124,58,237,0.05),transparent_50%)]"></div>
 
-        {/* Blue Glow Behind Chatbot */}
-        <div className="absolute top-1/2 right-0 lg:right-[5%] transform -translate-y-1/2 w-[500px] h-[650px] z-20">
-          {/* Outer Glow */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(37,99,235,0.4)_0%,rgba(59,130,246,0.3)_30%,rgba(147,197,253,0.2)_50%,rgba(37,99,235,0.1)_70%,transparent_100%)] animate-pulse"></div>
+        {/* Floating blue accent circles */}
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-500/10 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute top-3/4 left-1/6 w-24 h-24 bg-indigo-500/15 rounded-full blur-lg animate-pulse" style={{ animationDelay: '1s' }}></div>
 
-          {/* Middle Glow */}
-          <div className="absolute inset-4 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.5)_0%,rgba(37,99,235,0.4)_25%,rgba(147,197,253,0.2)_50%,transparent_75%)] animate-pulse" style={{ animationDelay: '0.7s' }}></div>
+        {/* Geometric shapes on the right */}
+        <div className="absolute top-1/3 right-1/4 w-20 h-20 bg-blue-600/20 rotate-45 animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute bottom-1/3 right-1/6 w-16 h-16 bg-indigo-600/25 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
 
-          {/* Inner Core Glow */}
-          <div className="absolute inset-8 bg-[radial-gradient(ellipse_at_center,rgba(29,78,216,0.6)_0%,rgba(37,99,235,0.4)_30%,transparent_60%)] animate-pulse" style={{ animationDelay: '1.3s' }}></div>
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="h-full w-full" style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(37,99,235,0.3) 1px, transparent 0)`,
+            backgroundSize: '50px 50px'
+          }}></div>
         </div>
+
+        {/* Blue accent line behind chatbot */}
+        <div className="absolute top-1/2 right-0 transform -translate-y-1/2 w-1 h-96 bg-gradient-to-b from-transparent via-blue-500/30 to-transparent"></div>
       </div>
 
       {/* Main Content - Two Column Layout */}
