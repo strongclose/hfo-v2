@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import { Activity } from "lucide-react";
 
 interface ChatMessage {
   id: string;
@@ -190,16 +191,12 @@ export function GlobalChatbot({
         <div className="relative z-10 pb-3 border-b border-teal-100/50 p-4">
           <div className="flex items-center gap-3">
             <div className="relative">
-              <svg className="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
+              <Activity className="w-6 h-6 text-teal-600" strokeWidth={2} />
               <div className="absolute inset-0 animate-pulse">
-                <svg className="w-6 h-6 text-teal-400 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+                <Activity className="w-6 h-6 text-teal-400 opacity-40" strokeWidth={2} />
               </div>
             </div>
-            <h2 className="text-xl font-bold text-gray-900">AI Price Assistant</h2>
+            <h2 className="text-xl font-bold text-gray-900">Jake's Baby</h2>
           </div>
         </div>
         {/* Chat Messages Area */}
