@@ -95,7 +95,11 @@ export function HeroV2_AIChatbot({
                 height="xl"
                 context="healthcare"
                 placeholder="Type a question to find the best healthcare prices…"
-                initialMessage="Hi there 👋 — I can help you find the best prices for your care. You can ask me something like:\n\n• Find knee replacement prices near me\n• Show providers for Aetna in Chicago\n• List cash prices for MRI in 90001"
+                initialMessage="Hi there 👋 — I can help you find the best prices for your care. You can ask me something like:
+
+• Find knee replacement prices near me
+• Show providers for Aetna in Chicago
+• List cash prices for MRI in 90001"
                 className="w-full"
               />
             </NoSSR>
