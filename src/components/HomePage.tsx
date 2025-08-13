@@ -876,10 +876,19 @@ export default function HomePage() {
                 <p className="hf-body-medium hf-text-secondary mb-8 max-w-2xl mx-auto">
                   Join thousands of patients who've saved money by comparing healthcare prices before their procedures.
                 </p>
-                <div className="flex justify-center">
-                  <Button
-                    variant="secondary"
-                    size="lg"
+                <div className="flex justify-center gap-4">
+                  <button
+                    className="btn-primary"
+                    onClick={() => {
+                      if (typeof window !== 'undefined') {
+                        window.location.href = "/search-procedure";
+                      }
+                    }}
+                  >
+                    Start Comparing Prices
+                  </button>
+                  <button
+                    className="btn-secondary"
                     onClick={() => {
                       if (typeof window !== 'undefined') {
                         window.location.href = "/how-it-works";
@@ -887,7 +896,7 @@ export default function HomePage() {
                     }}
                   >
                     Learn More About Our Process
-                  </Button>
+                  </button>
                 </div>
               </div>
             </div>
