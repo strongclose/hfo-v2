@@ -61,14 +61,28 @@ export function ProvidersIndexPage({
   onNavigateToDisclosures,
 }: ProvidersIndexPageProps) {
 
+  // Function to convert provider name to URL-friendly slug
+  const slugifyProviderName = (name: string): string => {
+    return name
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '') // Remove special characters except spaces and hyphens
+      .replace(/\s+/g, '-') // Replace spaces with hyphens
+      .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
+      .trim(); // Remove leading/trailing whitespace
+  };
+
   // Default navigation handlers for when props are not provided (Astro hydration issue)
   const handleNavigateToProviderDetails = (providerId: string) => {
+    // Find the provider to get its name
+    const provider = sampleProviders.find(p => p.id === providerId);
+    const providerSlug = provider ? slugifyProviderName(provider.name) : providerId;
+
     if (onNavigateToProviderDetails && typeof onNavigateToProviderDetails === 'function') {
-      onNavigateToProviderDetails(providerId);
+      onNavigateToProviderDetails(providerSlug);
     } else {
-      // Fallback navigation
+      // Fallback navigation using provider name slug
       if (typeof window !== 'undefined') {
-        window.location.href = `/providers/${providerId}`;
+        window.location.href = `/providers/${providerSlug}`;
       }
     }
   };
