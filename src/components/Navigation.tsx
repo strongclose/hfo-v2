@@ -74,6 +74,10 @@ export function Navigation(): JSX.Element {
           className: "px-6 py-3 font-medium transition-all duration-300 text-base rounded-full hover:scale-105 inline-block text-gray-600 hover:text-white hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-600/25"
         }, "Directories"),
         React.createElement('a', {
+          href: "/transparency",
+          className: "px-6 py-3 font-medium transition-all duration-300 text-base rounded-full hover:scale-105 inline-block text-gray-600 hover:text-white hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-600/25"
+        }, "Transparency"),
+        React.createElement('a', {
           href: "/insights",
           className: "px-6 py-3 font-medium transition-all duration-300 text-base rounded-full hover:scale-105 inline-block text-gray-600 hover:text-white hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-600/25"
         }, "Insights"),
