@@ -375,21 +375,130 @@
     line-height: 1.4;
   }
 
-  /* Icon System */
+  /* Hierarchical Icon System */
+
+  /* Level 1: Main Section Headers (Largest - 48px) */
+  .ds-h1 svg,
+  h1 svg,
+  .section-header > .ds-icon svg,
+  .page-header svg {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  /* Level 2: Section Headers (Large - 32px) */
+  .ds-h2 svg,
+  h2 svg,
+  .ds-icon svg,
+  .section-title svg,
+  .timeline-icon svg {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  /* Level 3: Subsection Headers (Medium - 24px) */
+  .ds-h3 svg,
+  h3 svg,
+  .subsection-header svg,
+  .card-header svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  /* Level 4: Content Headers (Small-Medium - 20px) */
+  .ds-h4 svg,
+  h4 svg,
+  .content-header svg,
+  .feature-title svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  /* Level 5: Interactive Elements (Small - 16px) */
+  button svg,
+  .btn svg,
+  .ds-btn-primary svg,
+  .ds-btn-secondary svg,
+  .ds-btn-tertiary svg,
+  .interactive svg,
+  .cta svg,
+  .navigation svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  /* Level 6: Auxiliary Elements (Smallest - 14px) */
+  .tooltip svg,
+  .info svg,
+  .help svg,
+  .status svg,
+  .auxiliary svg,
+  .ds-body svg,
+  p svg,
+  span svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  /* Special Cases */
+
+  /* Avatar/Profile Icons (Medium) */
+  .avatar svg,
+  .profile svg,
+  .user-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  /* Navigation Brand/Logo Icons (Large) */
+  .brand svg,
+  .logo svg,
+  nav .brand svg {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  /* Timeline Specific Icons (Large) */
+  .ds-timeline-icon svg,
+  .timeline-step svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  /* Status Indicators (Very Small) */
+  .status-dot,
+  .indicator,
+  .badge svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  /* Chat/Message Icons (Small) */
+  .chat svg,
+  .message svg,
+  .conversation svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  /* Tool/Feature Cards (Medium) */
+  .ds-tool-card svg,
+  .feature-card svg,
+  .tool-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  /* Icon Container System */
   .ds-icon {
-    width: 32px;
-    height: 32px;
+    width: 48px;
+    height: 48px;
     background: var(--ds-gradient-blue);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-  }
-
-  .ds-icon svg {
-    width: 18px;
-    height: 18px;
   }
 
   /* Card System */
