@@ -329,7 +329,7 @@ export function GlobalChatbot({
                 onChange={(e) => setChatInput(e.target.value)}
                 onKeyPress={handleChatKeyPress}
                 placeholder={placeholder}
-                className="flex-1 h-12 bg-white/95 border-2 border-teal-200 rounded-l-xl rounded-r-none focus:border-teal-500 placeholder:text-gray-500 text-base shadow-lg text-gray-900"
+                className="flex-1 h-12 bg-white/95 border-2 border-blue-200 rounded-l-xl rounded-r-none focus:border-blue-500 placeholder:text-gray-500 text-base shadow-lg text-gray-900"
                 disabled={isTyping}
               />
               <Button
