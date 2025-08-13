@@ -271,38 +271,214 @@
     transform: scale(1.05);
   }
 
-  /* New Button Classes */
-  .btn-primary {
-    background: var(--hf-gradient-primary);
+  /* DESIGN SYSTEM - Global Standards */
+
+  /* Design System Colors */
+  :root {
+    --ds-primary-blue: #031d44;
+    --ds-secondary-blue: #1571f6;
+    --ds-light-gray: #f4f6f8;
+    --ds-gradient-blue: linear-gradient(135deg, #1571f6 0%, #031d44 100%);
+    --ds-shadow-soft: rgba(0, 0, 0, 0.05);
+    --ds-shadow-hover: rgba(0, 0, 0, 0.1);
+  }
+
+  /* Button System */
+  .ds-btn-primary {
+    background: var(--ds-primary-blue);
     color: white;
     border: none;
-    padding: 12px 24px;
-    border-radius: var(--hf-radius-xl);
+    padding: 16px 24px;
+    border-radius: 8px;
     font-weight: 600;
-    transition: all 0.3s ease;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ds-btn-primary:hover {
+    box-shadow: 0 4px 12px rgba(3, 29, 68, 0.3);
+  }
+
+  .ds-btn-secondary {
+    background: white;
+    color: var(--ds-primary-blue);
+    border: 1px solid var(--ds-primary-blue);
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ds-btn-secondary:hover {
+    background: var(--ds-light-gray);
+  }
+
+  .ds-btn-tertiary {
+    background: transparent;
+    color: var(--ds-primary-blue);
+    border: none;
+    padding: 0;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .ds-btn-tertiary:hover {
+    opacity: 0.8;
+  }
+
+  /* Typography System */
+  .ds-h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .ds-h2 {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .ds-h3 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .ds-body {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  .ds-stat-number {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .ds-stat-label {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  /* Icon System */
+  .ds-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--ds-gradient-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .ds-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Card System */
+  .ds-card {
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--ds-shadow-soft);
+    transition: all 0.2s ease;
+  }
+
+  .ds-card:hover {
+    box-shadow: 0 4px 12px var(--ds-shadow-hover);
+  }
+
+  /* Timeline System */
+  .ds-timeline-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--ds-gradient-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .ds-timeline-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .ds-timeline-line {
+    background: linear-gradient(to bottom, var(--ds-secondary-blue), var(--ds-primary-blue));
+    width: 2px;
+    border-radius: 1px;
+  }
+
+  /* Tool Card System */
+  .ds-tool-card {
+    background: white;
+    padding: 24px 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--ds-shadow-soft);
+    transition: all 0.2s ease;
+    text-align: center;
+  }
+
+  .ds-tool-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px var(--ds-shadow-hover);
+  }
+
+  .ds-tool-card .ds-tool-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ds-primary-blue);
+    margin: 12px 0 8px 0;
+  }
+
+  /* Legacy Button Classes (keeping for backward compatibility) */
+  .btn-primary {
+    background: var(--ds-primary-blue);
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease;
     cursor: pointer;
   }
 
   .btn-primary:hover {
-    transform: scale(1.05);
-    box-shadow: var(--hf-shadow-large);
+    box-shadow: 0 4px 12px rgba(3, 29, 68, 0.3);
   }
 
   .btn-secondary {
-    background: transparent;
-    color: var(--hf-text-primary);
-    border: 2px solid var(--hf-gradient-primary);
-    padding: 10px 22px;
-    border-radius: var(--hf-radius-xl);
+    background: white;
+    color: var(--ds-primary-blue);
+    border: 1px solid var(--ds-primary-blue);
+    padding: 15px 23px;
+    border-radius: 8px;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     cursor: pointer;
   }
 
   .btn-secondary:hover {
-    background: var(--hf-gradient-primary);
-    color: white;
-    transform: scale(1.05);
+    background: var(--ds-light-gray);
   }
 
   /* Standardized Card Styles */
