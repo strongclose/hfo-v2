@@ -955,15 +955,11 @@ export default function HomePage() {
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 shadow-lg shadow-emerald-500/25 hf-gradient-accent">
-                <Users className="w-8 h-8 text-white" />
+              <div className="ds-icon mx-auto mb-8">
+                <Users />
               </div>
-              <h2 className="hf-heading-h2 mb-6 hf-text-primary tracking-tight">
-                Who Uses
-                <span className="hf-text-gradient-primary">
-                  {" "}
-                  HealthFees.org
-                </span>
+              <h2 className="ds-h2 mb-6 text-gray-900">
+                Who Uses HealthFees.org
               </h2>
             </div>
 
@@ -973,7 +969,7 @@ export default function HomePage() {
                 <button
                   key={key}
                   onClick={() => setActivePersona(key)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-500 flex items-center gap-2 ${
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
                     activePersona === key
                       ? `bg-gradient-to-r ${persona.bgColor} text-white shadow-xl scale-105`
                       : 'bg-gray-100 hf-text-primary border border-gray-300 hover:bg-gray-200 hover:scale-105'
