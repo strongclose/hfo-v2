@@ -131,16 +131,17 @@ const exploreToolsByUserType = {
   providers: [
     {
       icon: CheckCircle,
-      title: "Compliance Tool",
-      desc: "Check TiC and ADA transparency compliance.",
-      link: "/compliance-tool"
+      title: "Transparency Compliance",
+      desc: "Check transparency compliance and explore scores.",
+      link: "/transparency/explore"
     },
     {
       icon: Globe,
       title: "Enterprise Data Hosting",
       desc: "Partner with HFO to host and manage your data.",
-      link: "/enterprise-data-hosting"
-    }
+      link: "/enterprise-data-hosting",
+      comingSoon: true
+    },
   ]
 };
 
@@ -191,8 +192,8 @@ const personas = {
     supportingData: "Compare with competitors.",
     primaryCTA: "Benchmark Your Rates",
     primaryCTALink: "/provider-directory?view=benchmark",
-    secondaryCTA: "Learn How to Use HFO for Compliance",
-    secondaryCTALink: "/compliance-tool",
+    secondaryCTA: "Learn About Transparency Audits",
+    secondaryCTALink: "/transparency/audit",
     icon: Hospital,
     bgColor: "from-purple-400 to-violet-500",
     accentColor: "text-purple-600"
