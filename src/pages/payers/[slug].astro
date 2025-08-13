@@ -433,7 +433,7 @@ const planPricing = [
           <!-- Credibility Banner -->
           <div class="mb-8">
             <p class="text-base text-gray-500 max-w-4xl mx-auto leading-relaxed">
-              Pricing data sourced from federally required payer and insurer disclosures. Verified and structured by HealthFees.org.
+              Data structured from federally required Transparency in Coverage disclosures
             </p>
           </div>
 
@@ -459,23 +459,14 @@ const planPricing = [
               </svg>
               {payer.phone}
             </a>
-            <a 
+            <a
               href="/compare-prices"
-              class="inline-flex items-center px-8 py-4 border border-teal-300 text-lg font-semibold rounded-xl text-teal-700 bg-teal-50 hover:bg-teal-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition-all duration-200 shadow-lg hover:shadow-xl"
+              class="inline-flex items-center px-8 py-4 border border-transparent text-lg font-semibold rounded-xl text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
               </svg>
-              Compare Plans Across Payers
-            </a>
-            <a 
-              href="/search-procedure"
-              class="inline-flex items-center px-8 py-4 border border-blue-300 text-lg font-semibold rounded-xl text-blue-700 bg-blue-50 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 shadow-lg hover:shadow-xl"
-            >
-              <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-              </svg>
-              Search Plan Prices with This Payer
+              Compare Procedure Prices Across This Payer
             </a>
           </div>
 
@@ -503,8 +494,8 @@ const planPricing = [
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                   </svg>
                   <div class="absolute bottom-full right-0 mb-2 w-80 p-4 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
-                    This score reflects how well this payer meets federal price transparency rules based on data format, structure, and recency. Files are reviewed monthly by HealthFees.org.
-                  </div>
+                Score reflects structure, freshness, and completeness of required disclosures. Reviewed monthly by HealthFees.org.
+              </div>
                 </div>
               </div>
             </div>
@@ -531,19 +522,19 @@ const planPricing = [
             <!-- Subscores -->
             <div class="lg:col-span-3 grid md:grid-cols-3 gap-6">
               <div class="bg-blue-50 p-6 rounded-2xl border border-blue-200">
-                <h3 class="text-lg font-semibold text-blue-900 mb-2">File Structure Quality</h3>
+                <h3 class="text-lg font-semibold text-blue-900 mb-2">File Coverage</h3>
                 <div class="text-3xl font-bold text-blue-600 mb-2">{Math.round(payer.transparencyScore * 0.95)}%</div>
-                <p class="text-sm text-blue-700">Data format compliance and completeness</p>
+                <p class="text-sm text-blue-700">Breadth of pricing information available</p>
               </div>
-              
+
               <div class="bg-teal-50 p-6 rounded-2xl border border-teal-200">
-                <h3 class="text-lg font-semibold text-teal-900 mb-2">Data Coverage</h3>
+                <h3 class="text-lg font-semibold text-teal-900 mb-2">Structure and Format</h3>
                 <div class="text-3xl font-bold text-teal-600 mb-2">{Math.round(payer.transparencyScore * 0.92)}%</div>
-                <p class="text-sm text-teal-700">Breadth of pricing information available</p>
+                <p class="text-sm text-teal-700">Data format compliance and completeness</p>
               </div>
-              
+
               <div class="bg-purple-50 p-6 rounded-2xl border border-purple-200">
-                <h3 class="text-lg font-semibold text-purple-900 mb-2">Last Detected Update</h3>
+                <h3 class="text-lg font-semibold text-purple-900 mb-2">Update Frequency</h3>
                 <div class="text-3xl font-bold text-purple-600 mb-2">{payer.updated}</div>
                 <p class="text-sm text-purple-700">Most recent data refresh detected</p>
               </div>
@@ -552,9 +543,9 @@ const planPricing = [
           
           <div class="mt-8 p-6 bg-gray-50 rounded-xl">
             <p class="text-gray-700 leading-relaxed">
-              This score reflects how well this payer meets federal price transparency rules based on data format, structure, and recency. 
-              HealthFees.org reviews transparency files monthly and scores payers on compliance with CMS requirements for machine-readable pricing data.
-            </p>
+            This score reflects how well this payer meets federal price transparency rules based on data format, structure, and recency.
+            HealthFees.org reviews transparency disclosures monthly and scores payers on compliance with CMS requirements.
+          </p>
           </div>
         </div>
       </div>
@@ -564,9 +555,9 @@ const planPricing = [
     <section class="py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold text-gray-900 mb-6">Plan Pricing Intelligence</h2>
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">Network Pricing Intelligence</h2>
           <p class="text-xl text-gray-600 max-w-4xl mx-auto">
-            Comprehensive analysis of {payer.name}'s plan pricing, member costs, and market competitiveness derived from HealthFees.org's structured data intelligence.
+            Comprehensive analysis of {payer.name}'s network pricing, member costs, and market competitiveness derived from HealthFees.org's structured data intelligence.
           </p>
         </div>
 
@@ -577,13 +568,13 @@ const planPricing = [
               <svg class="w-8 h-8 mr-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
               </svg>
-              Premium & Cost Trends (2022-2025)
+              Network Pricing Trends (2022-2025)
             </h3>
 
             <!-- Trend Chart -->
             <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
               <div class="flex justify-between items-center mb-6">
-                <h4 class="text-xl font-semibold text-gray-900">Average Plan Premiums Over Time</h4>
+                <h4 class="text-xl font-semibold text-gray-900">Median Price Range by Plan Type</h4>
                 <div class="flex gap-4 text-sm">
                   <div class="flex items-center">
                     <div class="w-4 h-4 bg-blue-500 rounded mr-2"></div>
@@ -949,7 +940,7 @@ const planPricing = [
               <svg class="w-8 h-8 mr-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
               </svg>
-              Regional Market Analysis
+              Market Variation Compared to Regional Benchmarks
             </h3>
 
             <!-- Regional Cost Distribution -->
@@ -1051,8 +1042,14 @@ const planPricing = [
               <svg class="w-8 h-8 mr-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
               </svg>
-              Plan Category Pricing Insights
+              Estimated Price Ranges by Plan Type
             </h3>
+
+            <div class="mb-8">
+              <p class="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                Based on structured summaries from required Transparency in Coverage data. Not specific to individual employers or subscribers.
+              </p>
+            </div>
 
             <div class="grid lg:grid-cols-2 gap-8">
               {payer.planTypes?.map((planType, index) => {
@@ -1294,7 +1291,7 @@ const planPricing = [
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
               </svg>
-              Contact Information
+              Contact and Plan Details
             </h3>
             
             <div class="space-y-6">
@@ -1330,13 +1327,13 @@ const planPricing = [
               </h3>
               <div class="space-y-4">
                 <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-200">
-                  <span class="font-semibold text-gray-600">EIN</span>
-                  <span class="font-mono text-lg font-bold text-gray-900">{payer.ein}</span>
+                  <span class="font-semibold text-gray-600">Network ID</span>
+                  <span class="font-mono text-lg font-bold text-gray-900">***{payer.ein.slice(-4)}</span>
                 </div>
                 {payer.hiosId && (
                   <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-200">
-                    <span class="font-semibold text-gray-600">HIOS ID</span>
-                    <span class="font-mono text-lg font-bold text-gray-900">{payer.hiosId}</span>
+                    <span class="font-semibold text-gray-600">Market ID</span>
+                    <span class="font-mono text-lg font-bold text-gray-900">***{payer.hiosId.slice(-3)}</span>
                   </div>
                 )}
                 <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-200">
@@ -1441,18 +1438,18 @@ const planPricing = [
     <section class="py-16 bg-gradient-to-br from-blue-50 to-teal-50">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="bg-white rounded-3xl p-10 shadow-xl border border-blue-200 text-center">
-          <h2 class="text-3xl font-bold text-gray-900 mb-6">Ready to Compare Plan Prices?</h2>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">Ready to Compare Procedure Prices?</h2>
           <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Get specific pricing information for plans offered by {payer.name} and compare with other payers in your area.
+            Get specific pricing information for procedures in {payer.name}'s network and compare with other payers in your area.
           </p>
-          <a 
+          <a
             href="/search-procedure"
             class="inline-flex items-center px-10 py-5 border border-transparent text-xl font-semibold rounded-2xl text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 shadow-lg hover:shadow-xl"
           >
             <svg class="w-7 h-7 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
             </svg>
-            Search Plan Prices with This Payer
+            Compare Procedure Prices in This Network
           </a>
         </div>
       </div>
@@ -1469,8 +1466,9 @@ const planPricing = [
             <div>
               <h3 class="text-lg font-semibold text-yellow-800 mb-2">Important Disclaimer</h3>
               <p class="text-sm text-yellow-700 leading-relaxed mb-4">
-                Payer pricing information is based on publicly available transparency data and may not reflect current rates or your specific coverage. 
-                Actual costs may vary based on your plan type, deductibles, and individual circumstances. 
+                All data shown here is sourced from federally required disclosures and structured by HealthFees.org. Raw file access is not provided.
+                Payer pricing information may not reflect current rates or your specific coverage.
+                Actual costs may vary based on your plan type, deductibles, and individual circumstances.
                 Contact {payer.name} directly for accurate, personalized pricing information. This information is for educational purposes only and should not be considered medical or financial advice.
               </p>
               <div class="flex flex-wrap gap-4 text-sm">
