@@ -62,13 +62,6 @@ export function HeroV2_AIChatbot({
               We organize complex pricing data from thousands of hospitals and insurance plans into a simple tool you can use to find cash, in-network, and out-of-network prices — without logging in or paying anything.
             </p>
 
-            {/* Trust Badge */}
-            <div className="inline-flex items-center px-6 py-3 rounded-full bg-green-50 border border-green-200">
-              <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
-              <span className="text-green-800 font-medium text-sm">
-                Powered by government-mandated data. Updated monthly.
-              </span>
-            </div>
           </div>
 
           {/* Right Column - AI Chatbot */}
