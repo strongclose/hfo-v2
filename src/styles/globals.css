@@ -271,6 +271,40 @@
     transform: scale(1.05);
   }
 
+  /* New Button Classes */
+  .btn-primary {
+    background: var(--hf-gradient-primary);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: var(--hf-radius-xl);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: var(--hf-shadow-large);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--hf-text-primary);
+    border: 2px solid var(--hf-gradient-primary);
+    padding: 10px 22px;
+    border-radius: var(--hf-radius-xl);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .btn-secondary:hover {
+    background: var(--hf-gradient-primary);
+    color: white;
+    transform: scale(1.05);
+  }
+
   /* Standardized Card Styles */
   .hf-card {
     background: white;
