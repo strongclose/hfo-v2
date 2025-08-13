@@ -58,7 +58,7 @@ export function HeroV2_AIChatbot({
 
             {/* Subheadline */}
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
-              We ingest complex pricing data from thousands of hospitals and insurance plans, making it searchable and accessible — without logging in or paying anything.
+              We ingest and organize federally required pricing data from thousands of hospitals and insurance plans. Trillions of rows are structured into a friendly and intelligent tool you can access to find cash, in network, and out of network prices. Prices are refreshed every month to keep information current and reliable.
             </p>
 
           </div>
