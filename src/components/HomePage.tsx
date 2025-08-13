@@ -983,7 +983,7 @@ export default function HomePage() {
                 <button
                   key={key}
                   onClick={() => setActivePersona(key)}
-                  className={`px-8 py-4 rounded-full hf-heading-h5 transition-all duration-500 flex items-center gap-3 ${
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-500 flex items-center gap-2 ${
                     activePersona === key
                       ? `bg-gradient-to-r ${persona.bgColor} text-white shadow-xl scale-105`
                       : 'bg-gray-100 hf-text-primary border border-gray-300 hover:bg-gray-200 hover:scale-105'
