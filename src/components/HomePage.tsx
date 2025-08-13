@@ -1102,7 +1102,7 @@ export default function HomePage() {
               {/* Left Column - Leaderboard Snapshot */}
               <div>
                 <h3 className="hf-heading-h3 hf-text-primary mb-8 flex items-center gap-3">
-                  <TrendingUp className="w-6 h-6 text-teal-600" />
+                  <TrendingUp className="w-4 h-4 text-teal-600" />
                   Top Transparency Leaders
                 </h3>
 
@@ -1112,7 +1112,7 @@ export default function HomePage() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg bg-gradient-to-br from-yellow-400 to-yellow-500">
-                          <CheckCircle className="w-6 h-6 text-white" />
+                          <CheckCircle className="w-4 h-4 text-white" />
                         </div>
                         <div>
                           <div className="flex items-center gap-2">
@@ -1133,7 +1133,7 @@ export default function HomePage() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg bg-gradient-to-br from-gray-400 to-gray-500">
-                          <CheckCircle className="w-6 h-6 text-white" />
+                          <CheckCircle className="w-4 h-4 text-white" />
                         </div>
                         <div>
                           <div className="flex items-center gap-2">
@@ -1154,7 +1154,7 @@ export default function HomePage() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg bg-gradient-to-br from-orange-600 to-orange-500">
-                          <CheckCircle className="w-6 h-6 text-white" />
+                          <CheckCircle className="w-4 h-4 text-white" />
                         </div>
                         <div>
                           <div className="flex items-center gap-2">
@@ -1190,7 +1190,7 @@ export default function HomePage() {
               {/* Right Column - Score Distribution Chart */}
               <div>
                 <h3 className="hf-heading-h3 hf-text-primary mb-8 flex items-center gap-3">
-                  <PieChart className="w-6 h-6 text-blue-600" />
+                  <PieChart className="w-4 h-4 text-blue-600" />
                   Compliance Across the Industry
                 </h3>
 
@@ -1224,21 +1224,21 @@ export default function HomePage() {
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full bg-emerald-500"></div>
+                        <div className="w-4 h-4 rounded-full bg-emerald-500"></div>
                         <span className="text-gray-900 font-bold text-lg">Fully Compliant</span>
                       </div>
                       <span className="text-gray-900 font-semibold text-lg">45%</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full bg-blue-500"></div>
+                        <div className="w-4 h-4 rounded-full bg-blue-500"></div>
                         <span className="text-gray-900 font-medium text-base">Partially Compliant</span>
                       </div>
                       <span className="text-gray-900 font-semibold text-lg">35%</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full bg-gray-500"></div>
+                        <div className="w-4 h-4 rounded-full bg-gray-500"></div>
                         <span className="text-gray-900 font-medium text-base">Non Compliant</span>
                       </div>
                       <span className="text-gray-900 font-semibold text-lg">20%</span>
@@ -1249,7 +1249,7 @@ export default function HomePage() {
                 {/* Support Box */}
                 <div className="hf-card p-6 mb-6 border-teal-300">
                   <h4 className="hf-heading-h4 hf-text-primary mb-3 flex items-center gap-2">
-                    <Lightbulb className="w-5 h-5 text-teal-600" />
+                    <Lightbulb className="w-4 h-4 text-teal-600" />
                     Our Support
                   </h4>
                   <p className="hf-text-primary mb-4 font-medium">
