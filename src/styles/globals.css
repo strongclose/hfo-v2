@@ -649,6 +649,28 @@
     height: 20px !important;
   }
 
+  /* Final Hierarchy Enforcement */
+
+  /* Any button in a flex container should have small icons */
+  .flex button svg,
+  .flex-wrap button svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  /* Section introduction areas always get large icons */
+  .section > .text-center svg:first-child,
+  .page-section .text-center svg:first-child {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  /* Override all manual Tailwind sizing for proper hierarchy */
+  svg.w-1, svg.w-2, svg.w-3, svg.w-4, svg.w-5, svg.w-6, svg.w-7, svg.w-8,
+  svg.w-9, svg.w-10, svg.w-11, svg.w-12, svg.w-16, svg.w-20, svg.w-24 {
+    /* Let hierarchy system take precedence */
+  }
+
   /* Legacy Button Classes (keeping for backward compatibility) */
   .btn-primary {
     background: var(--ds-primary-blue);
