@@ -155,7 +155,7 @@ const personas = {
     secondaryCTA: "See Top Savings by Procedure",
     secondaryCTALink: "/insights?filter=savings",
     icon: Heart,
-    bgColor: "from-blue-500 to-cyan-500",
+    bgColor: "from-blue-500 to-blue-700",
     accentColor: "text-blue-600"
   },
   researchers: {
@@ -181,8 +181,8 @@ const personas = {
     secondaryCTA: "See Real-World Savings Data",
     secondaryCTALink: "/insights",
     icon: Briefcase,
-    bgColor: "from-emerald-400 to-teal-500",
-    accentColor: "text-emerald-600"
+    bgColor: "from-blue-500 to-blue-700",
+    accentColor: "text-blue-600"
   },
   providers: {
     title: "Providers",
@@ -207,8 +207,8 @@ const personas = {
     secondaryCTA: "Partner with HFO to Host Your Data",
     secondaryCTALink: "/enterprise-data-hosting",
     icon: Shield,
-    bgColor: "from-cyan-400 to-blue-500",
-    accentColor: "text-cyan-600"
+    bgColor: "from-blue-500 to-blue-700",
+    accentColor: "text-blue-600"
   }
 };
 
