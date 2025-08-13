@@ -617,6 +617,38 @@
     height: 12px !important;
   }
 
+  /* Ultra-Specific Hierarchy Corrections */
+
+  /* Homepage Section Headers - Must be prominent */
+  .text-center.mb-16 .ds-icon.mx-auto svg {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  /* Persona Pills - Must be smaller than section header */
+  .flex.flex-wrap.justify-center button.flex.items-center svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  /* Override any manual w-4 h-4 classes on persona pills */
+  .flex.flex-wrap.justify-center button svg.w-4.h-4 {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  /* Timeline Icons - Distinct from section headers */
+  .ds-timeline-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  /* Tool Card Icons - Medium prominence */
+  .ds-tool-card .ds-icon.mx-auto svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
   /* Legacy Button Classes (keeping for backward compatibility) */
   .btn-primary {
     background: var(--ds-primary-blue);
