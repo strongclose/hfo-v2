@@ -506,9 +506,9 @@ export default function HomePage() {
           minHeight="800px"
         >
         <section>
-          {/* Standardized subtle background */}
-          <div className="absolute inset-0 hf-gradient-subtle"></div>
-          <div className="absolute inset-0 hf-overlay-secondary"></div>
+          {/* White background with subtle blue accents */}
+          <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-blue-100 to-blue-200"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-blue-200 to-blue-100"></div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
@@ -551,8 +551,8 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-end mb-8">
                           <div className="relative">
-                            <div className="w-24 h-24 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300 hf-gradient-primary">
-                              <Database className="w-12 h-12 text-white fill-current" />
+                            <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-300 hf-gradient-primary">
+                              <Database className="w-6 h-6 text-white" fill="none" stroke="currentColor" />
                             </div>
                           </div>
                         </div>
@@ -622,18 +622,27 @@ export default function HomePage() {
                           Live Data Sources
                         </h4>
                         <div className="space-y-3">
-                          {dataSources.map((source, idx) => (
-                            <div key={idx} className="hf-card flex items-center justify-between p-3 bg-white border-blue-100">
-                              <div>
-                                <p className="hf-heading-h6 hf-text-primary">{source.name}</p>
-                                <p className="text-sm hf-text-muted">{source.count}</p>
+                          {dataSources.map((source, idx) => {
+                            const statusColors = {
+                              'Active': { bg: 'bg-green-50', text: 'text-green-700', dot: 'bg-green-500' },
+                              'Monitoring': { bg: 'bg-yellow-50', text: 'text-yellow-700', dot: 'bg-yellow-500' },
+                              'Inactive': { bg: 'bg-red-50', text: 'text-red-700', dot: 'bg-red-500' }
+                            };
+                            const colors = statusColors[source.status] || statusColors['Active'];
+
+                            return (
+                              <div key={idx} className={`hf-card flex items-center justify-between p-3 ${colors.bg} border-blue-100`}>
+                                <div>
+                                  <p className="hf-heading-h6 hf-text-primary">{source.name}</p>
+                                  <p className="text-sm hf-text-muted">{source.count}</p>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                  <div className={`w-2 h-2 rounded-full ${colors.dot}`}></div>
+                                  <span className={`text-sm font-medium ${colors.text}`}>{source.status}</span>
+                                </div>
                               </div>
-                              <div className="flex items-center gap-2">
-                                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                                <span className="text-sm text-green-700 font-medium">{source.status}</span>
-                              </div>
-                            </div>
-                          ))}
+                            );
+                          })}
                         </div>
                       </div>
                     </div>
