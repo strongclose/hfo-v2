@@ -1,0 +1,515 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Navigation } from '../../components/Navigation';
+import { FooterExpanded } from '../../components/homepage/FooterExpanded';
+---
+
+<BaseLayout 
+  title="Submit Updated Transparency Files | HealthFees.org"
+  description="Use this secure form to provide your latest machine readable files and ensure your profile is accurate. Submissions reviewed within 48 hours."
+>
+  <div class="min-h-screen bg-gray-50">
+    <!-- Global Navigation -->
+    <Navigation client:load />
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-emerald-50 via-white to-teal-50 pt-24 pb-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+            Submit Updated Transparency Files
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed">
+            Use this secure form to provide your latest machine readable files and ensure your profile is accurate.
+          </p>
+          
+          <!-- Key Benefits -->
+          <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div class="flex items-center justify-center space-x-3">
+              <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center">
+                <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <span class="text-lg font-semibold text-gray-700">48-hour review</span>
+            </div>
+            <div class="flex items-center justify-center space-x-3">
+              <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+              </div>
+              <span class="text-lg font-semibold text-gray-700">Secure upload</span>
+            </div>
+            <div class="flex items-center justify-center space-x-3">
+              <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <span class="text-lg font-semibold text-gray-700">Free validation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instructions Section -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+          <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-10 border border-blue-200 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Submission Instructions</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">Accepted File Formats</h3>
+                <div class="space-y-3">
+                  <div class="flex items-center">
+                    <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                      <span class="text-green-600 font-bold text-sm">JSON</span>
+                    </div>
+                    <span class="text-gray-700">Machine-readable JSON files</span>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                      <span class="text-green-600 font-bold text-sm">GZ</span>
+                    </div>
+                    <span class="text-gray-700">Compressed GZIP archives</span>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                      <span class="text-green-600 font-bold text-sm">ZIP</span>
+                    </div>
+                    <span class="text-gray-700">ZIP compressed files</span>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                      <span class="text-green-600 font-bold text-sm">CSV</span>
+                    </div>
+                    <span class="text-gray-700">Structured CSV data</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">What We Review</h3>
+                <div class="space-y-3">
+                  <div class="flex items-start">
+                    <svg class="w-5 h-5 text-emerald-500 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="text-gray-700">Schema compliance</span>
+                  </div>
+                  <div class="flex items-start">
+                    <svg class="w-5 h-5 text-emerald-500 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="text-gray-700">Data completeness</span>
+                  </div>
+                  <div class="flex items-start">
+                    <svg class="w-5 h-5 text-emerald-500 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="text-gray-700">Format validation</span>
+                  </div>
+                  <div class="flex items-start">
+                    <svg class="w-5 h-5 text-emerald-500 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="text-gray-700">Transparency score update</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 p-6 bg-amber-50 rounded-xl border border-amber-200">
+              <div class="flex items-start">
+                <svg class="w-6 h-6 text-amber-600 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div>
+                  <h4 class="text-lg font-semibold text-amber-800 mb-2">Important Note</h4>
+                  <p class="text-amber-700 leading-relaxed">
+                    Upload updated transparency files (JSON, GZ, or ZIP format). Submissions will be reviewed and posted within 48 hours. 
+                    Files must comply with CMS Hospital Price Transparency or Transparency in Coverage requirements.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upload Form Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-3xl p-10 shadow-xl border border-gray-200">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-900 mb-6">Upload Your Files</h2>
+            <p class="text-xl text-gray-600">
+              Provide your organization details and upload your machine-readable transparency files.
+            </p>
+          </div>
+
+          <form class="space-y-8" id="upload-form">
+            <div class="grid lg:grid-cols-2 gap-8">
+              <div>
+                <label for="organization-name" class="block text-sm font-semibold text-gray-700 mb-3">Organization Name *</label>
+                <input 
+                  type="text" 
+                  id="organization-name"
+                  name="organization-name"
+                  required
+                  class="w-full px-4 py-4 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-lg"
+                  placeholder="Your hospital or health plan name"
+                >
+              </div>
+
+              <div>
+                <label for="npi-payer-id" class="block text-sm font-semibold text-gray-700 mb-3">NPI or Payer ID *</label>
+                <input 
+                  type="text" 
+                  id="npi-payer-id"
+                  name="npi-payer-id"
+                  required
+                  class="w-full px-4 py-4 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-lg"
+                  placeholder="NPI number or HIOS ID"
+                >
+              </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+              <div>
+                <label for="contact-email" class="block text-sm font-semibold text-gray-700 mb-3">Contact Email *</label>
+                <input 
+                  type="email" 
+                  id="contact-email"
+                  name="contact-email"
+                  required
+                  class="w-full px-4 py-4 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-lg"
+                  placeholder="your.email@organization.com"
+                >
+              </div>
+
+              <div>
+                <label for="organization-type" class="block text-sm font-semibold text-gray-700 mb-3">Organization Type *</label>
+                <select 
+                  id="organization-type"
+                  name="organization-type"
+                  required
+                  class="w-full px-4 py-4 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-lg"
+                >
+                  <option value="">Select type</option>
+                  <option value="hospital">Hospital / Health System</option>
+                  <option value="insurance">Insurance Carrier / Health Plan</option>
+                  <option value="ambulatory">Ambulatory Surgery Center</option>
+                  <option value="clinic">Clinic / Medical Group</option>
+                  <option value="other">Other Healthcare Entity</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- File Upload Section -->
+            <div class="space-y-6">
+              <div>
+                <label for="file-upload" class="block text-sm font-semibold text-gray-700 mb-3">Upload Transparency Files *</label>
+                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-xl hover:border-emerald-400 transition-colors" id="drop-zone">
+                  <div class="space-y-1 text-center">
+                    <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                      <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="flex text-sm text-gray-600">
+                      <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-emerald-600 hover:text-emerald-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-emerald-500">
+                        <span>Upload files</span>
+                        <input id="file-upload" name="file-upload" type="file" class="sr-only" multiple accept=".json,.gz,.zip,.csv">
+                      </label>
+                      <p class="pl-1">or drag and drop</p>
+                    </div>
+                    <p class="text-xs text-gray-500">JSON, GZ, ZIP, CSV up to 500MB each</p>
+                  </div>
+                </div>
+                
+                <!-- File List -->
+                <div id="file-list" class="mt-4 space-y-2 hidden">
+                  <h4 class="text-sm font-semibold text-gray-700">Selected Files:</h4>
+                  <div id="file-items" class="space-y-2"></div>
+                </div>
+              </div>
+
+              <!-- URL Alternative -->
+              <div class="pt-6 border-t border-gray-200">
+                <label for="file-url" class="block text-sm font-semibold text-gray-700 mb-3">Or provide file URL (optional)</label>
+                <input 
+                  type="url" 
+                  id="file-url"
+                  name="file-url"
+                  class="w-full px-4 py-4 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-lg"
+                  placeholder="https://example.com/transparency-file.json"
+                >
+                <p class="text-sm text-gray-500 mt-2">If your files are already hosted publicly, provide the direct URL instead of uploading.</p>
+              </div>
+            </div>
+
+            <div>
+              <label for="message" class="block text-sm font-semibold text-gray-700 mb-3">Message (optional)</label>
+              <textarea 
+                id="message"
+                name="message"
+                rows="4"
+                class="w-full px-4 py-4 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-lg"
+                placeholder="Additional context about your submission, corrections needed, or special instructions..."
+              ></textarea>
+            </div>
+
+            <!-- Audit Request Checkbox -->
+            <div class="flex items-center">
+              <input 
+                id="request-audit" 
+                name="request-audit" 
+                type="checkbox" 
+                class="h-4 w-4 text-emerald-600 focus:ring-emerald-500 border-gray-300 rounded"
+              >
+              <label for="request-audit" class="ml-3 text-lg text-gray-700">
+                Also request a transparency audit to improve our compliance score
+              </label>
+            </div>
+
+            <!-- Terms and Privacy -->
+            <div class="bg-gray-50 rounded-xl p-6">
+              <div class="flex items-start">
+                <input 
+                  id="terms" 
+                  name="terms" 
+                  type="checkbox" 
+                  required
+                  class="h-4 w-4 text-emerald-600 focus:ring-emerald-500 border-gray-300 rounded mt-1"
+                >
+                <label for="terms" class="ml-3 text-sm text-gray-700 leading-relaxed">
+                  I confirm that I am authorized to submit these files on behalf of this organization and that the submitted files contain publicly available transparency data as required by federal law. I understand that HealthFees.org will review and potentially publish structured summaries of this data. <a href="/privacy-policy" class="text-emerald-600 hover:text-emerald-500 underline">Privacy Policy</a>
+                </label>
+              </div>
+            </div>
+
+            <div class="pt-8 border-t border-gray-200">
+              <button 
+                type="submit"
+                class="w-full inline-flex items-center justify-center px-10 py-5 border border-transparent text-xl font-semibold rounded-2xl text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 transition-all duration-200 shadow-lg hover:shadow-xl"
+                id="submit-btn"
+              >
+                <svg class="w-7 h-7 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                </svg>
+                Upload Now
+              </button>
+              <p class="text-center text-gray-600 mt-4">
+                Files will be reviewed within 48 hours. We'll email you with validation results.
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-8">Why Submit Your Files?</h2>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+          <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-8 border border-emerald-200 text-center">
+            <div class="w-16 h-16 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Improve Your Score</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Get an updated transparency score that accurately reflects your current compliance status and builds consumer trust.
+            </p>
+          </div>
+
+          <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-200 text-center">
+            <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Stay Current</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Ensure your pricing information on HealthFees.org reflects your most recent data and compliance efforts.
+            </p>
+          </div>
+
+          <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 border border-purple-200 text-center">
+            <div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Support Transparency</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Help build a more transparent healthcare system by contributing accurate, up-to-date pricing information.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Global Footer -->
+    <FooterExpanded client:load />
+  </div>
+
+  <script>
+    // File upload functionality
+    const fileInput = document.getElementById('file-upload');
+    const dropZone = document.getElementById('drop-zone');
+    const fileList = document.getElementById('file-list');
+    const fileItems = document.getElementById('file-items');
+    const form = document.getElementById('upload-form');
+    const submitBtn = document.getElementById('submit-btn');
+
+    let selectedFiles = [];
+
+    // Handle file selection
+    fileInput?.addEventListener('change', handleFileSelect);
+
+    // Handle drag and drop
+    dropZone?.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropZone.classList.add('border-emerald-400', 'bg-emerald-50');
+    });
+
+    dropZone?.addEventListener('dragleave', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('border-emerald-400', 'bg-emerald-50');
+    });
+
+    dropZone?.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('border-emerald-400', 'bg-emerald-50');
+      const files = Array.from(e.dataTransfer.files);
+      handleFiles(files);
+    });
+
+    function handleFileSelect(e) {
+      const files = Array.from(e.target.files);
+      handleFiles(files);
+    }
+
+    function handleFiles(files) {
+      selectedFiles = [...selectedFiles, ...files];
+      displayFiles();
+    }
+
+    function displayFiles() {
+      if (selectedFiles.length === 0) {
+        fileList?.classList.add('hidden');
+        return;
+      }
+
+      fileList?.classList.remove('hidden');
+      fileItems.innerHTML = '';
+
+      selectedFiles.forEach((file, index) => {
+        const fileItem = document.createElement('div');
+        fileItem.className = 'flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200';
+        
+        fileItem.innerHTML = `
+          <div class="flex items-center">
+            <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            <div>
+              <p class="text-sm font-medium text-gray-900">${file.name}</p>
+              <p class="text-xs text-gray-500">${(file.size / 1024 / 1024).toFixed(2)} MB</p>
+            </div>
+          </div>
+          <button type="button" onclick="removeFile(${index})" class="text-red-500 hover:text-red-700">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        `;
+        
+        fileItems.appendChild(fileItem);
+      });
+    }
+
+    function removeFile(index) {
+      selectedFiles.splice(index, 1);
+      displayFiles();
+    }
+
+    // Form submission
+    form?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Basic validation
+      const requiredFields = ['organization-name', 'npi-payer-id', 'contact-email', 'organization-type'];
+      let isValid = true;
+      
+      requiredFields.forEach(field => {
+        const input = document.getElementById(field);
+        if (!input?.value.trim()) {
+          isValid = false;
+          input?.classList.add('border-red-500');
+        } else {
+          input?.classList.remove('border-red-500');
+        }
+      });
+
+      // Check if files or URL provided
+      const fileUrl = document.getElementById('file-url')?.value;
+      if (selectedFiles.length === 0 && !fileUrl) {
+        isValid = false;
+        dropZone?.classList.add('border-red-500');
+        alert('Please upload files or provide a file URL.');
+      } else {
+        dropZone?.classList.remove('border-red-500');
+      }
+
+      // Check terms agreement
+      const termsCheckbox = document.getElementById('terms');
+      if (!termsCheckbox?.checked) {
+        isValid = false;
+        alert('Please agree to the terms and conditions.');
+      }
+      
+      if (isValid) {
+        // Simulate upload process
+        submitBtn.innerHTML = `
+          <svg class="animate-spin w-7 h-7 mr-3" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          Uploading...
+        `;
+        submitBtn.disabled = true;
+
+        // In a real implementation, this would upload files to a backend
+        setTimeout(() => {
+          alert('Thank you for your submission! We\'ll review your files within 48 hours and email you with validation results.');
+          this.reset();
+          selectedFiles = [];
+          displayFiles();
+          submitBtn.innerHTML = `
+            <svg class="w-7 h-7 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+            </svg>
+            Upload Now
+          `;
+          submitBtn.disabled = false;
+        }, 2000);
+      } else {
+        alert('Please fill in all required fields and upload files.');
+      }
+    });
+
+    // Make removeFile function global
+    window.removeFile = removeFile;
+  </script>
+</BaseLayout>
