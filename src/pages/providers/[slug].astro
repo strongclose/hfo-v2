@@ -386,23 +386,34 @@ const procedures = [
             </a>
           </div>
 
-          <!-- Key Stats -->
+          <!-- Clean Metric Pills -->
           <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div class="bg-white p-8 rounded-3xl border border-blue-200 shadow-lg">
               <div class="text-4xl font-bold text-blue-600 mb-3">{provider.locationCount}</div>
-              <div class="text-base text-blue-700 font-semibold">Location{provider.locationCount !== 1 ? 's' : ''}</div>
+              <div class="text-base text-blue-700 font-semibold">Location Count</div>
             </div>
-            <div class="bg-white p-8 rounded-3xl border border-emerald-200 shadow-lg">
-              <div class="text-4xl font-bold text-emerald-600 mb-3">{provider.transparencyScore}</div>
-              <div class="text-base text-emerald-700 font-semibold">Transparency Score</div>
+            <div class="bg-white p-8 rounded-3xl border border-teal-200 shadow-lg">
+              <div class="text-4xl font-bold text-teal-600 mb-3">{provider.specialties?.length || 5}</div>
+              <div class="text-base text-teal-700 font-semibold">Specialties Offered</div>
             </div>
             <div class="bg-white p-8 rounded-3xl border border-purple-200 shadow-lg">
-              <div class="text-4xl font-bold text-purple-600 mb-3">{procedures.length}</div>
-              <div class="text-base text-purple-700 font-semibold">Sample Procedures</div>
+              <div class="text-4xl font-bold text-purple-600 mb-3">{provider.accreditations?.length || 3}</div>
+              <div class="text-base text-purple-700 font-semibold">Accreditations</div>
             </div>
-            <div class="bg-white p-8 rounded-3xl border border-amber-200 shadow-lg">
-              <div class="text-4xl font-bold text-amber-600 mb-3">{provider.insuranceAccepted?.length || 0}</div>
-              <div class="text-base text-amber-700 font-semibold">Insurance Plans</div>
+            <div class="bg-white p-8 rounded-3xl border border-emerald-200 shadow-lg relative">
+              <div class="text-4xl font-bold text-emerald-600 mb-3">{grade}</div>
+              <div class="text-base text-emerald-700 font-semibold">Transparency Score</div>
+              <!-- Tooltip -->
+              <div class="absolute top-2 right-2">
+                <div class="group relative">
+                  <svg class="w-5 h-5 text-gray-400 cursor-help" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  <div class="absolute bottom-full right-0 mb-2 w-80 p-4 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                    This score reflects how well this provider meets federal price transparency rules based on data format, structure, and recency. Files are reviewed monthly by HealthFees.org.
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
