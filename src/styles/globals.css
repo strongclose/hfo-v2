@@ -529,7 +529,7 @@
   /* Timeline icons inherit from hierarchical system above */
 
   .ds-timeline-line {
-    background: linear-gradient(to bottom, var(--ds-secondary-blue), var(--ds-primary-blue));
+    background: linear-gradient(to bottom, #ef4444 0%, #ec4899 25%, #f59e0b 45%, #ea580c 55%, #1571f6 75%, #031d44 100%);
     width: 2px;
     border-radius: 1px;
   }
