@@ -335,7 +335,8 @@ export function GlobalChatbot({
               <Button
                 onClick={handleSendMessage}
                 disabled={!chatInput.trim() || isTyping}
-                className="h-12 text-white rounded-r-xl px-4 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-l-0 border-teal-200 hover:border-teal-500 group relative overflow-hidden bg-gradient-to-r from-teal-600 via-blue-600 to-indigo-600 hover:from-teal-700 hover:via-blue-700 hover:to-indigo-700"
+                className="h-12 text-white rounded-r-xl px-4 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-l-0 border-blue-200 hover:border-blue-500 group relative overflow-hidden"
+                style={{background: 'var(--ds-gradient-blue)'}}
               >
                 <Activity className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" strokeWidth={2} />
               </Button>
