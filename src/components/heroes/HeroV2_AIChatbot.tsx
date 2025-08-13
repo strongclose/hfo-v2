@@ -52,7 +52,7 @@ export function HeroV2_AIChatbot({
           {/* Left Column - Text Content */}
           <div className="space-y-6">
             {/* Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight tracking-tight">
               Hospitals and insurers must now publish prices. We make them easy to search and free to use.
             </h1>
 
