@@ -45,6 +45,25 @@ export interface CityData {
   proceduresCount: number;
   medianPrice: string;
   transparencyScore: string;
+  priceRanges: {
+    mri: { low: string; high: string; median: string; };
+    colonoscopy: { low: string; high: string; median: string; };
+    carpalTunnel: { low: string; high: string; median: string; };
+    ekg: { low: string; high: string; median: string; };
+    kneeReplacement: { low: string; high: string; median: string; };
+  };
+  marketMetrics: {
+    avgProviderTransparency: number;
+    avgPayerTransparency: number;
+    competitiveIndex: number;
+    priceVariation: string;
+    qualityRating: number;
+  };
+  nearbyCompetition: Array<{
+    name: string;
+    distance: string;
+    medianPrice: string;
+  }>;
 }
 
 // Sample state data - in production this would come from API/database
