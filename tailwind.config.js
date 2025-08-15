@@ -120,6 +120,12 @@ module.exports = {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      backgroundImage: {
+        "gradient-primary": "linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%)",
+        "gradient-accent": "linear-gradient(135deg, #14b8a6 0%, #3b82f6 100%)",
+        "gradient-subtle": "linear-gradient(135deg, #f9fafb 0%, rgba(96, 165, 250, 0.1) 50%, rgba(45, 212, 191, 0.08) 100%)",
+        "gradient-brand": "linear-gradient(135deg, #2563eb 0%, #14b8a6 100%)",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
