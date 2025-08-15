@@ -542,7 +542,7 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-end mb-8">
                           <div className="relative">
-                            <div className="ds-timeline-icon" style={{ background: 'linear-gradient(to bottom right, #ef4444, #ec4899)' }}>
+                            <div className="ds-timeline-icon bg-gradient-to-br from-red-500 to-pink-500">
                               <Database className="text-white" />
                             </div>
                           </div>
