@@ -1,7 +1,8 @@
 "use client";
 
-import { Shield, CheckCircle, Search, Activity } from "lucide-react";
+import { Shield, CheckCircle, Search, Activity, ArrowRight } from "lucide-react";
 import { GlobalChatbot } from "../GlobalChatbot";
+import { NoSSR } from "../NoSSR";
 
 interface HeroV2Props {
   onSearch: (procedure: string, location: string) => void;
@@ -32,72 +33,79 @@ export function HeroV2_AIChatbot({
 }: HeroV2Props) {
   return (
     <div
-      className="relative min-h-screen pt-24"
+      className="relative min-h-screen pt-24 bg-gray-50 overflow-hidden"
       style={{
-        background:
-          "linear-gradient(135deg, #0A0F1C 0%, #1E3A8A 30%, #1E40AF 70%, #2563EB 100%)",
         fontFamily:
           'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       }}
     >
-      {/* Large decorative shield in background with magnifying glass */}
-      <div className="absolute top-1/2 right-0 transform translate-x-1/3 -translate-y-1/2 opacity-5 z-0">
-        <div className="relative">
-          <Shield
-            className="w-96 h-96 text-teal-500"
-            strokeWidth={1.5}
-            fill="rgba(20, 184, 166, 0.1)"
-          />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <Search className="w-48 h-48 text-teal-300" strokeWidth={1.5} />
-          </div>
-        </div>
+      {/* Clean Background Design */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Base gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20"></div>
       </div>
 
-      {/* Heart pulse activity indicator - positioned away from text */}
-      <div className="absolute bottom-1/4 right-1/3 opacity-15 z-0">
-        <Activity
-          className="w-12 h-12 text-teal-400 animate-pulse"
-          strokeWidth={0.5}
-        />
-      </div>
+      {/* Main Content - Two Column Layout */}
+      <div className="relative z-30 flex items-center min-h-[calc(100vh-96px)] px-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full items-center">
+          {/* Left Column - Text Content */}
+          <div className="space-y-6">
+            {/* Headline */}
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight tracking-tight">
+              Hospitals and insurers must now publish prices. We make them easy to search and{" "}
+              <span className="hf-text-gradient-primary">free to use</span>.
+            </h1>
 
-      {/* Main Content - Centered */}
-      <div className="relative z-20 flex flex-col items-center justify-center min-h-[calc(100vh-120px)] text-center px-6 pt-16">
-        {/* Headline */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight max-w-6xl">
-          Compare Healthcare Costs Before You Go. Just Ask.
-        </h1>
+            {/* Subheadline */}
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
+              We ingest and organize federally required pricing data from thousands of hospitals and insurance plans. Our friendly and intelligent tool helps you navigate trillions of rows of data to access and compare cash, in network, and out of network prices.
+            </p>
 
-        {/* Subheadline */}
-        <p className="text-xl md:text-2xl text-white mb-12 max-w-4xl leading-relaxed">
-          Describe your procedure to get an estimated cost, based on actual
-          hospital and healthcare pricing.
-        </p>
+            {/* Data freshness pill */}
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-50 border border-green-200">
+              <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
+              <span className="text-green-800 font-medium text-sm">
+                Pricing is updated every month to keep the information current and reliable.
+              </span>
+            </div>
 
-        {/* Stats Row */}
-        <div className="flex flex-wrap justify-center gap-8 mb-8 text-sm">
-          <div className="flex items-center gap-2 text-white">
-            <CheckCircle className="w-5 h-5 text-teal-400" />
-            <span>Up to 90% savings</span>
           </div>
-          <div className="flex items-center gap-2 text-white">
-            <span className="text-teal-400">🩺</span>
-            <span>40K+ procedures</span>
-          </div>
-          <div className="flex items-center gap-2 text-white">
-            <span className="text-teal-400">💵</span>
-            <span>$2.4B+ in savings</span>
+
+          {/* Right Column - AI Chatbot */}
+          <div className="flex justify-center lg:justify-end w-full relative z-30">
+            <NoSSR
+              fallback={
+                <div className="w-full backdrop-blur-xl rounded-2xl border border-gray-300 overflow-hidden shadow-2xl h-[600px] flex flex-col bg-white/90">
+                  <div className="p-6 flex-1 flex items-center justify-center">
+                    <div className="text-gray-600 text-sm">Loading AI Assistant...</div>
+                  </div>
+                  <div className="pt-4 px-4 pb-2 border-t border-gray-200">
+                    <div className="flex gap-3">
+                      <div className="flex-1 bg-gray-100 rounded-xl px-4 py-3">
+                        <div className="text-gray-500 text-sm">Type a question to find the best healthcare prices…</div>
+                      </div>
+                      <div className="px-6 py-3 bg-blue-600 rounded-xl text-white text-sm">
+                        Ask AI
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              }
+            >
+              <GlobalChatbot
+                height="xl"
+                context="healthcare"
+                placeholder="Type a question to find the best healthcare prices…"
+                initialMessage="Hi there 👋 — I can help you find the best prices for your care. You can ask me something like:
+
+• Find knee replacement prices near me
+• Show providers for Aetna in Chicago
+• List cash prices for MRI in 90001"
+                className="w-full"
+              />
+            </NoSSR>
           </div>
         </div>
-
-        {/* Global Chatbot Component */}
-        <GlobalChatbot
-          height="md"
-          context="healthcare"
-          placeholder="Give it a try..."
-          initialMessage='Hi! I can help you find the best prices for any medical procedure. Try asking: "MRI cost in Boston" or "Cheapest CT scan near me" What healthcare costs would you like to learn more about?'
-        />
       </div>
     </div>
   );

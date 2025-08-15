@@ -21,5 +21,11 @@ export default defineConfig({
       'process.env.NODE_ENV': JSON.stringify('development'),
       'process': '{}',
     },
+    esbuild: {
+      logOverride: { 'this-is-undefined-in-esm': 'silent' }
+    },
+    optimizeDeps: {
+      include: ['react', 'react-dom']
+    }
   }
 });

@@ -1,98 +1,17 @@
 ---
 import Layout from '../layouts/BaseLayout.astro';
-import { Navigation } from '../components/Navigation';
-import { FooterExpanded } from '../components/homepage/FooterExpanded';
+import { WhoWeHelpPage } from '../components/WhoWeHelpPage';
 ---
 
 <Layout title="Who We Help - HealthFees.org">
-  <div class="min-h-screen bg-white">
-    <Navigation client:load />
-    
-    <main class="py-16">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h1 class="text-4xl font-bold text-gray-900 mb-4">Who We Help</h1>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-            HealthFees.org serves diverse groups working to make healthcare more transparent and affordable.
-          </p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <a href="/who-we-help/patients" class="group block bg-blue-50 rounded-lg p-6 hover:shadow-lg transition-all">
-            <h3 class="text-xl font-semibold mb-3 group-hover:text-blue-600">Patients & Families</h3>
-            <p class="text-gray-700 mb-4">
-              Compare costs and make informed decisions about your healthcare expenses.
-            </p>
-            <span class="text-blue-600 font-medium">Learn More →</span>
-          </a>
-          
-          <a href="/who-we-help/researchers" class="group block bg-green-50 rounded-lg p-6 hover:shadow-lg transition-all">
-            <h3 class="text-xl font-semibold mb-3 group-hover:text-green-600">Researchers & Analysts</h3>
-            <p class="text-gray-700 mb-4">
-              Access comprehensive data for healthcare economics and policy research.
-            </p>
-            <span class="text-green-600 font-medium">Learn More →</span>
-          </a>
-          
-          <a href="/who-we-help/journalists" class="group block bg-purple-50 rounded-lg p-6 hover:shadow-lg transition-all">
-            <h3 class="text-xl font-semibold mb-3 group-hover:text-purple-600">Journalists & Media</h3>
-            <p class="text-gray-700 mb-4">
-              Find data and insights for healthcare pricing stories and investigations.
-            </p>
-            <span class="text-purple-600 font-medium">Learn More →</span>
-          </a>
-          
-          <a href="/who-we-help/hospitals" class="group block bg-orange-50 rounded-lg p-6 hover:shadow-lg transition-all">
-            <h3 class="text-xl font-semibold mb-3 group-hover:text-orange-600">Hospitals & Providers</h3>
-            <p class="text-gray-700 mb-4">
-              Benchmark pricing and improve transparency compliance.
-            </p>
-            <span class="text-orange-600 font-medium">Learn More →</span>
-          </a>
-          
-          <a href="/who-we-help/insurance-providers" class="group block bg-teal-50 rounded-lg p-6 hover:shadow-lg transition-all">
-            <h3 class="text-xl font-semibold mb-3 group-hover:text-teal-600">Insurance Providers</h3>
-            <p class="text-gray-700 mb-4">
-              Analyze market rates and network performance metrics.
-            </p>
-            <span class="text-teal-600 font-medium">Learn More →</span>
-          </a>
-          
-          <a href="/who-we-help/policymakers" class="group block bg-red-50 rounded-lg p-6 hover:shadow-lg transition-all">
-            <h3 class="text-xl font-semibold mb-3 group-hover:text-red-600">Policymakers</h3>
-            <p class="text-gray-700 mb-4">
-              Evidence-based insights for healthcare policy development.
-            </p>
-            <span class="text-red-600 font-medium">Learn More →</span>
-          </a>
-          
-          <a href="/who-we-help/expecting-parents" class="group block bg-pink-50 rounded-lg p-6 hover:shadow-lg transition-all">
-            <h3 class="text-xl font-semibold mb-3 group-hover:text-pink-600">Expecting Parents</h3>
-            <p class="text-gray-700 mb-4">
-              Plan and budget for pregnancy and childbirth expenses.
-            </p>
-            <span class="text-pink-600 font-medium">Learn More →</span>
-          </a>
-          
-          <a href="/who-we-help/caregivers" class="group block bg-indigo-50 rounded-lg p-6 hover:shadow-lg transition-all">
-            <h3 class="text-xl font-semibold mb-3 group-hover:text-indigo-600">Caregivers</h3>
-            <p class="text-gray-700 mb-4">
-              Support family members in making healthcare decisions.
-            </p>
-            <span class="text-indigo-600 font-medium">Learn More →</span>
-          </a>
-          
-          <a href="/who-we-help/elective-shoppers" class="group block bg-yellow-50 rounded-lg p-6 hover:shadow-lg transition-all">
-            <h3 class="text-xl font-semibold mb-3 group-hover:text-yellow-600">Elective Shoppers</h3>
-            <p class="text-gray-700 mb-4">
-              Compare costs for non-emergency procedures and treatments.
-            </p>
-            <span class="text-yellow-600 font-medium">Learn More →</span>
-          </a>
-        </div>
-      </div>
-    </main>
-    
-    <FooterExpanded client:load />
-  </div>
+  <WhoWeHelpPage 
+    client:load
+    onNavigateToResearchAccess={() => window.location.href = "/research-access"}
+    onNavigateToPublicSector={() => window.location.href = "/public-sector"}
+    onNavigateToSearch={() => window.location.href = "/search-procedure"}
+    onNavigateToPartners={() => window.location.href = "/partners"}
+    onNavigateToHospitals={() => window.location.href = "/hospitals"}
+    onNavigateToEmployers={() => window.location.href = "/employers"}
+    onNavigateToDisclosures={() => window.location.href = "/disclosures"}
+  />
 </Layout>

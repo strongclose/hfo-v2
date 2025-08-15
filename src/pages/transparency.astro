@@ -1,0 +1,352 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Navigation } from '../components/Navigation';
+import { FooterExpanded } from '../components/homepage/FooterExpanded';
+---
+
+<BaseLayout 
+  title="Transparency You Can Trust | HealthFees.org"
+  description="Price transparency is no longer optional. We make it real, accessible, and understandable. Explore transparency tools, scores, and data practices."
+>
+  <div class="min-h-screen bg-gray-50">
+    <!-- Global Navigation -->
+    <Navigation client:load />
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-blue-50 via-white to-indigo-50 pt-24 pb-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+            Transparency You Can Trust
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed">
+            Price transparency is no longer optional. We make it real, accessible, and understandable.
+          </p>
+          <a 
+            href="/transparency/explore"
+            class="inline-flex items-center px-10 py-5 border border-transparent text-xl font-semibold rounded-2xl text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 shadow-lg hover:shadow-xl"
+          >
+            <svg class="w-7 h-7 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            Search Providers & Payers
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why We Exist Section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-8">Why We Exist</h2>
+          <div class="max-w-4xl mx-auto">
+            <p class="text-2xl text-gray-700 font-medium mb-8 leading-relaxed">
+              "The cost of healthcare should never be a mystery."
+            </p>
+            <p class="text-xl text-gray-600 leading-relaxed">
+              We created HealthFees.org to expose the real prices behind medical care—no hidden fees, no fine print, no industry jargon. When consumers, researchers, and regulators can see how much things actually cost, the system starts to work for everyone.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What We Publish Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-8">What We Publish</h2>
+          <p class="text-xl text-gray-600 max-w-4xl mx-auto mb-12">
+            We surface and structure pricing data required by federal law under:
+          </p>
+        </div>
+
+        <!-- Federal Requirements -->
+        <div class="grid lg:grid-cols-2 gap-8 mb-16">
+          <div class="bg-white p-8 rounded-3xl border border-blue-200 shadow-lg">
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-32">
+                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900">CMS Hospital Price Transparency Final Rule</h3>
+            </div>
+            <p class="text-gray-600 text-lg mb-4">(2021)</p>
+            <p class="text-gray-700 leading-relaxed">
+              Requires hospitals to publish cash prices and negotiated rates for all services in machine-readable format.
+            </p>
+          </div>
+
+          <div class="bg-white p-8 rounded-3xl border border-emerald-200 shadow-lg">
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mr-32">
+                <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900">Transparency in Coverage Rule</h3>
+            </div>
+            <p class="text-gray-600 text-lg mb-4">(2022)</p>
+            <p class="text-gray-700 leading-relaxed">
+              Requires health plans to disclose negotiated rates and out-of-network allowed amounts for covered items and services.
+            </p>
+          </div>
+        </div>
+
+        <!-- What We Include -->
+        <div class="bg-white rounded-3xl p-10 shadow-lg border border-gray-200">
+          <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">We include:</h3>
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <h4 class="text-lg font-semibold text-gray-900 mb-2">Cash and negotiated rates</h4>
+              <p class="text-gray-600">for over 1 million services</p>
+            </div>
+
+            <div class="text-center">
+              <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+              </div>
+              <h4 class="text-lg font-semibold text-gray-900 mb-2">Plan level pricing</h4>
+              <p class="text-gray-600">from payers and providers</p>
+            </div>
+
+            <div class="text-center">
+              <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+              </div>
+              <h4 class="text-lg font-semibold text-gray-900 mb-2">Price ranges by CPT code</h4>
+              <p class="text-gray-600">facility, and insurance group</p>
+            </div>
+
+            <div class="text-center">
+              <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                </svg>
+              </div>
+              <h4 class="text-lg font-semibold text-gray-900 mb-2">Transparency scores</h4>
+              <p class="text-gray-600">across thousands of entities</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What the Scores Mean Section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-8">What the Scores Mean</h2>
+          <p class="text-xl text-gray-600 max-w-4xl mx-auto mb-12">
+            We created the Transparency Score to measure how well providers and payers follow the law. The score evaluates:
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="space-y-8">
+            <div class="flex items-start">
+              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-32 mt-1">
+                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">File availability</h3>
+                <p class="text-gray-600">Is the required data actually published and accessible?</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mr-32 mt-1">
+                <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Format and schema quality</h3>
+                <p class="text-gray-600">Does the data follow required technical specifications?</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-32 mt-1">
+                <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Monthly update cadence</h3>
+                <p class="text-gray-600">Is the data kept current as required by law?</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mr-32 mt-1">
+                <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Network coverage completeness</h3>
+                <p class="text-gray-600">Does it include all required services and payers?</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-br from-red-50 to-yellow-50 rounded-3xl p-8 border border-red-200">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">Public Accountability</h3>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+              Entities that score poorly are either noncompliant, delayed, or technically deficient. We publish these scores publicly so consumers and regulators can take action.
+            </p>
+            <div class="flex items-center text-red-600">
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.664-.833-2.464 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+              </svg>
+              <span class="font-semibold">Transparency drives compliance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Request a Correction Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-3xl p-10 shadow-lg border border-gray-200">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-900 mb-6">Request a Correction</h2>
+            <p class="text-xl text-gray-600 max-w-4xl mx-auto">
+              See something wrong? Help us correct it.
+            </p>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                If you believe the data shown for a provider or payer is inaccurate or outdated, you can submit an updated machine-readable file. This helps ensure our transparency scores and pricing insights are as accurate as possible.
+              </p>
+              <div class="flex items-center text-emerald-600 mb-6">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="font-semibold">Reviewed within 48 hours</span>
+              </div>
+              <div class="flex items-center text-blue-600">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+                <span class="font-semibold">Secure file upload</span>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4">
+              <a
+                href="/transparency/upload"
+                class="inline-flex items-center px-8 py-4 border border-transparent text-lg font-semibold rounded-2xl text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                </svg>
+                Upload a New File
+              </a>
+              <a
+                href="/transparency/audit"
+                class="inline-flex items-center px-8 py-4 border border-blue-300 text-lg font-semibold rounded-2xl text-blue-700 bg-blue-50 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                Learn About Audits
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Citations & Use Section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">Citations & Use</h2>
+          <p class="text-xl text-gray-600 max-w-4xl mx-auto">
+            Academic, journalistic, or public use is encouraged.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12">
+          <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-200">
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-32">
+                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 0V3a1 1 0 011-1h6a1 1 0 011 1v1M7 4h10l.75 12a2 2 0 01-2 2.25h-7.5A2 2 0 016.25 16L7 4z"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900">Academic & Research Use</h3>
+            </div>
+            <div class="space-y-4">
+              <p class="text-gray-700 leading-relaxed">
+                You may cite HealthFees.org in research or public reporting. Please include:
+              </p>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-emerald-500 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-gray-700">The specific URL referenced</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-emerald-500 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <div class="text-gray-700">
+                    <span class="font-medium">"Data retrieved from HealthFees.org, structured from federally required transparency disclosures."</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 border border-purple-200">
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-32">
+                <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m8 6V8a2 2 0 00-2-2H10a2 2 0 00-2 2v8a2 2 0 002 2h4a2 2 0 002-2z"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900">Commercial Use</h3>
+            </div>
+            <div class="space-y-6">
+              <p class="text-gray-700 leading-relaxed">
+                Looking to integrate our structured data into your commercial application or research platform?
+              </p>
+              <a 
+                href="/contact"
+                class="inline-flex items-center px-6 py-3 border border-purple-300 text-lg font-semibold rounded-full text-purple-700 bg-purple-50 hover:bg-purple-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-all duration-200"
+              >
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 3.26a2 2 0 001.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                Contact us to license structured data
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Global Footer -->
+    <FooterExpanded client:load />
+  </div>
+</BaseLayout>

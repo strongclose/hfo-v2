@@ -16,23 +16,17 @@ import {
   Target,
 } from "lucide-react";
 
-interface InsightalyticsPageProps {
-  onNavigateToConditions: () => void;
-  onNavigateToProcedures: () => void;
-  onNavigateToCostComparisons: () => void;
-  onNavigateToAlternativeCare: () => void;
-  onNavigateToLocationInsights: () => void;
-  onNavigateToDisclosures: () => void;
-}
+interface InsightalyticsPageProps {}
 
-export function InsightalyticsPage({
-  onNavigateToConditions,
-  onNavigateToProcedures,
-  onNavigateToCostComparisons,
-  onNavigateToAlternativeCare,
-  onNavigateToLocationInsights,
-  onNavigateToDisclosures,
-}: InsightalyticsPageProps) {
+export function InsightalyticsPage({}: InsightalyticsPageProps = {}) {
+
+  // Internal navigation handlers
+  const onNavigateToConditions = () => window.location.href = "/insights/conditions";
+  const onNavigateToProcedures = () => window.location.href = "/insights/procedures";
+  const onNavigateToCostComparisons = () => window.location.href = "/insights/cost-comparisons";
+  const onNavigateToAlternativeCare = () => window.location.href = "/insights/alternative-care";
+  const onNavigateToLocationInsights = () => window.location.href = "/insights/location-insights";
+  const onNavigateToDisclosures = () => window.location.href = "/disclosures";
   const insightTools = [
     {
       icon: Heart,

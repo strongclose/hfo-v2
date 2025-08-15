@@ -1,58 +1,8 @@
 ---
 import Layout from '../layouts/BaseLayout.astro';
-import { Navigation } from '../components/Navigation';
-import { FooterExpanded } from '../components/homepage/FooterExpanded';
-import { PricingTable } from '../components/PricingTable';
+import { SearchByProcedurePage } from '../components/SearchByProcedurePage';
 ---
 
-<Layout title="Compare Prices - HealthFees.org">
-  <div class="min-h-screen bg-white">
-    <Navigation client:load />
-    
-    <main class="py-16">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h1 class="text-4xl font-bold text-gray-900 mb-4">Compare Healthcare Prices</h1>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-            Compare costs for medical procedures across different hospitals and insurance providers.
-          </p>
-        </div>
-        
-        <div class="bg-blue-50 rounded-lg p-8 mb-8">
-          <h2 class="text-2xl font-semibold mb-4">Price Comparison Tool</h2>
-          <p class="text-gray-700 mb-6">
-            Search for procedures, select your location, and compare prices across providers.
-          </p>
-          
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">Procedure</label>
-              <input 
-                type="text" 
-                placeholder="e.g., MRI Brain Scan" 
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
-              <input 
-                type="text" 
-                placeholder="City, State" 
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div class="flex items-end">
-              <button class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">
-                Compare Prices
-              </button>
-            </div>
-          </div>
-        </div>
-        
-        <PricingTable client:load />
-      </div>
-    </main>
-    
-    <FooterExpanded client:load />
-  </div>
+<Layout title="Compare Healthcare Prices - Advanced Search & Filter Tool | HealthFees.org">
+  <SearchByProcedurePage client:load />
 </Layout>

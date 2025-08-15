@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { PayersIndexPage } from '../components/PayersIndexPage';
+---
+
+<BaseLayout 
+  title="Healthcare Payers Directory - Insurance Companies & Plans | HealthFees.org"
+  description="Browse insurance companies, health plans, and payers. Compare transparency scores, coverage areas, and pricing data for healthcare insurance providers."
+>
+  <PayersIndexPage 
+    client:load
+    onNavigateToPayerDetails={(payerSlug) => window.location.href = `/payers/${payerSlug}`}
+    onNavigateToDisclosures={() => window.location.href = "/disclosures"}
+  />
+</BaseLayout>
