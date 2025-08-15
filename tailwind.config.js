@@ -105,6 +105,10 @@ module.exports = {
         green: "var(--green)",
         teal: "var(--teal)",
         purple: "var(--purple)",
+        "blue-primary": "var(--blue-primary)",
+        "blue-secondary": "var(--blue-secondary)",
+        "teal-primary": "var(--teal-primary)",
+        "teal-secondary": "var(--teal-secondary)",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar))",
           foreground: "hsl(var(--sidebar-foreground))",
