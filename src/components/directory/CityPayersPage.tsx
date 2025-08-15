@@ -22,8 +22,8 @@ export function CityPayersPage({ stateData, cityData }: CityPayersPageProps) {
   const payers = [
     {
       id: '1',
-      name: 'Blue Cross Blue Shield',
-      href: `/${stateData.slug}/${cityData.slug}/payers/blue-cross-blue-shield`,
+      name: 'Anthem Blue Cross Blue Shield',
+      href: '/payers/anthem-blue-cross-blue-shield',
       location: cityData.name,
       transparencyScore: cityData.transparencyScore,
       networkSize: 'Large',
