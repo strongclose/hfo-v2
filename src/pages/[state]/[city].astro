@@ -1,0 +1,70 @@
+---
+import Layout from '../../layouts/BaseLayout.astro';
+import { CityHubPage } from '../../components/directory/CityHubPage';
+import { statesData, getCityBySlug } from '../../lib/data/locations';
+
+export async function getStaticPaths() {
+  const paths = [];
+  
+  for (const state of statesData) {
+    for (const city of state.cities) {
+      paths.push({
+        params: { 
+          state: state.slug, 
+          city: city.slug 
+        },
+        props: { 
+          stateData: state,
+          cityData: city
+        }
+      });
+    }
+  }
+  
+  return paths;
+}
+
+const { state, city } = Astro.params;
+const { stateData, cityData } = Astro.props;
+
+if (!stateData || !cityData) {
+  return Astro.redirect('/404');
+}
+
+const title = `${cityData.name}, ${stateData.code} Healthcare Directory | HealthFees.org`;
+const description = `Browse providers, payers, and procedures in ${cityData.name}, ${stateData.name}. Local healthcare pricing and transparency data.`;
+---
+
+<Layout 
+  title={title}
+  description={description}
+  ogTitle={title}
+  ogDescription={description}
+  canonicalURL={`/${state}/${city}`}
+>
+  <CityHubPage stateData={stateData} cityData={cityData} client:load />
+</Layout>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": `${cityData.name} Healthcare Directory`,
+  "description": description,
+  "url": `https://healthfees.org/${state}/${city}`,
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "HealthFees.org",
+    "url": "https://healthfees.org"
+  },
+  "about": {
+    "@type": "Place",
+    "@id": `https://healthfees.org/${state}/${city}`,
+    "name": cityData.name,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": cityData.name,
+      "addressRegion": stateData.code,
+      "addressCountry": "US"
+    }
+  }
+})} />
