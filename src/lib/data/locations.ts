@@ -315,7 +315,7 @@ export const statesData: StateData[] = [
     ]
   },
   {
-    name: "New York", 
+    name: "New York",
     code: "NY",
     slug: "new-york",
     providersCount: 2567,
@@ -323,6 +323,30 @@ export const statesData: StateData[] = [
     proceduresCount: 245,
     medianPrice: "$2,780",
     transparencyScore: "B+",
+    priceRanges: {
+      mri: { low: "$1,350", high: "$5,200", median: "$2,650" },
+      colonoscopy: { low: "$680", high: "$2,400", median: "$1,280" },
+      carpalTunnel: { low: "$3,500", high: "$9,200", median: "$5,800" },
+      ekg: { low: "$90", high: "$310", median: "$165" },
+      kneeReplacement: { low: "$20,000", high: "$48,000", median: "$32,000" }
+    },
+    marketMetrics: {
+      avgProviderTransparency: 82,
+      avgPayerTransparency: 79,
+      marketConcentration: "Highly Concentrated",
+      priceVariation: "Very High",
+      costTrend: "Increasing 4.1% annually"
+    },
+    topProviders: [
+      { name: "NewYork-Presbyterian", transparencyScore: "A", medianPrice: "$2,950", specialties: ["Heart Surgery", "Cancer", "Neurology"] },
+      { name: "Mount Sinai Health System", transparencyScore: "A-", medianPrice: "$2,680", specialties: ["Oncology", "Cardiology", "Emergency"] },
+      { name: "NYU Langone Health", transparencyScore: "A", medianPrice: "$2,850", specialties: ["Surgery", "Transplant", "Pediatrics"] }
+    ],
+    topPayers: [
+      { name: "Empire BlueCross BlueShield", transparencyScore: "A-", memberCount: "3.1M", planTypes: ["HMO", "PPO", "EPO"] },
+      { name: "UnitedHealthcare", transparencyScore: "B+", memberCount: "2.8M", planTypes: ["HMO", "PPO"] },
+      { name: "Aetna Health Plans", transparencyScore: "B+", memberCount: "1.9M", planTypes: ["HMO", "PPO"] }
+    ],
     cities: [
       {
         name: "New York City",
@@ -332,17 +356,55 @@ export const statesData: StateData[] = [
         payersCount: 42,
         proceduresCount: 198,
         medianPrice: "$3,450",
-        transparencyScore: "A-"
+        transparencyScore: "A-",
+        priceRanges: {
+          mri: { low: "$1,600", high: "$6,200", median: "$3,200" },
+          colonoscopy: { low: "$850", high: "$2,950", median: "$1,580" },
+          carpalTunnel: { low: "$4,200", high: "$11,500", median: "$7,200" },
+          ekg: { low: "$110", high: "$380", median: "$205" },
+          kneeReplacement: { low: "$25,000", high: "$58,000", median: "$38,500" }
+        },
+        marketMetrics: {
+          avgProviderTransparency: 89,
+          avgPayerTransparency: 84,
+          competitiveIndex: 97,
+          priceVariation: "Extremely High",
+          qualityRating: 4.5
+        },
+        nearbyCompetition: [
+          { name: "Nassau County", distance: "25 miles", medianPrice: "$2,950" },
+          { name: "Westchester County", distance: "30 miles", medianPrice: "$3,180" },
+          { name: "New Jersey", distance: "15 miles", medianPrice: "$2,680" }
+        ]
       },
       {
         name: "Buffalo",
-        slug: "buffalo", 
+        slug: "buffalo",
         state: "NY",
         providersCount: 156,
         payersCount: 23,
         proceduresCount: 98,
         medianPrice: "$2,120",
-        transparencyScore: "B"
+        transparencyScore: "B",
+        priceRanges: {
+          mri: { low: "$980", high: "$3,800", median: "$1,950" },
+          colonoscopy: { low: "$520", high: "$1,850", median: "$950" },
+          carpalTunnel: { low: "$2,800", high: "$7,200", median: "$4,500" },
+          ekg: { low: "$75", high: "$220", median: "$125" },
+          kneeReplacement: { low: "$16,500", high: "$38,000", median: "$24,500" }
+        },
+        marketMetrics: {
+          avgProviderTransparency: 74,
+          avgPayerTransparency: 71,
+          competitiveIndex: 82,
+          priceVariation: "Moderate",
+          qualityRating: 3.8
+        },
+        nearbyCompetition: [
+          { name: "Rochester", distance: "75 miles", medianPrice: "$2,050" },
+          { name: "Niagara Falls", distance: "25 miles", medianPrice: "$1,890" },
+          { name: "Erie County", distance: "15 miles", medianPrice: "$2,180" }
+        ]
       },
       {
         name: "Albany",
@@ -352,7 +414,26 @@ export const statesData: StateData[] = [
         payersCount: 18,
         proceduresCount: 76,
         medianPrice: "$2,340",
-        transparencyScore: "B+"
+        transparencyScore: "B+",
+        priceRanges: {
+          mri: { low: "$1,100", high: "$4,200", median: "$2,250" },
+          colonoscopy: { low: "$580", high: "$2,050", median: "$1,120" },
+          carpalTunnel: { low: "$3,000", high: "$7,800", median: "$5,100" },
+          ekg: { low: "$80", high: "$250", median: "$140" },
+          kneeReplacement: { low: "$18,000", high: "$42,000", median: "$27,500" }
+        },
+        marketMetrics: {
+          avgProviderTransparency: 78,
+          avgPayerTransparency: 75,
+          competitiveIndex: 85,
+          priceVariation: "Moderate",
+          qualityRating: 4.0
+        },
+        nearbyCompetition: [
+          { name: "Schenectady", distance: "20 miles", medianPrice: "$2,180" },
+          { name: "Troy", distance: "15 miles", medianPrice: "$2,280" },
+          { name: "Saratoga Springs", distance: "35 miles", medianPrice: "$2,450" }
+        ]
       }
     ]
   }
