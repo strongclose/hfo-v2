@@ -21,29 +21,29 @@ export function StatePayersPage({ stateData }: StatePayersPageProps) {
   const payers = [
     {
       id: '1',
-      name: 'Blue Cross Blue Shield',
-      href: `/${stateData.slug}/payers/blue-cross-blue-shield`,
+      name: 'Anthem Blue Cross Blue Shield',
+      href: '/payers/anthem-blue-cross-blue-shield',
       location: 'Statewide',
       transparencyScore: 'B+',
       networkSize: 'Large',
       specialties: ['HMO', 'PPO', 'EPO'],
       type: 'payer' as const,
       quickLinks: [
-        { label: 'View Plans', href: `/${stateData.slug}/payers/blue-cross-blue-shield/plans` },
+        { label: 'View Plans', href: '#' },
         { label: 'Compare Coverage', href: '#' }
       ]
     },
     {
       id: '2',
-      name: 'Aetna',
-      href: `/${stateData.slug}/payers/aetna`,
+      name: 'Aetna Health Plans',
+      href: '/payers/aetna-health-plans',
       location: 'Major Cities',
       transparencyScore: 'B',
       networkSize: 'Large',
       specialties: ['HMO', 'PPO'],
       type: 'payer' as const,
       quickLinks: [
-        { label: 'View Plans', href: `/${stateData.slug}/payers/aetna/plans` },
+        { label: 'View Plans', href: '#' },
         { label: 'Compare Coverage', href: '#' }
       ]
     }
