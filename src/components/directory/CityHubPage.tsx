@@ -110,6 +110,12 @@ export function CityHubPage({ stateData, cityData }: CityHubPageProps) {
         />
       )}
 
+      <PricingDataSection
+        title={`${cityData.name} Healthcare Pricing Intelligence`}
+        priceRanges={cityData.priceRanges}
+        marketMetrics={cityData.marketMetrics}
+      />
+
       <RelatedLinks
         title="Related Directories"
         links={relatedLinks}
