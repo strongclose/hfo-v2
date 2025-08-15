@@ -193,13 +193,37 @@ export const statesData: StateData[] = [
   },
   {
     name: "Texas",
-    code: "TX", 
+    code: "TX",
     slug: "texas",
     providersCount: 2891,
     payersCount: 76,
     proceduresCount: 267,
     medianPrice: "$1,890",
     transparencyScore: "B",
+    priceRanges: {
+      mri: { low: "$950", high: "$3,800", median: "$1,850" },
+      colonoscopy: { low: "$520", high: "$1,750", median: "$980" },
+      carpalTunnel: { low: "$2,400", high: "$6,800", median: "$4,200" },
+      ekg: { low: "$65", high: "$210", median: "$115" },
+      kneeReplacement: { low: "$15,500", high: "$38,000", median: "$23,500" }
+    },
+    marketMetrics: {
+      avgProviderTransparency: 76,
+      avgPayerTransparency: 73,
+      marketConcentration: "Highly Concentrated",
+      priceVariation: "Moderate",
+      costTrend: "Increasing 2.8% annually"
+    },
+    topProviders: [
+      { name: "Houston Methodist", transparencyScore: "A-", medianPrice: "$1,950", specialties: ["Heart & Vascular", "Cancer", "Neurology"] },
+      { name: "Baylor Scott & White", transparencyScore: "B+", medianPrice: "$1,780", specialties: ["Surgery", "Emergency Medicine", "Pediatrics"] },
+      { name: "Texas Children's Hospital", transparencyScore: "A", medianPrice: "$2,150", specialties: ["Pediatrics", "Neonatal", "Surgery"] }
+    ],
+    topPayers: [
+      { name: "UnitedHealthcare", transparencyScore: "B", memberCount: "3.2M", planTypes: ["HMO", "PPO", "EPO"] },
+      { name: "Anthem Blue Cross", transparencyScore: "B+", memberCount: "2.1M", planTypes: ["HMO", "PPO"] },
+      { name: "Aetna Health Plans", transparencyScore: "B", memberCount: "1.8M", planTypes: ["HMO", "PPO"] }
+    ],
     cities: [
       {
         name: "Houston",
@@ -209,7 +233,26 @@ export const statesData: StateData[] = [
         payersCount: 38,
         proceduresCount: 189,
         medianPrice: "$1,980",
-        transparencyScore: "B+"
+        transparencyScore: "B+",
+        priceRanges: {
+          mri: { low: "$1,050", high: "$4,200", median: "$2,050" },
+          colonoscopy: { low: "$580", high: "$1,950", median: "$1,120" },
+          carpalTunnel: { low: "$2,800", high: "$7,500", median: "$4,800" },
+          ekg: { low: "$75", high: "$240", median: "$135" },
+          kneeReplacement: { low: "$17,000", high: "$42,000", median: "$26,500" }
+        },
+        marketMetrics: {
+          avgProviderTransparency: 79,
+          avgPayerTransparency: 76,
+          competitiveIndex: 91,
+          priceVariation: "High",
+          qualityRating: 4.2
+        },
+        nearbyCompetition: [
+          { name: "Galveston", distance: "50 miles", medianPrice: "$1,650" },
+          { name: "The Woodlands", distance: "30 miles", medianPrice: "$2,280" },
+          { name: "Sugar Land", distance: "25 miles", medianPrice: "$2,150" }
+        ]
       },
       {
         name: "Dallas",
@@ -219,7 +262,26 @@ export const statesData: StateData[] = [
         payersCount: 35,
         proceduresCount: 176,
         medianPrice: "$2,120",
-        transparencyScore: "B"
+        transparencyScore: "B",
+        priceRanges: {
+          mri: { low: "$1,100", high: "$4,400", median: "$2,250" },
+          colonoscopy: { low: "$620", high: "$2,100", median: "$1,180" },
+          carpalTunnel: { low: "$3,000", high: "$7,800", median: "$5,200" },
+          ekg: { low: "$80", high: "$260", median: "$145" },
+          kneeReplacement: { low: "$18,500", high: "$44,000", median: "$28,000" }
+        },
+        marketMetrics: {
+          avgProviderTransparency: 75,
+          avgPayerTransparency: 72,
+          competitiveIndex: 87,
+          priceVariation: "High",
+          qualityRating: 4.0
+        },
+        nearbyCompetition: [
+          { name: "Fort Worth", distance: "35 miles", medianPrice: "$1,890" },
+          { name: "Plano", distance: "25 miles", medianPrice: "$2,450" },
+          { name: "Irving", distance: "15 miles", medianPrice: "$2,050" }
+        ]
       },
       {
         name: "Austin",
@@ -229,7 +291,26 @@ export const statesData: StateData[] = [
         payersCount: 29,
         proceduresCount: 145,
         medianPrice: "$2,010",
-        transparencyScore: "A-"
+        transparencyScore: "A-",
+        priceRanges: {
+          mri: { low: "$1,000", high: "$4,000", median: "$2,100" },
+          colonoscopy: { low: "$550", high: "$1,850", median: "$1,050" },
+          carpalTunnel: { low: "$2,600", high: "$7,200", median: "$4,600" },
+          ekg: { low: "$70", high: "$230", median: "$125" },
+          kneeReplacement: { low: "$16,500", high: "$40,000", median: "$25,000" }
+        },
+        marketMetrics: {
+          avgProviderTransparency: 85,
+          avgPayerTransparency: 81,
+          competitiveIndex: 93,
+          priceVariation: "Moderate",
+          qualityRating: 4.4
+        },
+        nearbyCompetition: [
+          { name: "San Antonio", distance: "80 miles", medianPrice: "$1,750" },
+          { name: "Round Rock", distance: "20 miles", medianPrice: "$2,180" },
+          { name: "Cedar Park", distance: "25 miles", medianPrice: "$2,320" }
+        ]
       }
     ]
   },
