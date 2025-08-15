@@ -112,6 +112,14 @@ export function StateHubPage({ stateData }: StateHubPageProps) {
         type="cities"
       />
 
+      <PricingDataSection
+        title={`${stateData.name} Healthcare Pricing Intelligence`}
+        priceRanges={stateData.priceRanges}
+        marketMetrics={stateData.marketMetrics}
+        topProviders={stateData.topProviders}
+        topPayers={stateData.topPayers}
+      />
+
       <RelatedLinks
         title="Related Directories"
         links={relatedLinks}
