@@ -2,7 +2,7 @@ import React from "react";
 import { AlertTriangle, RefreshCw } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { ErrorBoundaryState } from "../types";
+import { ErrorBoundaryState } from "../../types";
 
 interface ErrorBoundaryProps {
   children: React.ReactNode;
