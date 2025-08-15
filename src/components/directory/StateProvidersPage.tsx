@@ -21,8 +21,8 @@ export function StateProvidersPage({ stateData }: StateProvidersPageProps) {
   const providers = [
     {
       id: '1',
-      name: 'Regional Medical Center',
-      href: `/${stateData.slug}/providers/regional-medical-center`,
+      name: 'Stanford Medical Center',
+      href: '/providers/stanford-medical-center',
       location: stateData.cities[0]?.name || stateData.name,
       transparencyScore: 'A-',
       medianPrice: '$2,340',
@@ -35,9 +35,9 @@ export function StateProvidersPage({ stateData }: StateProvidersPageProps) {
       ]
     },
     {
-      id: '2', 
-      name: 'University Health System',
-      href: `/${stateData.slug}/providers/university-health-system`,
+      id: '2',
+      name: 'UCSF Medical Center',
+      href: '/providers/ucsf-medical-center',
       location: stateData.cities[1]?.name || stateData.name,
       transparencyScore: 'B+',
       medianPrice: '$2,890',
@@ -51,8 +51,8 @@ export function StateProvidersPage({ stateData }: StateProvidersPageProps) {
     },
     {
       id: '3',
-      name: 'Community Hospital',
-      href: `/${stateData.slug}/providers/community-hospital`,
+      name: 'Kaiser Permanente Medical Centers',
+      href: '/providers/kaiser-permanente-medical-centers',
       location: stateData.cities[2]?.name || stateData.name,
       transparencyScore: 'B',
       medianPrice: '$1,980',
