@@ -716,7 +716,7 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-start mb-8">
                           <div className="relative">
-                            <div className="ds-timeline-icon" style={{ background: 'linear-gradient(to bottom right, #f59e0b, #ea580c)' }}>
+                            <div className="ds-timeline-icon bg-gradient-to-br from-amber-500 to-orange-600">
                               <Sparkles className="text-white" />
                             </div>
                           </div>
