@@ -785,7 +785,7 @@ export default function HomePage() {
                         {/* Icon and Visual */}
                         <div className="flex justify-center lg:justify-end mb-8">
                           <div className="relative">
-                            <div className="ds-timeline-icon" style={{ background: 'linear-gradient(to bottom right, #1571f6, #031d44)' }}>
+                            <div className="ds-timeline-icon bg-gradient-to-br from-blue-600 to-blue-900">
                               <Search className="text-white" />
                             </div>
                           </div>
