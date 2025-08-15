@@ -5,6 +5,7 @@ import { DirectoryHero } from './DirectoryHero';
 import { ListingsTable } from './ListingsTable';
 import { RelatedLinks } from './RelatedLinks';
 import { Breadcrumbs } from './Breadcrumbs';
+import { CategoryPricingOverview } from './CategoryPricingOverview';
 import { StateData } from '../../lib/data/locations';
 
 interface StateProvidersPageProps {
