@@ -33,11 +33,7 @@ export function HeroV2_AIChatbot({
 }: HeroV2Props) {
   return (
     <div
-      className="relative min-h-screen pt-24 bg-gray-50 overflow-hidden"
-      style={{
-        fontFamily:
-          'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-      }}
+      className="relative min-h-screen pt-24 bg-gray-50 overflow-hidden font-sans"
     >
       {/* Clean Background Design */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
