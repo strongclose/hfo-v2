@@ -75,7 +75,7 @@ export function DirectoriesPage({
     if (onNavigateToStates) {
       onNavigateToStates();
     } else {
-      window.location.href = '/states';
+      window.location.href = '/directories/states';
     }
   };
 
@@ -83,7 +83,7 @@ export function DirectoriesPage({
     if (onNavigateToCities) {
       onNavigateToCities();
     } else {
-      window.location.href = '/cities';
+      window.location.href = '/directories/cities';
     }
   };
 
