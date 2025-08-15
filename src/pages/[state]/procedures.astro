@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/BaseLayout.astro';
+import { StateProceduresPage } from '../../components/directory/StateProceduresPage';
+import { statesData } from '../../lib/data/locations';
+
+export async function getStaticPaths() {
+  return statesData.map((state) => ({
+    params: { state: state.slug },
+    props: { stateData: state }
+  }));
+}
+
+const { state } = Astro.params;
+const { stateData } = Astro.props;
+
+if (!stateData) {
+  return Astro.redirect('/404');
+}
+
+const title = `Procedures in ${stateData.name} | HealthFees.org`;
+const description = `See procedure prices and variation across ${stateData.name}. Compare costs and find the best value for medical services.`;
+---
+
+<Layout 
+  title={title}
+  description={description}
+  ogTitle={title}
+  ogDescription={description}
+  canonicalURL={`/${state}/procedures`}
+>
+  <StateProceduresPage stateData={stateData} client:load />
+</Layout>
