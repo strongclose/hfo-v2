@@ -375,7 +375,7 @@ export function DirectoriesPage({
           </div>
 
           {/* Additional Directory Links */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             <Card className="bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 shadow-lg rounded-2xl hover:shadow-xl transition-all duration-300">
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
@@ -419,6 +419,43 @@ export function DirectoriesPage({
                 </div>
               </CardContent>
             </Card>
+          </div>
+
+          {/* Helper Text and Quick Jump Links */}
+          <div className="text-center mb-8">
+            <p className="text-gray-600 mb-6">You can also jump straight to any state or city below.</p>
+
+            {/* States A-Z Jump Links */}
+            <div className="mb-6">
+              <h4 className="text-lg font-semibold text-gray-900 mb-3">States A-Z</h4>
+              <div className="flex flex-wrap justify-center gap-2">
+                {['A', 'B', 'C', 'D', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S', 'T', 'U', 'V', 'W'].map(letter => (
+                  <a
+                    key={letter}
+                    href={`/directories/states#${letter}`}
+                    className="px-3 py-1 text-sm font-medium text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-md transition-colors border border-blue-200 hover:border-blue-300"
+                  >
+                    {letter}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Cities A-Z Jump Links */}
+            <div>
+              <h4 className="text-lg font-semibold text-gray-900 mb-3">Cities A-Z</h4>
+              <div className="flex flex-wrap justify-center gap-2">
+                {['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'L', 'N', 'S'].map(letter => (
+                  <a
+                    key={letter}
+                    href={`/directories/cities#${letter}`}
+                    className="px-3 py-1 text-sm font-medium text-purple-600 hover:text-purple-700 hover:bg-purple-50 rounded-md transition-colors border border-purple-200 hover:border-purple-300"
+                  >
+                    {letter}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
