@@ -1,0 +1,12 @@
+---
+import Layout from '../../layouts/BaseLayout.astro';
+import { DirectoriesCitiesPage } from '../../components/directory/DirectoriesCitiesPage';
+---
+
+<Layout 
+  title="Browse by City - Healthcare Directories | HealthFees.org"
+  description="Browse healthcare providers, payers, and procedures by city. Local market analysis and provider networks."
+  canonicalURL="/directories/cities"
+>
+  <DirectoriesCitiesPage client:load />
+</Layout>
