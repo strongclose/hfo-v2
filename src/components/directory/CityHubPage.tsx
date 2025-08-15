@@ -6,6 +6,7 @@ import { CategoryIndex } from './CategoryIndex';
 import { GeographicIndex } from './GeographicIndex';
 import { RelatedLinks } from './RelatedLinks';
 import { Breadcrumbs } from './Breadcrumbs';
+import { PricingDataSection } from './PricingDataSection';
 import { StateData, CityData } from '../../lib/data/locations';
 
 interface CityHubPageProps {
