@@ -1,1 +1,7 @@
-always prefer global designs and components over unique versions. 
+You are ONLY allowed to use Tailwind CSS and Shadcdn. You are allowed to use Lucide icons.
+
+Use Tanstack Query. Use Zod.
+
+Do not modify package.json. Do not install any other design libraries.
+
+Test your code before submitting; we are using strict Typescript and we do not want any errors.
