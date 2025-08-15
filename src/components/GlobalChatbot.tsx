@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import { Activity } from "lucide-react";
 
 interface ChatMessage {
   id: string;
@@ -32,14 +33,14 @@ const heightClasses = {
   sm: "h-64",
   md: "h-80",
   lg: "h-96",
-  xl: "h-[32rem]",
+  xl: "h-[600px]",
 };
 
 const chatHeightClasses = {
   sm: "h-32",
   md: "h-48",
   lg: "h-64",
-  xl: "h-80",
+  xl: "h-[480px]",
 };
 
 export function GlobalChatbot({
@@ -50,17 +51,24 @@ export function GlobalChatbot({
   context = "healthcare",
   style,
 }: GlobalChatbotProps) {
-  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
-    {
-      id: "1",
-      type: "bot",
-      content: initialMessage,
-      timestamp: new Date(),
-    },
-  ]);
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
+  const [isClient, setIsClient] = useState(false);
   const [chatInput, setChatInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const chatContainerRef = useRef<HTMLDivElement>(null);
+
+  // Initialize on client side only
+  useEffect(() => {
+    setIsClient(true);
+    setChatMessages([
+      {
+        id: "initial",
+        type: "bot",
+        content: initialMessage,
+        timestamp: new Date(),
+      },
+    ]);
+  }, [initialMessage]);
 
   // Auto-scroll to bottom when new messages are added
   useEffect(() => {
@@ -70,7 +78,7 @@ export function GlobalChatbot({
     }
   }, [chatMessages]);
 
-  const generateBotResponse = (userMessage: string): ChatMessage => {
+  const generateBotResponse = (userMessage: string, messageCount: number): ChatMessage => {
     const responses = {
       healthcare: [
         "I can help you find pricing for that procedure. Healthcare costs can vary significantly by location and provider. Would you like me to search for specific providers in your area?",
@@ -100,15 +108,16 @@ export function GlobalChatbot({
     };
 
     const contextResponses = responses[context] || responses.general;
-    const randomResponse =
-      contextResponses[Math.floor(Math.random() * contextResponses.length)];
+    // Use deterministic selection based on message count instead of random
+    const responseIndex = messageCount % contextResponses.length;
+    const selectedResponse = contextResponses[responseIndex];
 
-    // Add some result cards for healthcare context
-    const shouldAddCards = context === "healthcare" && Math.random() > 0.5;
+    // Add result cards for healthcare context - deterministic based on message count
+    const shouldAddCards = context === "healthcare" && messageCount % 2 === 0;
     const resultCards = shouldAddCards
       ? [
           {
-            id: "1",
+            id: "card-1",
             hospitalName: "City Medical Center",
             price: "$1,250",
             badge: "Best Value",
@@ -116,7 +125,7 @@ export function GlobalChatbot({
             savings: "40%",
           },
           {
-            id: "2",
+            id: "card-2",
             hospitalName: "Regional Health System",
             price: "$1,890",
             originalPrice: "$2,400",
@@ -126,9 +135,9 @@ export function GlobalChatbot({
       : undefined;
 
     return {
-      id: Date.now().toString(),
+      id: `bot-${messageCount}`,
       type: "bot",
-      content: randomResponse,
+      content: selectedResponse,
       timestamp: new Date(),
       resultCards,
     };
@@ -137,26 +146,30 @@ export function GlobalChatbot({
   const handleSendMessage = () => {
     if (!chatInput.trim()) return;
 
-    const userMessage: ChatMessage = {
-      id: Date.now().toString(),
-      type: "user",
-      content: chatInput,
-      timestamp: new Date(),
-    };
+    setChatMessages((prev) => {
+      const messageCount = prev.length;
+      const userMessage: ChatMessage = {
+        id: `user-${messageCount}`,
+        type: "user",
+        content: chatInput,
+        timestamp: new Date(),
+      };
 
-    setChatMessages((prev) => [...prev, userMessage]);
-    setChatInput("");
-    setIsTyping(true);
+      setChatInput("");
+      setIsTyping(true);
 
-    // Simulate bot response delay
-    setTimeout(
-      () => {
-        const botResponse = generateBotResponse(chatInput);
-        setChatMessages((prev) => [...prev, botResponse]);
-        setIsTyping(false);
-      },
-      1000 + Math.random() * 1000,
-    );
+      // Simulate bot response delay - fixed delay instead of random
+      setTimeout(
+        () => {
+          const botResponse = generateBotResponse(chatInput, messageCount + 1);
+          setChatMessages((prevMessages) => [...prevMessages, botResponse]);
+          setIsTyping(false);
+        },
+        1500, // Fixed 1.5 second delay
+      );
+
+      return [...prev, userMessage];
+    });
   };
 
   const handleChatKeyPress = (e: React.KeyboardEvent) => {
@@ -169,25 +182,42 @@ export function GlobalChatbot({
   return (
     <div className={`max-w-2xl w-full ${className}`} style={style}>
       <div
-        className={`backdrop-blur-md rounded-2xl border border-white/10 overflow-hidden shadow-2xl ${heightClasses[height]} flex flex-col`}
-        style={{
-          background: "rgba(255, 255, 255, 0.03)",
-          backdropFilter: "blur(20px)",
-        }}
+        className={`bg-gradient-to-br from-white via-gray-50 to-blue-50 border-2 border-gray-200 rounded-3xl shadow-2xl shadow-blue-600/30 hover:shadow-blue-600/40 transition-all duration-500 ${heightClasses[height]} flex flex-col relative overflow-hidden`}
       >
+        {/* Subtle internal highlight */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-indigo-50/30 rounded-3xl"></div>
+
+        {/* Header */}
+        <div className="relative z-10 pb-3 border-b border-blue-100/50 p-4">
+          <div className="flex items-center gap-3">
+            <div className="relative">
+              <Activity className="w-4 h-4 text-blue-600" strokeWidth={2} />
+              <div className="absolute inset-0 animate-pulse">
+                <Activity className="w-4 h-4 text-blue-400 opacity-40" strokeWidth={2} />
+              </div>
+            </div>
+            <h2 className="text-xl font-bold text-gray-900">Jake's Baby</h2>
+          </div>
+        </div>
         {/* Chat Messages Area */}
-        <div ref={chatContainerRef} className="p-6 flex-1 overflow-y-auto">
-          <div className="space-y-4">
-            {chatMessages.map((message) => (
+        <div ref={chatContainerRef} className="relative z-10 p-4 flex-1 overflow-y-auto">
+          {!isClient ? (
+            <div className="p-6 flex items-center justify-center">
+              <div className="text-gray-600 text-sm">Loading chat...</div>
+            </div>
+          ) : (
+            <div className="space-y-4">
+              {chatMessages.map((message) => (
               <div key={message.id}>
                 {message.type === "bot" && (
                   <div className="flex gap-3">
-                    <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-white text-sm font-bold">✨</span>
                     </div>
                     <div className="flex-1">
-                      <div className="bg-white/5 backdrop-blur-sm rounded-2xl rounded-tl-md py-4 px-3 border border-white/5">
-                        <div className="text-sm leading-relaxed text-white">
+
+                      <div className="bg-white/95 backdrop-blur-sm rounded-2xl rounded-tl-md py-4 px-3 border border-gray-200 shadow-md">
+                        <div className="text-sm leading-relaxed text-gray-900">
                           <p
                             className="text-justify break-words whitespace-normal hyphens-auto"
                             style={{
@@ -197,9 +227,12 @@ export function GlobalChatbot({
                           >
                             {message.content
                               .split("\n")
-                              .filter((line) => line.trim() !== "")
-                              .join(" ")
-                              .replace(/\*\*(.*?)\*\*/g, "$1")}
+                              .map((line, index) => (
+                                <span key={index}>
+                                  {line.replace(/\*\*(.*?)\*\*/g, "$1")}
+                                  {index < message.content.split("\n").length - 1 && <br />}
+                                </span>
+                              ))}
                           </p>
                         </div>
                         {message.resultCards && (
@@ -207,30 +240,30 @@ export function GlobalChatbot({
                             {message.resultCards.map((card) => (
                               <div
                                 key={card.id}
-                                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-3"
+                                className="bg-white backdrop-blur-sm border border-gray-200 rounded-lg p-3 shadow-sm"
                               >
                                 <div className="flex justify-between items-start">
                                   <div className="flex-1">
                                     <div className="flex items-center gap-2 mb-1">
-                                      <h4 className="font-semibold text-white text-sm">
+                                      <h4 className="font-semibold text-gray-900 text-sm">
                                         {card.hospitalName}
                                       </h4>
                                       {card.badge && (
-                                        <span className="bg-teal-400/30 text-teal-100 text-xs px-2 py-1 rounded-full font-medium">
+                                        <span className="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded-full font-medium">
                                           {card.badge}
                                         </span>
                                       )}
                                     </div>
                                     <div className="flex items-center gap-2">
-                                      <span className="text-2xl font-bold text-teal-400">
+                                      <span className="text-2xl font-bold text-blue-600">
                                         {card.price}
                                       </span>
                                       {card.originalPrice && (
                                         <>
-                                          <span className="text-sm text-gray-400 line-through">
+                                          <span className="text-sm text-gray-500 line-through">
                                             {card.originalPrice}
                                           </span>
-                                          <span className="text-sm text-green-400 font-medium">
+                                          <span className="text-sm text-green-600 font-medium">
                                             Save {card.savings}
                                           </span>
                                         </>
@@ -248,10 +281,10 @@ export function GlobalChatbot({
                 )}
                 {message.type === "user" && (
                   <div className="flex gap-3 justify-end">
-                    <div className="bg-teal-600/30 backdrop-blur-sm rounded-2xl rounded-tr-md py-3 px-4 border border-teal-500/20 max-w-xs">
-                      <p className="text-sm text-white">{message.content}</p>
+                    <div className="bg-white backdrop-blur-sm rounded-2xl rounded-tr-md py-3 px-4 border border-gray-300 shadow-lg max-w-xs">
+                      <p className="text-sm text-gray-900 font-medium">{message.content}</p>
                     </div>
-                    <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-white text-sm font-bold">You</span>
                     </div>
                   </div>
@@ -259,61 +292,56 @@ export function GlobalChatbot({
               </div>
             ))}
 
-            {/* Typing Indicator */}
-            {isTyping && (
-              <div className="flex gap-3">
-                <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-white text-sm font-bold">✨</span>
-                </div>
-                <div className="bg-white/5 backdrop-blur-sm rounded-2xl rounded-tl-md py-4 px-3 border border-white/5">
-                  <div className="flex items-center gap-1">
-                    <div className="w-1.5 h-1.5 bg-white rounded-full animate-bounce"></div>
-                    <div
-                      className="w-1.5 h-1.5 bg-white rounded-full animate-bounce"
-                      style={{ animationDelay: "0.1s" }}
-                    ></div>
-                    <div
-                      className="w-1.5 h-1.5 bg-white rounded-full animate-bounce"
-                      style={{ animationDelay: "0.2s" }}
-                    ></div>
+              {/* Typing Indicator */}
+              {isTyping && (
+                <div className="flex gap-3">
+                  <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-sm font-bold">✨</span>
+                  </div>
+                  <div className="bg-white/95 backdrop-blur-sm rounded-2xl rounded-tl-md py-4 px-3 border border-gray-200 shadow-md">
+                    <div className="flex items-center gap-1">
+                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce"></div>
+                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce [animation-delay:0.1s]"></div>
+                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce [animation-delay:0.2s]"></div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Input Area */}
-        <div className="pt-4 px-4 pb-2 border-t border-white/10">
-          <div className="flex gap-3">
-            <div className="flex-1 relative">
+        <div className="relative z-10 pt-4 px-4 pb-2 border-t border-blue-100/50">
+          {!isClient ? (
+            <div className="flex gap-0">
+              <div className="flex-1 h-12 bg-white/95 border-2 border-blue-200 rounded-l-xl flex items-center px-4">
+                <div className="text-gray-500 text-base">{placeholder}</div>
+              </div>
+              <div className="h-12 rounded-r-xl px-4 flex items-center border-2 border-l-0 border-blue-200" style={{background: 'var(--ds-gradient-blue)'}}>
+                <span className="text-white text-sm font-medium">Ask AI</span>
+              </div>
+            </div>
+          ) : (
+            <div className="flex gap-0">
               <Input
                 value={chatInput}
                 onChange={(e) => setChatInput(e.target.value)}
                 onKeyPress={handleChatKeyPress}
                 placeholder={placeholder}
-                className="w-full bg-white/5 border-2 border-teal-400/50 text-white placeholder-white/60 rounded-xl px-4 py-3 focus:border-teal-400 focus:ring-0 transition-all duration-300 glowing-input"
-                style={{
-                  background: "rgba(255, 255, 255, 0.05)",
-                  backdropFilter: "blur(10px)",
-                }}
+                className="flex-1 h-12 bg-white/95 border-2 border-blue-200 rounded-l-xl rounded-r-none focus:border-blue-500 placeholder:text-gray-500 text-base shadow-lg text-gray-900"
                 disabled={isTyping}
               />
+              <Button
+                onClick={handleSendMessage}
+                disabled={!chatInput.trim() || isTyping}
+                className="h-12 text-white rounded-r-xl px-4 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-l-0 border-blue-200 hover:border-blue-500 group relative overflow-hidden"
+                style={{background: 'var(--ds-gradient-blue)'}}
+              >
+                <Activity className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" strokeWidth={2} />
+              </Button>
             </div>
-            <Button
-              variant="ask-ai"
-              onClick={handleSendMessage}
-              disabled={!chatInput.trim() || isTyping}
-              className="ask-ai-button transition-all duration-300 hover:scale-105 h-9"
-              style={{
-                opacity: 1,
-                filter:
-                  !chatInput.trim() || isTyping ? "grayscale(20%)" : "none",
-              }}
-            >
-              Ask AI
-            </Button>
-          </div>
+          )}
         </div>
       </div>
     </div>

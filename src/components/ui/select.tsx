@@ -6,20 +6,26 @@ interface SelectProps {
   value?: string;
   onValueChange?: (value: string) => void;
   children: React.ReactNode;
+  disabled?: boolean;
 }
 
-const Select = ({ value, onValueChange, children }: SelectProps) => {
+const Select = ({ value, onValueChange, children, disabled }: SelectProps) => {
   const [open, setOpen] = React.useState(false);
-  
+
+  const handleSetOpen = React.useCallback((newOpen: boolean) => {
+    setOpen(newOpen);
+  }, []);
+
   return (
     <div className="relative">
       {React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
-          return React.cloneElement(child, { 
-            open, 
-            setOpen, 
-            value, 
-            onValueChange 
+          return React.cloneElement(child, {
+            open,
+            setOpen: handleSetOpen,
+            value,
+            onValueChange,
+            disabled
           } as any);
         }
         return child;
@@ -33,19 +39,33 @@ interface SelectTriggerProps {
   children: React.ReactNode;
   open?: boolean;
   setOpen?: (open: boolean) => void;
+  disabled?: boolean;
+  value?: string;
 }
 
-const SelectTrigger = ({ className, children, open, setOpen }: SelectTriggerProps) => {
+const SelectTrigger = ({ className, children, open, setOpen, disabled, value }: SelectTriggerProps) => {
+  const handleClick = () => {
+    if (!disabled && setOpen) {
+      setOpen(!open);
+    }
+  };
+
   return (
     <button
       type="button"
+      disabled={disabled}
       className={cn(
         "flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
         className
       )}
-      onClick={() => setOpen?.(!open)}
+      onClick={handleClick}
     >
-      {children}
+      {React.Children.map(children, (child) => {
+        if (React.isValidElement(child)) {
+          return React.cloneElement(child, { value } as any);
+        }
+        return child;
+      })}
       <ChevronDown className="h-4 w-4 opacity-50" />
     </button>
   );
@@ -69,24 +89,33 @@ interface SelectContentProps {
   children: React.ReactNode;
   open?: boolean;
   setOpen?: (open: boolean) => void;
+  onValueChange?: (value: string) => void;
 }
 
-const SelectContent = ({ className, children, open, setOpen }: SelectContentProps) => {
+const SelectContent = ({ className, children, open, setOpen, onValueChange }: SelectContentProps) => {
   if (!open) return null;
 
   return (
     <>
-      <div 
-        className="fixed inset-0 z-40" 
-        onClick={() => setOpen?.(false)} 
+      <div
+        className="fixed inset-0 z-40"
+        onClick={() => setOpen?.(false)}
       />
       <div
         className={cn(
-          "absolute top-full z-50 mt-1 w-full rounded-md border bg-popover text-popover-foreground shadow-md",
+          "absolute top-full left-0 right-0 z-50 mt-1 rounded-md border border-gray-200 bg-white shadow-lg max-h-60 overflow-y-auto",
           className
         )}
       >
-        {children}
+        {React.Children.map(children, (child) => {
+          if (React.isValidElement(child) && child.type !== 'div') {
+            return React.cloneElement(child, {
+              onValueChange,
+              setOpen
+            } as any);
+          }
+          return child;
+        })}
       </div>
     </>
   );
@@ -101,16 +130,18 @@ interface SelectItemProps {
 }
 
 const SelectItem = ({ value, children, className, onValueChange, setOpen }: SelectItemProps) => {
+  const handleClick = () => {
+    onValueChange?.(value);
+    setOpen?.(false);
+  };
+
   return (
     <div
       className={cn(
-        "relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-2 pr-8 text-sm outline-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        "relative flex w-full cursor-pointer select-none items-center px-3 py-2 text-sm outline-none hover:bg-gray-100 focus:bg-gray-100",
         className
       )}
-      onClick={() => {
-        onValueChange?.(value);
-        setOpen?.(false);
-      }}
+      onClick={handleClick}
     >
       {children}
     </div>

@@ -34,22 +34,139 @@
   --sidebar-border: 220 13% 91%;
   --sidebar-ring: 217.2 91.2% 59.8%;
 
-  /* Custom color variables - matching original */
-  --green: #10b981;
-  --teal: #14b8a6;
-  --purple: #8b5cf6;
+  /* HealthFees.org Brand Color System */
+  /* Primary Brand Colors */
+  --hf-blue-primary: #2563eb;
+  --hf-blue-secondary: #3b82f6;
+  --hf-blue-light: #60a5fa;
+  --hf-blue-dark: #1d4ed8;
 
-  /* Text sizes */
+  /* Accent Colors */
+  --hf-teal-primary: #14b8a6;
+  --hf-teal-secondary: #0d9488;
+  --hf-teal-light: #2dd4bf;
+  --hf-cyan-primary: #06b6d4;
+  --hf-cyan-light: #22d3ee;
+
+  /* Success & Positive */
+  --hf-emerald-primary: #059669;
+  --hf-emerald-secondary: #10b981;
+  --hf-green-primary: #16a34a;
+
+  /* Secondary Brand Colors */
+  --hf-purple-primary: #9333ea;
+  --hf-purple-secondary: #8b5cf6;
+  --hf-purple-light: #a78bfa;
+  --hf-indigo-primary: #4f46e5;
+  --hf-indigo-secondary: #6366f1;
+
+  /* Warning & Alert */
+  --hf-amber-primary: #f59e0b;
+  --hf-orange-primary: #ea580c;
+  --hf-yellow-primary: #eab308;
+
+  /* Danger & Error */
+  --hf-red-primary: #dc2626;
+  --hf-rose-primary: #e11d48;
+
+  /* Neutrals */
+  --hf-gray-50: #f9fafb;
+  --hf-gray-100: #f3f4f6;
+  --hf-gray-200: #e5e7eb;
+  --hf-gray-300: #d1d5db;
+  --hf-gray-400: #9ca3af;
+  --hf-gray-500: #6b7280;
+  --hf-gray-600: #4b5563;
+  --hf-gray-700: #374151;
+  --hf-gray-800: #1f2937;
+  --hf-gray-900: #111827;
+
+  /* Brand Gradients - All using consistent blue system */
+  --hf-gradient-primary: var(--ds-gradient-blue);
+  --hf-gradient-accent: var(--ds-gradient-blue);
+  --hf-gradient-success: linear-gradient(135deg, #1571f6 0%, #1571f6 75%, #031d44 100%);
+  --hf-gradient-purple: var(--ds-gradient-blue);
+  --hf-gradient-warm: var(--ds-gradient-blue);
+
+  /* Glass Effect Colors */
+  --hf-glass-bg: rgba(255, 255, 255, 0.2);
+  --hf-glass-border: rgba(255, 255, 255, 0.5);
+  --hf-glass-hover-bg: rgba(255, 255, 255, 0.3);
+  --hf-glass-hover-border: rgba(255, 255, 255, 0.7);
+
+  /* Background Overlays */
+  --hf-overlay-light: rgba(255, 255, 255, 0.1);
+  --hf-overlay-medium: rgba(255, 255, 255, 0.2);
+  --hf-overlay-dark: rgba(0, 0, 0, 0.1);
+
+  /* Shadow Colors */
+  --hf-shadow-light: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --hf-shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --hf-shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --hf-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* Spacing System */
+  --hf-space-xs: 0.5rem;
+  --hf-space-sm: 0.75rem;
+  --hf-space-md: 1rem;
+  --hf-space-lg: 1.5rem;
+  --hf-space-xl: 2rem;
+  --hf-space-2xl: 3rem;
+  --hf-space-3xl: 4rem;
+
+  /* Border Radius */
+  --hf-radius-sm: 0.375rem;
+  --hf-radius-md: 0.5rem;
+  --hf-radius-lg: 0.75rem;
+  --hf-radius-xl: 1rem;
+  --hf-radius-2xl: 1.5rem;
+  --hf-radius-full: 50%;
+
+  /* Standardized Gradient System (Design Tokens) */
+  --gradient-primary: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+  --gradient-accent: linear-gradient(135deg, #14b8a6 0%, #3b82f6 100%);
+  --gradient-subtle: linear-gradient(135deg, #f9fafb 0%, rgba(96, 165, 250, 0.1) 50%, rgba(45, 212, 191, 0.08) 100%);
+  --overlay-primary: radial-gradient(circle at 30% 40%, rgba(20, 184, 166, 0.2), transparent 60%);
+  --overlay-secondary: radial-gradient(circle at 70% 60%, rgba(59, 130, 246, 0.15), transparent 60%);
+  --text-gradient-primary: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  --text-gradient-accent: linear-gradient(135deg, #14b8a6 0%, #3b82f6 100%);
+
+  /* Standardized Typography Scale */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
   --text-lg: 1.125rem;
   --text-xl: 1.25rem;
   --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+  --text-8xl: 6rem;
+  --text-9xl: 8rem;
+
+  /* Heading Hierarchy */
+  --heading-h1: 4rem;      /* 64px - Hero only */
+  --heading-h2: 2.5rem;    /* 40px - Section headers */
+  --heading-h3: 1.875rem;  /* 30px - Subsections */
+  --heading-h4: 1.25rem;   /* 20px - Cards/components */
+  --heading-h5: 1.125rem;  /* 18px - Small headings */
+  --heading-h6: 1rem;      /* 16px - Captions */
 
   /* Font weights */
   --font-weight-normal: 400;
   --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Line Heights */
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
 }
 
 .dark {
@@ -85,7 +202,6 @@
 /* Global typography styles - matching original */
 @layer base {
   * {
-    border-color: hsl(var(--border));
     font-family:
       "Inter",
       -apple-system,
@@ -98,7 +214,7 @@
       "Fira Sans",
       "Droid Sans",
       "Helvetica Neue",
-      sans-serif !important;
+      sans-serif;
   }
 
   body {
@@ -106,21 +222,656 @@
     background: hsl(var(--background));
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-
-  h4 {
-    color: hsl(var(--primary)) !important;
-  }
 }
 
-/* Ensure primary color utilities work correctly */
-@layer utilities {
-  .text-primary {
-    color: hsl(var(--primary)) !important;
-  }
-}
-
-/* Custom component styles */
+/* HealthFees.org Component Styles */
 @layer components {
+  /* Standardized Button Styles */
+  .hf-btn-primary {
+    background: var(--hf-gradient-primary);
+    color: white;
+    box-shadow: var(--hf-shadow-medium);
+    border-radius: var(--hf-radius-xl);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .hf-btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: var(--hf-shadow-large);
+  }
+
+  .hf-btn-accent {
+    background: var(--hf-gradient-accent);
+    color: white;
+    box-shadow: var(--hf-shadow-medium);
+    border-radius: var(--hf-radius-xl);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .hf-btn-accent:hover {
+    transform: scale(1.05);
+    box-shadow: var(--hf-shadow-large);
+  }
+
+  .hf-btn-glass {
+    background: var(--hf-glass-bg);
+    border: 2px solid var(--hf-glass-border);
+    backdrop-filter: blur(10px);
+    color: white;
+    border-radius: var(--hf-radius-xl);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .hf-btn-glass:hover {
+    background: var(--hf-glass-hover-bg);
+    border-color: var(--hf-glass-hover-border);
+    transform: scale(1.05);
+  }
+
+  /* DESIGN SYSTEM - Global Standards */
+
+  /* Design System Colors */
+  :root {
+    --ds-primary-blue: #1571f6;
+    --ds-secondary-blue: #031d44;
+    --ds-light-gray: #f4f6f8;
+    --ds-gradient-blue: linear-gradient(135deg, #1571f6 0%, #1571f6 75%, #031d44 100%);
+    --ds-shadow-soft: rgba(0, 0, 0, 0.05);
+    --ds-shadow-hover: rgba(0, 0, 0, 0.1);
+  }
+
+  /* Button System */
+  .ds-btn-primary {
+    background: var(--ds-primary-blue);
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ds-btn-primary:hover {
+    box-shadow: 0 4px 12px rgba(21, 113, 246, 0.3);
+  }
+
+  .ds-btn-secondary {
+    background: white;
+    color: var(--ds-primary-blue);
+    border: 1px solid var(--ds-primary-blue);
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ds-btn-secondary:hover {
+    background: var(--ds-light-gray);
+  }
+
+  .ds-btn-tertiary {
+    background: transparent;
+    color: var(--ds-primary-blue);
+    border: none;
+    padding: 0;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .ds-btn-tertiary:hover {
+    opacity: 0.8;
+  }
+
+  /* Typography System */
+  .ds-h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .ds-h2 {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .ds-h3 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .ds-body {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  .ds-stat-number {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .ds-stat-label {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  /* Hierarchical Icon System - Proper Cascade Order (Most Specific First) */
+
+  /* Level 1: Main Section Headers (Largest - 32px) */
+  .text-center .ds-icon svg,
+  .section-header .ds-icon svg,
+  .text-center > .ds-icon svg,
+  .page-header .ds-icon svg {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  /* Level 2: Timeline Icons (Large - 24px) */
+  .ds-timeline-icon svg,
+  .timeline-step svg,
+  .process-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  /* Level 3: Tool Cards and Feature Icons (Medium - 20px) */
+  .ds-tool-card .ds-icon svg,
+  .feature-card .ds-icon svg,
+  .tool-icon svg,
+  .stat-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  /* Level 4: Interactive Elements (Small - 16px) */
+  button svg,
+  .btn svg,
+  .ds-btn-primary svg,
+  .ds-btn-secondary svg,
+  .ds-btn-tertiary svg,
+  .interactive svg,
+  .cta svg,
+  .persona-pill svg,
+  .filter-pill svg,
+  .navigation svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  /* Level 5: Content and Auxiliary Elements (Smallest - 14px) */
+  .tooltip svg,
+  .info svg,
+  .help svg,
+  .status svg,
+  .auxiliary svg,
+  .ds-body svg,
+  p svg,
+  span svg,
+  .text-sm svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  /* Level 6: Micro Elements (Tiny - 12px) */
+  .status-dot svg,
+  .indicator svg,
+  .micro svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  /* Special Cases */
+
+  /* Avatar/Profile Icons (Medium) */
+  .avatar svg,
+  .profile svg,
+  .user-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  /* Navigation Brand/Logo Icons (Large) */
+  .brand svg,
+  .logo svg,
+  nav .brand svg {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  /* Timeline Specific Icons (Large) */
+  .ds-timeline-icon svg,
+  .timeline-step svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  /* Status Indicators (Very Small) */
+  .status-dot,
+  .indicator,
+  .badge svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  /* Chat/Message Icons (Small) */
+  .chat svg,
+  .message svg,
+  .conversation svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  /* Tool/Feature Cards (Medium) */
+  .ds-tool-card svg,
+  .feature-card svg,
+  .tool-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  /* Icon Container System */
+  .ds-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--ds-gradient-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  /* Card System */
+  .ds-card {
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--ds-shadow-soft);
+    transition: all 0.2s ease;
+  }
+
+  .ds-card:hover {
+    box-shadow: 0 4px 12px var(--ds-shadow-hover);
+  }
+
+  /* Timeline System */
+  .ds-timeline-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--ds-gradient-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  /* Timeline icons inherit from hierarchical system above */
+
+  .ds-timeline-line {
+    background: linear-gradient(to bottom, #ef4444 0%, #ec4899 25%, #f59e0b 45%, #ea580c 55%, #1571f6 75%, #031d44 100%);
+    width: 2px;
+    border-radius: 1px;
+  }
+
+  /* Tool Card System */
+  .ds-tool-card {
+    background: white;
+    padding: 24px 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--ds-shadow-soft);
+    transition: all 0.2s ease;
+    text-align: center;
+  }
+
+  .ds-tool-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px var(--ds-shadow-hover);
+  }
+
+  .ds-tool-card .ds-tool-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ds-primary-blue);
+    margin: 12px 0 8px 0;
+  }
+
+  /* Specific Layout Pattern Overrides */
+
+  /* Section Headers - Always prominent */
+  .text-center.mb-16 .ds-icon svg,
+  .section-intro .ds-icon svg,
+  .page-section > .text-center .ds-icon svg {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  /* Persona/Tab Pills - Always small for compact layout */
+  .flex.flex-wrap button svg,
+  .persona-tabs button svg,
+  .tab-navigation button svg,
+  .pill-navigation svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  /* Hero Section Check Circle - Medium for visibility */
+  .hero .inline-flex.items-center svg,
+  .hero-badge svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  /* Card Headers vs Card Content */
+  .card-header svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .card-content svg:not(.card-header svg) {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  /* Avatar/Profile areas */
+  .avatar svg,
+  .profile-icon svg,
+  .user-avatar svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  /* Statistics and Metrics */
+  .stat-container svg,
+  .metric-icon svg,
+  .data-point svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  /* Progress and Status indicators */
+  .progress-icon svg,
+  .status-icon svg,
+  .completion-icon svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  /* Ultra-Specific Hierarchy Corrections */
+
+  /* Homepage Section Headers - Must be prominent */
+  .text-center.mb-16 .ds-icon.mx-auto svg {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  /* Persona Pills - Must be smaller than section header */
+  .flex.flex-wrap.justify-center button.flex.items-center svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  /* Persona Card Icons and Circles */
+  .rounded-full.flex.items-center.justify-center svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  /* Persona Card Circles - Larger for prominence */
+  .flex.items-center.gap-6 .w-24.h-24.rounded-full {
+    /* Circle is now 24x24 (96px) which is appropriately larger */
+  }
+
+  /* Override any manual w-4 h-4 classes on persona pills */
+  .flex.flex-wrap.justify-center button svg.w-4.h-4 {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  /* Timeline Icons - Distinct from section headers */
+  .ds-timeline-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  /* Tool Card Icons - Medium prominence */
+  .ds-tool-card .ds-icon.mx-auto svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  /* Final Hierarchy Enforcement */
+
+  /* Any button in a flex container should have small icons */
+  .flex button svg,
+  .flex-wrap button svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  /* Section introduction areas always get large icons */
+  .section > .text-center svg:first-child,
+  .page-section .text-center svg:first-child {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  /* Override all manual Tailwind sizing for proper hierarchy */
+  svg.w-1, svg.w-2, svg.w-3, svg.w-4, svg.w-5, svg.w-6, svg.w-7, svg.w-8,
+  svg.w-9, svg.w-10, svg.w-11, svg.w-12, svg.w-16, svg.w-20, svg.w-24 {
+    /* Let hierarchy system take precedence */
+  }
+
+  /* Legacy Button Classes (keeping for backward compatibility) */
+  .btn-primary {
+    background: var(--ds-primary-blue);
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 4px 12px rgba(21, 113, 246, 0.3);
+  }
+
+  .btn-secondary {
+    background: white;
+    color: var(--ds-primary-blue);
+    border: 1px solid var(--ds-primary-blue);
+    padding: 15px 23px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .btn-secondary:hover {
+    background: var(--ds-light-gray);
+  }
+
+  /* Standardized Card Styles */
+  .hf-card {
+    background: white;
+    border-radius: var(--hf-radius-2xl);
+    box-shadow: var(--hf-shadow-medium);
+    border: 1px solid var(--hf-gray-200);
+    transition: all 0.3s ease;
+  }
+
+  .hf-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--hf-shadow-xl);
+    border-color: var(--hf-gray-300);
+  }
+
+  .hf-card-glass {
+    background: var(--hf-overlay-light);
+    backdrop-filter: blur(10px);
+    border-radius: var(--hf-radius-2xl);
+    border: 1px solid var(--hf-glass-border);
+    transition: all 0.3s ease;
+  }
+
+  .hf-card-glass:hover {
+    background: var(--hf-overlay-medium);
+    border-color: var(--hf-glass-hover-border);
+  }
+
+  /* Icon Backgrounds */
+  .hf-icon-bg-primary {
+    background: var(--hf-gradient-primary);
+    border-radius: var(--hf-radius-full);
+    box-shadow: var(--hf-shadow-medium);
+  }
+
+  .hf-icon-bg-accent {
+    background: var(--hf-gradient-accent);
+    border-radius: var(--hf-radius-full);
+    box-shadow: var(--hf-shadow-medium);
+  }
+
+  .hf-icon-bg-success {
+    background: var(--hf-gradient-success);
+    border-radius: var(--hf-radius-full);
+    box-shadow: var(--hf-shadow-medium);
+  }
+
+  .hf-icon-bg-purple {
+    background: var(--hf-gradient-purple);
+    border-radius: var(--hf-radius-full);
+    box-shadow: var(--hf-shadow-medium);
+  }
+
+  /* Standardized Gradient Utilities */
+  .hf-gradient-primary {
+    background: var(--ds-gradient-blue);
+  }
+
+  .hf-gradient-accent {
+    background: var(--ds-gradient-blue);
+  }
+
+  .hf-gradient-subtle {
+    background: var(--ds-gradient-blue);
+  }
+
+  .hf-overlay-primary {
+    background: var(--overlay-primary);
+  }
+
+  .hf-overlay-secondary {
+    background: var(--overlay-secondary);
+  }
+
+  /* Text Gradient Utilities */
+  .hf-text-gradient-primary {
+    background: var(--text-gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hf-text-gradient-accent {
+    background: var(--text-gradient-accent);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Standardized Typography Classes */
+  .hf-heading-h1 {
+    font-size: var(--heading-h1);
+    line-height: var(--leading-tight);
+    font-weight: var(--font-weight-extrabold);
+    letter-spacing: -0.02em;
+  }
+
+  .hf-heading-h2 {
+    font-size: var(--heading-h2);
+    line-height: var(--leading-tight);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -0.01em;
+  }
+
+  .hf-heading-h3 {
+    font-size: var(--heading-h3);
+    line-height: var(--leading-snug);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .hf-heading-h4 {
+    font-size: var(--heading-h4);
+    line-height: var(--leading-snug);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .hf-heading-h5 {
+    font-size: var(--heading-h5);
+    line-height: var(--leading-normal);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .hf-heading-h6 {
+    font-size: var(--heading-h6);
+    line-height: var(--leading-normal);
+    font-weight: var(--font-weight-medium);
+  }
+
+  /* Body Text Utilities */
+  .hf-body-large {
+    font-size: var(--text-xl);
+    line-height: var(--leading-relaxed);
+    font-weight: var(--font-weight-normal);
+  }
+
+  .hf-body-medium {
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    font-weight: var(--font-weight-normal);
+  }
+
+  .hf-body-base {
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    font-weight: var(--font-weight-normal);
+  }
+
+  /* Enhanced Text Contrast */
+  .hf-text-primary {
+    color: var(--hf-gray-900);
+  }
+
+  .hf-text-secondary {
+    color: var(--hf-gray-700);
+  }
+
+  .hf-text-muted {
+    color: var(--hf-gray-600);
+  }
   .sparkle-icon {
     animation: pulse 2s infinite;
   }
@@ -130,14 +881,205 @@
     text-transform: uppercase;
   }
 
-  /* Ask AI Button - No Animation */
+  /* Ask AI Button - Using Brand Colors */
   .ask-ai-button {
-    height: 36px; /* Match input height h-9 */
-    background: #10b981 !important; /* Emerald green */
+    height: 36px;
+    background: linear-gradient(
+      45deg,
+      #ffffff,
+      #f0f9ff,
+      var(--hf-teal-primary),
+      var(--hf-teal-secondary),
+      #ffffff
+    ) !important;
+    background-size: 300% 300% !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    font-weight: 600 !important;
+    color: #000000 !important;
+    animation: ask-ai-bg-gradient 4s ease-in-out infinite !important;
+    border-radius: var(--hf-radius-lg) !important;
   }
 
   .ask-ai-button:hover {
-    background: #059669 !important;
+    box-shadow: 0 6px 16px rgba(20, 241, 149, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-1px) !important; /* Slight lift effect */
+    animation-duration: 2s !important; /* Faster animation on hover */
+  }
+
+  @keyframes ask-ai-bg-gradient {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 100% 50%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    75% {
+      background-position: 0% 100%;
+    }
+  }
+
+  /* Hero Motion Effects */
+  .hero-animated-bg {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Intelligent Word Gradient Effect - Using Brand Colors */
+  .intelligent-gradient-text {
+    background: linear-gradient(
+      45deg,
+      #ffffff,
+      #f0f9ff,
+      var(--hf-teal-primary),
+      var(--hf-teal-secondary),
+      #ffffff
+    );
+    background-size: 300% 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: intelligent-gradient 4s ease-in-out infinite;
+    filter: drop-shadow(0 1px 2px rgba(20, 184, 166, 0.3));
+  }
+
+  @keyframes intelligent-gradient {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 100% 50%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    75% {
+      background-position: 0% 100%;
+    }
+  }
+
+
+  /* Data Particles */
+  .data-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .data-particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--hf-teal-primary);
+    border-radius: var(--hf-radius-full);
+    opacity: 0.7;
+    animation: particle-drift 15s linear infinite;
+    box-shadow: 0 0 6px rgba(20, 184, 166, 0.5);
+    z-index: 0;
+  }
+
+  .data-particle-1 { top: 10%; left: 10%; animation-delay: 0s; }
+  .data-particle-2 { top: 20%; left: 80%; animation-delay: -2s; }
+  .data-particle-3 { top: 30%; left: 30%; animation-delay: -4s; }
+  .data-particle-4 { top: 50%; left: 70%; animation-delay: -6s; }
+  .data-particle-5 { top: 70%; left: 20%; animation-delay: -8s; }
+  .data-particle-6 { top: 80%; left: 90%; animation-delay: -10s; }
+  .data-particle-7 { top: 15%; left: 60%; animation-delay: -12s; }
+  .data-particle-8 { top: 40%; left: 85%; animation-delay: -14s; }
+  .data-particle-9 { top: 60%; left: 15%; animation-delay: -16s; }
+  .data-particle-10 { top: 85%; left: 45%; animation-delay: -18s; }
+  .data-particle-11 { top: 25%; left: 50%; animation-delay: -3s; }
+  .data-particle-12 { top: 75%; left: 65%; animation-delay: -7s; }
+
+  @keyframes particle-drift {
+    0% {
+      transform: translateY(0) translateX(0) scale(1);
+      opacity: 0.7;
+    }
+    25% {
+      transform: translateY(-15px) translateX(8px) scale(1.2);
+      opacity: 0.9;
+    }
+    50% {
+      transform: translateY(-25px) translateX(3px) scale(0.8);
+      opacity: 1;
+    }
+    75% {
+      transform: translateY(-35px) translateX(-5px) scale(1.1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-50px) translateX(10px) scale(0.6);
+      opacity: 0.3;
+    }
+  }
+
+  /* Subtle Grid Overlay */
+  .grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.08;
+    background-image:
+      linear-gradient(rgba(20, 184, 166, 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(20, 184, 166, 0.4) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: grid-pulse 6s ease-in-out infinite;
+    z-index: 0;
+  }
+
+  @keyframes grid-pulse {
+    0%, 100% {
+      opacity: 0.08;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.15;
+      transform: scale(1.02);
+    }
+  }
+
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    .intelligent-gradient-text {
+      animation: none;
+      background: var(--hf-teal-primary);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .ask-ai-button {
+      animation: none !important;
+      background: var(--hf-teal-light) !important;
+      color: #000000 !important;
+    }
+
+    .data-particle,
+    .grid-overlay {
+      animation: none;
+    }
+
+    .data-particle {
+      opacity: 0.3;
+    }
+
+    .grid-overlay {
+      opacity: 0.02;
+    }
+
+    /* Disable homepage motion effects */
+    .motion-safe\\:animate-pulse,
+    .motion-safe\\:animate-bounce {
+      animation: none !important;
+    }
   }
 }
 

@@ -14,11 +14,42 @@ interface ProcedurePrice {
 }
 
 interface PricingTableProps {
-  procedure: string;
-  prices: ProcedurePrice[];
+  procedure?: string;
+  prices?: ProcedurePrice[];
 }
 
-export function PricingTable({ procedure, prices }: PricingTableProps) {
+// Default sample data
+const defaultPrices: ProcedurePrice[] = [
+  {
+    hospital: "City Medical Center",
+    location: "Downtown",
+    cashPrice: 2800,
+    insurancePrice: 3200,
+    qualityRating: 4.5,
+    savings: 400,
+    trend: 'down'
+  },
+  {
+    hospital: "Regional Hospital",
+    location: "Midtown",
+    cashPrice: 3200,
+    insurancePrice: 3600,
+    qualityRating: 4.2,
+    savings: 400,
+    trend: 'stable'
+  },
+  {
+    hospital: "General Medical",
+    location: "North Side",
+    cashPrice: 3800,
+    insurancePrice: 4200,
+    qualityRating: 4.0,
+    savings: 400,
+    trend: 'up'
+  }
+];
+
+export function PricingTable({ procedure = "MRI Brain Scan", prices = defaultPrices }: PricingTableProps) {
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
