@@ -1,0 +1,12 @@
+---
+import Layout from '../../layouts/BaseLayout.astro';
+import { DirectoriesStatesPage } from '../../components/directory/DirectoriesStatesPage';
+---
+
+<Layout 
+  title="Browse by State - Healthcare Directories | HealthFees.org"
+  description="Browse healthcare providers, payers, and procedures by state. State-level healthcare pricing and transparency insights."
+  canonicalURL="/directories/states"
+>
+  <DirectoriesStatesPage client:load />
+</Layout>
