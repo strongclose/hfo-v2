@@ -106,6 +106,18 @@ export function StateProvidersPage({ stateData }: StateProvidersPageProps) {
         showSearch={false}
       />
 
+      <CategoryPricingOverview
+        title={`${stateData.name} Provider Pricing Overview`}
+        categoryType="providers"
+        medianPrice={stateData.medianPrice}
+        transparencyScore={stateData.transparencyScore}
+        locationName={stateData.name}
+        comparisonData={{
+          trend: stateData.marketMetrics.costTrend,
+          vsState: "Baseline",
+        }}
+      />
+
       <ListingsTable
         title={`${stateData.providersCount.toLocaleString()} Providers Found`}
         items={providers}
