@@ -31,13 +31,7 @@ export function HeroV1_Simple({
 }: HeroV1Props) {
   return (
     <div
-      className="relative min-h-screen pt-24"
-      style={{
-        background:
-          "linear-gradient(135deg, #0A0F1C 0%, #1E3A8A 30%, #1E40AF 70%, #2563EB 100%)",
-        fontFamily:
-          'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-      }}
+      className="relative min-h-screen pt-24 bg-gradient-to-br from-gray-900 via-blue-800 to-blue-600 font-sans"
     >
       {/* Background decoration - Company Logo */}
       <div className="absolute top-1/2 right-0 transform translate-x-1/3 -translate-y-1/2 opacity-5 z-0">
