@@ -1,0 +1,46 @@
+---
+import Layout from '../../../layouts/BaseLayout.astro';
+import { CityProvidersPage } from '../../../components/directory/CityProvidersPage';
+import { statesData } from '../../../lib/data/locations';
+
+export async function getStaticPaths() {
+  const paths = [];
+  
+  for (const state of statesData) {
+    for (const city of state.cities) {
+      paths.push({
+        params: { 
+          state: state.slug, 
+          city: city.slug 
+        },
+        props: { 
+          stateData: state,
+          cityData: city
+        }
+      });
+    }
+  }
+  
+  return paths;
+}
+
+const { state, city } = Astro.params;
+const { stateData, cityData } = Astro.props;
+
+if (!stateData || !cityData) {
+  return Astro.redirect('/404');
+}
+
+const title = `Providers in ${cityData.name}, ${stateData.code} | HealthFees.org`;
+const description = `Find hospitals and clinics in ${cityData.name}, ${stateData.name}. Compare local transparency scores and pricing data.`;
+---
+
+<Layout 
+  title={title}
+  description={description}
+  ogTitle={title}
+  ogDescription={description}
+  canonicalURL={`/${state}/${city}/providers`}
+>
+  <CityProvidersPage stateData={stateData} cityData={cityData} client:load />
+</Layout>
