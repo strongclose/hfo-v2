@@ -1,0 +1,71 @@
+---
+import Layout from '../../../layouts/BaseLayout.astro';
+import { ProviderDetailPage } from '../../../components/directory/ProviderDetailPage.tsx';
+import { statesData } from '../../../lib/data/locations';
+
+export async function getStaticPaths() {
+  const paths = [];
+  
+  // Sample providers for each state
+  const sampleProviders = [
+    { name: 'Regional Medical Center', slug: 'regional-medical-center' },
+    { name: 'University Health System', slug: 'university-health-system' },
+    { name: 'Community Hospital', slug: 'community-hospital' },
+    { name: 'Metro Medical Center', slug: 'metro-medical-center' },
+    { name: 'Coastal Healthcare', slug: 'coastal-healthcare' }
+  ];
+  
+  for (const state of statesData) {
+    for (const provider of sampleProviders) {
+      paths.push({
+        params: { 
+          state: state.slug, 
+          provider: provider.slug 
+        },
+        props: { 
+          stateData: state,
+          providerData: {
+            ...provider,
+            stateSlug: state.slug
+          }
+        }
+      });
+    }
+  }
+  
+  return paths;
+}
+
+const { state, provider } = Astro.params;
+const { stateData, providerData } = Astro.props;
+
+if (!stateData || !providerData) {
+  return Astro.redirect('/404');
+}
+
+const title = `${providerData.name} in ${stateData.name} | HealthFees.org`;
+const description = `Detailed information about ${providerData.name} in ${stateData.name}. View transparency scores, pricing data, and accepted insurance plans.`;
+---
+
+<Layout 
+  title={title}
+  description={description}
+  ogTitle={title}
+  ogDescription={description}
+  canonicalURL={`/${state}/providers/${provider}`}
+>
+  <ProviderDetailPage stateData={stateData} providerData={providerData} client:load />
+</Layout>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "MedicalOrganization",
+  "name": providerData.name,
+  "description": description,
+  "url": `https://healthfees.org/${state}/providers/${provider}`,
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": stateData.code,
+    "addressCountry": "US"
+  }
+})} />
