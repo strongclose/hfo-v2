@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/BaseLayout.astro';
+import { StatePayersPage } from '../../components/directory/StatePayersPage';
+import { statesData } from '../../lib/data/locations';
+
+export async function getStaticPaths() {
+  return statesData.map((state) => ({
+    params: { state: state.slug },
+    props: { stateData: state }
+  }));
+}
+
+const { state } = Astro.params;
+const { stateData } = Astro.props;
+
+if (!stateData) {
+  return Astro.redirect('/404');
+}
+
+const title = `Payers in ${stateData.name} | HealthFees.org`;
+const description = `View insurers active in ${stateData.name}, their plans, and network strength. Compare coverage options and transparency scores.`;
+---
+
+<Layout 
+  title={title}
+  description={description}
+  ogTitle={title}
+  ogDescription={description}
+  canonicalURL={`/${state}/payers`}
+>
+  <StatePayersPage stateData={stateData} client:load />
+</Layout>
