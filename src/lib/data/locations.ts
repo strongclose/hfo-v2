@@ -8,6 +8,32 @@ export interface StateData {
   proceduresCount: number;
   medianPrice: string;
   transparencyScore: string;
+  priceRanges: {
+    mri: { low: string; high: string; median: string; };
+    colonoscopy: { low: string; high: string; median: string; };
+    carpalTunnel: { low: string; high: string; median: string; };
+    ekg: { low: string; high: string; median: string; };
+    kneeReplacement: { low: string; high: string; median: string; };
+  };
+  marketMetrics: {
+    avgProviderTransparency: number;
+    avgPayerTransparency: number;
+    marketConcentration: string;
+    priceVariation: string;
+    costTrend: string;
+  };
+  topProviders: Array<{
+    name: string;
+    transparencyScore: string;
+    medianPrice: string;
+    specialties: string[];
+  }>;
+  topPayers: Array<{
+    name: string;
+    transparencyScore: string;
+    memberCount: string;
+    planTypes: string[];
+  }>;
 }
 
 export interface CityData {
