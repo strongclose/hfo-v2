@@ -22,8 +22,8 @@ export function CityProvidersPage({ stateData, cityData }: CityProvidersPageProp
   const providers = [
     {
       id: '1',
-      name: `${cityData.name} General Hospital`,
-      href: `/${stateData.slug}/${cityData.slug}/providers/${cityData.name.toLowerCase().replace(/\s+/g, '-')}-general-hospital`,
+      name: 'Stanford Medical Center',
+      href: '/providers/stanford-medical-center',
       location: cityData.name,
       transparencyScore: cityData.transparencyScore,
       medianPrice: cityData.medianPrice,
@@ -37,8 +37,8 @@ export function CityProvidersPage({ stateData, cityData }: CityProvidersPageProp
     },
     {
       id: '2',
-      name: `${cityData.name} Medical Center`,
-      href: `/${stateData.slug}/${cityData.slug}/providers/${cityData.name.toLowerCase().replace(/\s+/g, '-')}-medical-center`,
+      name: 'Johns Hopkins Hospital',
+      href: '/providers/johns-hopkins-hospital',
       location: cityData.name,
       transparencyScore: 'B+',
       medianPrice: '$2,450',
