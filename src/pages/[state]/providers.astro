@@ -1,0 +1,61 @@
+---
+import Layout from '../../layouts/BaseLayout.astro';
+import { StateProvidersPage } from '../../components/directory/StateProvidersPage';
+import { statesData, getStateBySlug } from '../../lib/data/locations';
+
+export async function getStaticPaths() {
+  return statesData.map((state) => ({
+    params: { state: state.slug },
+    props: { stateData: state }
+  }));
+}
+
+const { state } = Astro.params;
+const { stateData } = Astro.props;
+
+if (!stateData) {
+  return Astro.redirect('/404');
+}
+
+const title = `Providers in ${stateData.name} | HealthFees.org`;
+const description = `Find hospitals and clinics across ${stateData.name}. Compare transparency scores and review price ranges for common services. Updated monthly.`;
+---
+
+<Layout 
+  title={title}
+  description={description}
+  ogTitle={title}
+  ogDescription={description}
+  canonicalURL={`/${state}/providers`}
+>
+  <StateProvidersPage stateData={stateData} client:load />
+</Layout>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": `Providers in ${stateData.name}`,
+  "description": description,
+  "url": `https://healthfees.org/${state}/providers`,
+  "isPartOf": {
+    "@type": "WebSite", 
+    "name": "HealthFees.org",
+    "url": "https://healthfees.org"
+  },
+  "about": [
+    {
+      "@type": "Place",
+      "name": stateData.name,
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": stateData.code,
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "MedicalOrganization",
+      "name": "Healthcare Providers",
+      "description": "Hospitals, clinics, and healthcare systems"
+    }
+  ]
+})} />
